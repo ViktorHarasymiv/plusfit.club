@@ -1,22 +1,48 @@
 @font-face {
-  font-family: "Rubik", sans-serif;
-  src: url("../assets/fonts/Rubik-Regular.woff2") format("woff2");
+  font-family: "Rubik";
+  src: url("/fonts/Rubik-Regular.woff2") format("woff2");
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Rubik", sans-serif;
-  src: url("../assets/fonts/Rubik-Medium.woff2") format("woff2");
+  font-family: "Rubik";
+  src: url("/fonts/Rubik-Medium.woff2") format("woff2");
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Rubik", sans-serif;
-  src: url("../assets/fonts/Rubik-SemiBold.woff2") format("woff2");
+  font-family: "Rubik";
+  src: url("/fonts/Rubik-SemiBold.woff2") format("woff2");
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}
+
+/* TEKO */
+
+@font-face {
+  font-family: "Teko";
+  src: url("/fonts/Teko-Regular.woff2") format("woff2");
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Teko";
+  src: url("/fonts/Teko-Medium.woff2") format("woff2");
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Teko";
+  src: url("/fonts/Teko-SemiBold.woff2") format("woff2");
   font-optical-sizing: auto;
   font-weight: 600;
   font-style: normal;

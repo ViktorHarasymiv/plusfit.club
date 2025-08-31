@@ -1,6 +1,16 @@
-.active {
+/* ACTIVE LINK */
+
+.active,
+.accent_text {
+  font-family: inherit;
   color: var(--accent-color);
 }
+
+.accent_text {
+  margin-right: 10px;
+}
+
+/* LOGO */
 
 .logo {
   transition: var(--transition2);
@@ -8,6 +18,21 @@
 
 .logo:hover {
   filter: drop-shadow(0 0 0.5rem #ffffff);
+}
+
+.logo_header {
+  position: relative;
+}
+
+.logo_header:hover .motivation_text {
+  visibility: visible;
+  opacity: 1;
+
+  transform: scale(1);
+}
+
+.heart_ico {
+  color: var(--accent-color);
 }
 
 .motivation_text {
@@ -38,17 +63,18 @@
   border-radius: 5px;
 }
 
-.logo_header {
-  position: relative;
+/* SVG */
+
+svg {
+  width: 18px;
+  height: 16px;
+
+  color: var(--color-white);
+  color: inherit;
+
+  transition: var(--transition2);
 }
 
-.logo_header:hover .motivation_text {
-  visibility: visible;
-  opacity: 1;
-
-  transform: scale(1);
-}
-
-.heart_ico {
-  color: var(--accent-color);
+svg:hover {
+  color: inherit;
 }

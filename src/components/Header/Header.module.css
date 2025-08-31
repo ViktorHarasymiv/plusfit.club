@@ -84,6 +84,10 @@
 
 /* ACTIVE ACTION */
 
+.social_bar li:hover svg {
+  color: var(--dark);
+}
+
 .social_bar li a:active,
 .bar_list_item:active {
   transform: scale(0.95);
@@ -221,7 +225,4 @@
 
 .dropdown_item:hover {
   padding-left: 40px;
-}
-
-.dropdown_item {
 }

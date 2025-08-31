@@ -1,5 +1,6 @@
 :root {
   --font-family-base: "Rubik", sans-serif;
+  --font-family-accent: "Teko", sans-serif;
   --body-text-color: #757f95;
 
   --body-font: "Roboto", sans-serif;
@@ -26,4 +27,6 @@
   --footer-bg: #161616;
   --footer-bg2: #0b0b0b;
   --footer-text-color: #f5faff;
+
+  --hero-overlay-color: #000000;
 }

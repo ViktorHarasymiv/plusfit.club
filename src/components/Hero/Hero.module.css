@@ -1,0 +1,55 @@
+.hero_section {
+  height: 100vh;
+}
+
+.hero_content_wrapper {
+  max-width: 70%;
+}
+
+.hero_text_wrapper {
+  margin-bottom: 55px;
+
+  display: flex;
+  flex-direction: column;
+
+  text-transform: uppercase;
+
+  font-weight: 600;
+  color: var(--white);
+}
+
+.greeting_text {
+  font-family: var(--font-family-accent);
+
+  display: inline-block;
+
+  font-size: 1.75rem;
+  letter-spacing: 4px;
+
+  position: relative;
+}
+
+.hero_title {
+  height: 250px;
+
+  overflow: hidden;
+
+  font-family: var(--font-family-accent);
+
+  margin: 30px 0px 10px;
+
+  font-size: 3rem;
+
+  line-height: 1.4;
+  letter-spacing: 2px !important;
+}
+
+.hero_about {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.hero_action {
+  display: flex;
+  gap: 15px;
+}

@@ -8,7 +8,7 @@ import logoLight from "../../assets/logo/logoLight.PNG";
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { FaHeart } from "react-icons/fa6";
 import Button from "../ui/Button/Button";
-import Modal from "../ui/Button/Modal/Modal";
+import Modal from "../ui/Modal/Modal";
 
 export default function General() {
   const [isModalOpen, setModalOpen] = useState(false);

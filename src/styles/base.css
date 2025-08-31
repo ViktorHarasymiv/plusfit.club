@@ -9,10 +9,14 @@ body {
   color: var(--body-text-color);
 }
 
-svg {
-  width: 18px;
-  height: 16px;
+header {
+  z-index: 2;
+  position: absolute;
 
-  color: var(--color-white);
-  color: inherit;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+main {
 }

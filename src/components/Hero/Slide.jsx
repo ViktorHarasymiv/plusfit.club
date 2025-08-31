@@ -4,6 +4,7 @@ import style from "./Hero.module.css";
 import { Link } from "react-router-dom";
 
 import Button from "../ui/Button/Button";
+import ReverseBtn from "../ui/Button/ReverseBtn";
 
 export default function Slide({ slide }) {
   return (
@@ -30,7 +31,7 @@ export default function Slide({ slide }) {
               <Button>{"Дізнатись більше"}</Button>
             </Link>
             <Link to={slide.action[1]}>
-              <Button>{"Записатись"}</Button>
+              <ReverseBtn>{"Записатись"}</ReverseBtn>
             </Link>
           </div>
         </div>

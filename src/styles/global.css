@@ -1,0 +1,54 @@
+.active {
+  color: var(--accent-color);
+}
+
+.logo {
+  transition: var(--transition2);
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 0.5rem #ffffff);
+}
+
+.motivation_text {
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0);
+
+  transition: var(--transition2);
+
+  pointer-events: none;
+  z-index: 999;
+
+  padding: 10px 25px;
+
+  position: absolute;
+
+  left: 50px;
+  top: 70px;
+
+  text-wrap: nowrap;
+
+  background-color: rgba(255, 255, 255, 0.7);
+
+  font-weight: 500;
+  font-style: italic;
+  color: var(--dark);
+
+  border-radius: 5px;
+}
+
+.logo_header {
+  position: relative;
+}
+
+.logo_header:hover .motivation_text {
+  visibility: visible;
+  opacity: 1;
+
+  transform: scale(1);
+}
+
+.heart_ico {
+  color: var(--accent-color);
+}

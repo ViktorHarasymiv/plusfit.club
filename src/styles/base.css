@@ -1,0 +1,18 @@
+body {
+  font-family: var(--font-family-base);
+  font-weight: 400;
+  font-style: normal;
+
+  font-size: 1em;
+  line-height: 1.8;
+
+  color: var(--body-text-color);
+}
+
+svg {
+  width: 18px;
+  height: 16px;
+
+  color: var(--color-white);
+  color: inherit;
+}

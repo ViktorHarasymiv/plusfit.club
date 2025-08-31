@@ -1,0 +1,29 @@
+:root {
+  --font-family-base: "Rubik", sans-serif;
+  --body-text-color: #757f95;
+
+  --body-font: "Roboto", sans-serif;
+  --heading-font: "Teko", sans-serif;
+  --accent-color: #fd5f26;
+  --white: #ffffff;
+  --light-color: #fff3ec;
+  --dark: #222222;
+  --green: #11b76b;
+  --blue: #0049d0;
+  --yellow: #fba707;
+  --hero-overlay-color: #000000;
+  --theme-gradient: linear-gradient(to right, #ff7e38 0%, #fa4014 100%);
+  --theme-gradient2: linear-gradient(to bottom right, #ff7e38 0%, #fa4014 100%);
+  --slider-arrow-bg: rgba(255, 255, 255, 0.2);
+  --box-shadow: 0 0 40px 5px rgb(0 0 0 / 5%);
+  --box-shadow2: 0 0 15px rgba(0, 0, 0, 0.17);
+  --transition: all 0.5s ease-in-out;
+  --transition2: all 0.3s ease-in-out;
+  --border-info-color: rgba(0, 0, 0, 0.08);
+  --border-info-color2: rgba(0, 0, 0, 0.05);
+  --border-white-color: rgba(255, 255, 255, 0.08);
+  --border-white-color2: rgba(255, 255, 255, 0.05);
+  --footer-bg: #161616;
+  --footer-bg2: #0b0b0b;
+  --footer-text-color: #f5faff;
+}

@@ -6,7 +6,6 @@ import style from "./Header.module.css";
 import logoLight from "../../assets/logo/logoLight.PNG";
 
 import { MdKeyboardArrowDown } from "react-icons/md";
-import { FaHeart } from "react-icons/fa6";
 
 import Button from "../ui/Button/Button";
 import Modal from "../ui/Modal/Modal";
@@ -27,11 +26,8 @@ export default function General({ resizeWidth }) {
                 width={140}
                 height={70}
                 className="logo"
+                title="Ви - серце, нашого залу ! Без Вас, це просто приміщення 💛💙"
               />
-              <span className="motivation_text">
-                Ви - серце, нашого залу! <br /> Без Вас, це просто приміщення{" "}
-                <FaHeart className="heart_ico" />
-              </span>
             </Link>
             {resizeWidth > 991.98 && (
               <div className={style.action_bar_wrapper}>

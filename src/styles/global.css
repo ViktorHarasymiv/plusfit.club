@@ -11,7 +11,11 @@
 }
 
 .accent_text {
-  margin-right: 10px;
+  width: 100%;
+}
+
+.non_full_width {
+  width: auto;
 }
 
 /* LOGO */
@@ -39,34 +43,6 @@
   margin-bottom: 20px;
 }
 
-.motivation_text {
-  visibility: hidden;
-  opacity: 0;
-  transform: scale(0);
-
-  transition: var(--transition2);
-
-  pointer-events: none;
-  z-index: 999;
-
-  padding: 10px 25px;
-
-  position: absolute;
-
-  left: 50px;
-  top: 70px;
-
-  text-wrap: nowrap;
-
-  background-color: rgba(255, 255, 255, 0.7);
-
-  font-weight: 500;
-  font-style: italic;
-  color: var(--dark);
-
-  border-radius: 5px;
-}
-
 /* SVG */
 
 svg {
@@ -77,10 +53,6 @@ svg {
   color: inherit;
 
   transition: var(--transition2);
-}
-
-svg:hover {
-  color: inherit;
 }
 
 .icon {
@@ -159,4 +131,14 @@ svg:hover {
   clip: rect(0 0 0 0);
   clip-path: inset(100%);
   white-space: nowrap;
+}
+
+svg:active {
+  color: inherit;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  svg:hover {
+    color: inherit;
+  }
 }

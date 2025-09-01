@@ -99,7 +99,9 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 80px;
+  gap: 40px;
+
+  row-gap: 80px;
 }
 
 .navigation_title {
@@ -209,5 +211,9 @@
     flex: 0 0 33.333%;
 
     margin-bottom: 0px;
+  }
+
+  .navigation_block {
+    gap: 80px;
   }
 }

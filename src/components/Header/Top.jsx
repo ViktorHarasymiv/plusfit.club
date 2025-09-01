@@ -56,7 +56,6 @@ function Top() {
                   <FaInstagram />
                 </a>
               </li>
-              <li></li>
             </ul>
           </div>
         </div>

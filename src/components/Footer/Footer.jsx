@@ -175,8 +175,10 @@ export default function Footer() {
             <div className={style.footer_copyright}>
               <div className="container">
                 &copy; Copyright 2025{" "}
-                <span className="accent_text">PLUSFIT BRODY</span>Усі права
-                захищено.
+                <span className="accent_text non_full_width">
+                  PLUSFIT BRODY
+                </span>{" "}
+                Усі права захищено.
               </div>
             </div>
             {width > 576.98 && (

@@ -25,7 +25,6 @@ export default function Slide({ slide }) {
             </div>
             <h1 className={style.hero_title}>
               {slide.title.base}
-              <br />
               <span className="accent_text">{slide.title.accent}</span>
               {slide.title.baseFinish}
             </h1>

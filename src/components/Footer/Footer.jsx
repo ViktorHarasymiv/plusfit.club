@@ -121,31 +121,31 @@ export default function Footer() {
                   <ul className={style.navbar_list}>
                     <li className={style.navbar_item}>
                       <NavLink to="/rehabilitation">
-                        <TiArrowSortedDown />
+                        <TiArrowSortedDown className={style.icon_route} />
                         <span>Реабілітація</span>
                       </NavLink>
                     </li>
                     <li className={style.navbar_item}>
                       <NavLink to="/massage">
-                        <TiArrowSortedDown />
+                        <TiArrowSortedDown className={style.icon_route} />
                         <span>Масаж</span>
                       </NavLink>
                     </li>
                     <li className={style.navbar_item}>
                       <NavLink to="/endosphere">
-                        <TiArrowSortedDown />
+                        <TiArrowSortedDown className={style.icon_route} />
                         <span>Ендосфера</span>
                       </NavLink>
                     </li>
                     <li className={style.navbar_item}>
                       <NavLink to="/group">
-                        <TiArrowSortedDown />
+                        <TiArrowSortedDown className={style.icon_route} />
                         <span>Групові тренування</span>
                       </NavLink>
                     </li>
                     <li className={style.navbar_item}>
                       <NavLink to="/children">
-                        <TiArrowSortedDown />
+                        <TiArrowSortedDown className={style.icon_route} />
                         <span>Дитячі танці</span>
                       </NavLink>
                     </li>

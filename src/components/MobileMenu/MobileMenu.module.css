@@ -25,6 +25,11 @@
   transition: var(--transition2);
 }
 
+.icon_wrapper.scrolled .menu_icon,
+.icon_wrapper.scrolled span {
+  color: var(--dark) !important;
+}
+
 .icon_wrapper:active .menu_icon {
   transform: rotateY(-180deg);
 }

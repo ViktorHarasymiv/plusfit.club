@@ -1,9 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link, NavLink } from "react-router-dom";
+
+import clsx from "clsx";
 
 import style from "./Header.module.css";
 
-import logoLight from "../../assets/logo/logoLight.PNG";
+import logoLight from "../../assets/logo/logoLight.png";
+import logoDark from "../../assets/logo/logoDark.png";
+
+import { useScrollY } from "../../hooks/useScrollY";
 
 import { MdKeyboardArrowDown } from "react-icons/md";
 
@@ -13,15 +18,40 @@ import Modal from "../ui/Modal/Modal";
 import MobileMenu from "../MobileMenu/MobileMenu";
 
 export default function General({ resizeWidth }) {
+  const currentHeight = useRef(null);
+
+  const scrollY = useScrollY();
   const [isModalOpen, setModalOpen] = useState(false);
+
+  const [isScroll, setIsScroll] = useState(false);
+
+  useEffect(() => {
+    if (!currentHeight.current) return;
+
+    const rect = currentHeight.current.getBoundingClientRect();
+    const blockHeight = rect.height;
+
+    const shouldScroll = scrollY > blockHeight;
+
+    setIsScroll((prev) => {
+      if (prev !== shouldScroll) return shouldScroll;
+      return prev;
+    });
+  }, [scrollY]);
+
   return (
     <>
-      <div className={style.header_general_wrapper}>
+      <div
+        ref={currentHeight}
+        className={clsx(style.header_general_wrapper, {
+          [style.scrolled]: isScroll,
+        })}
+      >
         <div className="container">
           <nav className={style.navbar_wrapper}>
             <Link to="/" className={style.logo_header}>
               <img
-                src={logoLight}
+                src={`${!isScroll ? logoLight : logoDark}`}
                 alt="PlusFit"
                 width={140}
                 height={70}
@@ -107,7 +137,7 @@ export default function General({ resizeWidth }) {
                 )}
               </div>
             )}
-            {resizeWidth < 991.98 && <MobileMenu />}
+            {resizeWidth < 991.98 && <MobileMenu isScroll={isScroll} />}
           </nav>
         </div>
       </div>

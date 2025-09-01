@@ -1,4 +1,5 @@
 import React from "react";
+import { motion, useAnimation } from "framer-motion";
 
 import style from "./Hero.module.css";
 import { Link } from "react-router-dom";
@@ -9,6 +10,12 @@ import ReverseBtn from "../ui/Button/ReverseBtn";
 import { CgGym } from "react-icons/cg";
 
 export default function Slide({ slide }) {
+  // useEffect(() => {
+  //   if (inView) {
+  //     controls.start({ opacity: 1, y: 0 });
+  //   }
+  // }, [controls, inView]);
+
   return (
     <div
       className="hero_slide"
@@ -17,27 +24,56 @@ export default function Slide({ slide }) {
       <div className="container">
         <div className={style.hero_content_wrapper}>
           <div className={style.hero_text_wrapper}>
-            <div className={style.greeting_wrapper}>
-              <CgGym />
-              <h6 className={style.greeting_text}>
-                <span className="accent_text">{slide.greeting}</span>
-              </h6>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: -30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0 }}
+              transition={{ duration: 1.4, delay: 0, ease: "easeOut" }}
+            >
+              <div className={style.greeting_wrapper}>
+                <CgGym />
+                <h6 className={style.greeting_text}>
+                  <span className="accent_text">{slide.greeting}</span>
+                </h6>
+              </div>
+            </motion.div>
+
             <h1 className={style.hero_title}>
-              {slide.title.base}
-              <span className="accent_text">{slide.title.accent}</span>
-              {slide.title.baseFinish}
+              <motion.div
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0 }}
+                transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
+              >
+                {slide.title.base}
+                <span className="accent_text">{slide.title.accent}</span>
+                {slide.title.baseFinish}
+              </motion.div>
             </h1>
-            <p className={style.hero_about}>{slide.about}</p>
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, amount: 0 }}
+              transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
+            >
+              <p className={style.hero_about}>{slide.about}</p>
+            </motion.div>
           </div>
-          <div className={style.hero_action}>
-            <Link to={slide.action[0]}>
-              <Button>{"Дізнатись більше"}</Button>
-            </Link>
-            <Link to={slide.action[1]}>
-              <ReverseBtn>{"Записатись"}</ReverseBtn>
-            </Link>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0 }}
+            transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
+          >
+            <div className={style.hero_action}>
+              <Link to={slide.action[0]}>
+                <Button>{"Дізнатись більше"}</Button>
+              </Link>
+              <Link to={slide.action[1]}>
+                <ReverseBtn>{"Записатись"}</ReverseBtn>
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </div>
     </div>

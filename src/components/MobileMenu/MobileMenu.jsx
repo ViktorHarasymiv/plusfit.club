@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 
+import clsx from "clsx";
+
 import { MdOutlineSportsGymnastics } from "react-icons/md";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
@@ -50,7 +52,7 @@ const mobilePanelStyle = {
   background: "rgba(0,0,0, 0.6)",
 };
 
-export default function MobileMenu() {
+export default function MobileMenu({ isScroll }) {
   const location = useLocation();
 
   const [isModalOpen, setModalOpen] = useState(false);
@@ -98,7 +100,9 @@ export default function MobileMenu() {
       <button
         onClick={() => setModalOpen(true)}
         type="button"
-        className={style.icon_wrapper}
+        className={clsx(style.icon_wrapper, {
+          [style.scrolled]: isScroll,
+        })}
       >
         <MdOutlineSportsGymnastics
           className={style.menu_icon}
@@ -254,8 +258,7 @@ export default function MobileMenu() {
         <>
           <div className={style.work_time_wrapper}>
             <h5 onClick={() => setWorkTimeOpen(true)}>
-              {" "}
-              <FaBusinessTime /> Режим роботи{" "}
+              <FaBusinessTime /> Режим роботи
             </h5>
             {/* WORK TIME MODAL */}
             <Modal

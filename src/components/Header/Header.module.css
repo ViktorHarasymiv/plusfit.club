@@ -7,7 +7,36 @@
   z-index: 1;
 
   background: var(--theme-gradient);
+
   color: var(--white);
+}
+
+.scrolled {
+  position: fixed;
+
+  top: 0;
+
+  left: 0;
+  right: 0;
+
+  background: rgba(255, 255, 255, 0.8) !important;
+
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+
+  backdrop-filter: blur(2px);
+
+  color: black !important;
+
+  animation: slide-down 0.7s;
+}
+
+@keyframes slide-down {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .header_content_wrapper {
@@ -150,6 +179,9 @@
   color: var(--white);
 
   transition: var(--transition2);
+}
+.scrolled .navbar_item {
+  color: var(--dark);
 }
 
 .navbar_item:hover {

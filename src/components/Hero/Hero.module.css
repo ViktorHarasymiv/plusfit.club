@@ -1,5 +1,7 @@
 .hero_section {
   height: 100%;
+
+  background-color: var(--dark);
 }
 
 .hero_content_wrapper {

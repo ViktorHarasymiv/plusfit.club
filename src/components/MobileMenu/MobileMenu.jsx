@@ -8,11 +8,16 @@ import Modal from "../ui/Modal/Modal";
 const buttonStyle = {
   position: "absolute",
 
-  top: "15px",
-  right: "15px",
+  top: "10px",
+  right: "10px",
 };
 
 const activeStyle = {
+  color: "var(--accent-color)",
+  transform: "rotateY(-180deg)",
+};
+
+const accentColor = {
   color: "var(--accent-color)",
 };
 
@@ -72,9 +77,9 @@ export default function MobileMenu() {
         >
           <MdOutlineSportsGymnastics
             className={style.menu_icon}
-            style={isModalOpen && { color: "var(--accent-color)" }}
+            style={isModalOpen && { ...activeStyle }}
           />
-          <span style={isModalOpen ? { ...activeStyle } : undefined}>ESC</span>
+          <span style={isModalOpen ? { ...accentColor } : undefined}>ESC</span>
         </button>
       </Modal>
     </>

@@ -4,12 +4,16 @@
   z-index: 1;
   position: relative;
 
-  padding-top: 250px;
+  padding-top: 200px;
   padding-bottom: 180px;
 
   background-position: center !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
+}
+
+.swiper-slide {
+  height: auto !important;
 }
 
 .hero_slide::before {
@@ -84,5 +88,15 @@
 
     width: 44px;
     height: 44px;
+  }
+
+  .hero_slide {
+    padding-top: 250px;
+  }
+}
+
+@media screen and (min-width: 991.98px) {
+  .hero_content_wrapper {
+    max-width: 70%;
   }
 }

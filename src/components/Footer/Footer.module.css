@@ -153,14 +153,16 @@
 
 .copyright_content_wrapper {
   display: flex;
-
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
+
+  font-size: clamp(0.625rem, 0.5385rem + 0.3846vw, 1rem);
 }
 
 .footer_sociial {
+  margin-left: auto;
   display: flex;
-
   gap: 15px;
 }
 

@@ -15,12 +15,15 @@ import { BsTelephoneForward } from "react-icons/bs";
 import Button from "../ui/Button/Button";
 import TitleDecor from "../ui/TitleDecor/TitleDecor";
 
+import { useWindowWidth } from "../../hooks/useWindowWidth";
+
 const styleObj = {
   width: "100%",
   justifyContent: "center",
 };
 
 export default function Footer() {
+  const width = useWindowWidth();
   return (
     <footer className={style.footer}>
       <div className={style.footer_content_wrapper}>
@@ -176,28 +179,30 @@ export default function Footer() {
                 захищено.
               </div>
             </div>
-            <ul className={style.footer_sociial}>
-              <li>
-                <a
-                  className="icon_block"
-                  href="https://www.facebook.com/plusfit.brody.2025"
-                  title="Facebook"
-                  target="_blank"
-                >
-                  <FaFacebookF className="icon footer_icon" />
-                </a>
-              </li>
-              <li>
-                <a
-                  className="icon_block"
-                  href="https://www.instagram.com/plusfit.brody/"
-                  target="_blank"
-                  title="Instagram"
-                >
-                  <FaInstagram className="icon footer_icon" />
-                </a>
-              </li>
-            </ul>
+            {width > 576.98 && (
+              <ul className={style.footer_sociial}>
+                <li>
+                  <a
+                    className="icon_block"
+                    href="https://www.facebook.com/plusfit.brody.2025"
+                    title="Facebook"
+                    target="_blank"
+                  >
+                    <FaFacebookF className="icon footer_icon" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    className="icon_block"
+                    href="https://www.instagram.com/plusfit.brody/"
+                    target="_blank"
+                    title="Instagram"
+                  >
+                    <FaInstagram className="icon footer_icon" />
+                  </a>
+                </li>
+              </ul>
+            )}
           </div>
         </div>
       </div>

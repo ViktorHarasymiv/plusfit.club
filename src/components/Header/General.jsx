@@ -5,8 +5,8 @@ import clsx from "clsx";
 
 import style from "./Header.module.css";
 
-import logoLight from "../../assets/logo/logoLight.png";
-import logoDark from "../../assets/logo/logoDark.png";
+import logoLight from "../../assets/logo/logoLight.PNG";
+import logoDark from "../../assets/logo/logoDark.PNG";
 
 import { useScrollY } from "../../hooks/useScrollY";
 

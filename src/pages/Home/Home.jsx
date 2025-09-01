@@ -1,6 +1,7 @@
 import React from "react";
+
 import Hero from "../../components/Hero/Hero";
-import Preference from "../../components/Preference/Preference.JSX";
+import Preference from "../../components/Preference/Preference";
 
 import { useWindowWidth } from "../../hooks/useWindowWidth";
 
@@ -11,7 +12,6 @@ export default function Home() {
     <main>
       <Hero></Hero>
       {width > 991.98 && <Preference />}
-      <section>Nothing</section>
     </main>
   );
 }

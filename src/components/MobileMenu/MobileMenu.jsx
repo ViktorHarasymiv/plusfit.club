@@ -45,7 +45,7 @@ const mobileOverlayStyle = {
 const mobilePanelStyle = {
   opacity: "1",
   width: "80vw",
-  maxHeight: "100vh",
+  maxHeight: "100%",
   borderRadius: "0",
   background: "rgba(0,0,0, 0.6)",
 };

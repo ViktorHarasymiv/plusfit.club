@@ -7,17 +7,20 @@ import logoLight from "../../assets/logo/logoLight.PNG";
 
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { FaHeart } from "react-icons/fa6";
+
 import Button from "../ui/Button/Button";
 import Modal from "../ui/Modal/Modal";
 
-export default function General() {
+import MobileMenu from "../MobileMenu/MobileMenu";
+
+export default function General({ resizeWidth }) {
   const [isModalOpen, setModalOpen] = useState(false);
   return (
     <>
       <div className={style.header_general_wrapper}>
         <div className="container">
           <nav className={style.navbar_wrapper}>
-            <Link to="/" className="logo_header">
+            <Link to="/" className={style.logo_header}>
               <img
                 src={logoLight}
                 alt="PlusFit"
@@ -30,80 +33,85 @@ export default function General() {
                 <FaHeart className="heart_ico" />
               </span>
             </Link>
-            <div className={style.action_bar_wrapper}>
-              <div className={style.navbar}>
-                <ul className={style.navbar_list}>
-                  <li className={style.navbar_item}>
-                    <NavLink to="/">
-                      <span>Головна</span>
-                    </NavLink>
-                  </li>
-                  <li className={style.navbar_item}>
-                    <span>Пропозиції</span>
-                    <MdKeyboardArrowDown />
-                    <ul className={style.dropmenu}>
-                      <li className={style.dropdown_item}>
-                        <NavLink to="/rehabilitation">Реабілітація</NavLink>
-                      </li>
-                      <li className={style.dropdown_item}>
-                        <NavLink to="/massage">Масаж</NavLink>
-                      </li>
-                      <li className={style.dropdown_item}>
-                        <NavLink to="/endosphere">Ендосфера</NavLink>
-                      </li>
-                      <li className={style.dropdown_item}>
-                        <NavLink to="/group">Групові тренування</NavLink>
-                      </li>
-                      <li className={style.dropdown_item}>
-                        <NavLink to="/children">Дитячі танці</NavLink>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className={style.navbar_item}>
-                    <span>Ціни</span>
-                    <MdKeyboardArrowDown />
-                    <ul className={style.dropmenu}>
-                      <li className={style.dropdown_item}>
-                        <NavLink to="/subscription">Абонемент</NavLink>
-                      </li>
-                      <li className={style.dropdown_item}>
-                        <NavLink to="/massage">Масаж</NavLink>
-                      </li>
-                      <li className={style.dropdown_item}>
-                        <NavLink to="/rehabilitation">Реабілітація</NavLink>
-                      </li>
-                      <li className={style.dropdown_item}>
-                        <NavLink to="/endosphere">Сфератерапія</NavLink>
-                      </li>
-                      <li className={style.dropdown_item}>
-                        <NavLink to="/group">Групові тренування</NavLink>
-                      </li>
-                      <li className={style.dropdown_item}>
-                        <NavLink to="/children">Дитячі танці</NavLink>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className={style.navbar_item}>
-                    <NavLink to="/about">
-                      <span>Про Нас</span>
-                    </NavLink>
-                  </li>
-                  <li className={style.navbar_item}>
-                    <NavLink to="/gallery">
-                      <span>Галерея</span>
-                    </NavLink>
-                  </li>
-                  <li className={style.navbar_item}>
-                    <NavLink to="/contacts">
-                      <span>Контакти</span>
-                    </NavLink>
-                  </li>
-                </ul>
+            {resizeWidth > 991.98 && (
+              <div className={style.action_bar_wrapper}>
+                <div className={style.navbar}>
+                  <ul className={style.navbar_list}>
+                    <li className={style.navbar_item}>
+                      <NavLink to="/">
+                        <span>Головна</span>
+                      </NavLink>
+                    </li>
+                    <li className={style.navbar_item}>
+                      <span>Пропозиції</span>
+                      <MdKeyboardArrowDown />
+                      <ul className={style.dropmenu}>
+                        <li className={style.dropdown_item}>
+                          <NavLink to="/rehabilitation">Реабілітація</NavLink>
+                        </li>
+                        <li className={style.dropdown_item}>
+                          <NavLink to="/massage">Масаж</NavLink>
+                        </li>
+                        <li className={style.dropdown_item}>
+                          <NavLink to="/endosphere">Ендосфера</NavLink>
+                        </li>
+                        <li className={style.dropdown_item}>
+                          <NavLink to="/group">Групові тренування</NavLink>
+                        </li>
+                        <li className={style.dropdown_item}>
+                          <NavLink to="/children">Дитячі танці</NavLink>
+                        </li>
+                      </ul>
+                    </li>
+                    <li className={style.navbar_item}>
+                      <span>Ціни</span>
+                      <MdKeyboardArrowDown />
+                      <ul className={style.dropmenu}>
+                        <li className={style.dropdown_item}>
+                          <NavLink to="/subscription">Абонемент</NavLink>
+                        </li>
+                        <li className={style.dropdown_item}>
+                          <NavLink to="/massage">Масаж</NavLink>
+                        </li>
+                        <li className={style.dropdown_item}>
+                          <NavLink to="/rehabilitation">Реабілітація</NavLink>
+                        </li>
+                        <li className={style.dropdown_item}>
+                          <NavLink to="/endosphere">Сфератерапія</NavLink>
+                        </li>
+                        <li className={style.dropdown_item}>
+                          <NavLink to="/group">Групові тренування</NavLink>
+                        </li>
+                        <li className={style.dropdown_item}>
+                          <NavLink to="/children">Дитячі танці</NavLink>
+                        </li>
+                      </ul>
+                    </li>
+                    <li className={style.navbar_item}>
+                      <NavLink to="/about">
+                        <span>Про Нас</span>
+                      </NavLink>
+                    </li>
+                    <li className={style.navbar_item}>
+                      <NavLink to="/gallery">
+                        <span>Галерея</span>
+                      </NavLink>
+                    </li>
+                    <li className={style.navbar_item}>
+                      <NavLink to="/contacts">
+                        <span>Контакти</span>
+                      </NavLink>
+                    </li>
+                  </ul>
+                </div>
+                {resizeWidth > 1199.98 && (
+                  <Button type={"button"} action={setModalOpen}>
+                    {"Отримати пропозицію"}
+                  </Button>
+                )}
               </div>
-              <Button type={"button"} action={setModalOpen}>
-                {"Отримати пропозицію"}
-              </Button>
-            </div>
+            )}
+            {resizeWidth < 991.98 && <MobileMenu />}
           </nav>
         </div>
       </div>

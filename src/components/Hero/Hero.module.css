@@ -1,9 +1,9 @@
 .hero_section {
-  height: 100vh;
+  height: 100%;
 }
 
 .hero_content_wrapper {
-  max-width: 70%;
+  max-width: 100%;
 }
 
 .hero_text_wrapper {
@@ -18,38 +18,66 @@
   color: var(--white);
 }
 
-.greeting_text {
-  font-family: var(--font-family-accent);
+.greeting_wrapper {
+  display: flex;
 
+  align-items: center;
+
+  max-height: 28px;
+}
+
+.greeting_text {
   display: inline-block;
 
-  font-size: 1.75rem;
+  margin-left: 10px;
+
+  font-family: var(--font-family-accent);
+  font-size: clamp(0.875rem, 0.7308rem + 0.641vw, 1.5rem);
   letter-spacing: 4px;
 
-  position: relative;
+  font-weight: 600;
+  line-height: 1;
+
+  text-wrap: balance;
+}
+
+.greeting_wrapper svg {
+  margin-bottom: 10px;
+
+  width: 38px;
+  height: 38px;
+
+  color: var(--accent-color);
 }
 
 .hero_title {
-  height: 250px;
-
   overflow: hidden;
 
   font-family: var(--font-family-accent);
 
-  margin: 30px 0px 10px;
+  margin: 30px 0px 50px;
 
-  font-size: 3rem;
+  font-size: clamp(1.5rem, 1.1538rem + 1.5385vw, 3rem);
 
   line-height: 1.4;
   letter-spacing: 2px !important;
+
+  text-wrap: balance;
 }
 
 .hero_about {
-  font-size: 14px;
+  font-size: clamp(0.625rem, 0.5673rem + 0.2564vw, 0.875rem);
   font-weight: 400;
 }
 
 .hero_action {
   display: flex;
+  flex-wrap: wrap;
   gap: 15px;
+}
+
+@media screen and (min-width: 991.98px) {
+  .hero_content_wrapper {
+    max-width: 70%;
+  }
 }

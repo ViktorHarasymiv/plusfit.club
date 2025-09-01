@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import Button from "../ui/Button/Button";
 import ReverseBtn from "../ui/Button/ReverseBtn";
 
+import { CgGym } from "react-icons/cg";
+
 export default function Slide({ slide }) {
   return (
     <div
@@ -15,9 +17,12 @@ export default function Slide({ slide }) {
       <div className="container">
         <div className={style.hero_content_wrapper}>
           <div className={style.hero_text_wrapper}>
-            <h6 className={style.greeting_text}>
-              <span className="accent_text">{slide.greeting}</span>
-            </h6>
+            <div className={style.greeting_wrapper}>
+              <CgGym />
+              <h6 className={style.greeting_text}>
+                <span className="accent_text">{slide.greeting}</span>
+              </h6>
+            </div>
             <h1 className={style.hero_title}>
               {slide.title.base}
               <br />

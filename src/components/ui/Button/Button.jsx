@@ -4,9 +4,14 @@ import style from "./Button.module.css";
 
 import { IoMdArrowRoundForward } from "react-icons/io";
 
-export default function Button({ children, type, action }) {
+export default function Button({ children, type, action, styles }) {
   return (
-    <button onClick={action} type={type} className={style.button}>
+    <button
+      onClick={action}
+      type={type}
+      className={style.button}
+      style={{ ...styles }}
+    >
       {children}
       <IoMdArrowRoundForward />
     </button>

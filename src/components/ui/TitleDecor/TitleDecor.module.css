@@ -1,0 +1,27 @@
+.decor_block {
+  position: absolute;
+
+  bottom: 0;
+  background: transparent;
+
+  width: 90px;
+  height: 8px;
+
+  border: 2px solid var(--slider-arrow-bg);
+
+  border-right-color: transparent;
+}
+
+.decor_block::after {
+  content: "";
+
+  position: absolute;
+
+  left: 20px;
+  bottom: -2px;
+
+  width: 30px;
+  height: 2px;
+
+  background: var(--accent-color);
+}

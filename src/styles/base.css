@@ -11,12 +11,29 @@ body {
 
 header {
   z-index: 2;
-  position: absolute;
-
-  top: 0;
-  left: 0;
-  right: 0;
+  position: sticky;
 }
 
 main {
+  margin-top: -5.7em;
+}
+
+h4 {
+  color: var(--dark);
+  margin: 0px;
+  font-family: var(--font-family-accent);
+  font-size: clamp(1.125rem, 0.9519rem + 0.7692vw, 1.875rem);
+  line-height: 1.2;
+}
+
+section:first-child {
+  margin-top: 0px;
+}
+
+section:last-child {
+  margin-bottom: 0px;
+}
+
+section {
+  margin-bottom: 60px;
 }

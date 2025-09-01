@@ -4,6 +4,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import style from "./Hero.module.css";
 
+import { MdOutlineArrowBackIosNew } from "react-icons/md";
+import { MdOutlineArrowForwardIos } from "react-icons/md";
+
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
@@ -18,7 +21,7 @@ const sliderArray = [
     icon: "",
     greeting: "Welcome to PlusFit Fitness club!",
     title: {
-      base: "Твоя фітнес-історія",
+      base: "Твоя фітнес - історія",
       accent: "починається тут",
       baseFinish: "- і вона буде вражаючою",
     },
@@ -37,7 +40,7 @@ const sliderArray = [
       baseFinish: " - обери тренування з тренером",
     },
     about: "Індивідуальний підхід. Максимальна ефективність. Видимий прогрес",
-    action: ["about", "info"],
+    action: ["training", "info"],
     image: "/img/slider-2.jpg",
   },
   {
@@ -47,7 +50,7 @@ const sliderArray = [
     title: {
       base: "Подаруй своєму тілу",
       accent: "легкість і гнучкість",
-      baseFinish: "ендосфера вже чекає на тебе!",
+      baseFinish: " - ендосфера вже чекає на тебе!",
     },
     about:
       "Ендосфера — це не просто процедура, це шлях до внутрішньої гармонії, легкості та гнучкості. Завдяки інноваційній технології, яка поєднує делікатний масаж і глибоку стимуляцію тканин, твій організм отримує потужний імпульс до оновлення.",
@@ -59,7 +62,14 @@ const sliderArray = [
 export default function Hero() {
   return (
     <section className={style.hero_section}>
-      <Swiper navigation={true} modules={[Navigation]} className="heroSwiper">
+      <Swiper
+        navigation={{
+          nextEl: ".custom-next",
+          prevEl: ".custom-prev",
+        }}
+        modules={[Navigation]}
+        className="heroSwiper"
+      >
         {sliderArray.map((slide, i) => {
           return (
             <SwiperSlide key={i}>
@@ -67,6 +77,12 @@ export default function Hero() {
             </SwiperSlide>
           );
         })}
+        <div className="custom-prev">
+          <MdOutlineArrowBackIosNew className="swiper_arrow-icon" />
+        </div>
+        <div className="custom-next">
+          <MdOutlineArrowForwardIos className="swiper_arrow-icon" />
+        </div>
       </Swiper>
     </section>
   );

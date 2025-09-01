@@ -3,7 +3,13 @@ import ReactDOM from "react-dom";
 
 import style from "./Modal.module.css";
 
-export default function Modal({ isOpen, onClose, children }) {
+export default function Modal({
+  isOpen,
+  onClose,
+  children,
+  overlayStyle,
+  styles,
+}) {
   useEffect(() => {
     const handleEsc = (event) => {
       if (event.key === "Escape") {
@@ -21,11 +27,16 @@ export default function Modal({ isOpen, onClose, children }) {
   if (!isOpen) return null;
 
   return ReactDOM.createPortal(
-    <div onClick={() => onClose()} className={style.modal_overlay}>
-      <div onClick={(e) => e.stopPropagation()} className={style.modal_content}>
-        <button className={style.close_btn} onClick={onClose}>
-          ×
-        </button>
+    <div
+      onClick={() => onClose()}
+      className={style.modal_overlay}
+      style={{ ...overlayStyle }}
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className={style.modal_content}
+        style={{ ...styles }}
+      >
         {children}
       </div>
     </div>,

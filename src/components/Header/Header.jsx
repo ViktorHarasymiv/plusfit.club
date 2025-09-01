@@ -4,13 +4,16 @@ import General from "./General";
 
 // import { useScrollY } from "../../hooks/useScrollY";
 
+import { useWindowWidth } from "../../hooks/useWindowWidth";
+
 export default function Header() {
   //   const scrollY = useScrollY();
+  const width = useWindowWidth();
 
   return (
     <header>
-      <Top></Top>
-      <General></General>
+      {width > 991.98 && <Top />}
+      <General resizeWidth={width}></General>
     </header>
   );
 }

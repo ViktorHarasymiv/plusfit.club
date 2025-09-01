@@ -1,3 +1,7 @@
+.lock {
+  overflow: hidden;
+}
+
 /* ACTIVE LINK */
 
 .active,
@@ -20,10 +24,6 @@
   filter: drop-shadow(0 0 0.5rem #ffffff);
 }
 
-.logo_header {
-  position: relative;
-}
-
 .logo_header:hover .motivation_text {
   visibility: visible;
   opacity: 1;
@@ -33,6 +33,10 @@
 
 .heart_ico {
   color: var(--accent-color);
+}
+
+.footer_logo {
+  margin-bottom: 20px;
 }
 
 .motivation_text {
@@ -77,4 +81,82 @@ svg {
 
 svg:hover {
   color: inherit;
+}
+
+.icon {
+  width: 60px;
+  height: 70px;
+
+  fill: var(--accent-color);
+}
+
+.icon_block {
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 25px;
+  background: var(--white);
+
+  transition: var(--transition2);
+}
+
+.footer_icon {
+  width: 20px;
+  height: auto;
+}
+
+.icon_block:hover {
+  background: var(--dark);
+}
+
+.icon_block:hover .footer_icon {
+  fill: var(--white);
+}
+
+/* ERROR PAGE */
+
+.error_page {
+  padding-top: 150px;
+
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-size: 30%;
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+
+  background-color: #000;
+
+  color: #ffffff;
+}
+
+.abonement_image {
+  border-radius: 4px;
+
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+/* PATERN */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  white-space: nowrap;
 }

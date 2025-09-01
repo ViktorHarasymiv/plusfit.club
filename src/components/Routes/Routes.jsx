@@ -2,6 +2,8 @@ import { Routes, Route } from "react-router-dom";
 
 import Home from "../../pages/Home/Home";
 
+import NotFound from "../NotFound/NotFound";
+
 function Router() {
   return (
     <>
@@ -27,6 +29,9 @@ function Router() {
             />
           }
         /> */}
+
+        {/* Not found page */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );

@@ -1,0 +1,29 @@
+.icon_wrapper {
+  padding-right: 30px;
+  position: relative;
+}
+
+.icon_wrapper span {
+  position: absolute;
+
+  bottom: 5px;
+  color: var(--white);
+  font-size: 10px;
+}
+
+.menu_icon {
+  width: 30px;
+  height: 30px;
+
+  color: var(--white);
+
+  transition: var(--transition2);
+}
+
+.menu_icon:hover {
+  transform: rotateY(-180deg);
+}
+
+.menu_icon:hover span {
+  color: var(--accent-color);
+}

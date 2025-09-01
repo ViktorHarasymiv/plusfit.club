@@ -100,10 +100,17 @@
 }
 
 .navbar_wrapper {
+  padding-block: 10px;
   display: flex;
   align-items: center;
 
   justify-content: space-between;
+}
+
+.logo_header {
+  position: relative;
+
+  width: 100px;
 }
 
 .logo_header:hover .motivation_text {
@@ -217,12 +224,22 @@
   transform: rotateX(0deg);
 }
 
+.dropdown_item:hover {
+  padding-left: 40px;
+}
+
 .dropdown_item:hover::before {
   visibility: visible;
   opacity: 1;
   z-index: 1;
 }
 
-.dropdown_item:hover {
-  padding-left: 40px;
+@media screen and (min-width: 991.98px) {
+  .navbar_wrapper {
+    padding: 0;
+  }
+
+  .logo_header {
+    width: auto;
+  }
 }

@@ -1,0 +1,45 @@
+.form_wrapper {
+  display: grid;
+
+  grid-template-columns: repeat(2, minmax(160px, 1fr));
+  grid-template-rows: repeat(2, auto);
+
+  gap: 15px;
+}
+
+.input_wrapper {
+  position: relative;
+
+  max-width: 276px;
+  max-height: 54px;
+}
+
+.input {
+  width: 100%;
+
+  outline: 1px solid #6c757d;
+  font-size: 1em;
+  padding: 14px 20px;
+  border: none;
+}
+
+.input:focus {
+  outline-color: var(--accent-color);
+}
+
+.error {
+  position: absolute;
+
+  left: 10px;
+  bottom: -20px;
+
+  color: red;
+
+  font-size: 10px;
+}
+
+@media screen and (min-width: 1199.98px) {
+  .form_wrapper {
+    gap: 25px;
+  }
+}

@@ -46,6 +46,8 @@
 /* SVG */
 
 svg {
+  cursor: pointer;
+
   width: 18px;
   height: 16px;
 
@@ -135,6 +137,14 @@ svg {
 
 svg:active {
   color: inherit;
+}
+
+.error_form-message {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: red;
+  font-size: 14px;
 }
 
 @media (hover: hover) and (pointer: fine) {

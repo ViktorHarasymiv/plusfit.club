@@ -9,7 +9,6 @@ function Preloader() {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    // При кожній зміні маршруту — показати preloader
     setShowPreloader(true);
     setFadeOut(false);
 
@@ -20,7 +19,7 @@ function Preloader() {
       document.documentElement.classList.remove("ss-preload");
       document.documentElement.classList.add("ss-loaded");
       setFadeOut(true);
-    }, 500);
+    }, 520);
 
     return () => {
       clearTimeout(timeout);

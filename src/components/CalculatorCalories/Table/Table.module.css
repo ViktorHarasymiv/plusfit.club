@@ -1,0 +1,18 @@
+.table {
+  margin-bottom: 40px;
+  width: 100%;
+  color: var(--white);
+}
+
+.thead {
+  text-align: left;
+  background: var(--dark);
+}
+
+.tbody {
+  background: var(--white);
+}
+
+.tbody tr {
+  color: var(--dark);
+}

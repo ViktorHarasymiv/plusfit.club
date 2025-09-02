@@ -50,10 +50,11 @@ export default function Slide({ slide }) {
                 {slide.title.baseFinish}
               </motion.div>
             </h1>
+
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
             >
               <p className={style.hero_about}>{slide.about}</p>

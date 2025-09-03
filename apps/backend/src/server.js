@@ -33,6 +33,7 @@ export const startServer = () => {
       credentials: true,
     }),
   );
+
   app.use(cookieParser());
 
   app.use(

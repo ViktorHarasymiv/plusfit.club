@@ -1,5 +1,5 @@
 import React from "react";
-
+import { useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
@@ -9,6 +9,7 @@ import style from "./Login.module.css";
 import Button from "../../../ui/Button/Button";
 
 export default function Login() {
+  const navigate = useNavigate();
   const { login } = useAuth();
 
   const initialValues = {
@@ -20,6 +21,7 @@ export default function Login() {
     try {
       await login(values.email, values.password);
 
+      navigate("/dashboard");
       resetForm();
       return;
     } catch (error) {

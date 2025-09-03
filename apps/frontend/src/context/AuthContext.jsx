@@ -12,7 +12,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     checkSession();
-  }, [hasAccess]);
+  }, []);
 
   const checkSession = async () => {
     try {

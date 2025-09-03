@@ -9,13 +9,17 @@ export const loginUserController = async (req, res) => {
 
   res.cookie('refreshToken', session.refreshToken, {
     httpOnly: true,
+    path: '/',
     expires: new Date(Date.now() + ONE_DAY),
     sameSite: 'Strict', // або 'Lax'
     secure: true,
   });
   res.cookie('sessionId', session._id, {
     httpOnly: true,
+    path: '/',
     expires: new Date(Date.now() + ONE_DAY),
+    sameSite: 'Strict', // або 'Lax'
+    secure: true,
   });
 
   res.json({

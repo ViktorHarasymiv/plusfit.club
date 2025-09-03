@@ -1,10 +1,6 @@
 {
   "name": "plusfit.club",
   "private": true,
-  "workspaces": [
-    "apps/frontend",
-    "apps/backend"
-  ],
   "version": "0.0.0",
   "type": "module",
   "scripts": {

@@ -22,6 +22,8 @@ export const loginUserController = async (req, res) => {
     secure: true,
   });
 
+  res.redirect('https://plusfit-club-nmf7.vercel.app/dashboard');
+
   res.json({
     status: 200,
     message: 'Successfully logged in an admin!',

@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
 
+const api = import.meta.env.VITE_API_URL;
+
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
   const [hasAccess, setHasAccess] = useState(null);
@@ -35,7 +37,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const login = async (email, password) => {
-    const response = await fetch("http://localhost:8600/auth/login", {
+    const response = await fetch(`${api}/auth/login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -55,7 +57,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = async () => {
-    await fetch("http://localhost:8600/auth/logout", {
+    await fetch(`${api}/auth/logout`, {
       method: "POST",
       credentials: "include",
     });

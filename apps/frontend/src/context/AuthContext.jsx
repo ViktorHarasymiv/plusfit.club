@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
 
   const checkSession = async () => {
     try {
-      const response = await fetch(`${api}auth/check-session`, {
+      const response = await fetch(`${api}/auth/check-session`, {
         method: "GET",
         credentials: "include",
       });

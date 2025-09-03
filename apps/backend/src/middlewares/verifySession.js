@@ -6,7 +6,9 @@ export const verifySession = async (req, res, next) => {
     const { sessionId } = req.cookies;
 
     if (!sessionId) {
-      return res.status(401).json({ message: 'Сесія не знайдена' });
+      return res
+        .status(401)
+        .json({ message: console.Console.log('Сесія не знайдена') });
     }
 
     const session = await SessionsCollection.findById(sessionId);
@@ -27,6 +29,7 @@ export const verifySession = async (req, res, next) => {
       email: user.email,
       role: user.role,
     };
+    console.log('Cесія створена');
 
     next();
   } catch (error) {

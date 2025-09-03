@@ -11,14 +11,14 @@ export const loginUserController = async (req, res) => {
     httpOnly: true,
     path: '/',
     expires: new Date(Date.now() + ONE_DAY),
-    sameSite: 'Lax', // або 'Lax'
+    sameSite: 'None', // або 'Lax'
     secure: true,
   });
   res.cookie('sessionId', session._id, {
     httpOnly: true,
     path: '/',
     expires: new Date(Date.now() + ONE_DAY),
-    sameSite: 'Lax', // або 'Lax'
+    sameSite: 'None', // або 'Lax'
     secure: true,
   });
 

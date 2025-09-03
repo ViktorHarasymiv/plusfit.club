@@ -1,0 +1,164 @@
+.lock {
+  overflow: hidden;
+}
+
+.reset_top_margin {
+  margin-top: 0;
+}
+
+/* ACTIVE LINK */
+
+.active,
+.accent_text {
+  font-family: inherit;
+  color: var(--accent-color);
+}
+
+.accent_text {
+  width: 100%;
+}
+
+.non_full_width {
+  width: auto;
+}
+
+/* LOGO */
+
+.logo {
+  transition: var(--transition2);
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 0.5rem #ffffff);
+}
+
+.logo_header:hover .motivation_text {
+  visibility: visible;
+  opacity: 1;
+
+  transform: scale(1);
+}
+
+.heart_ico {
+  color: var(--accent-color);
+}
+
+.footer_logo {
+  margin-bottom: 20px;
+}
+
+/* SVG */
+
+svg {
+  cursor: pointer;
+
+  width: 18px;
+  height: 16px;
+
+  color: var(--color-white);
+  color: inherit;
+
+  transition: var(--transition2);
+}
+
+.icon {
+  width: 60px;
+  height: 70px;
+
+  fill: var(--accent-color);
+}
+
+.icon_block {
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 38px;
+  height: 38px;
+
+  border-radius: 25px;
+  background: var(--white);
+
+  transition: var(--transition2);
+}
+
+.footer_icon {
+  width: 20px;
+  height: auto;
+}
+
+.icon_block:hover {
+  background: var(--dark);
+}
+
+.icon_block:hover .footer_icon {
+  fill: var(--white);
+}
+
+/* ERROR PAGE */
+
+.error_page {
+  padding-top: 150px;
+
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  background-size: 30%;
+  background-position: 50% 100%;
+  background-repeat: no-repeat;
+
+  background-color: #000;
+
+  color: #ffffff;
+}
+
+.abonement_image {
+  border-radius: 4px;
+
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+/* PATERN */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(100%);
+  white-space: nowrap;
+}
+
+svg:active {
+  color: inherit;
+}
+
+.error_form-message {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: red;
+  font-size: 14px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  svg:hover {
+    color: inherit;
+  }
+}
+
+/* INPUT  */
+
+::placeholder {
+  color: inherit;
+}

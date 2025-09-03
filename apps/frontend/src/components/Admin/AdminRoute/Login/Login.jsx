@@ -18,20 +18,12 @@ export default function Login() {
 
   const handleSubmit = async (values, { resetForm }) => {
     try {
-      const { role } = await login(values.email, values.password);
+      await login(values.email, values.password);
 
-      if (role !== "admin") {
-        alert("Доступ дозволено лише адміністраторам");
-        return;
-      }
-
-      // Успішний логін
       resetForm();
-      setHasAccess(true);
-      navigate("/dashboard");
+      return;
     } catch (error) {
-      console.error("Login error:", error);
-      alert("Помилка входу. Перевірте дані або спробуйте пізніше.");
+      return error;
     }
   };
 

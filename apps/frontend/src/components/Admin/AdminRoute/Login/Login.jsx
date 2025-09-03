@@ -25,10 +25,13 @@ export default function Login() {
         return;
       }
 
+      // Успішний логін
       resetForm();
-      return;
+      setHasAccess(true);
+      navigate("/dashboard");
     } catch (error) {
-      return error;
+      console.error("Login error:", error);
+      alert("Помилка входу. Перевірте дані або спробуйте пізніше.");
     }
   };
 

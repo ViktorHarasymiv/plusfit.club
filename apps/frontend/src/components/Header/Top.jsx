@@ -12,7 +12,7 @@ import { FaInstagram } from "react-icons/fa";
 import { useAuth } from "../../context/AuthContext";
 
 import ReserveBtn from "../ui/Button/ReverseBtn";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Top() {
   const { hasAccess, user, logout } = useAuth();

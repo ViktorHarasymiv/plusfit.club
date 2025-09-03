@@ -12,11 +12,11 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     checkSession();
-  }, []);
+  }, [hasAccess]);
 
   const checkSession = async () => {
     try {
-      const response = await fetch(`${api}/auth/check-session`, {
+      const response = await fetch(`${api}auth/check-session`, {
         method: "GET",
         credentials: "include",
       });
@@ -47,7 +47,6 @@ export const AuthProvider = ({ children }) => {
     const result = await response.json();
 
     if (response.ok) {
-      navigate("/dashboard");
       setHasAccess(true);
 
       setUser(result.data.userName);

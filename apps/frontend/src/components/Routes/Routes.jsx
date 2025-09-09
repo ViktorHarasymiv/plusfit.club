@@ -1,17 +1,11 @@
 import { Routes, Route } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
 
 import Home from "../../pages/Home/Home";
 
-import Dashboard from "../Admin/Dashboard/Dashboard";
-
 import NotFound from "../NotFound/NotFound";
-import Login from "../Admin/AdminRoute/Login/Login";
-import PrivateRoute from "../Admin/AdminRoute/PrivateRoute";
+import Subscriber from "../Subscriber/Subscriber";
 
 function Router() {
-  const { isAdmin } = useAuth();
-
   return (
     <>
       <Routes>
@@ -20,18 +14,7 @@ function Router() {
 
         {/* Components navigation */}
 
-        {/* Admin */}
-
-        <Route
-          path="/dashboard"
-          element={
-            <PrivateRoute>
-              <Dashboard />
-            </PrivateRoute>
-          }
-        />
-
-        <Route path="/login" element={<Login />} />
+        <Route path="/subscriber/:id" element={<Subscriber />} />
 
         {/* Not found page */}
         <Route path="*" element={<NotFound />} />

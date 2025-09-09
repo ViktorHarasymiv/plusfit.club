@@ -1,5 +1,3 @@
-import React from "react";
-
 import style from "./Header.module.css";
 
 import { SlLocationPin } from "react-icons/sl";
@@ -9,13 +7,7 @@ import { BsTelephoneForward } from "react-icons/bs";
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 
-import { useAuth } from "../../context/AuthContext";
-
-import ReserveBtn from "../ui/Button/ReverseBtn";
-import { Link } from "react-router-dom";
-
 function Top() {
-  const { hasAccess, user, logout } = useAuth();
   return (
     <div className={style.header_top_wrapper}>
       <div className="container">
@@ -64,20 +56,6 @@ function Top() {
               </li>
             </ul>
           </div>
-          {hasAccess && (
-            <div className={style.admin_panel}>
-              <Link to={"/dashboard"}>
-                <h5>Вітаємо, {user}</h5>
-              </Link>
-              <ReserveBtn
-                type="button"
-                action={logout}
-                styles={{ height: "28px", fontSize: "11px" }}
-              >
-                Вихід
-              </ReserveBtn>
-            </div>
-          )}
         </div>
       </div>
     </div>

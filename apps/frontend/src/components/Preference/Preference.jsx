@@ -15,6 +15,7 @@ const preferenceArray = [
     id: 1,
     icon: "icon-muscle",
     title: "Тренери",
+    ref: "trainer",
     about:
       "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its indus standard dummy layout.",
   },
@@ -22,6 +23,7 @@ const preferenceArray = [
     id: 2,
     icon: "icon-dumbbell",
     title: "Кращі практики",
+
     about:
       "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its indus standard dummy layout.",
   },
@@ -29,6 +31,7 @@ const preferenceArray = [
     id: 3,
     icon: "icon-moneyBag",
     title: "Доступна ціна",
+    ref: "tarife",
     about:
       "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its indus standard dummy layout.",
   },

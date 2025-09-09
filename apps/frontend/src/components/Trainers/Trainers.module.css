@@ -1,0 +1,138 @@
+.section {
+  padding-block: 120px 80px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+
+  flex-wrap: wrap;
+
+  gap: 100px;
+}
+
+.trainer_block {
+  position: relative;
+}
+
+.detail_link {
+  pointer-events: none;
+  opacity: 0;
+  z-index: 6;
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  background: rgba(255, 255, 255, 0.1);
+
+  padding: 4px 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 10px;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  color: var(--white);
+
+  transition: all 0.3s ease-in-out;
+}
+
+.image_wrapper {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 300px;
+}
+
+.image_wrapper::after {
+  z-index: 2;
+
+  position: absolute;
+
+  content: "";
+
+  right: 0;
+  left: 0;
+
+  backdrop-filter: blur(10px);
+}
+
+.image {
+  cursor: pointer;
+  margin-bottom: 30px;
+  position: relative;
+
+  width: 100%;
+
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.7));
+
+  transition: all 0.3s ease-in-out;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.trainer_block::after {
+  z-index: -1;
+
+  content: "";
+
+  position: absolute;
+
+  left: -10px;
+
+  bottom: -30px;
+
+  width: 320px;
+  height: 350px;
+
+  background-color: rgba(0, 0, 0, 0.03);
+
+  border: 1px solid rgba(0, 0, 0, 0.03);
+
+  transform: skewY(-13deg);
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
+
+  transition: all 0.3s ease-in-out;
+}
+
+.content_wrapper {
+  text-align: center;
+}
+
+.image_wrapper:hover .image {
+  transform: scale(1.03);
+}
+
+.trainer_block:hover::after {
+  transform: skewY(-13deg) scale(0.98);
+}
+
+.trainer_block:hover .detail_link {
+  opacity: 1;
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 0;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .wrapper {
+    justify-content: space-around;
+  }
+}

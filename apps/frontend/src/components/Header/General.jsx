@@ -16,8 +16,9 @@ import Button from "../ui/Button/Button";
 import Modal from "../ui/Modal/Modal";
 
 import MobileMenu from "../MobileMenu/MobileMenu";
+import Search from "../Search/Search";
 
-export default function General({ resizeWidth, isAdmin }) {
+export default function General({ resizeWidth }) {
   const currentHeight = useRef(null);
 
   const scrollY = useScrollY();
@@ -130,6 +131,7 @@ export default function General({ resizeWidth, isAdmin }) {
                     </li>
                   </ul>
                 </div>
+                <Search />
                 {resizeWidth > 1199.98 && (
                   <Button type={"button"} action={setModalOpen}>
                     {"Отримати пропозицію"}

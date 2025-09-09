@@ -154,7 +154,7 @@
 
   flex-wrap: nowrap;
 
-  gap: 75px;
+  gap: 40px;
 }
 
 .navbar_list {
@@ -281,5 +281,12 @@
 
 .admin_panel {
   display: flex;
-  gap: 30px;
+  justify-content: end;
+  align-items: end;
+  gap: 15px;
+}
+
+.admin_panel h5 {
+  line-height: 1;
+  font-size: 12px;
 }

@@ -59,7 +59,7 @@ export default function CalculatorCalories() {
       {/* MODAL */}
       <Modal
         isOpen={info}
-        onClose={() => setInfo((prev) => !prev)}
+        onClose={() => setInfo(false)}
         styles={modalObjStyle}
       >
         <h2 style={{ textAlign: "center", marginBottom: "40px" }}>

@@ -1,0 +1,63 @@
+.wrapper {
+  position: relative;
+
+  max-height: 22px;
+}
+
+.icon {
+  width: 22px !important;
+  height: 22px !important;
+  color: var(--white);
+}
+
+.modal_wrapper {
+  position: absolute;
+
+  top: 57px;
+  left: -20px;
+
+  padding: 18px;
+
+  background: var(--white);
+
+  border-top: 3px solid var(--accent-color);
+}
+
+.form {
+  position: relative;
+
+  margin-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+}
+
+.modal_input {
+  padding: 4px 16px;
+  border: 1px solid var(--accent-color);
+
+  font-size: 14px;
+}
+
+.modal_icon {
+  position: absolute;
+
+  right: 10px;
+
+  color: var(--dark) !important;
+
+  display: flex;
+  align-items: center;
+}
+
+.modal_icon svg {
+  color: var(--accent-color);
+}
+
+.user_name {
+  color: var(--dark);
+}
+
+.error_message {
+  font-size: 12px;
+}

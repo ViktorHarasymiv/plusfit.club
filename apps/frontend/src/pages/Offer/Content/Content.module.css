@@ -27,7 +27,6 @@
 
 .content_image_wrapper {
   margin-block: 30px;
-  overflow: hidden;
 
   display: flex;
   justify-content: space-between;

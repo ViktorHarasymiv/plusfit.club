@@ -7,7 +7,7 @@ import { MdAdsClick } from "react-icons/md";
 import css from "./SideNavigation.module.css";
 
 export default function SideNavigation() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className={css.panel}>
       <button
@@ -24,20 +24,22 @@ export default function SideNavigation() {
         className={css.panel_wrapper}
         style={{ display: isOpen ? "block" : "none" }}
       >
-        <NavLink to="/offer">Головна</NavLink>
-        <NavLink to="/offer/rehabilitation">
+        <NavLink onClick={() => setIsOpen(false)} to="/offer">
+          Головна
+        </NavLink>
+        <NavLink onClick={() => setIsOpen(false)} to="/offer/rehabilitation">
           <MdKeyboardDoubleArrowRight /> <span>Реабілітація</span>
         </NavLink>
-        <NavLink to="/offer/massage">
+        <NavLink onClick={() => setIsOpen(false)} to="/offer/massage">
           <MdKeyboardDoubleArrowRight /> <span>Масаж</span>
         </NavLink>
-        <NavLink to="/offer/endosphere">
+        <NavLink onClick={() => setIsOpen(false)} to="/offer/endosphere">
           <MdKeyboardDoubleArrowRight /> <span>Ендосфера</span>
         </NavLink>
-        <NavLink to="/offer/group">
+        <NavLink onClick={() => setIsOpen(false)} to="/offer/group">
           <MdKeyboardDoubleArrowRight /> <span>Групові тренування</span>
         </NavLink>
-        <NavLink to="/offer/kids">
+        <NavLink onClick={() => setIsOpen(false)} to="/offer/kids">
           <MdKeyboardDoubleArrowRight />
           <span>Дитячі тренування</span>
         </NavLink>

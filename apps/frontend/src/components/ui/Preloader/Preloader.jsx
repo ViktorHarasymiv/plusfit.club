@@ -19,7 +19,7 @@ function Preloader() {
       document.documentElement.classList.remove("ss-preload");
       document.documentElement.classList.add("ss-loaded");
       setFadeOut(true);
-    }, 520);
+    }, 400);
 
     return () => {
       clearTimeout(timeout);

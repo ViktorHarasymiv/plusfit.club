@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+
 import css from "./Pricing.module.css";
 
 import Button from "../../components/ui/Button/Button";
@@ -15,8 +15,9 @@ export default function Item({ data }) {
         <h1 className={css.about_title}>{data.name}</h1>
         <span className={css.title}>{data.title}</span>
         <h2 className={css.price}>
-          <span className="active">{data.price}</span>
-          {data.currency}
+          <span className="active">
+            {data.price} {data.currency}
+          </span>
         </h2>
       </div>
       <ul className={css.offers_box}>
@@ -47,25 +48,6 @@ export default function Item({ data }) {
             <IoMdClose className={css.false_ico} />
           )}
           <span>Консультація</span>
-        </li>
-        <li>
-          {data.services.nutritionist == true ? (
-            <MdDone />
-          ) : (
-            <IoMdClose className={css.false_ico} />
-          )}
-          <span>Нутриціолог</span>
-        </li>
-        <li>
-          {data.services.massage == true ? (
-            <MdDone />
-          ) : (
-            <IoMdClose
-              className={css.false_ico}
-              style={data.name === "Преміум" && { color: "#000" }}
-            />
-          )}
-          <span>Масаж</span>
         </li>
         {data.services.sale && (
           <li>

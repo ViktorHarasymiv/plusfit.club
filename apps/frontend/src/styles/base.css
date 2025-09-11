@@ -36,8 +36,16 @@ h4 {
   line-height: 1.2;
 }
 
-section:first-child {
-  margin-top: 0px;
+h2 {
+  font-family: var(--font-family-oswald);
+
+  font-size: clamp(1.75rem, 1.4327rem + 1.4103vw, 3.125rem);
+
+  color: var(--dark);
+}
+
+section:nth-child(2) {
+  padding-top: 0px;
 }
 
 /* section:last-child {
@@ -45,5 +53,24 @@ section:first-child {
 } */
 
 section {
-  margin-bottom: 140px;
+  margin-bottom: 80px;
+  scroll-margin-top: 100px;
+}
+
+@media screen and (min-width: 768px) {
+  section {
+    margin-bottom: 110px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  section {
+    margin-bottom: 140px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  section {
+    margin-bottom: 170px;
+  }
 }

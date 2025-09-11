@@ -54,12 +54,15 @@
 
   transition-delay: 0.2s;
 }
+
 .item_wrapper svg {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .item_wrapper h4 {
   margin-bottom: 20px;
+
+  font-family: var(--font-family-oswald);
 }
 
 .content_wrapper {

@@ -1,6 +1,7 @@
 import React from "react";
-
 import Item from "./Item";
+
+import { motion } from "framer-motion";
 import css from "./Pricing.module.css";
 
 export default function Plans() {
@@ -15,8 +16,6 @@ export default function Plans() {
         gym: true,
         fitness: false,
         consultation: false,
-        nutritionist: false,
-        massage: false,
       },
     },
     {
@@ -30,8 +29,6 @@ export default function Plans() {
         gym: true,
         fitness: true,
         consultation: false,
-        nutritionist: false,
-        massage: false,
       },
     },
     {
@@ -44,8 +41,6 @@ export default function Plans() {
         gym: true,
         fitness: true,
         consultation: true,
-        nutritionist: true,
-        massage: false,
         sale: 250,
       },
     },
@@ -59,8 +54,6 @@ export default function Plans() {
         gym: true,
         fitness: true,
         consultation: true,
-        nutritionist: true,
-        massage: true,
         sale: 750,
       },
     },
@@ -70,7 +63,21 @@ export default function Plans() {
       <div className="container">
         <ul className={css.list}>
           {subscriptionPlans.map((tarife, i) => {
-            return <Item key={i} data={tarife} />;
+            return (
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  y: i === 0 || i === 2 ? -30 : 30,
+                }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0 }}
+                transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+                key={i}
+                className={css.motion}
+              >
+                <Item data={tarife} />
+              </motion.div>
+            );
           })}
         </ul>
       </div>

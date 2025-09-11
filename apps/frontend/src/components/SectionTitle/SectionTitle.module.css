@@ -12,20 +12,23 @@
 .title_text {
   text-transform: uppercase;
   letter-spacing: 4px;
-  font-size: clamp(0.875rem, 0.8173rem + 0.2564vw, 1.125rem);
+  font-size: clamp(1rem, 0.9712rem + 0.1282vw, 1.125rem);
   font-weight: 700;
   color: var(--accent-color);
   position: relative;
 }
 
 .title_text_about {
+  margin-bottom: 20px;
   font-weight: 600;
   text-transform: capitalize;
-  font-size: clamp(1.5rem, 1.125rem + 1.6667vw, 3.125rem);
+  font-size: clamp(2.1875rem, 1.9712rem + 0.9615vw, 3.125rem);
   color: var(--dark);
 }
 
 .decor_element {
+  margin: 0 auto;
+
   z-index: 1;
   position: relative;
 

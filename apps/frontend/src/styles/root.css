@@ -1,6 +1,8 @@
 :root {
   --font-family-base: "Rubik", sans-serif;
   --font-family-accent: "Teko", sans-serif;
+  --font-family-oswald: "Oswald", sans-serif;
+
   --body-text-color: #757f95;
 
   --body-font: "Roboto", sans-serif;

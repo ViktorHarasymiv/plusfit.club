@@ -47,3 +47,13 @@
   font-weight: 600;
   font-style: normal;
 }
+
+/* OSWARD */
+
+@font-face {
+  font-family: "Oswald";
+  src: url("/fonts/Oswald-SemiBold.woff2") format("woff2");
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
+}

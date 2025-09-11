@@ -8,6 +8,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  background: rgba(0, 0, 0, 0.05);
+
+  transition: all 0.2s ease-in;
 }
 
 .no-js #preloader {
@@ -17,7 +21,7 @@
 .ss-loaded #preloader {
   opacity: 0;
   visibility: hidden;
-  transition: all 0.2s 0.3s ease-in-out;
+  transition: all 0.2s 0.3s ease-in;
 }
 
 .loader-ripple {
@@ -41,7 +45,7 @@
 }
 
 .loader-ripple div:nth-child(2) {
-  animation-delay: -0.5s;
+  animation-delay: -0.6s;
 }
 
 @keyframes loader-ripple {

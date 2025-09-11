@@ -1,0 +1,18 @@
+.layout_wrapper {
+  padding-bottom: 120px;
+
+  display: flex;
+  flex-direction: row;
+
+  flex-wrap: wrap;
+
+  gap: 20px;
+}
+
+@media screen and (min-width: 1200px) {
+  .layout_wrapper {
+    flex-wrap: nowrap;
+
+    gap: 50px;
+  }
+}

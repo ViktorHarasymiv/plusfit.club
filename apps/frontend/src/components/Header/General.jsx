@@ -70,28 +70,32 @@ export default function General({ resizeWidth }) {
                       </NavLink>
                     </li>
                     <li className={style.navbar_item}>
-                      <span>Пропозиції</span>
+                      <NavLink to="/offer">Пропозиції</NavLink>
                       <MdKeyboardArrowDown />
                       <ul className={style.dropmenu}>
                         <li className={style.dropdown_item}>
-                          <NavLink to="/rehabilitation">Реабілітація</NavLink>
+                          <NavLink to="/offer/rehabilitation">
+                            Реабілітація
+                          </NavLink>
                         </li>
                         <li className={style.dropdown_item}>
-                          <NavLink to="/massage">Масаж</NavLink>
+                          <NavLink to="/offer/massage">Масаж</NavLink>
                         </li>
                         <li className={style.dropdown_item}>
-                          <NavLink to="/endosphere">Ендосфера</NavLink>
+                          <NavLink to="/offer/endosphere">Ендосфера</NavLink>
                         </li>
                         <li className={style.dropdown_item}>
-                          <NavLink to="/group">Групові тренування</NavLink>
+                          <NavLink to="/offer/group">
+                            Групові тренування
+                          </NavLink>
                         </li>
                         <li className={style.dropdown_item}>
-                          <NavLink to="/children">Дитячі танці</NavLink>
+                          <NavLink to="/offer/kids">Дитячі танці</NavLink>
                         </li>
                       </ul>
                     </li>
                     <li className={style.navbar_item}>
-                      <span>Ціни</span>
+                      <NavLink to="/price"> Ціни </NavLink>
                       <MdKeyboardArrowDown />
                       <ul className={style.dropmenu}>
                         <li className={style.dropdown_item}>
@@ -110,7 +114,7 @@ export default function General({ resizeWidth }) {
                           <NavLink to="/group">Групові тренування</NavLink>
                         </li>
                         <li className={style.dropdown_item}>
-                          <NavLink to="/children">Дитячі танці</NavLink>
+                          <NavLink to="/kids">Дитячі танці</NavLink>
                         </li>
                       </ul>
                     </li>

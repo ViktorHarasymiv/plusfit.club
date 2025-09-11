@@ -44,7 +44,7 @@ export default function Preference() {
       <div className="container">
         <div className={style.preferens_wrapper}>
           {preferenceArray.map((data, i) => {
-            return <PreferenceItem key={i} data={data} />;
+            return <PreferenceItem key={i} index={i} data={data} />;
           })}
         </div>
       </div>

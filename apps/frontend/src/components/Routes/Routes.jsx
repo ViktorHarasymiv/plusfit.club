@@ -10,7 +10,7 @@ import AboutUs from "../../pages/AboutUs/AboutUs";
 import Price from "../../pages/Price/Price";
 import Contacts from "../../pages/Contacts/Contacts";
 import Massage from "../Massage/Massage";
-import Endosphere from "../Endosphere/Endosphere.JSX";
+import Endosphere from "../Endosphere/Endosphere";
 import GroupTraning from "../GroupTraning/GroupTraning";
 import KidsDance from "../KidsDance/KidsDance";
 import OfferLayout from "../../pages/Offer/OfferLayout";

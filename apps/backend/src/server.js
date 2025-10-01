@@ -29,7 +29,8 @@ export const startServer = () => {
 
   app.use(
     cors({
-      origin: 'https://plusfit-club-nmf7.vercel.app',
+      origin: ['http://localhost:5173', 'http://localhost:5174'],
+
       credentials: true,
     }),
   );

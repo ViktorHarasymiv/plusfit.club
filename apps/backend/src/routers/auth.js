@@ -8,6 +8,7 @@ import {
   logoutUserController,
   refreshUserSessionController,
 } from '../controllers/auth.js';
+
 import { validateBody } from '../middlewares/validateBody.js';
 
 const router = Router();
@@ -23,7 +24,7 @@ router.post('/logout', ctrlWrapper(logoutUserController));
 router.get('/check-session', verifySession, (req, res) => {
   res.status(200).json({
     message: 'Сесія активна',
-    user: req.user, // 👈 передаємо дані користувача
+    user: req.user,
   });
 });
 

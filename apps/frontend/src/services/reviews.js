@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_URL } from "../../../../../plusfit.club.dashboard/src/config/api.js";
+import { API_URL } from "./Api.js";
 
 export const ALL_REVIEWS = async (params = {}) => {
   try {

@@ -14,6 +14,7 @@ import firstImg from "/img/01.jpg";
 import secoundImg from "/img/02.jpg";
 
 export default function Offer() {
+  document.title = "Plus Fit - Пропозиції";
   const content = {
     frontImage: FrontImage,
     firstParagraph: {

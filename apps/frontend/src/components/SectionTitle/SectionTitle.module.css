@@ -2,20 +2,23 @@
   font-family: var(--font-family-accent) !important;
   margin-bottom: 70px;
 
+  gap: 5px;
+
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
 
-  gap: 5px;
+  text-align: center;
 }
 
 .title_text {
-  text-transform: uppercase;
+  position: relative;
+
   letter-spacing: 4px;
   font-size: clamp(1rem, 0.9712rem + 0.1282vw, 1.125rem);
   font-weight: 700;
   color: var(--accent-color);
-  position: relative;
 }
 
 .title_text_about {

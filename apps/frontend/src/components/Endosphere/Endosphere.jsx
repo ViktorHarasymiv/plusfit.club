@@ -2,6 +2,7 @@ import React from "react";
 import Content from "../../pages/Offer/Content/Content";
 
 export default function Endosphere() {
+  document.title = "Plus Fit - Endosphere";
   const content = {
     frontImage: "",
     firstParagraph: {

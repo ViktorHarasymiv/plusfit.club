@@ -85,9 +85,7 @@ export default function General({ resizeWidth }) {
                           <NavLink to="/offer/endosphere">Ендосфера</NavLink>
                         </li>
                         <li className={style.dropdown_item}>
-                          <NavLink to="/offer/group">
-                            Групові тренування
-                          </NavLink>
+                          <NavLink to="/offer/yoga">Йога</NavLink>
                         </li>
                         <li className={style.dropdown_item}>
                           <NavLink to="/offer/kids">Дитячі танці</NavLink>
@@ -111,7 +109,7 @@ export default function General({ resizeWidth }) {
                           <NavLink to="/endosphere">Сфератерапія</NavLink>
                         </li>
                         <li className={style.dropdown_item}>
-                          <NavLink to="/group">Групові тренування</NavLink>
+                          <NavLink to="/yoga">Йога</NavLink>
                         </li>
                         <li className={style.dropdown_item}>
                           <NavLink to="/kids">Дитячі танці</NavLink>

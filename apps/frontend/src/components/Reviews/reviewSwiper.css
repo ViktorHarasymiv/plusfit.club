@@ -1,0 +1,33 @@
+.mySwiper {
+  padding-inline: 50px;
+  max-width: 100% !important;
+  height: 400px;
+}
+
+.mySwiper .swiper-slide {
+  max-width: 100% !important;
+  max-height: 320px !important;
+}
+
+.swiper-pagination-bullet {
+  background: var(--accent-color) !important;
+
+  width: 8px !important;
+
+  transition: all 0.4s;
+}
+
+.swiper-pagination-bullet-active {
+  width: 22px !important;
+  border-radius: 4px !important;
+}
+
+@media screen and (min-width: 1024.98px) {
+  .mySwiper {
+    padding-left: 60px;
+  }
+  .mySwiper .swiper-slide {
+    max-width: 350px !important;
+    height: 320px !important;
+  }
+}

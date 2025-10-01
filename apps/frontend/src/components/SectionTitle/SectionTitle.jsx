@@ -6,7 +6,7 @@ import css from "./SectionTitle.module.css";
 
 import { CgGym } from "react-icons/cg";
 
-export default function SectionTitle({ title, about }) {
+export default function SectionTitle({ title, about, styles }) {
   return (
     <div className={css.title}>
       <motion.div
@@ -26,7 +26,9 @@ export default function SectionTitle({ title, about }) {
         viewport={{ once: true, amount: 0 }}
         transition={{ duration: 0.9, delay: 0.8, ease: "easeOut" }}
       >
-        <h2 className={css.title_text_about}>{about}</h2>
+        <h2 className={css.title_text_about} style={styles}>
+          {about}
+        </h2>
         <div className={css.decor_element}></div>
       </motion.div>
     </div>

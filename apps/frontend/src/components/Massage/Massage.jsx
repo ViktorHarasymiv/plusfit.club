@@ -2,6 +2,7 @@ import React from "react";
 import Content from "../../pages/Offer/Content/Content";
 
 export default function Massage() {
+  document.title = "Plus Fit - Massage";
   const content = {
     frontImage: "",
     firstParagraph: {

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { API_URL } from "./Api.js";
+import { API_URL } from "../config/api";
 
 export const ALL_REVIEWS = async (params = {}) => {
   try {

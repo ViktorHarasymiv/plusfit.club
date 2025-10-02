@@ -56,10 +56,16 @@ export default function FormReview() {
     try {
       await CREATE_REVIEW(values);
       resetForm();
-      alert("Успішно додано абонемент");
+      alert("Відгук успішно додано");
     } catch (error) {
-      const message = error?.message;
-      alert(message);
+      if (error?.response?.status === 403) {
+        alert("Відгук дозволено лише для абонентів.");
+      } else {
+        const message = error?.message;
+        alert(message);
+      }
+
+      return;
     }
 
     resetForm();

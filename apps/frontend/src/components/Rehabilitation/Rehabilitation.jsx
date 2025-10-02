@@ -32,7 +32,7 @@ export default function Rehabilitation() {
   };
   return (
     <div>
-      <Content content={content}></Content>
+      <Content content={content} selectetCategory={"Therapi"}></Content>
     </div>
   );
 }

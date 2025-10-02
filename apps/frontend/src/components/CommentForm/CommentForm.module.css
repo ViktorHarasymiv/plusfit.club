@@ -6,7 +6,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  gap: 5px;
 }
 
 .comment_wrapper::after {
@@ -61,7 +61,6 @@
 
 @media screen and (min-width: 767.98px) {
   .form_block {
-    margin: 50px;
     padding: 30px 50px;
   }
 }
@@ -90,5 +89,9 @@
     background-color: var(--white);
 
     opacity: 0.3;
+  }
+
+  .form_block {
+    margin: 0;
   }
 }

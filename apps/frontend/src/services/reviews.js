@@ -16,8 +16,10 @@ export const CREATE_REVIEW = async (data) => {
     const response = await axios.post(`${API_URL}/review`, data);
     return response.data.result;
   } catch (error) {
-    console.log(error);
-
-    throw new Error("Щось пішло не так");
+    if (error?.response?.status === 403) {
+      throw new Error(
+        "За вашою поштою не знайдено абонемента, відгук заборонений!"
+      );
+    } else throw new Error("Щось пішло не так");
   }
 };

@@ -110,6 +110,10 @@
   text-align: center;
 }
 
+.category {
+  font-size: 0.8em;
+}
+
 .image_wrapper:hover {
   transform: scale(1.03);
 }
@@ -124,14 +128,12 @@
 
 @media screen and (min-width: 768px) {
   .wrapper {
-    justify-content: space-between;
-    flex-wrap: nowrap;
-    gap: 0;
+    flex-wrap: wrap;
   }
 }
 
 @media screen and (min-width: 992px) {
   .wrapper {
-    justify-content: space-around;
+    flex-wrap: wrap;
   }
 }

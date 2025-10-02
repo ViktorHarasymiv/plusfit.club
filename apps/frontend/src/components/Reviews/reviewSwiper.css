@@ -1,5 +1,5 @@
 .mySwiper {
-  padding-inline: 50px;
+  padding-inline: 20px;
   max-width: 100% !important;
   height: 400px;
 }
@@ -23,11 +23,8 @@
 }
 
 @media screen and (min-width: 1024.98px) {
-  .mySwiper {
-    padding-left: 60px;
-  }
   .mySwiper .swiper-slide {
-    max-width: 350px !important;
+    max-width: 430px !important;
     height: 320px !important;
   }
 }

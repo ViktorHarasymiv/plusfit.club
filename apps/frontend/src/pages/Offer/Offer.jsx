@@ -1,12 +1,4 @@
-import React from "react";
-import { Outlet } from "react-router-dom";
-
-import css from "./Offer.module.css";
-
-import SideNavigation from "../../components/SideNavigation/SideNavigation";
-import NavigationContext from "../../components/NavigationContext/NavigationContext";
 import Content from "./Content/Content";
-import Trainer from "../../components/Trainers/Trainer";
 
 import FrontImage from "/img/gymBg.jpg";
 
@@ -44,7 +36,11 @@ export default function Offer() {
 
   return (
     <div>
-      <Content frontImage={FrontImage} content={content} />
+      <Content
+        frontImage={FrontImage}
+        content={content}
+        selectetCategory={"Gym"}
+      />
     </div>
   );
 }

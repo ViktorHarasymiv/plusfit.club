@@ -32,7 +32,7 @@ export default function Massage() {
   };
   return (
     <>
-      <Content content={content} />
+      <Content content={content} selectetCategory={"Therapi"} />
     </>
   );
 }

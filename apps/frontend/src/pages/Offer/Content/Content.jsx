@@ -5,7 +5,7 @@ import css from "./Content.module.css";
 import { MdDone } from "react-icons/md";
 import Trainer from "../../../components/Trainers/Trainer";
 
-export default function Content({ content }) {
+export default function Content({ content, selectetCategory }) {
   return (
     <div className={css.page_content}>
       <img
@@ -61,7 +61,7 @@ export default function Content({ content }) {
         Наша <span className="active">команда</span>
       </h2>
       <div className={css.trainer_block}>
-        <Trainer />
+        <Trainer selectedCategory={selectetCategory} />
       </div>
     </div>
   );

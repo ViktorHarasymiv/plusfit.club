@@ -19,10 +19,11 @@ export default function NavigationContext() {
         <div className={css.content_wrapper}>
           {pathnames.map((name, index) => {
             const isLast = index === pathnames.length - 1;
+            const Name = name.replaceAll("-", " ");
             return (
               isLast && (
                 <h1 key={index} className={css.title}>
-                  {name}
+                  {Name}
                 </h1>
               )
             );
@@ -34,13 +35,14 @@ export default function NavigationContext() {
             {pathnames.map((name, index) => {
               const routeTo = "/" + pathnames.slice(0, index + 1).join("/");
               const isLast = index === pathnames.length - 1;
+              const Name = name.replaceAll("-", " ");
               return (
                 <li key={routeTo}>
                   <MdOutlineDoubleArrow />
                   {isLast ? (
-                    <span style={{ color: "var(--accent-color)" }}>{name}</span>
+                    <span style={{ color: "var(--accent-color)" }}>{Name}</span>
                   ) : (
-                    <Link to={routeTo}>{name}</Link>
+                    <Link to={routeTo}>{Name}</Link>
                   )}
                 </li>
               );

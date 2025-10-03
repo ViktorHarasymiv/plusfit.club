@@ -16,9 +16,9 @@
 }
 
 .detail_link {
+  z-index: 4;
   pointer-events: none;
   opacity: 0;
-  z-index: 6;
   position: absolute;
 
   top: 50%;
@@ -123,6 +123,7 @@
 }
 
 .trainer_block:hover .detail_link {
+  pointer-events: all;
   opacity: 1;
 }
 

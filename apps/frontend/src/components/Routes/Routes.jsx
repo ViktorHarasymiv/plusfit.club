@@ -14,6 +14,8 @@ import Endosphere from "../Endosphere/Endosphere";
 import Yoga from "../Yoga/Yoga";
 import KidsDance from "../KidsDance/KidsDance";
 import OfferLayout from "../../pages/Offer/OfferLayout";
+import Team from "../../pages/Team/Team";
+import TeamLayout from "../../pages/Team/TeamLayout";
 
 function Router() {
   return (
@@ -26,6 +28,13 @@ function Router() {
 
         <Route path="/subscriber/:id" element={<Subscriber />} />
 
+        {/* Team */}
+
+        <Route path="/team" element={<TeamLayout />}>
+          <Route path=":id" element={<Team />} />
+        </Route>
+
+        {/* Offers */}
         <Route path="/offer" element={<OfferLayout />}>
           <Route index element={<Offer />} />
 

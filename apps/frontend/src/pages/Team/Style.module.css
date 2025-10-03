@@ -1,0 +1,17 @@
+.layout_wrapper {
+  margin-bottom: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Outlet */
+
+.section {
+  margin: 0;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}

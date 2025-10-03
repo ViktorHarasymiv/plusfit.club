@@ -2,11 +2,11 @@
   z-index: 1;
   position: relative;
 
-  padding-block: 120px 50px;
+  padding-block: 80px 50px;
 
   margin-bottom: 20px;
 
-  background-position: 0 45% !important;
+  background-position: 0 44% !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
 
@@ -15,6 +15,9 @@
   color: var(--white);
 
   text-transform: capitalize;
+
+  display: flex;
+  align-items: end;
 }
 
 .wrapper::after {
@@ -39,6 +42,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  margin-bottom: 80px;
 }
 
 .title {
@@ -88,8 +93,9 @@
 
 @media screen and (min-width: 1200px) {
   .wrapper {
-    padding-block: 180px 130px;
+    height: 300px;
 
+    padding: 0;
     margin-bottom: 90px;
   }
 }

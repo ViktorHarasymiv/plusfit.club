@@ -21,7 +21,7 @@ function App() {
 
   return (
     <>
-      <Preloader />
+      {/* <Preloader /> */}
 
       <Header></Header>
       <Router></Router>

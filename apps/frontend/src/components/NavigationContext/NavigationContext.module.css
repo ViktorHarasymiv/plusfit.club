@@ -2,7 +2,7 @@
   z-index: 1;
   position: relative;
 
-  padding-block: 80px 50px;
+  height: 300px;
 
   margin-bottom: 20px;
 
@@ -17,7 +17,7 @@
   text-transform: capitalize;
 
   display: flex;
-  align-items: end;
+  align-items: center;
 }
 
 .wrapper::after {
@@ -38,12 +38,11 @@
 }
 
 .content_wrapper {
+  margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  margin-bottom: 80px;
 }
 
 .title {

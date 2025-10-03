@@ -1,5 +1,6 @@
 .mySwiper {
   max-width: 350px;
+  width: 100%;
   max-height: 430px;
 
   padding-inline: 20px;
@@ -8,7 +9,7 @@
 .slide {
   overflow: hidden;
 
-  max-width: 100%;
+  width: 100%;
   height: 418px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }

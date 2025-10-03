@@ -15,6 +15,7 @@
 
 .education_article {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .list {
@@ -38,15 +39,18 @@
 
   position: absolute;
 
-  top: 50%;
+  top: 10px;
   left: 0;
-
-  transform: translateY(-50%);
 
   width: 4px;
   height: 4px;
 
   background: var(--accent-color);
+}
+
+.article_wrapper {
+  display: flex;
+  flex-direction: column;
 }
 
 .article_title {
@@ -68,4 +72,45 @@
   font-family: var(--font-family-accent);
 
   font-style: italic;
+}
+
+.about {
+  flex: 1;
+}
+
+.social {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+
+  color: var(--accent-color);
+}
+
+@media screen and (min-width: 1191.98px) {
+  .social {
+    flex-wrap: nowrap;
+    gap: 50px;
+  }
+}
+
+.social li a {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  align-items: center;
+
+  gap: 5px;
+}
+
+.social li a span {
+  text-decoration: underline;
+
+  transition-duration: 0.3s;
+}
+
+.social li a span:hover,
+.social li a span:active {
+  color: var(--dark);
 }

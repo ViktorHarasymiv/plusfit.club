@@ -1,9 +1,9 @@
 import React from "react";
 import Content from "../../pages/Offer/Content/Content";
 
-import BG from "/img/yoga.JPG";
-import BG1 from "/img/yoga1.JPG";
-import BG2 from "/img/yoga2.JPG";
+import BG from "../../../public/img/yoga.JPG";
+import BG1 from "../../../public/img/yoga1.JPG";
+import BG2 from "../../../public/img/yoga2.JPG";
 
 export default function Yoga() {
   document.title = "Plus Fit - Yoga";

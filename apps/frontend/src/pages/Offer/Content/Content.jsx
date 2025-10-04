@@ -7,7 +7,7 @@ import Trainer from "../../../components/Trainers/Trainer";
 
 export default function Content({ content, selectetCategory }) {
   return (
-    <div className="container">
+    <div className="container no_padding">
       <div className={css.page_content}>
         <img
           src={content.frontImage}

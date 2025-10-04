@@ -151,6 +151,10 @@ svg:active {
   font-size: 14px;
 }
 
+.no_padding {
+  padding-inline: 0 !important;
+}
+
 @media (hover: hover) and (pointer: fine) {
   svg:hover {
     color: inherit;

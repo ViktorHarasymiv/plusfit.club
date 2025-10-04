@@ -1,0 +1,15 @@
+.team_swiper {
+  width: 100%;
+  height: 640px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.team_swiper .swiper-slide {
+  width: 100%;
+  display: flex !important;
+  justify-content: center !important  ;
+  align-items: start !important;
+}

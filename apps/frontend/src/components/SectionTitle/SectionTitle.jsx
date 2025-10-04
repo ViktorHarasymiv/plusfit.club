@@ -13,7 +13,7 @@ export default function SectionTitle({ title, about, styles }) {
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0 }}
-        transition={{ duration: 0.7, delay: 0.5, ease: "easeOut" }}
+        transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
       >
         <div className={css.title_text_wrapper}>
           <CgGym></CgGym>
@@ -24,7 +24,7 @@ export default function SectionTitle({ title, about, styles }) {
         initial={{ opacity: 0, y: 10 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0 }}
-        transition={{ duration: 0.9, delay: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.9, delay: 0.5, ease: "easeOut" }}
       >
         <h2 className={css.title_text_about} style={styles}>
           {about}

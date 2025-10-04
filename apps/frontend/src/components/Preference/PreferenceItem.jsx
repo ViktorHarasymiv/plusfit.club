@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { motion } from "framer-motion";
 
@@ -7,6 +7,8 @@ import style from "./Preference.module.css";
 import Icon from "../ui/Icon/Icon";
 
 export default function PreferenceItem({ data, index }) {
+  const [expanded, setExpanded] = useState(false);
+
   return (
     <motion.div
       index={index}
@@ -21,7 +23,17 @@ export default function PreferenceItem({ data, index }) {
           <h4>
             <a href={`#${data.ref}`}>{data.title}</a>
           </h4>
-          <span>{data.about}</span>
+          <span
+            className={`${style.content_box} ${expanded ? style.expanded : ""}`}
+          >
+            {data.about}
+          </span>
+          <button
+            onClick={() => setExpanded(!expanded)}
+            className={style.toggle_btn}
+          >
+            {expanded ? "Менше..." : "Більше..."}
+          </button>
         </div>
       </div>
     </motion.div>

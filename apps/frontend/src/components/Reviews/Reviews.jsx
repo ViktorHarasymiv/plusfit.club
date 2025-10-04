@@ -17,9 +17,7 @@ import ReviewItem from "./ReviewItem";
 
 import BG from "/img/reviewsbg.jpg";
 
-import { FaRegStar } from "react-icons/fa";
-
-function Reviews() {
+function Reviews({ filterType, background, styles }) {
   const { reviews, loading, error, fetchReviews, averageRating } =
     useReviewStore();
 
@@ -27,17 +25,11 @@ function Reviews() {
     fetchReviews();
   }, []);
 
-  const stylesObj = {
-    color: "var(--white)",
-  };
-
   return (
-    <section className={css.wrapper} style={{ backgroundImage: `url(${BG})` }}>
-      {averageRating}
+    <section className={css.wrapper}>
       <SectionTitle
-        title={"Відгуки"}
+        title={"Review"}
         about={"Що говорять про нас Наші клієнти"}
-        styles={stylesObj}
       />
       <div className="container">
         <Swiper
@@ -75,15 +67,21 @@ function Reviews() {
             }
           }}
         >
-          {reviews.map((content, index) => {
-            return (
-              <SwiperSlide key={index}>
-                <ul className={css.list}>
-                  <ReviewItem content={content} />
-                </ul>
-              </SwiperSlide>
-            );
-          })}
+          {reviews
+            .filter((review) =>
+              filterType?.length
+                ? filterType.some((type) => review.section.includes(type))
+                : true
+            )
+            .map((content, index) => {
+              return (
+                <SwiperSlide key={index}>
+                  <ul className={css.list}>
+                    <ReviewItem content={content} />
+                  </ul>
+                </SwiperSlide>
+              );
+            })}
         </Swiper>
       </div>
     </section>

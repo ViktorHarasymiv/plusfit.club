@@ -151,13 +151,14 @@ export default function FormReview() {
                     <em>Оберіть відділ</em>
                   </MenuItem>
                   <MenuItem value={"Спортивний зал"}>Спортивний зал</MenuItem>
-                  <MenuItem value={"Масаж"}>Масаж</MenuItem>
+                  <MenuItem value={"Реабілітація та масаж"}>
+                    Реабілітація та масаж
+                  </MenuItem>
                   <MenuItem value={"Йога"}>Йога</MenuItem>
                   <MenuItem value={"Дитячі тренування"}>
                     Дитячі тренування
                   </MenuItem>
                   <MenuItem value={"Ендосфера"}>Ендосфера</MenuItem>
-                  <MenuItem value={"Реабілітація"}>Реабілітація</MenuItem>
                 </Select>
               </FormControl>
               <ErrorMessage

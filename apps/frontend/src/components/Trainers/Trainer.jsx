@@ -14,9 +14,9 @@ export default function Trainer({ selectedCategory }) {
     <div className="container">
       <div className={css.wrapper}>
         {dataTreiners
-          .filter(({ filter }) => {
+          .filter(({ section }) => {
             if (!selectedGroup) return true;
-            return filter === selectedGroup;
+            return section === selectedGroup;
           })
           .map(({ name, category, photo, link }, index) => {
             return (

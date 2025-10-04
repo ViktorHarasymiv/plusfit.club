@@ -1,10 +1,12 @@
 import React from "react";
 import Content from "../../pages/Offer/Content/Content";
 
+import BG from "/img/Endosphere.PNG";
+
 export default function Endosphere() {
   document.title = "Plus Fit - Endosphere";
   const content = {
-    frontImage: "",
+    frontImage: BG,
     firstParagraph: {
       firstTitle: "Ендосфера",
 

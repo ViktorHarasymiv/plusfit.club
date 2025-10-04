@@ -2,7 +2,7 @@ import React from "react";
 import Content from "../../pages/Offer/Content/Content";
 
 import BG from "../../../public/img/yoga.jpg";
-import BG1 from "../../../public/img/yoga1.avif";
+import BG1 from "../../../public/img/yoga1.jpg";
 import BG2 from "../../../public/img/yoga2.jpg";
 
 export default function Yoga() {
@@ -34,5 +34,5 @@ export default function Yoga() {
       ],
     },
   };
-  return <Content content={content} />;
+  return <Content content={content} selectetCategory={"Йога"} />;
 }

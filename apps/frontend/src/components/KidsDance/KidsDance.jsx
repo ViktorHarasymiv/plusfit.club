@@ -37,7 +37,7 @@ export default function KidsDance() {
   };
   return (
     <div>
-      <Content content={content} />
+      <Content content={content} selectetCategory={"Дитячі танці"} />
     </div>
   );
 }

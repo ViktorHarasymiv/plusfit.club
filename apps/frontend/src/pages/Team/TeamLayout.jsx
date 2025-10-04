@@ -14,20 +14,18 @@ function TeamLayout() {
   return (
     <main>
       <NavigationContext />
-      <div className="container">
-        <>
-          {isRoot && (
-            <div className={css.layout_wrapper}>
-              <SectionTitle
-                title={"Наша команда"}
-                about={"Ми тут, щоб бути поруч. З вами. Для вас."}
-              />
-              <Trainer />
-            </div>
-          )}
-          <Outlet />
-        </>
-      </div>
+      <>
+        {isRoot && (
+          <div className={css.layout_wrapper}>
+            <SectionTitle
+              title={"Наша команда"}
+              about={"Ми тут, щоб бути поруч. З вами. Для вас."}
+            />
+            <Trainer />
+          </div>
+        )}
+        <Outlet />
+      </>
     </main>
   );
 }

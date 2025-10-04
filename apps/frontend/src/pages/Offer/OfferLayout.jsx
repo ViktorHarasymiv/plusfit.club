@@ -4,6 +4,7 @@ import { Outlet } from "react-router-dom";
 import css from "./Offer.module.css";
 import NavigationContext from "../../components/NavigationContext/NavigationContext";
 import SideNavigation from "../../components/SideNavigation/SideNavigation";
+import Reviews from "../../components/Reviews/Reviews";
 
 export default function OfferLayout() {
   return (
@@ -15,6 +16,7 @@ export default function OfferLayout() {
           <Outlet />
         </div>
       </div>
+      <Reviews />
     </main>
   );
 }

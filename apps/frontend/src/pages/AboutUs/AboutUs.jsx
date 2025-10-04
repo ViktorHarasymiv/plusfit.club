@@ -6,9 +6,11 @@ import Trainer from "../../components/Trainers/Trainer";
 export default function AboutUs() {
   return (
     <main>
-      <NavigationContext />
-      <Reviews />
-      <Trainer />
+      <section>
+        <NavigationContext />
+        <Reviews />
+        <Trainer />
+      </section>
     </main>
   );
 }

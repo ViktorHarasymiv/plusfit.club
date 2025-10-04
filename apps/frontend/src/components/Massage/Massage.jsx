@@ -32,7 +32,7 @@ export default function Massage() {
   };
   return (
     <>
-      <Content content={content} selectetCategory={"Therapi"} />
+      <Content content={content} selectetCategory={"Реабілітація та масаж"} />
     </>
   );
 }

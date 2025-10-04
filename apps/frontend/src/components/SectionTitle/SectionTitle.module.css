@@ -26,6 +26,7 @@
   font-weight: 600;
   text-transform: capitalize;
   font-size: clamp(2.1875rem, 1.9712rem + 0.9615vw, 3.125rem);
+
   color: var(--dark);
 }
 
@@ -68,8 +69,9 @@
 }
 
 .title_text_wrapper svg {
-  width: 24px !important;
-  height: 24px !important;
+  margin-bottom: 4px;
+  width: 20px !important;
+  height: 20px !important;
 
   color: var(--accent-color);
 

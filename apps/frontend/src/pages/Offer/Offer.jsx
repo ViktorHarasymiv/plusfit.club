@@ -4,6 +4,8 @@ import FrontImage from "/img/gymBg.jpg";
 
 import firstImg from "/img/01.jpg";
 import secoundImg from "/img/02.jpg";
+import Reviews from "../../components/Reviews/Reviews";
+import { Fragment } from "react";
 
 export default function Offer() {
   document.title = "Plus Fit - Пропозиції";
@@ -35,12 +37,12 @@ export default function Offer() {
   };
 
   return (
-    <div>
+    <Fragment>
       <Content
         frontImage={FrontImage}
         content={content}
-        selectetCategory={"Gym"}
+        selectetCategory={"Спортивний зал"}
       />
-    </div>
+    </Fragment>
   );
 }

@@ -9,7 +9,7 @@ const preferenceArray = [
     icon: "icon-gym",
     title: "Обладнання",
     about:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its indus standard dummy layout.",
+      "У нашому залі встановлено 38 сучасних тренажерів, які дозволяють комфортно та ефективно тренуватися людям із різним рівнем підготовки – від початківців до професіоналів.",
   },
   {
     id: 1,
@@ -17,7 +17,7 @@ const preferenceArray = [
     title: "Тренери",
     ref: "trainer",
     about:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its indus standard dummy layout.",
+      "Серце будь-якого тренажерного залу – це не лише обладнання, а й люди, які допомагають досягати результату. У нашій команді працюють два професійні тренери – Іван та Еліна.",
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const preferenceArray = [
     title: "Кращі практики",
 
     about:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its indus standard dummy layout.",
+      "Ми створили простір, де кожен може обрати свій шлях – чи це класичні силові тренування, чи практика для тіла й душі, чи перші кроки дитини у спорті.",
   },
   {
     id: 3,
@@ -33,7 +33,7 @@ const preferenceArray = [
     title: "Доступна ціна",
     ref: "tarife",
     about:
-      "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its indus standard dummy layout.",
+      "Ми віримо, що спорт має бути доступним для кожного. Саме тому в нашому залі сформована прозора та гнучка система оплат, щоб ви могли обирати варіант, який максимально відповідає вашим цілям, можливостям та стилю життя.",
   },
 ];
 

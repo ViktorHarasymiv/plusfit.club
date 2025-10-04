@@ -4,13 +4,10 @@
 
   padding: 120px 0;
 
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  background-color: var(--light-color);
 }
 
-.wrapper::before {
+/* .wrapper::before {
   z-index: -1;
   content: "";
   position: absolute;
@@ -20,7 +17,7 @@
   height: 100%;
   background: var(--hero-overlay-color);
   opacity: 0.7;
-}
+} */
 
 /* CARD */
 

@@ -49,10 +49,15 @@
 }
 
 .item_wrapper:hover h4,
-.item_wrapper:hover span {
+.item_wrapper:hover span,
+.item_wrapper:hover .toggle_btn {
   color: var(--white);
 
   transition-delay: 0.2s;
+}
+
+.item_wrapper:hover h4 {
+  text-decoration: underline;
 }
 
 .item_wrapper svg {
@@ -67,6 +72,25 @@
 
 .content_wrapper {
   padding: 30px;
+}
+
+.content_box {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.3s ease;
+}
+
+.toggle_btn {
+  transition: var(--transition2);
+  color: inherit;
+}
+
+.expanded {
+  -webkit-line-clamp: unset;
+  overflow: visible;
 }
 
 @keyframes rotate2d {

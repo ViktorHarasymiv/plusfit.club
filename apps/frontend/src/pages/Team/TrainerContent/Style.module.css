@@ -5,17 +5,15 @@
   gap: 50px;
 }
 
-@media screen and (min-width: 1191.98px) {
-  .swiper_wraper {
-    margin-bottom: 30px;
-    flex-direction: row;
-    flex-wrap: nowrap;
-  }
+.content_wrapper {
+  padding-bottom: 150px;
 }
 
 .education_article {
+  margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
+  gap: 30px;
 }
 
 .list {
@@ -49,8 +47,14 @@
 }
 
 .article_wrapper {
+  max-width: 870px;
+
   display: flex;
   flex-direction: column;
+}
+
+.article_header {
+  margin-bottom: 15px;
 }
 
 .article_title {
@@ -87,13 +91,6 @@
   color: var(--accent-color);
 }
 
-@media screen and (min-width: 1191.98px) {
-  .social {
-    flex-wrap: nowrap;
-    gap: 50px;
-  }
-}
-
 .social li a {
   display: flex;
   flex-direction: row;
@@ -113,4 +110,21 @@
 .social li a span:hover,
 .social li a span:active {
   color: var(--dark);
+}
+
+@media screen and (min-width: 1191.98px) {
+  .swiper_wraper {
+    margin-bottom: 30px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
+  .social {
+    flex-wrap: nowrap;
+    gap: 50px;
+  }
+
+  .education_article {
+    flex-wrap: nowrap;
+  }
 }

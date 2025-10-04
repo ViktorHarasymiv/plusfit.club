@@ -3,7 +3,7 @@ import Content from "../../pages/Offer/Content/Content";
 
 import BG from "../../../public/img/yoga.jpg";
 import BG1 from "../../../public/img/yoga1.JPG";
-import BG2 from "../../../public/img/yoga2.JPG";
+import BG2 from "../../../public/img/yoga2.jpg";
 
 export default function Yoga() {
   document.title = "Plus Fit - Yoga";

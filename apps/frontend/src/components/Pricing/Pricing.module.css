@@ -74,8 +74,8 @@
   color: var(--dark);
 }
 
-.motion:nth-child(3)::after li,
-.motion:nth-child(3)::before li {
+.motion:nth-child(3)::after,
+.motion:nth-child(3)::before {
   border-color: var(--white);
 }
 

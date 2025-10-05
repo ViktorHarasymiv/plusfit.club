@@ -74,6 +74,9 @@ export default function General({ resizeWidth }) {
                       <MdKeyboardArrowDown />
                       <ul className={style.dropmenu}>
                         <li className={style.dropdown_item}>
+                          <NavLink to="/offer">Тренажерний зал</NavLink>
+                        </li>
+                        <li className={style.dropdown_item}>
                           <NavLink to="/offer/rehabilitation">
                             Реабілітація
                           </NavLink>

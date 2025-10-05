@@ -47,7 +47,7 @@ export default function FormReview() {
     message: Yup.string()
       .required("Повідомлення обов'язкове")
       .min(10, "Повідомлення мінімум 10 символів")
-      .max(160, "Повідомлення максимум 160 символів"),
+      .max(340, "Повідомлення максимум 340 символів"),
   });
 
   /* SUBMIT */
@@ -155,9 +155,7 @@ export default function FormReview() {
                     Реабілітація та масаж
                   </MenuItem>
                   <MenuItem value={"Йога"}>Йога</MenuItem>
-                  <MenuItem value={"Дитячі тренування"}>
-                    Дитячі тренування
-                  </MenuItem>
+                  <MenuItem value={"Дитячі танці"}>Дитячі танці</MenuItem>
                   <MenuItem value={"Ендосфера"}>Ендосфера</MenuItem>
                 </Select>
               </FormControl>

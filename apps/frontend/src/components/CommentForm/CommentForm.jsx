@@ -8,7 +8,6 @@ import background from "/img/commentBg.jpg";
 import { useWindowWidth } from "../../hooks/useWindowWidth";
 
 export default function CommentForm() {
-  const width = useWindowWidth();
   return (
     <section>
       <div className="container">
@@ -20,7 +19,6 @@ export default function CommentForm() {
             height={635}
             className={css.comment_background}
           />
-
           <FormReview />
         </div>
       </div>

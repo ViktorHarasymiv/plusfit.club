@@ -8,6 +8,8 @@ export const getMessageSchema = Joi.object({
   section: Joi.string(),
 
   message: Joi.string(),
+
+  phone: Joi.string(),
 });
 
 export const createMessageSchema = Joi.object({
@@ -38,6 +40,15 @@ export const createMessageSchema = Joi.object({
     'string.min': 'Повідомлення мінімум 10 символів',
     'string.max': 'Повідомлення максимум 500 символів',
   }),
+
+  phone: Joi.string()
+    .pattern(/^(\+380|0)\d{9}$/)
+    .required()
+    .messages({
+      'string.empty': "Номер телефону обов'язковий",
+      'string.pattern.base':
+        'Невірний формат номера. Приклад: +380XXXXXXXXX або 0XXXXXXXXX',
+    }),
 });
 
 export const updateMessageSchema = Joi.object({

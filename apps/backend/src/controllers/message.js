@@ -1,5 +1,7 @@
+import createHttpError from 'http-errors';
 import {
   createMessage,
+  deleteMessage,
   getAllMessage,
   updateMessageIsRead,
 } from '../services/message.js';
@@ -28,6 +30,21 @@ export const createMessageController = async (req, res) => {
     message: 'Відгук успішно створений!',
     data: review,
   });
+};
+
+// DELETE
+
+export const deleteMessageController = async (req, res, next) => {
+  const { messageId } = req.params;
+
+  const message = await deleteMessage(messageId);
+
+  if (!message) {
+    next(createHttpError(404, 'Message not found'));
+    return;
+  }
+
+  res.status(204).send();
 };
 
 // PATCH

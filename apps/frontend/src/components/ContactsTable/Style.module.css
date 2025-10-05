@@ -83,10 +83,11 @@
 }
 
 .wrapper_form {
+  padding-block: 60px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 100px;
+  gap: 50px;
 
   box-shadow: var(--box-shadow);
 }
@@ -101,4 +102,11 @@
 
 .image {
   box-shadow: rgba(0, 0, 0, 0.2) 2.95px 2.95px 5.6px;
+}
+
+@media screen and (min-width: 1191.98px) {
+  .wrapper_form {
+    padding-block: 0px;
+    padding-inline: 50px;
+  }
 }

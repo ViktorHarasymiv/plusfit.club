@@ -9,7 +9,7 @@ function ContactsTable() {
     {
       id: 0,
       title: "Адреса",
-      content: "Гончарська, 5Б, Броди, 80600",
+      content: "м. Броди, 80600 Гончарська, 5Б",
       icon: "icon-map",
     },
     {

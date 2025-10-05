@@ -22,11 +22,13 @@ import { CREATE_MESSAGE } from "../../services/message";
 
 function MessageForm() {
   const width = useWindowWidth();
+
   const initialValues = {
     name: "",
     email: "",
     section: "",
     message: "",
+    phone: "",
   };
 
   const validationSchema = Yup.object({
@@ -47,6 +49,13 @@ function MessageForm() {
       .required("Повідомлення обов'язкове")
       .min(10, "Повідомлення мінімум 10 символів")
       .max(500, "Повідомлення максимум 500 символів"),
+
+    phone: Yup.string()
+      .required("Номер телефону обов'язковий")
+      .matches(
+        /^(\+380|0)\d{9}$/,
+        "Невірний формат номера. Приклад: +380XXXXXXXXX або 0XXXXXXXXX"
+      ),
   });
 
   /* SUBMIT */
@@ -82,7 +91,7 @@ function MessageForm() {
         />
       )}
       <div className={css.form_block}>
-        <SectionTitle title={""} about={"Зв'яжіться з нами"} />
+        <SectionTitle title={"Send message"} about={"Зв'яжіться з нами"} />
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
@@ -108,6 +117,24 @@ function MessageForm() {
                 />
               </div>
 
+              {/* Phone */}
+              <div
+                className={style.input_wrapper}
+                style={{ maxWidth: "304px" }}
+              >
+                <Field
+                  name="phone"
+                  type="tel"
+                  placeholder="Номер телефону"
+                  className={style.input}
+                />
+                <ErrorMessage
+                  name="phone"
+                  component="div"
+                  className={style.error}
+                />
+              </div>
+
               {/* Name */}
               <div
                 className={style.input_wrapper}
@@ -127,12 +154,14 @@ function MessageForm() {
               </div>
 
               {/* Section */}
-              <div
-                className={style.input_wrapper}
-                style={{ maxWidth: "304px" }}
-              >
+              <div className={style.input_wrapper}>
                 <FormControl
-                  sx={{ m: 1, maxWidth: 304, width: "100%", margin: "0px" }}
+                  sx={{
+                    m: 1,
+                    maxWidth: 304,
+                    width: "100%",
+                    margin: "0px",
+                  }}
                 >
                   <Select
                     name="section"
@@ -189,6 +218,7 @@ function MessageForm() {
               {/* Textarea */}
 
               <TextField
+                fullWidth
                 multiline
                 name="message"
                 label="Ваше повідомлення"
@@ -198,7 +228,7 @@ function MessageForm() {
                 error={touched.message && Boolean(errors.message)}
                 helperText={touched.message && errors.message}
                 sx={{
-                  maxWidth: "304px",
+                  gridColumn: "span 2",
                   backgroundColor: "transparent",
 
                   "& .MuiInputBase-root": {

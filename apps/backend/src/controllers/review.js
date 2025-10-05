@@ -1,3 +1,4 @@
+import { SubscriptionsCollection } from '../db/models/subscriptions.js';
 import { allReviews, createReview } from '../services/review.js';
 
 // GET
@@ -25,9 +26,19 @@ export const allReviewsController = async (req, res) => {
 // CREATE
 
 export const createReviewsController = async (req, res) => {
-  const reviewData = {
-    ...req.body,
-  };
+  const { email, ...rest } = req.body;
+
+  // Перевірка, чи існує абонемент з таким емейлом
+  const subscriptionExists = await SubscriptionsCollection.exists({ email });
+
+  if (!subscriptionExists) {
+    return res.status(403).json({
+      status: 403,
+      message: 'Ви не маєте активного абонементу. Відгук не дозволено.',
+    });
+  }
+
+  const reviewData = { email, ...rest };
   const review = await createReview(reviewData);
 
   res.status(201).json({

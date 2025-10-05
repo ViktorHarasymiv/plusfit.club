@@ -1,6 +1,6 @@
 import { model, Schema } from 'mongoose';
 
-const reviewSchema = new Schema(
+const messageSchema = new Schema(
   {
     name: {
       type: String,
@@ -24,19 +24,13 @@ const reviewSchema = new Schema(
       type: String,
       required: true,
       enum: [
+        'Загальне повідомлення',
         'Спортивний зал',
         'Реабілітація та масаж',
         'Йога',
         'Дитячі танці',
         'Ендосфера',
       ],
-    },
-
-    rating: {
-      type: Number,
-      required: true,
-      min: 1,
-      max: 5,
     },
 
     message: {
@@ -46,6 +40,10 @@ const reviewSchema = new Schema(
       maxlength: 500,
       trim: true,
     },
+    isRead: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,
@@ -53,4 +51,4 @@ const reviewSchema = new Schema(
   },
 );
 
-export const ReviewsCollection = model('review', reviewSchema);
+export const MessagesCollection = model('message', messageSchema);

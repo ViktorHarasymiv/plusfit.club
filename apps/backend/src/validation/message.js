@@ -1,18 +1,16 @@
 import Joi from 'joi';
 
-export const getReviewSchema = Joi.object({
+export const getMessageSchema = Joi.object({
   name: Joi.string(),
 
   email: Joi.string().email({ tlds: { allow: false } }),
 
   section: Joi.string(),
 
-  rating: Joi.number(),
-
   message: Joi.string(),
 });
 
-export const createReviewSchema = Joi.object({
+export const createMessageSchema = Joi.object({
   name: Joi.string().min(2).max(40).required().messages({
     'string.empty': "Ім'я обов'язкове",
     'string.min': "Ім'я мінімум 2 символи",
@@ -35,16 +33,13 @@ export const createReviewSchema = Joi.object({
     'string.empty': "Секція обов'язкова",
   }),
 
-  rating: Joi.number().min(1).max(5).required().messages({
-    'number.base': 'Оцінка має бути числом',
-    'number.min': 'Оцінка мінімум 1',
-    'number.max': 'Оцінка максимум 5',
-    'any.required': "Оцінка обов'язкова",
-  }),
-
-  message: Joi.string().min(10).max(340).required().messages({
+  message: Joi.string().min(10).max(500).required().messages({
     'string.empty': "Повідомлення обов'язкове",
     'string.min': 'Повідомлення мінімум 10 символів',
-    'string.max': 'Повідомлення максимум 180 символів',
+    'string.max': 'Повідомлення максимум 500 символів',
   }),
+});
+
+export const updateMessageSchema = Joi.object({
+  isRead: Joi.boolean(),
 });

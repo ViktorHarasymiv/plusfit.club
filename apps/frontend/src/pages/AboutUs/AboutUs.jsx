@@ -8,8 +8,8 @@ export default function AboutUs() {
     <main>
       <section>
         <NavigationContext />
-        <Reviews />
         <Trainer />
+        <Reviews />
       </section>
     </main>
   );

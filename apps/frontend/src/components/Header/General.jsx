@@ -100,22 +100,24 @@ export default function General({ resizeWidth }) {
                       <MdKeyboardArrowDown />
                       <ul className={style.dropmenu}>
                         <li className={style.dropdown_item}>
-                          <NavLink to="/subscription">Абонемент</NavLink>
+                          <NavLink to="price/subscription">Абонемент</NavLink>
                         </li>
                         <li className={style.dropdown_item}>
-                          <NavLink to="/massage">Масаж</NavLink>
+                          <NavLink to="price/massage">Масаж</NavLink>
                         </li>
                         <li className={style.dropdown_item}>
-                          <NavLink to="/rehabilitation">Реабілітація</NavLink>
+                          <NavLink to="price/rehabilitation">
+                            Реабілітація
+                          </NavLink>
                         </li>
                         <li className={style.dropdown_item}>
-                          <NavLink to="/endosphere">Сфератерапія</NavLink>
+                          <NavLink to="price/endosphere">Сфератерапія</NavLink>
                         </li>
                         <li className={style.dropdown_item}>
-                          <NavLink to="/yoga">Йога</NavLink>
+                          <NavLink to="price/yoga">Йога</NavLink>
                         </li>
                         <li className={style.dropdown_item}>
-                          <NavLink to="/kids">Дитячі танці</NavLink>
+                          <NavLink to="price/kids">Дитячі танці</NavLink>
                         </li>
                       </ul>
                     </li>

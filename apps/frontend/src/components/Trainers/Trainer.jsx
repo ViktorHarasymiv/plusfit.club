@@ -22,7 +22,7 @@ import { useLocation } from "react-router-dom";
 export default function Trainer({ selectedCategory }) {
   const pathname = useLocation();
 
-  const isHomePage = ["/", "/team"].includes(pathname.pathname);
+  const isHomePage = ["/", "/team", "/about"].includes(pathname.pathname);
 
   const dataTreiners = useTrainerStore((s) => s.trainers);
   const selectedGroup = selectedCategory || null;

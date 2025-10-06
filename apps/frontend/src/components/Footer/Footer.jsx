@@ -120,31 +120,32 @@ export default function Footer() {
                   </h4>
                   <ul className={style.navbar_list}>
                     <li className={style.navbar_item}>
-                      <NavLink to="/rehabilitation">
+                      <NavLink to="/offer">
+                        <TiArrowSortedDown className={style.icon_route} />
+                        <span>Тренажерний зал</span>
+                      </NavLink>
+                    </li>
+                    <li className={style.navbar_item}>
+                      <NavLink to="/offer/rehabilitation">
                         <TiArrowSortedDown className={style.icon_route} />
                         <span>Реабілітація</span>
                       </NavLink>
                     </li>
                     <li className={style.navbar_item}>
-                      <NavLink to="/massage">
+                      <NavLink to="/offer/massage">
                         <TiArrowSortedDown className={style.icon_route} />
                         <span>Масаж</span>
                       </NavLink>
                     </li>
                     <li className={style.navbar_item}>
-                      <NavLink to="/endosphere">
+                      <NavLink to="/offer/endosphere">
                         <TiArrowSortedDown className={style.icon_route} />
                         <span>Ендосфера</span>
                       </NavLink>
                     </li>
+
                     <li className={style.navbar_item}>
-                      <NavLink to="/group">
-                        <TiArrowSortedDown className={style.icon_route} />
-                        <span>Групові тренування</span>
-                      </NavLink>
-                    </li>
-                    <li className={style.navbar_item}>
-                      <NavLink to="/children">
+                      <NavLink to="/offer/kids">
                         <TiArrowSortedDown className={style.icon_route} />
                         <span>Дитячі танці</span>
                       </NavLink>

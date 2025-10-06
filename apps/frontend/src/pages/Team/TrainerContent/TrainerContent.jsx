@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from "react";
 import css from "./Style.module.css";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useTrainerStore } from "../../../store/trainerStore";
 import TrainerSwiper from "../TeamSwiper/TeamSwiper";
 
@@ -25,7 +25,10 @@ function TrainerContent() {
           <div className={css.swiper_wraper}>
             <TrainerSwiper />
             {filteredData.map(
-              ({ name, greeting, category, about, social }, index) => {
+              (
+                { name, greeting, category, about, social, pricePath },
+                index
+              ) => {
                 return (
                   <article key={index} className={css.article_wrapper}>
                     <div className={css.article_header}>
@@ -36,6 +39,32 @@ function TrainerContent() {
                       <p className={css.greeting}>{greeting}</p>
                       <p>{about}</p>
                     </div>
+                    <ul>
+                      <h5
+                        style={{
+                          fontFamily: "var(--font-family-oswald)",
+                          color: "var(--accent-color)",
+                        }}
+                      >
+                        Ціни:
+                      </h5>
+                      {pricePath?.map(({ label, path }, index) => {
+                        return (
+                          <li key={index}>
+                            <Link to={`/price/${path}`}>
+                              <span
+                                style={{
+                                  textDecoration: "underline",
+                                  color: "var(--accent-color)",
+                                }}
+                              >
+                                {label}
+                              </span>
+                            </Link>
+                          </li>
+                        );
+                      })}
+                    </ul>
                     <ul className={css.social}>
                       {social.map((item, index) => (
                         <li key={index} className={css.social_item}>

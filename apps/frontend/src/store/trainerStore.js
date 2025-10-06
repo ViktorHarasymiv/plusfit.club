@@ -15,6 +15,10 @@ export const useTrainerStore = create((set, get) => ({
       greeting:
         "👋 Мене звати Довгалюк Уляна Романівна, я магістр фізичної терапії та ерготерапії.",
       link: "dovhaliuk-ulyana",
+      pricePath: [
+        { label: "Массаж", path: "massage" },
+        { label: "Реабілітація", path: "rehabilitation" },
+      ],
       social: [
         {
           instagram: {

@@ -16,6 +16,7 @@ import KidsDance from "../KidsDance/KidsDance";
 import OfferLayout from "../../pages/Offer/OfferLayout";
 import Team from "../../pages/Team/Team";
 import TeamLayout from "../../pages/Team/TeamLayout";
+import MassagePrice from "../Massage/MassagePrice";
 
 function Router() {
   return (
@@ -50,7 +51,7 @@ function Router() {
         </Route>
 
         <Route path="/price" element={<Price />}>
-          {/* <Route path="rehabilitation" element={<Rehabilitation />} /> */}
+          <Route path="massage" element={<MassagePrice />} />
         </Route>
 
         <Route path="/gallery" element={<Price />}>

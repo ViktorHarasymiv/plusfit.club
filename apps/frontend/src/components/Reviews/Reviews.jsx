@@ -15,8 +15,6 @@ import { useReviewStore } from "../../store/reviews";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import ReviewItem from "./ReviewItem";
 
-import BG from "/img/reviewsbg.jpg";
-
 function Reviews({ filterType, background, styles }) {
   const { reviews, loading, error, fetchReviews, averageRating } =
     useReviewStore();

@@ -33,6 +33,7 @@ export const startServer = () => {
         'http://localhost:5173',
         'http://localhost:5174',
         'https://plusfit-club-nmf7.vercel.app',
+        'https://plusfit-club-dashboard.vercel.app',
       ],
 
       credentials: true,

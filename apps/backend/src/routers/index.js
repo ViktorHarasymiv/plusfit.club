@@ -6,6 +6,7 @@ import reviewRouter from './review.js';
 import messageRouter from './message.js';
 import massageRouter from './massage.js';
 import rehabilitationRouter from './rehabilitation.js';
+import gymRouter from './gym.js';
 
 const router = Router();
 
@@ -15,5 +16,6 @@ router.use('/review', reviewRouter);
 router.use('/message', messageRouter);
 router.use('/massage', massageRouter);
 router.use('/rehabilitation', rehabilitationRouter);
+router.use('/gym', gymRouter);
 
 export default router;

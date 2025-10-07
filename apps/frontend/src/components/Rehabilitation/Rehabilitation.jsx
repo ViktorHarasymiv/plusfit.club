@@ -2,7 +2,7 @@ import React from "react";
 import Content from "../../pages/Offer/Content/Content";
 
 export default function Rehabilitation() {
-  document.title = "Plus Fit - Rehabilitation";
+  document.title = "ПЛЮС ФІТ - Реабілітація";
   const content = {
     frontImage: "",
     firstParagraph: {

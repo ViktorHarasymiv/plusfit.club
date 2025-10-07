@@ -6,6 +6,7 @@ import firstImg from "/img/01.jpg";
 import secoundImg from "/img/02.jpg";
 
 function Gym() {
+  document.title = "Плюс Фіт - Тренажерний зал";
   const content = {
     frontImage: FrontImage,
     firstParagraph: {

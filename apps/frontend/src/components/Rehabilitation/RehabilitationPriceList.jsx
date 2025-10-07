@@ -11,7 +11,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { MdAccessTime } from "react-icons/md";
 import { IoPricetagOutline } from "react-icons/io5";
 
-function PriceList({ data }) {
+function RehabilitationPriceList({ data }) {
   return (
     <div className={css.price_wrapper}>
       {data.map((categoryBlock, index) => (
@@ -38,7 +38,9 @@ function PriceList({ data }) {
                 <li key={index} className={css.item}>
                   <ul className={css.description_list}>
                     {categoryBlock.description.map((item, index) => (
-                      <li className={css.type_name}>{item}</li>
+                      <li key={index} className={css.type_name}>
+                        {item}
+                      </li>
                     ))}
                   </ul>
                   <ul>
@@ -73,4 +75,4 @@ function PriceList({ data }) {
   );
 }
 
-export default PriceList;
+export default RehabilitationPriceList;

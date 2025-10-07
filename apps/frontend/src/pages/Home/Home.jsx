@@ -12,7 +12,7 @@ import Reviews from "../../components/Reviews/Reviews";
 
 export default function Home() {
   const width = useWindowWidth();
-  document.title = "Plus Fit - Фітнес клуб";
+  document.title = "Плюс Фіт - Спортивний комплекс";
   return (
     <main>
       <Hero />

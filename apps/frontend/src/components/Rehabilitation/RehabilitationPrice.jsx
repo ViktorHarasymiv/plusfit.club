@@ -5,7 +5,7 @@ import SectionTitle from "../SectionTitle/SectionTitle";
 
 import style from "../Massage/Style.module.css";
 import Trainer from "../Trainers/Trainer";
-import PriceList from "./PriceList";
+import RehabilitationPriceList from "./RehabilitationPriceList";
 import Loader from "../ui/Loader/Loader";
 
 function RehabilitationPrice() {
@@ -26,7 +26,7 @@ function RehabilitationPrice() {
         <SectionTitle title={"Services"} about={"Реабілітація"} />
         <div className={style.content_wrapper}>
           <Trainer selectedCategory={"Реабілітація та масаж"} />
-          <PriceList data={data} />
+          <RehabilitationPriceList data={data} />
         </div>
       </div>
       <Reviews filterType={["Реабілітація та масаж"]} />

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
@@ -66,6 +66,7 @@ function MessageForm() {
       resetForm();
       alert("Відгук успішно додано");
     } catch (error) {
+      setLoader(false);
       if (error?.response?.status === 403) {
         alert("Відгук дозволено лише для абонентів.");
       } else {

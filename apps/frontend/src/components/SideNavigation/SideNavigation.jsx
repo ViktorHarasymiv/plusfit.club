@@ -35,9 +35,14 @@ export default function SideNavigation() {
         className={css.panel_wrapper}
         style={{ display: isOpen ? "block" : "none" }}
       >
-        <NavLink to="/offer">Головна</NavLink>
+        <NavLink to="/offer/gym">
+          <MdKeyboardDoubleArrowRight /> <span>Тренажерний зал</span>
+        </NavLink>
         <NavLink to="/offer/massage">
           <MdKeyboardDoubleArrowRight /> <span>Масаж</span>
+        </NavLink>
+        <NavLink to="/offer/rehabilitation">
+          <MdKeyboardDoubleArrowRight /> <span>Реабілітація</span>
         </NavLink>
         <NavLink to="/offer/yoga">
           <MdKeyboardDoubleArrowRight /> <span>Йога</span>
@@ -48,9 +53,6 @@ export default function SideNavigation() {
         </NavLink>
         <NavLink to="/offer/endosphere">
           <MdKeyboardDoubleArrowRight /> <span>Ендосфера</span>
-        </NavLink>
-        <NavLink to="/offer/rehabilitation">
-          <MdKeyboardDoubleArrowRight /> <span>Реабілітація</span>
         </NavLink>
       </nav>
     </div>

@@ -26,6 +26,13 @@
   font-family: var(--font-family-oswald);
   font-style: italic;
 }
+.description_list {
+  margin-bottom: 10px;
+}
+
+.icon {
+  margin-right: 7px;
+}
 
 @media screen and (min-width: 991.98px) {
   .content_wrapper {

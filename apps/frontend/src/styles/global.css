@@ -10,8 +10,8 @@
 
 .active,
 .accent_text {
-  font-family: inherit;
-  color: var(--accent-color);
+  font-family: inherit !important;
+  color: var(--accent-color) !important;
 }
 
 .accent_text {
@@ -57,8 +57,6 @@ svg {
 
   color: var(--color-white);
   color: inherit;
-
-  transition: var(--transition2);
 }
 
 .icon {

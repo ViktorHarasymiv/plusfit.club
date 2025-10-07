@@ -1,30 +1,30 @@
 import React, { useEffect } from "react";
-
-import css from "./Style.module.css";
-
-import { massagePriceList } from "../../store/massageStore";
-
+import { rehabilitationPriceList } from "../../store/rehabilitationStore";
 import Reviews from "../Reviews/Reviews";
+import SectionTitle from "../SectionTitle/SectionTitle";
+
+import style from "../Massage/Style.module.css";
 import Trainer from "../Trainers/Trainer";
 import PriceList from "./PriceList";
-import SectionTitle from "../SectionTitle/SectionTitle";
 import Loader from "../ui/Loader/Loader";
 
-function MassagePrice() {
-  const { data, loading, error, fetchMassagePriceList } = massagePriceList();
+function RehabilitationPrice() {
+  const { data, loading, error, fetchRehabilitationPriceList } =
+    rehabilitationPriceList();
 
   useEffect(() => {
-    fetchMassagePriceList();
+    fetchRehabilitationPriceList();
   }, []);
+
+  console.log(data);
 
   if (loading) return <Loader />;
   if (error) return <p>{error}</p>;
-
   return (
     <>
       <div className="container">
-        <SectionTitle title={"Services"} about={"Масаж"} />
-        <div className={css.content_wrapper}>
+        <SectionTitle title={"Services"} about={"Реабілітація"} />
+        <div className={style.content_wrapper}>
           <Trainer selectedCategory={"Реабілітація та масаж"} />
           <PriceList data={data} />
         </div>
@@ -34,4 +34,4 @@ function MassagePrice() {
   );
 }
 
-export default MassagePrice;
+export default RehabilitationPrice;

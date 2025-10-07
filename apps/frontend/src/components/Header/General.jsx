@@ -70,54 +70,113 @@ export default function General({ resizeWidth }) {
                       </NavLink>
                     </li>
                     <li className={style.navbar_item}>
-                      <NavLink to="/offer">Пропозиції</NavLink>
-                      <MdKeyboardArrowDown />
+                      <NavLink to={"/offer"} style={{ pointerEvents: "none" }}>
+                        Пропозиції <MdKeyboardArrowDown />
+                      </NavLink>
                       <ul className={style.dropmenu}>
-                        <li className={style.dropdown_item}>
-                          <NavLink to="/offer">Тренажерний зал</NavLink>
+                        <li>
+                          <NavLink
+                            to="offer/gym"
+                            className={style.dropdown_item}
+                          >
+                            Тренажерний зал
+                          </NavLink>
                         </li>
-                        <li className={style.dropdown_item}>
-                          <NavLink to="/offer/rehabilitation">
+
+                        <li>
+                          <NavLink
+                            to="/offer/massage"
+                            className={style.dropdown_item}
+                          >
+                            Масаж
+                          </NavLink>
+                        </li>
+                        <li>
+                          <NavLink
+                            to="/offer/rehabilitation"
+                            className={style.dropdown_item}
+                          >
                             Реабілітація
                           </NavLink>
                         </li>
-                        <li className={style.dropdown_item}>
-                          <NavLink to="/offer/massage">Масаж</NavLink>
+                        <li>
+                          <NavLink
+                            to="/offer/yoga"
+                            className={style.dropdown_item}
+                          >
+                            Йога
+                          </NavLink>
                         </li>
-                        <li className={style.dropdown_item}>
-                          <NavLink to="/offer/endosphere">Ендосфера</NavLink>
+                        <li>
+                          <NavLink
+                            to="/offer/kids"
+                            className={style.dropdown_item}
+                          >
+                            Дитячі танці
+                          </NavLink>
                         </li>
-                        <li className={style.dropdown_item}>
-                          <NavLink to="/offer/yoga">Йога</NavLink>
-                        </li>
-                        <li className={style.dropdown_item}>
-                          <NavLink to="/offer/kids">Дитячі танці</NavLink>
+                        <li>
+                          <NavLink
+                            to="/offer/endosphere"
+                            className={style.dropdown_item}
+                          >
+                            Сфератерапія
+                          </NavLink>
                         </li>
                       </ul>
                     </li>
                     <li className={style.navbar_item}>
-                      <NavLink to="/price"> Ціни </NavLink>
-                      <MdKeyboardArrowDown />
+                      <NavLink to={"/price"} style={{ pointerEvents: "none" }}>
+                        Ціни <MdKeyboardArrowDown />
+                      </NavLink>
                       <ul className={style.dropmenu}>
-                        <li className={style.dropdown_item}>
-                          <NavLink to="price/subscription">Абонемент</NavLink>
+                        <li>
+                          <NavLink
+                            to="price/gym"
+                            className={style.dropdown_item}
+                          >
+                            Тренажерний зал
+                          </NavLink>
                         </li>
-                        <li className={style.dropdown_item}>
-                          <NavLink to="price/massage">Масаж</NavLink>
+                        <li>
+                          <NavLink
+                            to="price/massage"
+                            className={style.dropdown_item}
+                          >
+                            Масаж
+                          </NavLink>
                         </li>
-                        <li className={style.dropdown_item}>
-                          <NavLink to="price/rehabilitation">
+                        <li>
+                          <NavLink
+                            to="price/rehabilitation"
+                            className={style.dropdown_item}
+                          >
                             Реабілітація
                           </NavLink>
                         </li>
-                        <li className={style.dropdown_item}>
-                          <NavLink to="price/endosphere">Сфератерапія</NavLink>
+                        <li>
+                          <NavLink
+                            to="price/yoga"
+                            className={style.dropdown_item}
+                          >
+                            Йога
+                          </NavLink>
                         </li>
-                        <li className={style.dropdown_item}>
-                          <NavLink to="price/yoga">Йога</NavLink>
+                        <li>
+                          <NavLink
+                            to="price/kids"
+                            className={style.dropdown_item}
+                          >
+                            Дитячі танці
+                          </NavLink>
                         </li>
-                        <li className={style.dropdown_item}>
-                          <NavLink to="price/kids">Дитячі танці</NavLink>
+                        <li>
+                          <NavLink
+                            to="price/endosphere"
+                            className={style.dropdown_item}
+                          >
+                            Сфератерапія
+                          </NavLink>
                         </li>
                       </ul>
                     </li>

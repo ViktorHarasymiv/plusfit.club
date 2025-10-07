@@ -1,6 +1,6 @@
 import React from "react";
 
-import css from "./Style.module.css";
+import css from "../Massage/Style.module.css";
 
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -15,7 +15,7 @@ function PriceList({ data }) {
   return (
     <div className={css.price_wrapper}>
       {data.map((categoryBlock, index) => (
-        <div key={categoryBlock._id} style={{ marginBottom: "2rem" }}>
+        <div key={categoryBlock.id} style={{ marginBottom: "2rem" }}>
           <Accordion defaultExpanded={index === 0}>
             <AccordionSummary
               expandIcon={
@@ -30,27 +30,40 @@ function PriceList({ data }) {
               }}
             >
               <Typography component="span">
-                <h3 className={css.title}>{categoryBlock.category}</h3>
+                <h3 className={css.title}>Пакет №{categoryBlock.pack}</h3>
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Typography>
-                {categoryBlock.services.map((service, index) => (
-                  <li key={index} className={css.item}>
-                    <strong className={css.type_name}>{service.name}</strong>
-                    {service.description && (
-                      <>
-                        {" "}
-                        — <em>{service.description}</em>
-                      </>
+                <li key={index} className={css.item}>
+                  <ul className={css.description_list}>
+                    {categoryBlock.description.map((item, index) => (
+                      <li className={css.type_name}>{item}</li>
+                    ))}
+                  </ul>
+                  <ul>
+                    {Array.isArray(categoryBlock.price) ? (
+                      categoryBlock.price.map((price, index) => (
+                        <li>
+                          <p key={index}>
+                            <IoPricetagOutline className={css.icon} />
+                            {price}
+                          </p>
+                        </li>
+                      ))
+                    ) : (
+                      <li>
+                        <IoPricetagOutline className={css.icon} />
+                        {categoryBlock.price}
+                      </li>
                     )}
-                    <br />
-                    <IoPricetagOutline className={css.icon} />
-                    <span>{service.price} ₴</span>{" "}
+                  </ul>
+
+                  <p>
                     <MdAccessTime className={css.icon} />
-                    {service.duration_min} хв
-                  </li>
-                ))}
+                    {categoryBlock.duration_min} хв
+                  </p>
+                </li>
               </Typography>
             </AccordionDetails>
           </Accordion>

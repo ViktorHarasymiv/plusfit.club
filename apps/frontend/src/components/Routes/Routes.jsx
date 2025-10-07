@@ -17,6 +17,9 @@ import OfferLayout from "../../pages/Offer/OfferLayout";
 import Team from "../../pages/Team/Team";
 import TeamLayout from "../../pages/Team/TeamLayout";
 import MassagePrice from "../Massage/MassagePrice";
+import RehabilitationPrice from "../Rehabilitation/RehabilitationPrice";
+import GymPrice from "../Gym/GymPrice";
+import Gym from "../Gym/Gym";
 
 function Router() {
   return (
@@ -37,8 +40,9 @@ function Router() {
 
         {/* Offers */}
         <Route path="/offer" element={<OfferLayout />}>
-          <Route index element={<Offer />} />
+          {/* <Route index element={<Offer />} /> */}
 
+          <Route path="gym" element={<Gym />} />
           <Route path="rehabilitation" element={<Rehabilitation />} />
           <Route path="massage" element={<Massage />} />
           <Route path="endosphere" element={<Endosphere />} />
@@ -51,7 +55,9 @@ function Router() {
         </Route>
 
         <Route path="/price" element={<Price />}>
+          <Route path="gym" element={<GymPrice />} />
           <Route path="massage" element={<MassagePrice />} />
+          <Route path="rehabilitation" element={<RehabilitationPrice />} />
         </Route>
 
         <Route path="/gallery" element={<Price />}>

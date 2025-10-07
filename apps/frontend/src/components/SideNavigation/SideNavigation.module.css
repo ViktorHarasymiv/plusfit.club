@@ -42,8 +42,12 @@
   border-bottom: 1px solid var(--border-info-color);
 }
 
+.panel_wrapper a span {
+  transition: all 0.1s ease-in;
+}
+
 .panel_wrapper a:hover {
-  transform: translateX(5px) scale(1.1);
+  transform: translateX(5px);
 }
 
 @media screen and (min-width: 1200px) {

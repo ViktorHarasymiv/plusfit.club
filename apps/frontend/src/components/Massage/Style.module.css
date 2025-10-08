@@ -1,5 +1,6 @@
 .content_wrapper {
-  padding-bottom: 80px;
+  padding-bottom: 140px;
+
   display: flex;
   flex-wrap: wrap-reverse;
   justify-content: space-between;

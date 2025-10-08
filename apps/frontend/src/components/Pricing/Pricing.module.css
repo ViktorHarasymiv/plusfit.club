@@ -4,6 +4,7 @@
 }
 
 .motion {
+  pointer-events: none;
   z-index: 1;
   position: relative;
 
@@ -15,6 +16,10 @@
   color: var(--white);
 
   transition: transform 0.2s ease-out;
+}
+
+:global(.swiper-slide-active) {
+  pointer-events: all !important;
 }
 
 .motion li {
@@ -85,16 +90,15 @@
 }
 
 .offers_box {
-  height: 100%;
   padding-block: 25px;
 
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
 
-  flex: 1;
-
   gap: 15px;
+
+  margin-bottom: auto;
 }
 
 .offers_box li {

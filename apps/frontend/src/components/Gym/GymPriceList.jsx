@@ -34,26 +34,24 @@ function GymPriceList({ data }) {
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography>
-                <li key={index} className={css.item}>
-                  <ul className={css.description_list}>
-                    {description.map((item, index) => (
-                      <li key={index}>
-                        <p>
-                          <span>
-                            <IoPricetagOutline className={css.icon} />
-                            {item.price} ₴
-                          </span>
-                          <span style={{ marginLeft: "10px" }}>
-                            <MdAccessTime className={css.icon} />
-                            {item.time}
-                          </span>
-                        </p>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-              </Typography>
+              <li key={index} className={css.item}>
+                <ul className={css.description_list}>
+                  {description.map((item, index) => (
+                    <li key={index}>
+                      <p>
+                        <span>
+                          <IoPricetagOutline className={css.icon} />
+                          {item.price} ₴
+                        </span>
+                        <span style={{ marginLeft: "10px" }}>
+                          <MdAccessTime className={css.icon} />
+                          {item.time}
+                        </span>
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </li>
             </AccordionDetails>
           </Accordion>
         </div>

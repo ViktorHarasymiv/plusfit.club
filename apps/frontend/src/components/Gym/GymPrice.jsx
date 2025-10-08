@@ -18,8 +18,6 @@ function GymPrice() {
     fetchGymPriceList();
   }, []);
 
-  console.log(data);
-
   if (loading) return <Loader />;
   if (error) return <p>{error}</p>;
 
@@ -28,8 +26,8 @@ function GymPrice() {
       <div className="container">
         <SectionTitle title={"Services"} about={"Тренажерний зал"} />
         <div className={style.content_wrapper}>
-          <GymPriceList data={data} />
           <Trainer selectedCategory={"Спортивний зал"} />
+          <GymPriceList data={data} />
         </div>
       </div>
       <Reviews filterType={["Реабілітація та масаж"]} />

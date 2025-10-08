@@ -89,10 +89,10 @@ export default function Footer() {
                       </NavLink>
                     </li>
                     <li className={style.navbar_item}>
-                      <NavLink to="/subscription">
+                      <a href="#tarife">
                         <TiArrowSortedDown className={style.icon_route} />
                         <span>Абонемент</span>
-                      </NavLink>
+                      </a>
                     </li>
                     <li className={style.navbar_item}>
                       <NavLink to="/about">
@@ -120,15 +120,9 @@ export default function Footer() {
                   </h4>
                   <ul className={style.navbar_list}>
                     <li className={style.navbar_item}>
-                      <NavLink to="/offer">
+                      <NavLink to="offer/gym">
                         <TiArrowSortedDown className={style.icon_route} />
                         <span>Тренажерний зал</span>
-                      </NavLink>
-                    </li>
-                    <li className={style.navbar_item}>
-                      <NavLink to="/offer/rehabilitation">
-                        <TiArrowSortedDown className={style.icon_route} />
-                        <span>Реабілітація</span>
                       </NavLink>
                     </li>
                     <li className={style.navbar_item}>
@@ -138,16 +132,27 @@ export default function Footer() {
                       </NavLink>
                     </li>
                     <li className={style.navbar_item}>
-                      <NavLink to="/offer/endosphere">
+                      <NavLink to="/offer/rehabilitation">
                         <TiArrowSortedDown className={style.icon_route} />
-                        <span>Ендосфера</span>
+                        <span>Реабілітація</span>
                       </NavLink>
                     </li>
-
                     <li className={style.navbar_item}>
-                      <NavLink to="/offer/kids">
+                      <NavLink to="offer/yoga">
+                        <TiArrowSortedDown className={style.icon_route} />
+                        <span>Йога</span>
+                      </NavLink>
+                    </li>
+                    <li className={style.navbar_item}>
+                      <NavLink to="offer/kids">
                         <TiArrowSortedDown className={style.icon_route} />
                         <span>Дитячі танці</span>
+                      </NavLink>
+                    </li>
+                    <li className={style.navbar_item}>
+                      <NavLink to="offer/endosphere">
+                        <TiArrowSortedDown className={style.icon_route} />
+                        <span>Ендосфера</span>
                       </NavLink>
                     </li>
                   </ul>

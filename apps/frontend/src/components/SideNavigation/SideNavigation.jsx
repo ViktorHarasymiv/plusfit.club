@@ -49,7 +49,7 @@ export default function SideNavigation() {
         </NavLink>
         <NavLink to="/offer/kids">
           <MdKeyboardDoubleArrowRight />
-          <span>Дитячі тренування</span>
+          <span>Дитячі танці</span>
         </NavLink>
         <NavLink to="/offer/endosphere">
           <MdKeyboardDoubleArrowRight /> <span>Ендосфера</span>

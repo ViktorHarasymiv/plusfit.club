@@ -5,8 +5,6 @@ import css from "./CommentForm.module.css";
 
 import background from "/img/commentBg.jpg";
 
-import { useWindowWidth } from "../../hooks/useWindowWidth";
-
 export default function CommentForm() {
   return (
     <section>

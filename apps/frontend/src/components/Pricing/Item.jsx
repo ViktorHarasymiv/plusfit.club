@@ -8,55 +8,82 @@ import ReverseBtn from "../../components/ui/Button/ReverseBtn";
 import { MdDone } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
 
-export default function Item({ data }) {
+export default function Item({ data, index }) {
+  const { name, description, features } = data;
+
   return (
     <li className={css.item}>
       <div className={css.title_box}>
-        <h1 className={css.about_title}>{data.name}</h1>
+        <h1 className={css.about_title}>{name}</h1>
         <span className={css.title}>{data.title}</span>
-        <h2 className={css.price}>
-          <span className="active">
-            {data.price} {data.currency}
-          </span>
-        </h2>
+        {description?.map(({ time, price }) => {
+          return (
+            <div>
+              <h2 className={css.price}>
+                <span
+                  className="active"
+                  style={{
+                    color: index === 2 ? "var(--dark) !important" : null,
+                  }}
+                >
+                  {price} грн.
+                </span>
+              </h2>
+              <h3>{time}</h3>
+            </div>
+          );
+        })}
       </div>
       <ul className={css.offers_box}>
         <li>
-          <MdDone></MdDone>
-          {data.services.time}
-        </li>
-        <li>
-          {data.services.gym == true ? (
-            <MdDone />
+          {features.gym == true ? (
+            <MdDone
+              style={{
+                color: index === 2 ? "var(--dark) !important" : null,
+              }}
+            />
           ) : (
-            <IoMdClose className={css.false_ico}></IoMdClose>
+            <IoMdClose
+              className={css.false_ico}
+              style={{
+                color: index === 2 ? "var(--dark) !important" : null,
+              }}
+            ></IoMdClose>
           )}
           <span>Тренажерний зал</span>
         </li>
         <li>
-          {data.services.fitness == true ? (
-            <MdDone />
+          {features.isActive == true ? (
+            <MdDone
+              style={{
+                fill: index === 2 ? "var(--dark) !important" : null,
+              }}
+            />
           ) : (
-            <IoMdClose className={css.false_ico} />
+            <IoMdClose
+              style={{
+                color: index === 2 ? "var(--dark) !important" : null,
+              }}
+              className={css.false_ico}
+            />
           )}
           <span>Бігова доріжка</span>
         </li>
         <li>
-          {data.services.consultation == true ? (
+          {data.features.consultation == true ? (
             <MdDone />
           ) : (
-            <IoMdClose className={css.false_ico} />
+            <IoMdClose
+              style={{
+                color: index === 2 ? "var(--dark) !important" : null,
+              }}
+              className={css.false_ico}
+            />
           )}
           <span>Консультація</span>
         </li>
-        {data.services.sale && (
-          <li>
-            <MdDone />
-            {data.services.sale} {data.currency} економії
-          </li>
-        )}
       </ul>
-      {data.name !== "Преміум" ? (
+      {index !== 2 ? (
         <Button styles={{ width: "140px" }}>{"Замовити"}</Button>
       ) : (
         <ReverseBtn styles={{ width: "140px" }}>{"Замовити"}</ReverseBtn>

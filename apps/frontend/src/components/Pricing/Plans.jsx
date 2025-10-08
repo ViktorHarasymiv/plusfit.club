@@ -1,85 +1,74 @@
-import React from "react";
+import React, { useRef, useState, useEffect } from "react";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
 import Item from "./Item";
 
 import { motion } from "framer-motion";
 import css from "./Pricing.module.css";
+import { gymPriceList } from "../../store/gymStore";
+import Loader from "../ui/Loader/Loader";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/navigation";
+
+// import required modules
+import { EffectCoverflow, Navigation } from "swiper/modules";
+
+import "./PricingSwiper.css";
 
 export default function Plans() {
-  const subscriptionPlans = [
-    {
-      name: "Початковий",
-      title: "Одне тренування",
-      price: 100,
-      currency: "ГРН",
-      services: {
-        time: "12:00 - 18:00",
-        gym: true,
-        fitness: false,
-        consultation: false,
-      },
-    },
-    {
-      name: "Стандартний",
-      title: "Один місяць тренувань",
-      price: 700,
-      currency: "ГРН",
-      date: "місяць",
-      services: {
-        time: "9:00 - 21:00",
-        gym: true,
-        fitness: true,
-        consultation: false,
-      },
-    },
-    {
-      name: "Преміум",
-      title: "Три місяці тренувань",
-      price: 1850,
-      currency: "ГРН",
-      services: {
-        time: "9:00 - 21:00",
-        gym: true,
-        fitness: true,
-        consultation: true,
-        sale: 250,
-      },
-    },
-    {
-      name: "Елітний",
-      title: "Річний доступ до тренувань",
-      price: 6550,
-      currency: "ГРН",
-      services: {
-        time: "9:00 - 21:00",
-        gym: true,
-        fitness: true,
-        consultation: true,
-        sale: 750,
-      },
-    },
-  ];
+  const { data, loading, error, fetchGymPriceList } = gymPriceList();
+
+  useEffect(() => {
+    fetchGymPriceList();
+  }, []);
+
+  console.log(data);
+
+  if (loading) return <Loader />;
+  if (error) return <p>{error}</p>;
+
   return (
     <div className={css.tarife_wrapper}>
       <div className="container">
-        <ul className={css.list}>
-          {subscriptionPlans.map((tarife, i) => {
-            return (
-              <motion.div
-                initial={{
-                  opacity: 0,
-                  y: i === 0 || i === 2 ? -30 : 30,
-                }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0 }}
-                transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-                key={i}
-                className={css.motion}
-              >
-                <Item data={tarife} />
-              </motion.div>
-            );
-          })}
-        </ul>
+        <Swiper
+          effect={"coverflow"}
+          grabCursor={true}
+          centeredSlides={true}
+          slidesPerView={"auto"}
+          coverflowEffect={{
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+          }}
+          navigation={true}
+          modules={[EffectCoverflow, Navigation]}
+          className="swiper_card"
+        >
+          <ul className={css.list}>
+            {data.map((item, i) => {
+              return (
+                <SwiperSlide key={i} className={css.motion}>
+                  <motion.div
+                    initial={{
+                      opacity: 0,
+                      y: i === 0 || i === 2 ? -30 : 30,
+                    }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0 }}
+                    transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
+                  >
+                    <Item data={item} index={i} />
+                  </motion.div>
+                </SwiperSlide>
+              );
+            })}
+          </ul>
+        </Swiper>
       </div>
     </div>
   );

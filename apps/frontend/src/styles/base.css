@@ -28,6 +28,10 @@ main {
   flex: 1;
 }
 
+.self_main {
+  margin-top: 6.2em;
+}
+
 h4 {
   color: var(--dark);
   margin: 0px;

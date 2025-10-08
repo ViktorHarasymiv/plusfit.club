@@ -27,7 +27,11 @@ function ContactsTable() {
     {
       id: 3,
       title: "Графік",
-      content: "Пн-Пт 9:00 - 21:00 Субота 10:00 - 17:00 Неділя 10:00 - 15:00",
+      content: [
+        "Пн-Пт 9:00 - 21:00",
+        "Субота 10:00 - 17:00",
+        "Неділя 10:00 - 15:00",
+      ],
       icon: "icon-calendar",
     },
   ];
@@ -36,12 +40,20 @@ function ContactsTable() {
       <ul className={css.wrapper_list}>
         {contactsList.map(({ title, content, icon }, index) => {
           return (
-            <li className={css.item}>
+            <li key={index} className={css.item}>
               <div className={css.icon_box}>
                 <Icon name={icon} className={css.contact_icon} />
               </div>
               <h4 className={css.title}>{title}</h4>
-              <h5 className={css.content_wrapper}>{content}</h5>
+              {Array.isArray(content) ? (
+                content.map((item, idx) => (
+                  <h5 key={idx} className={css.content_wrapper}>
+                    {item}
+                  </h5>
+                ))
+              ) : (
+                <h5 className={css.content_wrapper}>{content}</h5>
+              )}
             </li>
           );
         })}

@@ -67,29 +67,25 @@ export default function FormReview() {
 
       return;
     }
-
     resetForm();
   };
 
   return (
     <div className={css.form_block}>
-      <SectionTitle
-        title={"Leave a review"}
-        about={"Ми завжди раді зворотньому зв'язку"}
-      />
+      <SectionTitle title={"Leave a review"} about={"Залиш свій коментар"} />
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
-        {({ values, handleChange, touched, errors }) => (
+        {({ values, handleChange }) => (
           <Form className={style.form_wrapper}>
             {/* Email */}
             <div className={style.input_wrapper} style={{ maxWidth: "304px" }}>
               <Field
                 name="email"
                 type="text"
-                placeholder="Емейл"
+                placeholder="Пошта"
                 className={style.input}
               />
               <ErrorMessage
@@ -218,48 +214,57 @@ export default function FormReview() {
               />
             </div>
             {/* Textarea */}
+            <div
+              className={style.input_wrapper}
+              style={{ maxWidth: "304px", width: "100%", maxHeight: "100%" }}
+            >
+              <TextField
+                multiline
+                name="message"
+                label="Ваш відгук"
+                rows={4}
+                value={values.message}
+                onChange={handleChange}
+                // error={touched.message && Boolean(errors.message)}
+                // helperText={touched.message && errors.message}
+                sx={{
+                  width: "100%",
+                  backgroundColor: "transparent",
 
-            <TextField
-              multiline
-              name="message"
-              label="Ваш відгук"
-              rows={4}
-              value={values.message}
-              onChange={handleChange}
-              error={touched.message && Boolean(errors.message)}
-              helperText={touched.message && errors.message}
-              sx={{
-                maxWidth: "304px",
-                backgroundColor: "transparent",
-
-                "& .MuiInputBase-root": {
-                  color: "var(--body-text-color)",
-                },
-
-                "& .MuiOutlinedInput-notchedOutline": {
-                  borderColor: "#6c757d",
-                },
-
-                "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
-                  {
-                    borderColor: "var(--accent-color)",
-                    borderWidth: "1px",
+                  "& .MuiInputBase-root": {
+                    color: "var(--body-text-color)",
                   },
 
-                "& .MuiFormLabel-root": {
-                  color: "#6c757d",
-                },
+                  "& .MuiOutlinedInput-notchedOutline": {
+                    borderColor: "#6c757d",
+                  },
 
-                "& .MuiInputLabel-root.Mui-focused": {
-                  color: "var(--accent-color)",
-                },
+                  "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":
+                    {
+                      borderColor: "var(--accent-color)",
+                      borderWidth: "1px",
+                    },
 
-                "& .MuiFormHelperText-root": {
-                  fontSize: "0.8rem",
-                  mt: 0.5,
-                },
-              }}
-            />
+                  "& .MuiFormLabel-root": {
+                    color: "#6c757d",
+                  },
+
+                  "& .MuiInputLabel-root.Mui-focused": {
+                    color: "var(--accent-color)",
+                  },
+
+                  "& .MuiFormHelperText-root": {
+                    fontSize: "0.8rem",
+                    mt: 0.5,
+                  },
+                }}
+              />
+              <ErrorMessage
+                name="message"
+                component="div"
+                className={style.error}
+              />
+            </div>
 
             {/* submit */}
             <Button

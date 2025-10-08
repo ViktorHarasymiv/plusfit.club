@@ -12,10 +12,6 @@
   background-repeat: no-repeat !important;
 }
 
-.swiper-slide {
-  height: auto !important;
-}
-
 .hero_slide::before {
   content: "";
   position: absolute;

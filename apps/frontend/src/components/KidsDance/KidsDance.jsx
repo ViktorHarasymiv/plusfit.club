@@ -7,7 +7,7 @@ import firstImg from "/img/kids/kids1.JPG";
 import secoundImg from "/img/kids/kids2.JPG";
 
 export default function KidsDance() {
-  document.title = "ПЛЮС ФІТ - Дитячі танці";
+  document.title = "Плюс Фіт - Дитячі танці";
   const content = {
     frontImage: FrontImage,
     firstParagraph: {

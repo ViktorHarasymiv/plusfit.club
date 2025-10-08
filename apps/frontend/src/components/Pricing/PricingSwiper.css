@@ -1,0 +1,33 @@
+.swiper_card {
+  padding-block: 80px;
+}
+
+.swiper_card .swiper-slide {
+  width: 320px;
+  height: 100%;
+}
+
+.swiper_card .swiper-button-prev,
+.swiper_card .swiper-button-next {
+  width: 34px;
+  height: 34px;
+
+  margin-top: 0 !important;
+  top: 0px;
+
+  background-color: var(--accent-color);
+
+  border-radius: 5px;
+
+  padding-inline: 10px !important;
+}
+
+.swiper_card .swiper-button-next {
+  left: 53px !important;
+}
+
+.swiper_card .swiper-button-prev:after,
+.swiper_card .swiper-button-next::after {
+  color: var(--white) !important;
+  font-size: 12px !important;
+}

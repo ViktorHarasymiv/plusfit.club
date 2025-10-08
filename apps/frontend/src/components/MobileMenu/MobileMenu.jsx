@@ -139,21 +139,24 @@ export default function MobileMenu({ isScroll }) {
                   {isdropMenu && (
                     <ul className={style.dropmenu}>
                       <li className={style.dropdown_item}>
-                        <NavLink to="/offer/rehabilitation">
-                          Реабілітація
-                        </NavLink>
+                        <NavLink to="/offer/gym">Тренажерний зал</NavLink>
                       </li>
                       <li className={style.dropdown_item}>
                         <NavLink to="/offer/massage">Масаж</NavLink>
                       </li>
                       <li className={style.dropdown_item}>
-                        <NavLink to="/offer/endosphere">Ендосфера</NavLink>
+                        <NavLink to="/offer/rehabilitation">
+                          Реабілітація
+                        </NavLink>
                       </li>
                       <li className={style.dropdown_item}>
                         <NavLink to="/offer/yoga">Йога</NavLink>
                       </li>
                       <li className={style.dropdown_item}>
                         <NavLink to="/offer/kids">Дитячі танці</NavLink>
+                      </li>
+                      <li className={style.dropdown_item}>
+                        <NavLink to="/offer/endosphere">Сфератерапія</NavLink>
                       </li>
                     </ul>
                   )}
@@ -168,22 +171,24 @@ export default function MobileMenu({ isScroll }) {
                   {isdropMenuPrice && (
                     <ul className={style.dropmenu}>
                       <li className={style.dropdown_item}>
-                        <NavLink to="/subscription">Абонемент</NavLink>
+                        <NavLink to="price/gym">Тренажерний зал</NavLink>
                       </li>
                       <li className={style.dropdown_item}>
-                        <NavLink to="/massage">Масаж</NavLink>
+                        <NavLink to="price/massage">Масаж</NavLink>
                       </li>
                       <li className={style.dropdown_item}>
-                        <NavLink to="/rehabilitation">Реабілітація</NavLink>
+                        <NavLink to="price/rehabilitation">
+                          Реабілітація
+                        </NavLink>
                       </li>
                       <li className={style.dropdown_item}>
-                        <NavLink to="/endosphere">Сфератерапія</NavLink>
+                        <NavLink to="price/yoga">Йога</NavLink>
                       </li>
                       <li className={style.dropdown_item}>
-                        <NavLink to="/group">Групові тренування</NavLink>
+                        <NavLink to="price/children">Дитячі танці</NavLink>
                       </li>
                       <li className={style.dropdown_item}>
-                        <NavLink to="/children">Дитячі танці</NavLink>
+                        <NavLink to="price/endosphere">Сфератерапія</NavLink>
                       </li>
                     </ul>
                   )}

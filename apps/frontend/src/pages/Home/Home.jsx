@@ -9,6 +9,7 @@ import Trainers from "../../components/Trainers/Trainers";
 import Pricing from "../../components/Pricing/Pricing";
 import CommentForm from "../../components/CommentForm/CommentForm";
 import Reviews from "../../components/Reviews/Reviews";
+import EatBrand from "../../components/EatBrand/EatBrand";
 
 export default function Home() {
   const width = useWindowWidth();
@@ -22,6 +23,7 @@ export default function Home() {
       <CalculatorCalories />
       <Reviews />
       <CommentForm />
+      <EatBrand />
     </main>
   );
 }

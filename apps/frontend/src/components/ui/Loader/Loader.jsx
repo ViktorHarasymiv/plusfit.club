@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import css from "./Style.module.css";
 
 import { PuffLoader } from "react-spinners";
 
 function Loader() {
+  // useEffect(() => {
+  //   if (isModalOpen) {
+  //     document.querySelector("html").classList.add("lock");
+  //   } else {
+  //     document.querySelector("html").classList.remove("lock");
+  //   }
+  // }, [isModalOpen]);
+
   return (
     <div className={css.overflow}>
       <PuffLoader

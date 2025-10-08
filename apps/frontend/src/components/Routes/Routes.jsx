@@ -20,6 +20,7 @@ import MassagePrice from "../Massage/MassagePrice";
 import RehabilitationPrice from "../Rehabilitation/RehabilitationPrice";
 import GymPrice from "../Gym/GymPrice";
 import Gym from "../Gym/Gym";
+import Subscription from "../Subscription/Subscription";
 
 function Router() {
   return (

@@ -1,10 +1,11 @@
 .form_wrapper {
+  padding-inline: 10px;
   display: grid;
 
   grid-template-columns: repeat(2, minmax(160px, 1fr));
   grid-template-rows: repeat(2, auto);
 
-  gap: 25px;
+  gap: 15px;
 }
 
 .input_wrapper {
@@ -40,6 +41,7 @@
 
 @media screen and (min-width: 1199.98px) {
   .form_wrapper {
+    padding-inline: 0px;
     gap: 25px;
   }
 }

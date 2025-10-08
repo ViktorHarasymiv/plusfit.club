@@ -34,13 +34,11 @@ function Gym() {
     },
   };
   return (
-    <div>
-      <Content
-        frontImage={FrontImage}
-        content={content}
-        selectetCategory={"Спортивний зал"}
-      />
-    </div>
+    <Content
+      frontImage={FrontImage}
+      content={content}
+      selectetCategory={"Спортивний зал"}
+    />
   );
 }
 

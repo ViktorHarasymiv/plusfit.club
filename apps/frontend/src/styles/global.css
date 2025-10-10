@@ -2,6 +2,10 @@
   overflow: hidden;
 }
 
+.lock::-webkit-scrollbar {
+  width: 0px;
+}
+
 .reset_top_margin {
   margin-top: 0;
 }

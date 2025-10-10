@@ -16,6 +16,10 @@
   color: var(--white);
 
   transition: transform 0.2s ease-out;
+
+  display: flex;
+
+  height: 100%;
 }
 
 :global(.swiper-slide-active) {
@@ -26,13 +30,8 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-}
 
-.motion:hover {
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-
-  transform: scale(1.02) translateY(-10px) !important;
+  flex: 1;
 }
 
 .motion::after,

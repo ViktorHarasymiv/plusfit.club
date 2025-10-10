@@ -1,5 +1,4 @@
-import React from "react";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 
 import style from "./Hero.module.css";
 import { Link } from "react-router-dom";
@@ -10,12 +9,6 @@ import ReverseBtn from "../ui/Button/ReverseBtn";
 import { CgGym } from "react-icons/cg";
 
 export default function Slide({ slide }) {
-  // useEffect(() => {
-  //   if (inView) {
-  //     controls.start({ opacity: 1, y: 0 });
-  //   }
-  // }, [controls, inView]);
-
   return (
     <div
       className="hero_slide"

@@ -3,22 +3,21 @@ import React, { useEffect } from "react";
 import css from "./Style.module.css";
 
 import { massagePriceList } from "../../store/massageStore";
+import { useLoaderStore } from "../../store/loadingStore";
 
 import Reviews from "../Reviews/Reviews";
 import Trainer from "../Trainers/Trainer";
 import PriceList from "./PriceList";
 import SectionTitle from "../SectionTitle/SectionTitle";
-import Loader from "../ui/Loader/Loader";
 
 function MassagePrice() {
-  const { data, loading, error, fetchMassagePriceList } = massagePriceList();
+  const { data, loading, fetchMassagePriceList } = massagePriceList();
+  const { setLoading } = useLoaderStore();
 
   useEffect(() => {
     fetchMassagePriceList();
+    setLoading(loading);
   }, []);
-
-  if (loading) return <Loader />;
-  if (error) return <p>{error}</p>;
 
   return (
     <>

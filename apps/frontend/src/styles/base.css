@@ -9,17 +9,17 @@ body {
   color: var(--body-text-color);
 }
 
-header {
-  z-index: 2;
-
-  position: sticky;
-}
-
 #root {
   min-height: 100vh;
 
   display: flex;
   flex-direction: column;
+}
+
+header {
+  z-index: 2;
+
+  position: sticky;
 }
 
 main {
@@ -51,6 +51,12 @@ h2 {
 p {
   width: 100%;
   display: block;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 /* section:nth-child(2) {

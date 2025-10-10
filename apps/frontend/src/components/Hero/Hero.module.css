@@ -32,7 +32,7 @@
   margin-left: 10px;
 
   font-family: var(--font-family-oswald);
-  font-size: clamp(0.875rem, 0.8173rem + 0.2564vw, 1.125rem);
+  font-size: clamp(0.875rem, 0.8173rem + 0.05vw, 1rem) !important;
   letter-spacing: 4px;
 
   font-weight: 600;
@@ -59,7 +59,7 @@
 
   margin: 30px 0px 30px;
 
-  font-size: clamp(1.5rem, 1.125rem + 1.6667vw, 3.125rem);
+  font-size: clamp(1.3rem, 1.125rem + 1.6667vw, 2.3rem);
 
   font-family: var(--font-family-oswald);
   line-height: 1.4;
@@ -67,7 +67,6 @@
 }
 
 .hero_about {
-  font-family: var(--font-family-oswald);
   font-size: clamp(0.625rem, 0.5673rem + 0.2564vw, 0.875rem);
   font-weight: 400;
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 import css from "./Reviews.module.css";
 // Import Swiper React components
@@ -15,9 +15,8 @@ import { useReviewStore } from "../../store/reviews";
 import SectionTitle from "../SectionTitle/SectionTitle";
 import ReviewItem from "./ReviewItem";
 
-function Reviews({ filterType, background, styles }) {
-  const { reviews, loading, error, fetchReviews, averageRating } =
-    useReviewStore();
+function Reviews({ filterType }) {
+  const { reviews, fetchReviews } = useReviewStore();
 
   useEffect(() => {
     fetchReviews();

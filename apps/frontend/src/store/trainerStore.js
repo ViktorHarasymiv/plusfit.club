@@ -70,6 +70,7 @@ export const useTrainerStore = create((set, get) => ({
       name: "Еліна Добуш",
       greeting: "",
       link: "elina-dobush",
+      pricePath: [{ label: "Фітнес тренування", path: "gym" }],
       social: [
         {
           instagram: {
@@ -104,6 +105,7 @@ export const useTrainerStore = create((set, get) => ({
           phone: "+380 (66) 737 44 52",
         },
       ],
+      pricePath: [{ label: "Силові тренування", path: "gym" }],
       category: "Силові тренування",
       section: "Спортивний зал",
       photo: gymTr,

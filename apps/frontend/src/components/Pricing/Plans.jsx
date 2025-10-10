@@ -1,12 +1,10 @@
-import React, { useRef, useState, useEffect } from "react";
+import { useEffect } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import Item from "./Item";
 
-import { motion } from "framer-motion";
 import css from "./Pricing.module.css";
 import { gymPriceList } from "../../store/gymStore";
-import Loader from "../ui/Loader/Loader";
 
 // Import Swiper styles
 import "swiper/css";
@@ -17,17 +15,18 @@ import "swiper/css/navigation";
 import { EffectCoverflow, Navigation } from "swiper/modules";
 
 import "./PricingSwiper.css";
+import { useLoaderStore } from "../../store/loadingStore";
 
 export default function Plans() {
   const { data, loading, error, fetchGymPriceList } = gymPriceList();
 
+  const { setLoading } = useLoaderStore();
+
   useEffect(() => {
     fetchGymPriceList();
+    setLoading(loading);
   }, []);
 
-  console.log(data);
-
-  if (loading) return <Loader />;
   if (error) return <p>{error}</p>;
 
   return (
@@ -53,17 +52,7 @@ export default function Plans() {
             {data.map((item, i) => {
               return (
                 <SwiperSlide key={i} className={css.motion}>
-                  <motion.div
-                    initial={{
-                      opacity: 0,
-                      y: i === 0 || i === 2 ? -30 : 30,
-                    }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0 }}
-                    transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-                  >
-                    <Item data={item} index={i} />
-                  </motion.div>
+                  <Item data={item} index={i} />
                 </SwiperSlide>
               );
             })}

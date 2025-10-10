@@ -1,6 +1,4 @@
 .hero_slide {
-  height: 100%;
-
   z-index: 1;
   position: relative;
 
@@ -10,6 +8,12 @@
   background-position: center !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
+
+  height: 100%;
+}
+
+.swiper-slide {
+  height: auto !important;
 }
 
 .hero_slide::before {

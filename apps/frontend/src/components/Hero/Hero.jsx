@@ -46,6 +46,21 @@ const sliderArray = [
   {
     id: 2,
     icon: "",
+    greeting: "DANCE CLASSES FOR KIDS",
+    title: {
+      base: "ДАЙТЕ СТАРТ ТВОРЧОМУ РУХУ",
+      accent: "ТАНЦІ ДЛЯ РОЗВИТКУ І РАДОСТІ",
+      baseFinish: "Дозволь дитині сяяти",
+    },
+
+    about:
+      "Ми допоможемо зробити перший крок до великої сцени , запрошуємо до нашої студії",
+    action: ["/offer/endosphere", "contacts"],
+    image: "/img/slider-4.jpg",
+  },
+  {
+    id: 3,
+    icon: "",
     greeting: "New in plusfit",
     title: {
       base: "Подаруй своєму тілу",

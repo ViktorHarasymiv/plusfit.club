@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import Item from "./Item";
@@ -19,6 +19,7 @@ import { useLoaderStore } from "../../store/loadingStore";
 
 export default function Plans() {
   const { data, loading, error, fetchGymPriceList } = gymPriceList();
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const { setLoading } = useLoaderStore();
 
@@ -42,17 +43,17 @@ export default function Plans() {
             stretch: 0,
             depth: 100,
             modifier: 1,
-            slideShadows: true,
           }}
           navigation={true}
           modules={[EffectCoverflow, Navigation]}
+          onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
           className="swiper_card"
         >
           <ul className={css.list}>
             {data.map((item, i) => {
               return (
                 <SwiperSlide key={i} className={css.motion}>
-                  <Item data={item} index={i} />
+                  <Item data={item} isActive={i === activeIndex} />
                 </SwiperSlide>
               );
             })}

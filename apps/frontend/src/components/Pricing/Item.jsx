@@ -8,7 +8,7 @@ import ReverseBtn from "../../components/ui/Button/ReverseBtn";
 import { MdDone } from "react-icons/md";
 import { IoMdClose } from "react-icons/io";
 
-export default function Item({ data, index }) {
+export default function Item({ data, isActive }) {
   const { name, description, features } = data;
 
   return (
@@ -23,7 +23,7 @@ export default function Item({ data, index }) {
                 <span
                   className="active"
                   style={{
-                    color: index === 2 ? "var(--dark) !important" : null,
+                    color: isActive ? "var(--dark) !important" : null,
                   }}
                 >
                   {price} грн.
@@ -39,14 +39,14 @@ export default function Item({ data, index }) {
           {features.gym == true ? (
             <MdDone
               style={{
-                color: index === 2 ? "var(--dark) !important" : null,
+                color: isActive ? "var(--dark) !important" : null,
               }}
             />
           ) : (
             <IoMdClose
               className={css.false_ico}
               style={{
-                color: index === 2 ? "var(--dark) !important" : null,
+                color: isActive ? "var(--dark) !important" : null,
               }}
             ></IoMdClose>
           )}
@@ -56,13 +56,13 @@ export default function Item({ data, index }) {
           {features.isActive == true ? (
             <MdDone
               style={{
-                fill: index === 2 ? "var(--dark) !important" : null,
+                fill: isActive ? "var(--dark) !important" : null,
               }}
             />
           ) : (
             <IoMdClose
               style={{
-                color: index === 2 ? "var(--dark) !important" : null,
+                color: isActive ? "var(--dark) !important" : null,
               }}
               className={css.false_ico}
             />
@@ -75,7 +75,7 @@ export default function Item({ data, index }) {
           ) : (
             <IoMdClose
               style={{
-                color: index === 2 ? "var(--dark) !important" : null,
+                color: isActive ? "var(--dark) !important" : null,
               }}
               className={css.false_ico}
             />
@@ -83,7 +83,7 @@ export default function Item({ data, index }) {
           <span>Консультація</span>
         </li>
       </ul>
-      {index !== 2 ? (
+      {!isActive ? (
         <Button styles={{ width: "140px" }}>{"Замовити"}</Button>
       ) : (
         <ReverseBtn styles={{ width: "140px" }}>{"Замовити"}</ReverseBtn>

@@ -1,0 +1,72 @@
+.lightbox_overlay {
+  cursor: zoom-out;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.lightbox_content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.lightbox_image {
+  cursor: pointer;
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+}
+
+.close_btn,
+.nav_btn {
+  position: absolute;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 0.7em;
+  cursor: pointer;
+}
+
+.close_btn {
+  position: absolute;
+
+  top: 20px;
+  right: 50px;
+}
+
+.close_btn svg {
+  cursor: pointer;
+  width: 38px;
+  height: 38px;
+}
+
+.nav_btn_left,
+.nav_btn_right {
+  font-size: clamp(1.75rem, 1.0898rem + 2.8169vw, 3.625rem);
+  color: var(--white);
+
+  position: absolute;
+
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav_btn_left {
+  left: -80px;
+}
+.nav_btn_right {
+  right: -80px;
+}
+
+.close_btn:hover {
+  transform: scale(1.04);
+}

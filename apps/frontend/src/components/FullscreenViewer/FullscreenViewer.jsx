@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useFullscreenStore } from "../../store/fullscreenStore";
 
 import css from "./Style.module.css";
+import Lightbox from "../Lightbox/Lightbox";
 
-function FullscreenViewer() {
+function FullscreenViewer({ data }) {
   const { isOpen, imageSrc, close } = useFullscreenStore();
 
   if (!isOpen || !imageSrc) return null;

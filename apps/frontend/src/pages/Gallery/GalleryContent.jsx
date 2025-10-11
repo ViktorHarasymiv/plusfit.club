@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import GalleryTabsButton from "./GalleryTabsButton";
 
-import css from "./Style.module.css";
-
 import GalleryImage from "./GalleryImage";
-import FullscreenViewer from "../../components/FullscreenViewer/FullscreenViewer";
 
 function GalleryContent() {
   const [filter, setFiter] = useState("Усі");
+  const [page, setPage] = useState(1);
 
   const tabsGalleryList = [
     "Усі",
@@ -98,15 +96,24 @@ function GalleryContent() {
     },
   ];
 
+  useEffect(() => {
+    setPage(1);
+  }, [filter]);
+
   return (
     <div className="container">
       <GalleryTabsButton
         data={tabsGalleryList}
         filter={filter}
         setFiter={setFiter}
+        page={page}
       />
-      <GalleryImage data={galleryImages} filter={filter} />
-      <FullscreenViewer />
+      <GalleryImage
+        data={galleryImages}
+        filter={filter}
+        page={page}
+        setPage={setPage}
+      />
     </div>
   );
 }

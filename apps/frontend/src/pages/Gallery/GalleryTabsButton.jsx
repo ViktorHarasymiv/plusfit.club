@@ -4,7 +4,7 @@ import clsx from "clsx";
 
 import css from "./Style.module.css";
 
-function GalleryTabsButton({ data, filter, setFiter }) {
+function GalleryTabsButton({ data, filter, setFiter, page }) {
   if (!data) return;
 
   return (

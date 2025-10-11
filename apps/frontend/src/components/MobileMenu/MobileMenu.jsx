@@ -19,7 +19,6 @@ import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 
 import { FaCalendarAlt } from "react-icons/fa";
-import { IoTimeOutline } from "react-icons/io5";
 
 import { FaBusinessTime } from "react-icons/fa";
 

@@ -33,14 +33,8 @@
 }
 
 .logo:hover {
-  filter: drop-shadow(0 0 0.5rem #ffffff);
-}
-
-.logo_header:hover .motivation_text {
-  visibility: visible;
-  opacity: 1;
-
-  transform: scale(1);
+  transform: scale(1.02);
+  filter: drop-shadow(0 0 1px rgb(255, 255, 255));
 }
 
 .heart_ico {

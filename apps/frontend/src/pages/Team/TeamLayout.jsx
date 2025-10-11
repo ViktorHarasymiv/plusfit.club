@@ -17,10 +17,7 @@ function TeamLayout() {
       <>
         {isRoot && (
           <div className={css.layout_wrapper}>
-            <SectionTitle
-              title={"Наша команда"}
-              about={"Ми тут, щоб бути поруч. З вами. Для вас."}
-            />
+            <SectionTitle title={"Our team"} about={"Наша команда"} />
             <Trainer />
           </div>
         )}

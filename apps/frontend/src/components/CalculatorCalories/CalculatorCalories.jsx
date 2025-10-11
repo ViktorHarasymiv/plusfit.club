@@ -12,10 +12,8 @@ const modalObjStyle = {
   textAlign: "start",
   borderRadius: "2px",
 
-  width: "90%",
-  maxHeight: "80%",
-
-  overflowY: "scroll",
+  maxWidth: "90%",
+  maxHeight: "75%",
 };
 
 export default function CalculatorCalories() {
@@ -62,10 +60,8 @@ export default function CalculatorCalories() {
         onClose={() => setInfo(false)}
         styles={modalObjStyle}
       >
-        <h2 style={{ textAlign: "center", marginBottom: "40px" }}>
-          💡 Застереження
-        </h2>
-        <h4>Розраховано за формулою Mifflin-St Jeor</h4>
+        <h3 className={style.modal_title}>Інформація💡</h3>
+        <h3>Розраховано за формулою Mifflin-St Jeor</h3>
         <div style={{ marginBottom: "40px" }}>
           <b style={{ display: "inline-block", marginBottom: "20px" }}>
             BMR — базальний рівень метаболізму.

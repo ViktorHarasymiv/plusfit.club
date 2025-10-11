@@ -19,15 +19,15 @@
   left: 0;
   right: 0;
 
-  background: rgba(255, 255, 255, 0.8) !important;
-
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 1) !important;
 
   backdrop-filter: blur(2px);
 
   color: black !important;
 
   animation: slide-down 0.7s;
+
+  border-bottom: 0.01rem solid #d8d8d8;
 }
 
 @keyframes slide-down {
@@ -143,11 +143,6 @@
   width: 100px;
 }
 
-.logo_header:hover .motivation_text {
-  visibility: visible;
-  opacity: 1;
-}
-
 .action_bar_wrapper {
   display: flex;
   align-items: center;
@@ -181,6 +176,7 @@
 
   transition: var(--transition2);
 }
+
 .scrolled .navbar_item {
   color: var(--dark);
 }
@@ -291,18 +287,4 @@
   .logo_header {
     width: auto;
   }
-}
-
-/* admin */
-
-.admin_panel {
-  display: flex;
-  justify-content: end;
-  align-items: end;
-  gap: 15px;
-}
-
-.admin_panel h5 {
-  line-height: 1;
-  font-size: 12px;
 }

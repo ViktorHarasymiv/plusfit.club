@@ -1,6 +1,3 @@
-.calculator_section_wrapper {
-}
-
 .calculator_content_wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -53,11 +50,17 @@
 }
 
 .info_icon {
+  cursor: pointer;
+
   margin-left: 5px;
 
   color: red;
   width: 16px;
   height: 16px;
+}
+
+.modal_title {
+  font-size: clamp(1.375rem, 1.0229rem + 1.5023vw, 2.375rem);
 }
 
 .result_value {

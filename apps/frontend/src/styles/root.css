@@ -7,13 +7,13 @@
 
   --body-font: "Roboto", sans-serif;
   --heading-font: "Teko", sans-serif;
-  --accent-color: #fd5f26;
+  --accent-color: rgb(253, 95, 38);
   --white: #ffffff;
   --light-color: #fff7f1;
   --dark: #222222;
   --green: #11b76b;
   --blue: #0049d0;
-  --yellow: #fba707;
+  --yellow: rgb(251, 167, 7);
   --hero-overlay-color: #000000;
   --theme-gradient: linear-gradient(to right, #ff7e38 0%, #fa4014 100%);
   --theme-gradient2: linear-gradient(to bottom right, #ff7e38 0%, #fa4014 100%);

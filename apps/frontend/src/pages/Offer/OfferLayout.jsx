@@ -5,6 +5,7 @@ import css from "./Offer.module.css";
 import NavigationContext from "../../components/NavigationContext/NavigationContext";
 import SideNavigation from "../../components/SideNavigation/SideNavigation";
 import Reviews from "../../components/Reviews/Reviews";
+import CommentForm from "../../components/CommentForm/CommentForm";
 
 export default function OfferLayout() {
   return (
@@ -17,6 +18,8 @@ export default function OfferLayout() {
         </div>
       </div>
       <Reviews />
+
+      <CommentForm />
     </main>
   );
 }

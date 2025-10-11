@@ -21,6 +21,7 @@ import RehabilitationPrice from "../Rehabilitation/RehabilitationPrice";
 import GymPrice from "../Gym/GymPrice";
 import Gym from "../Gym/Gym";
 import Subscription from "../Subscription/Subscription";
+import Gallery from "../../pages/Gallery/Gallery";
 
 function Router() {
   return (
@@ -61,7 +62,7 @@ function Router() {
           <Route path="rehabilitation" element={<RehabilitationPrice />} />
         </Route>
 
-        <Route path="/gallery" element={<Price />}>
+        <Route path="/gallery" element={<Gallery />}>
           {/* <Route path="rehabilitation" element={<Rehabilitation />} /> */}
         </Route>
 

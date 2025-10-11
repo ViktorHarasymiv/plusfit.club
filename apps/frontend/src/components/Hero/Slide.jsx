@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import Button from "../ui/Button/Button";
 import ReverseBtn from "../ui/Button/ReverseBtn";
 
-import { CgGym } from "react-icons/cg";
+import { FcSportsMode } from "react-icons/fc";
 
 export default function Slide({ slide }) {
   return (
@@ -24,7 +24,7 @@ export default function Slide({ slide }) {
               transition={{ duration: 1.4, delay: 0, ease: "easeOut" }}
             >
               <div className={style.greeting_wrapper}>
-                <CgGym />
+                <FcSportsMode />
                 <h6 className={style.greeting_text}>
                   <span className="accent_text">{slide.greeting}</span>
                 </h6>

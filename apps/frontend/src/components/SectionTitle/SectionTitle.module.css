@@ -18,13 +18,17 @@
   letter-spacing: 4px;
   font-size: clamp(1rem, 0.9712rem + 0.1282vw, 1.125rem);
   font-weight: 700;
+
   color: var(--accent-color);
 }
 
 .title_text_about {
+  font-family: var(--font-family-oswald);
   margin-bottom: 20px;
   font-weight: 600;
+
   text-transform: capitalize;
+
   font-size: clamp(2.1875rem, 1.9712rem + 0.9615vw, 3.125rem);
 
   color: var(--dark);

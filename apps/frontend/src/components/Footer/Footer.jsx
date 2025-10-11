@@ -6,7 +6,7 @@ import style from "./Footer.module.css";
 import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 
-import logoLight from "../../assets/logo/logoLight.PNG";
+import logoLight from "/logo/logoLight.png";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { SlLocationPin } from "react-icons/sl";
 import { TiMessages } from "react-icons/ti";

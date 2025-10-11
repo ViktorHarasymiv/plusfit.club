@@ -10,14 +10,16 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Loader from "./components/ui/Loader/Loader";
 import { useLoaderStore } from "./store/loadingStore";
+import { useFullscreenStore } from "./store/fullscreenStore";
 
 function App() {
   const { isLoading } = useLoaderStore();
+  const { isOpen } = useFullscreenStore();
 
   useEffect(() => {
     const body = document.body;
 
-    if (isLoading) {
+    if (isLoading || isOpen) {
       body.classList.add("lock");
     } else {
       body.classList.remove("lock");
@@ -26,7 +28,7 @@ function App() {
     return () => {
       body.classList.remove("lock");
     };
-  }, [isLoading]);
+  }, [isLoading, isOpen]);
 
   const location = useLocation();
 

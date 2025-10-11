@@ -1,5 +1,3 @@
-import React from "react";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import style from "./Hero.module.css";
@@ -26,9 +24,9 @@ const sliderArray = [
       baseFinish: "і вона буде вражаючою",
     },
     about:
-      "Ми створили простір, де кожен крок до здорового тіла стає натхненням. Тут немає шаблонів — лише твоя унікальна мета, твій ритм і твій прогрес. Ми не просто тренуємо — ми підтримуємо, надихаємо і допомагаємо тобі розкрити власний потенціал.",
+      "Ми створили простір, де кожен крок до здорового тіла стає натхненням. Ми не просто тренуємо — ми підтримуємо, надихаємо і допомагаємо тобі розкрити власний потенціал.",
     action: ["/offer", "contacts"],
-    image: "/img/slider-1.jpg",
+    image: "/img/slider/slider-1.jpg",
   },
   {
     id: 1,
@@ -37,11 +35,11 @@ const sliderArray = [
     title: {
       base: "Тренуйся з тими, хто знає",
       accent: "як досягати результату ",
-      baseFinish: "обери тренування з тренером",
+      baseFinish: "обери заняття з тренером",
     },
     about: "Індивідуальний підхід. Максимальна ефективність. Видимий прогрес",
     action: ["training", "info"],
-    image: "/img/slider-2.jpg",
+    image: "/img/slider/slider-2.jpg",
   },
   {
     id: 2,
@@ -56,7 +54,7 @@ const sliderArray = [
     about:
       "Ми допоможемо зробити перший крок до великої сцени , запрошуємо до нашої студії",
     action: ["/offer/endosphere", "contacts"],
-    image: "/img/slider-4.jpg",
+    image: "/img/slider/slider-4.jpg",
   },
   {
     id: 3,
@@ -70,7 +68,7 @@ const sliderArray = [
     about:
       "Ендосфера — це не просто процедура, це шлях до внутрішньої гармонії, легкості та гнучкості. Завдяки інноваційній технології, яка поєднує делікатний масаж і глибоку стимуляцію тканин, твій організм отримує потужний імпульс до оновлення.",
     action: ["/offer/endosphere", "contacts"],
-    image: "/img/slider-3.jpg",
+    image: "/img/slider/slider-3.jpg",
   },
 ];
 

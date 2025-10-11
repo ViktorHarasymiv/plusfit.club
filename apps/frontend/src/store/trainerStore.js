@@ -1,11 +1,11 @@
 import { create } from "zustand";
 
-import therapiPhoto from "/img/kozacka1.PNG";
-import fitnessTr from "/img/fitness.PNG";
-import gymTr from "/img/gymRetush.png";
-import yogaTr from "/img/yogaPhoto1.PNG";
-import yogaTrOksana from "/img/yogaNatalia.PNG";
-import kidsDanceTr from "/img/kidsDanceTr.PNG";
+import therapiPhoto from "/img/trainer/kozacka1.PNG";
+import fitnessTr from "/img/trainer/fitness.PNG";
+import gymTr from "/img/trainer/gymRetush.png";
+import yogaTr from "/img/trainer/yogaPhoto1.PNG";
+import yogaTrOksana from "/img/trainer/yogaNatalia.PNG";
+import kidsDanceTr from "/img/trainer/kidsDanceTr.PNG";
 
 export const useTrainerStore = create((set, get) => ({
   trainers: [
@@ -13,7 +13,7 @@ export const useTrainerStore = create((set, get) => ({
       id: 0,
       name: "Уляна Довгалюк",
       greeting:
-        "👋 Мене звати Довгалюк Уляна Романівна, я магістр фізичної терапії та ерготерапії.",
+        "Мене звати Довгалюк Уляна Романівна, я магістр фізичної терапії та ерготерапії.",
       link: "dovhaliuk-ulyana",
       pricePath: [
         { label: "Массаж", path: "massage" },
@@ -92,7 +92,7 @@ export const useTrainerStore = create((set, get) => ({
       id: 2,
       name: "Іван Ковальчук",
       greeting:
-        "Хардкордні тренування, жорстокі методи, тотальний контроль, знає як можна померти на тренуванні ще його не почавши😂",
+        "Хардкордні тренування, жорстокі методи, тотальний контроль, знає як можна померти на тренуванні ще його не почавши",
       link: "ivan-kovalchuk",
       social: [
         {

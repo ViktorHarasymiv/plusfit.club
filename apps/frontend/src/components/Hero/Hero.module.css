@@ -44,12 +44,10 @@
 .greeting_wrapper svg {
   margin-bottom: 3px;
 
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
 
   color: var(--accent-color);
-
-  transform: rotate(35deg);
 }
 
 .hero_title {

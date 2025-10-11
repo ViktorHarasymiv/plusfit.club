@@ -24,10 +24,7 @@ function Reviews({ filterType }) {
 
   return (
     <section className={css.wrapper}>
-      <SectionTitle
-        title={"Review"}
-        about={"Що говорять про нас Наші клієнти"}
-      />
+      <SectionTitle title={"Review"} about={"Відгуки"} />
       <div className="container">
         <Swiper
           loop={true}

@@ -21,10 +21,7 @@ export default function Item({ data, index }) {
             <div>
               <h2 className={css.price}>
                 <span
-                  className="active"
-                  style={{
-                    color: index === 2 ? "var(--dark) !important" : null,
-                  }}
+                  className={`active ${index === 2 ? "override-dark" : ""}`}
                 >
                   {price} грн.
                 </span>
@@ -38,16 +35,11 @@ export default function Item({ data, index }) {
         <li>
           {features.gym == true ? (
             <MdDone
-              style={{
-                color: index === 2 ? "var(--dark) !important" : null,
-              }}
+              className={`active ${index === 2 ? "override-dark" : ""}`}
             />
           ) : (
             <IoMdClose
-              className={css.false_ico}
-              style={{
-                color: index === 2 ? "var(--dark) !important" : null,
-              }}
+              className={`active ${index === 2 ? "override-dark" : ""}`}
             ></IoMdClose>
           )}
           <span>Тренажерний зал</span>
@@ -55,16 +47,11 @@ export default function Item({ data, index }) {
         <li>
           {features.isActive == true ? (
             <MdDone
-              style={{
-                fill: index === 2 ? "var(--dark) !important" : null,
-              }}
+              className={`active ${index === 2 ? "override-dark" : ""}`}
             />
           ) : (
             <IoMdClose
-              style={{
-                color: index === 2 ? "var(--dark) !important" : null,
-              }}
-              className={css.false_ico}
+              className={`active ${index === 2 ? "override-dark" : ""}`}
             />
           )}
           <span>Бігова доріжка</span>
@@ -74,10 +61,7 @@ export default function Item({ data, index }) {
             <MdDone />
           ) : (
             <IoMdClose
-              style={{
-                color: index === 2 ? "var(--dark) !important" : null,
-              }}
-              className={css.false_ico}
+              className={`active ${index === 2 ? "override-dark" : ""}`}
             />
           )}
           <span>Консультація</span>

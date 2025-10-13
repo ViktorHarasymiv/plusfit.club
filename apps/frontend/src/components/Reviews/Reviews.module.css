@@ -56,6 +56,27 @@
   clip-path: polygon(0 0, 0% 100%, 100% 100%);
 }
 
+.item_wrapper::before {
+  z-index: 1;
+  content: "";
+
+  position: absolute;
+
+  bottom: 0;
+  right: 0;
+
+  background-image: url("/icons/double-quotes.svg");
+
+  background-size: cover;
+
+  width: 140px;
+  height: 160px;
+
+  opacity: 0.1;
+
+  transform: rotate(-180deg);
+}
+
 .name {
   font-size: 25px;
   color: var(--dark);

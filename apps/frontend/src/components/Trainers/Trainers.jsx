@@ -7,7 +7,7 @@ import Treiner from "./Trainer";
 
 export default function Trainers() {
   return (
-    <section id="trainer" className={css.section}>
+    <section id="trainer">
       <div className="container">
         <SectionTitle title={"Our Team"} about={"Наша команда"} />
         <Treiner />

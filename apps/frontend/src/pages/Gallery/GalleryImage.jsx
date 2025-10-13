@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 import css from "./Style.module.css";
 import Lightbox from "../../components/Lightbox/Lightbox";
@@ -10,13 +10,25 @@ import { FaArrowRightLong } from "react-icons/fa6";
 import { FaArrowLeftLong } from "react-icons/fa6";
 
 function GalleryImage({ data, filter, page, setPage }) {
+  const sectionRef = useRef(null);
+
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const perPage = 8;
 
+  useEffect(() => {
+    if (sectionRef.current && page > 1) {
+      const top = sectionRef.current.offsetTop - 350;
+      window.scrollTo({
+        top,
+        behavior: "smooth",
+      });
+    }
+  }, [page]);
+
   const filteredImages = data.filter(
-    (img) => filter === "Усі" || img.filters.includes(filter)
+    (img) => filter === "Усі" || img.section.includes(filter)
   );
 
   const pageCount = Math.ceil(filteredImages.length / perPage);
@@ -37,16 +49,15 @@ function GalleryImage({ data, filter, page, setPage }) {
 
   return (
     <>
-      <div className={css.images_wrapper}>
+      <div ref={sectionRef} className={css.images_wrapper}>
         <>
-          {currentImages.map(({ src, filters }, index) => (
-            <div className={css.images_box}>
+          {currentImages.map(({ photo, section }, index) => (
+            <div key={index} className={css.images_box}>
               <img
-                key={index}
-                src={src}
+                src={photo}
                 width={300}
                 height={300}
-                alt={`Фото ${filters} ${index + 1}`}
+                alt={`Фото ${section} ${index + 1}`}
                 className={css.images}
               />
               <div className={css.open_box}>

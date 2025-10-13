@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
 
-import { LuPlus } from "react-icons/lu";
-
 import css from "./Style.module.css";
 
 export default function Lightbox({
@@ -40,12 +38,15 @@ export default function Lightbox({
         >
           ‹
         </button>
-        <img
-          src={images[currentIndex].src}
-          alt={`Image ${currentIndex}`}
-          className={css.lightbox_image}
-          onClick={() => onNavigate((currentIndex + 1) % images.length)}
-        />
+        <div className={css.image_wrapper}>
+          <img
+            src={images[currentIndex].photo}
+            alt={`Image ${currentIndex}`}
+            className={css.lightbox_image}
+            onClick={() => onNavigate((currentIndex + 1) % images.length)}
+          />
+          <div className={css.image_context}>{images[currentIndex].alt}</div>
+        </div>
         <button
           className={css.nav_btn_right}
           onClick={() => onNavigate((currentIndex + 1) % images.length)}
@@ -54,7 +55,6 @@ export default function Lightbox({
         </button>
       </div>
       <button className={css.close_btn} onClick={onClose}>
-        <LuPlus />
         Esc
       </button>
     </div>

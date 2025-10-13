@@ -7,6 +7,7 @@ import messageRouter from './message.js';
 import massageRouter from './massage.js';
 import rehabilitationRouter from './rehabilitation.js';
 import gymRouter from './gym.js';
+import portfolioRouter from './portfolio.js';
 
 const router = Router();
 
@@ -17,5 +18,6 @@ router.use('/message', messageRouter);
 router.use('/massage', massageRouter);
 router.use('/rehabilitation', rehabilitationRouter);
 router.use('/gym', gymRouter);
+router.use('/portfolio', portfolioRouter);
 
 export default router;

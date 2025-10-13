@@ -1,11 +1,4 @@
 .hero_section {
-  height: 100%;
-
-  background-color: var(--dark);
-}
-
-.hero_content_wrapper {
-  max-width: 100%;
 }
 
 .hero_text_wrapper {
@@ -76,6 +69,10 @@
 }
 
 @media screen and (min-width: 991.98px) {
+  .hero_section {
+    height: 860px;
+  }
+
   .hero_content_wrapper {
     max-width: 70%;
   }

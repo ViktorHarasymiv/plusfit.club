@@ -15,17 +15,7 @@ function GalleryImage({ data, filter, page, setPage }) {
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const perPage = 8;
-
-  useEffect(() => {
-    if (sectionRef.current && page > 1) {
-      const top = sectionRef.current.offsetTop - 350;
-      window.scrollTo({
-        top,
-        behavior: "smooth",
-      });
-    }
-  }, [page]);
+  const perPage = 6;
 
   const filteredImages = data.filter(
     (img) => filter === "Усі" || img.section.includes(filter)
@@ -47,8 +37,18 @@ function GalleryImage({ data, filter, page, setPage }) {
     setPage(selectedPage);
   };
 
+  useEffect(() => {
+    if (sectionRef.current && page > 1) {
+      const top = sectionRef.current.offsetTop - 350;
+      window.scrollTo({
+        top,
+        behavior: "smooth",
+      });
+    }
+  }, [page]);
+
   return (
-    <>
+    <div className={css.wrapper}>
       <div ref={sectionRef} className={css.images_wrapper}>
         <>
           {currentImages.map(({ photo, section }, index) => (
@@ -56,7 +56,7 @@ function GalleryImage({ data, filter, page, setPage }) {
               <img
                 src={photo}
                 width={300}
-                height={300}
+                height={350}
                 alt={`Фото ${section} ${index + 1}`}
                 className={css.images}
               />
@@ -75,7 +75,7 @@ function GalleryImage({ data, filter, page, setPage }) {
           )}
         </>
       </div>
-      {pageCount > 0 && (
+      {filteredImages.length > 6 && (
         <ReactPaginate
           className={css.pagination}
           breakLabel="..."
@@ -89,7 +89,7 @@ function GalleryImage({ data, filter, page, setPage }) {
           renderOnZeroPageCount={null}
         />
       )}
-    </>
+    </div>
   );
 }
 

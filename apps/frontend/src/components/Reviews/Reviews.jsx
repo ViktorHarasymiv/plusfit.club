@@ -27,7 +27,7 @@ function Reviews({ filterType }) {
       <SectionTitle title={"Review"} about={"Відгуки"} />
       <div className="container">
         <Swiper
-          loop={true}
+          loop={reviews.length > 3}
           spaceBetween={80}
           slidesPerView={3}
           autoplay={{

@@ -53,7 +53,7 @@ export default function Plans() {
             {data.map((item, i) => {
               return (
                 <SwiperSlide key={i} className={css.motion}>
-                  <Item data={item} index={i} />
+                  <Item data={item} i={i} />
                 </SwiperSlide>
               );
             })}

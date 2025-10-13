@@ -136,144 +136,144 @@ export const useTrainerStore = create((set, get) => ({
         ],
       },
     },
-    {
-      id: 3,
-      name: "Евеліна Колодзінська",
-      greeting:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis, vero laborum reprehenderit minus, voluptatum aperiam voluptates quisquam facere neque ea in repellat dolorem quia. Placeat iusto consequatur itaque minus magnam! Voluptatibus voluptas, tenetur pariatur reiciendis a deserunt vitae asperiores id eos aliquid similique harum recusandae quibusdam velit nostrum doloribus libero! Accusantium minus veniam quos deleniti, distinctio nemo eum laudantium dolore.Delectus iste explicabo in dolor voluptatibus ipsa odio animi omnis maxime suscipit! Odit repudiandae expedita labore, cupiditate, non unde accusamus provident quod vitae quidem consectetur facere inventore quae at nemo.Voluptatum tempore esse voluptas. Enim repellat, corrupti aspernatur itaque ipsam ut voluptas ea fugit harum minus non a laudantium veniam placeat alias eligendi libero animi atque voluptate repellendus quia praesentium!Facilis ipsam vero porro sapiente quasi, ipsa veritatis id vel minus, dolore totam, tempore illum sequi natus est ab suscipit quia? Amet, fuga soluta assumenda culpa quis corrupti neque rerum? ",
-      link: "evelina-kolodzinska",
-      social: [
-        {
-          instagram: {
-            link: "https://www.instagram.com/grand.dance_studiio?igsh=b2F4cDVmenB4Y2tw",
-            nickname: "evelina-kolodzinska",
-          },
-        },
-        {
-          phone: "+380 (66) 642 82 52",
-        },
-      ],
-      category: "Хореограф",
-      section: "Дитячі танці",
-      photo: kidsDanceTr,
-      about: "",
-      // certificate: {
-      //   issuedBy: "Expert X",
-      //   program: "Інструктор тренажерної зали",
-      //   hours: 200,
-      //   format: {
-      //     lectures: true,
-      //     practicalLessons: true,
-      //     finalTesting: true,
-      //   },
-      //   disciplines: [
-      //     "Анатомія фітнесу",
-      //     "Інструктор тренажерної зали (базовий рівень)",
-      //     "Інструктор тренажерної зали (просунутий рівень)",
-      //     "Фітнес-тестування",
-      //     "Функціональний тренінг",
-      //     "Стретчинг",
-      //     "Групові програми",
-      //     "Тренування з платформою BOSU",
-      //     "Основи харчування",
-      //     "Персональний тренер",
-      //     "Створення та реалізація індивідуальних програм тренувань",
-      //     "Підготовка тренера до працевлаштування: знання та навички",
-      //   ],
-      // },
-    },
-    {
-      id: 4,
-      name: "Ірина Чорній",
-      greeting:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis, vero laborum reprehenderit minus, voluptatum aperiam voluptates quisquam facere neque ea in repellat dolorem quia. Placeat iusto consequatur itaque minus magnam! Voluptatibus voluptas, tenetur pariatur reiciendis a deserunt vitae asperiores id eos aliquid similique harum recusandae quibusdam velit nostrum doloribus libero! Accusantium minus veniam quos deleniti, distinctio nemo eum laudantium dolore.Delectus iste explicabo in dolor voluptatibus ipsa odio animi omnis maxime suscipit! Odit repudiandae expedita labore, cupiditate, non unde accusamus provident quod vitae quidem consectetur facere inventore quae at nemo.Voluptatum tempore esse voluptas. Enim repellat, corrupti aspernatur itaque ipsam ut voluptas ea fugit harum minus non a laudantium veniam placeat alias eligendi libero animi atque voluptate repellendus quia praesentium!Facilis ipsam vero porro sapiente quasi, ipsa veritatis id vel minus, dolore totam, tempore illum sequi natus est ab suscipit quia? Amet, fuga soluta assumenda culpa quis corrupti neque rerum? ",
-      link: "iryna-chornii",
-      social: [
-        {
-          instagram: {
-            link: "https://www.instagram.com/irynka_chorniy?igsh=ejFsOGtvY2o3N2Qy",
-            nickname: "irynka_chorniy",
-          },
-        },
-        {
-          phone: "+380 (66) 642 82 52",
-        },
-      ],
-      category: "Йога",
-      section: "Йога",
-      photo: yogaTr,
-      about: "",
-      // certificate: {
-      //   issuedBy: "Expert X",
-      //   program: "Інструктор тренажерної зали",
-      //   hours: 200,
-      //   format: {
-      //     lectures: true,
-      //     practicalLessons: true,
-      //     finalTesting: true,
-      //   },
-      //   disciplines: [
-      //     "Анатомія фітнесу",
-      //     "Інструктор тренажерної зали (базовий рівень)",
-      //     "Інструктор тренажерної зали (просунутий рівень)",
-      //     "Фітнес-тестування",
-      //     "Функціональний тренінг",
-      //     "Стретчинг",
-      //     "Групові програми",
-      //     "Тренування з платформою BOSU",
-      //     "Основи харчування",
-      //     "Персональний тренер",
-      //     "Створення та реалізація індивідуальних програм тренувань",
-      //     "Підготовка тренера до працевлаштування: знання та навички",
-      //   ],
-      // },
-    },
-    {
-      id: 5,
-      name: "Оксана Чупіна",
-      greeting:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis, vero laborum reprehenderit minus, voluptatum aperiam voluptates quisquam facere neque ea in repellat dolorem quia. Placeat iusto consequatur itaque minus magnam! Voluptatibus voluptas, tenetur pariatur reiciendis a deserunt vitae asperiores id eos aliquid similique harum recusandae quibusdam velit nostrum doloribus libero! Accusantium minus veniam quos deleniti, distinctio nemo eum laudantium dolore.Delectus iste explicabo in dolor voluptatibus ipsa odio animi omnis maxime suscipit! Odit repudiandae expedita labore, cupiditate, non unde accusamus provident quod vitae quidem consectetur facere inventore quae at nemo.Voluptatum tempore esse voluptas. Enim repellat, corrupti aspernatur itaque ipsam ut voluptas ea fugit harum minus non a laudantium veniam placeat alias eligendi libero animi atque voluptate repellendus quia praesentium!Facilis ipsam vero porro sapiente quasi, ipsa veritatis id vel minus, dolore totam, tempore illum sequi natus est ab suscipit quia? Amet, fuga soluta assumenda culpa quis corrupti neque rerum? ",
-      link: "oksana-chupina",
-      social: [
-        {
-          instagram: {
-            link: "https://www.instagram.com/chupina102?igsh=MXRheHNoNHluczQ0Zg==",
-            nickname: "irynka_chorniy",
-          },
-        },
-        {
-          phone: "+380 (66) 642 82 52",
-        },
-      ],
-      category: "Йога",
-      section: "Йога",
-      photo: yogaTrOksana,
-      about: "",
-      // certificate: {
-      //   issuedBy: "Expert X",
-      //   program: "Інструктор тренажерної зали",
-      //   hours: 200,
-      //   format: {
-      //     lectures: true,
-      //     practicalLessons: true,
-      //     finalTesting: true,
-      //   },
-      //   disciplines: [
-      //     "Анатомія фітнесу",
-      //     "Інструктор тренажерної зали (базовий рівень)",
-      //     "Інструктор тренажерної зали (просунутий рівень)",
-      //     "Фітнес-тестування",
-      //     "Функціональний тренінг",
-      //     "Стретчинг",
-      //     "Групові програми",
-      //     "Тренування з платформою BOSU",
-      //     "Основи харчування",
-      //     "Персональний тренер",
-      //     "Створення та реалізація індивідуальних програм тренувань",
-      //     "Підготовка тренера до працевлаштування: знання та навички",
-      //   ],
-      // },
-    },
+    // {
+    //   id: 3,
+    //   name: "Евеліна Колодзінська",
+    //   greeting:
+    //     "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis, vero laborum reprehenderit minus, voluptatum aperiam voluptates quisquam facere neque ea in repellat dolorem quia. Placeat iusto consequatur itaque minus magnam! Voluptatibus voluptas, tenetur pariatur reiciendis a deserunt vitae asperiores id eos aliquid similique harum recusandae quibusdam velit nostrum doloribus libero! Accusantium minus veniam quos deleniti, distinctio nemo eum laudantium dolore.Delectus iste explicabo in dolor voluptatibus ipsa odio animi omnis maxime suscipit! Odit repudiandae expedita labore, cupiditate, non unde accusamus provident quod vitae quidem consectetur facere inventore quae at nemo.Voluptatum tempore esse voluptas. Enim repellat, corrupti aspernatur itaque ipsam ut voluptas ea fugit harum minus non a laudantium veniam placeat alias eligendi libero animi atque voluptate repellendus quia praesentium!Facilis ipsam vero porro sapiente quasi, ipsa veritatis id vel minus, dolore totam, tempore illum sequi natus est ab suscipit quia? Amet, fuga soluta assumenda culpa quis corrupti neque rerum? ",
+    //   link: "evelina-kolodzinska",
+    //   social: [
+    //     {
+    //       instagram: {
+    //         link: "https://www.instagram.com/grand.dance_studiio?igsh=b2F4cDVmenB4Y2tw",
+    //         nickname: "evelina-kolodzinska",
+    //       },
+    //     },
+    //     {
+    //       phone: "+380 (66) 642 82 52",
+    //     },
+    //   ],
+    //   category: "Хореограф",
+    //   section: "Дитячі танці",
+    //   photo: kidsDanceTr,
+    //   about: "",
+    //   // certificate: {
+    //   //   issuedBy: "Expert X",
+    //   //   program: "Інструктор тренажерної зали",
+    //   //   hours: 200,
+    //   //   format: {
+    //   //     lectures: true,
+    //   //     practicalLessons: true,
+    //   //     finalTesting: true,
+    //   //   },
+    //   //   disciplines: [
+    //   //     "Анатомія фітнесу",
+    //   //     "Інструктор тренажерної зали (базовий рівень)",
+    //   //     "Інструктор тренажерної зали (просунутий рівень)",
+    //   //     "Фітнес-тестування",
+    //   //     "Функціональний тренінг",
+    //   //     "Стретчинг",
+    //   //     "Групові програми",
+    //   //     "Тренування з платформою BOSU",
+    //   //     "Основи харчування",
+    //   //     "Персональний тренер",
+    //   //     "Створення та реалізація індивідуальних програм тренувань",
+    //   //     "Підготовка тренера до працевлаштування: знання та навички",
+    //   //   ],
+    //   // },
+    // },
+    // {
+    //   id: 4,
+    //   name: "Ірина Чорній",
+    //   greeting:
+    //     "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis, vero laborum reprehenderit minus, voluptatum aperiam voluptates quisquam facere neque ea in repellat dolorem quia. Placeat iusto consequatur itaque minus magnam! Voluptatibus voluptas, tenetur pariatur reiciendis a deserunt vitae asperiores id eos aliquid similique harum recusandae quibusdam velit nostrum doloribus libero! Accusantium minus veniam quos deleniti, distinctio nemo eum laudantium dolore.Delectus iste explicabo in dolor voluptatibus ipsa odio animi omnis maxime suscipit! Odit repudiandae expedita labore, cupiditate, non unde accusamus provident quod vitae quidem consectetur facere inventore quae at nemo.Voluptatum tempore esse voluptas. Enim repellat, corrupti aspernatur itaque ipsam ut voluptas ea fugit harum minus non a laudantium veniam placeat alias eligendi libero animi atque voluptate repellendus quia praesentium!Facilis ipsam vero porro sapiente quasi, ipsa veritatis id vel minus, dolore totam, tempore illum sequi natus est ab suscipit quia? Amet, fuga soluta assumenda culpa quis corrupti neque rerum? ",
+    //   link: "iryna-chornii",
+    //   social: [
+    //     {
+    //       instagram: {
+    //         link: "https://www.instagram.com/irynka_chorniy?igsh=ejFsOGtvY2o3N2Qy",
+    //         nickname: "irynka_chorniy",
+    //       },
+    //     },
+    //     {
+    //       phone: "+380 (66) 642 82 52",
+    //     },
+    //   ],
+    //   category: "Йога",
+    //   section: "Йога",
+    //   photo: yogaTr,
+    //   about: "",
+    //   // certificate: {
+    //   //   issuedBy: "Expert X",
+    //   //   program: "Інструктор тренажерної зали",
+    //   //   hours: 200,
+    //   //   format: {
+    //   //     lectures: true,
+    //   //     practicalLessons: true,
+    //   //     finalTesting: true,
+    //   //   },
+    //   //   disciplines: [
+    //   //     "Анатомія фітнесу",
+    //   //     "Інструктор тренажерної зали (базовий рівень)",
+    //   //     "Інструктор тренажерної зали (просунутий рівень)",
+    //   //     "Фітнес-тестування",
+    //   //     "Функціональний тренінг",
+    //   //     "Стретчинг",
+    //   //     "Групові програми",
+    //   //     "Тренування з платформою BOSU",
+    //   //     "Основи харчування",
+    //   //     "Персональний тренер",
+    //   //     "Створення та реалізація індивідуальних програм тренувань",
+    //   //     "Підготовка тренера до працевлаштування: знання та навички",
+    //   //   ],
+    //   // },
+    // },
+    // {
+    //   id: 5,
+    //   name: "Оксана Чупіна",
+    //   greeting:
+    //     "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis, vero laborum reprehenderit minus, voluptatum aperiam voluptates quisquam facere neque ea in repellat dolorem quia. Placeat iusto consequatur itaque minus magnam! Voluptatibus voluptas, tenetur pariatur reiciendis a deserunt vitae asperiores id eos aliquid similique harum recusandae quibusdam velit nostrum doloribus libero! Accusantium minus veniam quos deleniti, distinctio nemo eum laudantium dolore.Delectus iste explicabo in dolor voluptatibus ipsa odio animi omnis maxime suscipit! Odit repudiandae expedita labore, cupiditate, non unde accusamus provident quod vitae quidem consectetur facere inventore quae at nemo.Voluptatum tempore esse voluptas. Enim repellat, corrupti aspernatur itaque ipsam ut voluptas ea fugit harum minus non a laudantium veniam placeat alias eligendi libero animi atque voluptate repellendus quia praesentium!Facilis ipsam vero porro sapiente quasi, ipsa veritatis id vel minus, dolore totam, tempore illum sequi natus est ab suscipit quia? Amet, fuga soluta assumenda culpa quis corrupti neque rerum? ",
+    //   link: "oksana-chupina",
+    //   social: [
+    //     {
+    //       instagram: {
+    //         link: "https://www.instagram.com/chupina102?igsh=MXRheHNoNHluczQ0Zg==",
+    //         nickname: "irynka_chorniy",
+    //       },
+    //     },
+    //     {
+    //       phone: "+380 (66) 642 82 52",
+    //     },
+    //   ],
+    //   category: "Йога",
+    //   section: "Йога",
+    //   photo: yogaTrOksana,
+    //   about: "",
+    //   // certificate: {
+    //   //   issuedBy: "Expert X",
+    //   //   program: "Інструктор тренажерної зали",
+    //   //   hours: 200,
+    //   //   format: {
+    //   //     lectures: true,
+    //   //     practicalLessons: true,
+    //   //     finalTesting: true,
+    //   //   },
+    //   //   disciplines: [
+    //   //     "Анатомія фітнесу",
+    //   //     "Інструктор тренажерної зали (базовий рівень)",
+    //   //     "Інструктор тренажерної зали (просунутий рівень)",
+    //   //     "Фітнес-тестування",
+    //   //     "Функціональний тренінг",
+    //   //     "Стретчинг",
+    //   //     "Групові програми",
+    //   //     "Тренування з платформою BOSU",
+    //   //     "Основи харчування",
+    //   //     "Персональний тренер",
+    //   //     "Створення та реалізація індивідуальних програм тренувань",
+    //   //     "Підготовка тренера до працевлаштування: знання та навички",
+    //   //   ],
+    //   // },
+    // },
   ],
 
   getByFilter: (filter) => get().trainers.filter((t) => t.filter === filter),

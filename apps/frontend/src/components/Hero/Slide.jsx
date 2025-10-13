@@ -7,6 +7,7 @@ import Button from "../ui/Button/Button";
 import ReverseBtn from "../ui/Button/ReverseBtn";
 
 import { FcSportsMode } from "react-icons/fc";
+import VideoPlayer from "../VideoPlayer/VideoPlayer";
 
 export default function Slide({ slide }) {
   return (
@@ -16,6 +17,7 @@ export default function Slide({ slide }) {
     >
       <div className="container">
         <div className={style.hero_content_wrapper}>
+          {slide.video ? <VideoPlayer file={slide.video} /> : null}
           <div className={style.hero_text_wrapper}>
             <motion.div
               initial={{ opacity: 0, y: -30 }}

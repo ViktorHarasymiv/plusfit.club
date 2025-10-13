@@ -43,7 +43,7 @@ export default function Trainer({ selectedCategory }) {
               991: { slidesPerView: 2, spaceBetween: 25 },
               1440: { slidesPerView: 3, spaceBetween: 30 },
             }}
-            loop={filtered.length > 1}
+            loop={filtered.length > 3}
             autoplay={{
               delay: 2500,
               disableOnInteraction: false,

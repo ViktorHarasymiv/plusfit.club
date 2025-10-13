@@ -54,7 +54,7 @@ export default function General({ resizeWidth }) {
               <img
                 src={`${!isScroll ? logoLight : logoDark}`}
                 alt="PlusFit"
-                width={140}
+                width={130}
                 height={70}
                 className="logo"
                 title="Ви - серце, нашого залу ! Без Вас, це просто приміщення 💛💙"
@@ -107,6 +107,7 @@ export default function General({ resizeWidth }) {
                             Йога
                           </NavLink>
                         </li>
+                        {/* 
                         <li>
                           <NavLink
                             to="/offer/kids"
@@ -114,15 +115,15 @@ export default function General({ resizeWidth }) {
                           >
                             Дитячі танці
                           </NavLink>
-                        </li>
-                        <li>
+                        </li> */}
+                        {/* <li>
                           <NavLink
                             to="/offer/endosphere"
                             className={style.dropdown_item}
                           >
                             Сфератерапія
                           </NavLink>
-                        </li>
+                        </li> */}
                       </ul>
                     </li>
                     <li className={style.navbar_item}>
@@ -162,22 +163,22 @@ export default function General({ resizeWidth }) {
                             Йога
                           </NavLink>
                         </li>
-                        <li>
+                        {/* <li>
                           <NavLink
                             to="price/kids"
                             className={style.dropdown_item}
                           >
                             Дитячі танці
                           </NavLink>
-                        </li>
-                        <li>
+                        </li> */}
+                        {/* <li>
                           <NavLink
                             to="price/endosphere"
                             className={style.dropdown_item}
                           >
                             Сфератерапія
                           </NavLink>
-                        </li>
+                        </li> */}
                       </ul>
                     </li>
                     <li className={style.navbar_item}>

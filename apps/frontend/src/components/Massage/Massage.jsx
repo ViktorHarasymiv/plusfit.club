@@ -4,7 +4,8 @@ import Content from "../../pages/Offer/Content/Content";
 export default function Massage() {
   document.title = "Плюс Фіт - Масаж";
   const content = {
-    frontImage: "",
+    frontImage:
+      "https://res.cloudinary.com/dcmbg0k5a/image/upload/v1760374143/ij786m76l0s4rt6macqc.jpg",
     firstParagraph: {
       firstTitle: "Масаж",
 
@@ -12,7 +13,10 @@ export default function Massage() {
         "Масаж — це механічний вплив на тканини тіла (шкіру, м’язи, суглоби), який здійснюється руками або спеціальними пристроями з метою оздоровлення, релаксації або лікування. Його застосовують як у медицині, так і в косметології, спорті та реабілітації.",
       secound:
         "Кому рекомендовано масаж: cпортсменам — для відновлення після навантажен;  дітям — для розвитку та корекції постави; дорослим — для зняття стресу та болю; людям похилого віку — для підтримки рухливості",
-      contentImage: ["", ""],
+      contentImage: [
+        "https://res.cloudinary.com/dcmbg0k5a/image/upload/v1760374170/bggyy2xpxyvte6xkob6i.jpg",
+        "https://res.cloudinary.com/dcmbg0k5a/image/upload/v1760374159/kzpfwmvdavpens2eythu.jpg",
+      ],
       third:
         "Масаж — це не просто приємна процедура, а потужний інструмент для підтримки здоров’я, профілактики хвороб і покращення психоемоційного стану. Його ефективність залежить від правильного вибору методу, кваліфікації фахівця та регулярності сеансів.",
     },

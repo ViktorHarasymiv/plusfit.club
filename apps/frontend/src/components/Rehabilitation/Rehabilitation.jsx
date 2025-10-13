@@ -4,7 +4,8 @@ import Content from "../../pages/Offer/Content/Content";
 export default function Rehabilitation() {
   document.title = "ПЛЮС ФІТ - Реабілітація";
   const content = {
-    frontImage: "",
+    frontImage:
+      "https://www.hopequre.com/live-images/expert-detail/rehab-plan-img.webp",
     firstParagraph: {
       firstTitle: "Реабілітація",
 
@@ -12,7 +13,10 @@ export default function Rehabilitation() {
         "Ми допомагаємо відновитися після травм, операцій та тривалих навантажень.",
       secound:
         "Загальна реабілітація — це комплекс медичних, соціальних, психологічних та освітніх заходів, спрямованих на відновлення здоров’я, функціональних можливостей і якості життя людини після хвороб, травм або інших порушень. За визначенням ВООЗ, реабілітація — це процес, який допомагає людині з обмеженими функціями адаптуватися до нових умов життя, максимально реалізувати свій потенціал і повернутися до активної участі в суспільстві.",
-      contentImage: ["", ""],
+      contentImage: [
+        "https://www.psychologs.com/wp-content/uploads/2024/05/the-integral-role-of-rehabilitation-psychology.jpg",
+        "https://sa1s3optim.patientpop.com/assets/images/provider/photos/2463330.jpeg",
+      ],
       third:
         "Реабілітація може включати: фізіотерапію та лікувальну фізкультуру, масаж, ерготерапію, логопедію, психологічну допомогу. Спеціаліст з яким ви зможете працювати - фізичний терапевт Довгалюк Уляна ",
     },
@@ -32,10 +36,7 @@ export default function Rehabilitation() {
   };
   return (
     <div>
-      <Content
-        content={content}
-        selectetCategory={"Реабілітація та масаж"}
-      ></Content>
+      <Content content={content} selectetCategory={"Реабілітація та масаж"} />
     </div>
   );
 }

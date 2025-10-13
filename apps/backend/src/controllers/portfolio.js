@@ -1,4 +1,12 @@
-import { getPortfolio, createPortfolio } from '../services/portfolio.js';
+import fs from 'fs/promises';
+import path from 'path';
+
+import createHttpError from 'http-errors';
+import {
+  getPortfolio,
+  createPortfolio,
+  deletePhoto,
+} from '../services/portfolio.js';
 
 import { saveFileToUploadDir } from '../utils/saveFileToUploadDir.js';
 
@@ -47,15 +55,35 @@ export const createPortfolioController = async (req, res, next) => {
 
 // DELETE
 
-// export const deleteMessageController = async (req, res, next) => {
-//   const { messageId } = req.params;
+export const deletePortfolioController = async (req, res, next) => {
+  const { photoId } = req.params;
+  const { filename } = req.body;
 
-//   const message = await deleteMessage(messageId);
+  console.log('filename:', filename.split('/').pop());
+  console.log('body:', req.body);
 
-//   if (!message) {
-//     next(createHttpError(404, 'Message not found'));
-//     return;
-//   }
+  const photo = await deletePhoto(photoId);
 
-//   res.status(204).send();
-// };
+  if (!photo) {
+    next(createHttpError(404, 'Photo not found'));
+    return;
+  }
+
+  if (filename) {
+    const filePath = path.join(
+      process.cwd(),
+      'uploads',
+      filename.split('/').pop(),
+    );
+
+    try {
+      await fs.unlink(filePath);
+      console.log(`Deleted file: ${filePath}`);
+    } catch (err) {
+      console.log(err);
+      console.warn(`File not found or already deleted: ${filePath}`);
+    }
+  }
+
+  res.status(204).send();
+};

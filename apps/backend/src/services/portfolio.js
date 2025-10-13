@@ -15,3 +15,10 @@ export const createPortfolio = async (payload) => {
   const portfolio = await PortfolioCollection.create(payload);
   return portfolio;
 };
+
+// DELETE
+
+export const deletePhoto = async (photoId) => {
+  const photo = await PortfolioCollection.findOneAndDelete({ _id: photoId });
+  return photo;
+};

@@ -5,6 +5,7 @@ import { upload } from '../middlewares/multer.js';
 
 import {
   createPortfolioController,
+  deletePortfolioController,
   getPortfolioController,
 } from '../controllers/portfolio.js';
 import { portfolioValidationSchema } from '../validation/portfolio.js';
@@ -23,5 +24,7 @@ router.post(
   upload.single('photo'),
   createPortfolioController,
 );
+
+router.delete('/:photoId', deletePortfolioController);
 
 export default router;

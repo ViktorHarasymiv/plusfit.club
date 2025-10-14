@@ -61,7 +61,7 @@
   margin-bottom: 50px;
 
   display: grid;
-  grid-template-columns: repeat(3, minmax(340px, 400px));
+  grid-template-columns: repeat(auto-fit, minmax(340px, 400px));
   grid-auto-rows: minmax(300px, 350px);
 
   justify-content: center;

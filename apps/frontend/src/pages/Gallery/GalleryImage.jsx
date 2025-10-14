@@ -58,6 +58,7 @@ function GalleryImage({ data, filter, page, setPage }) {
                 width={300}
                 height={350}
                 alt={`Фото ${section} ${index + 1}`}
+                loading="lazy"
                 className={css.images}
               />
               <div className={css.open_box}>

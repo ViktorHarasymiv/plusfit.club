@@ -182,13 +182,13 @@ export default function General({ resizeWidth }) {
                       </ul>
                     </li>
                     <li className={style.navbar_item}>
-                      <NavLink to="/about">
-                        <span>Про Нас</span>
+                      <NavLink to="/gallery">
+                        <span>Галерея</span>
                       </NavLink>
                     </li>
                     <li className={style.navbar_item}>
-                      <NavLink to="/gallery">
-                        <span>Галерея</span>
+                      <NavLink to="/about">
+                        <span>Про Нас</span>
                       </NavLink>
                     </li>
                     <li className={style.navbar_item}>

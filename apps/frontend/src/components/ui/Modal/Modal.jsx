@@ -24,6 +24,14 @@ export default function Modal({
     };
   }, [onClose]);
 
+  useEffect(() => {
+    if (isOpen) {
+      document.querySelector("html").classList.add("lock");
+    } else {
+      document.querySelector("html").classList.remove("lock");
+    }
+  }, [isOpen, onClose]);
+
   if (!isOpen) return null;
 
   return ReactDOM.createPortal(

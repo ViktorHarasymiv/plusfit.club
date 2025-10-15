@@ -12,7 +12,8 @@ const modalObjStyle = {
   textAlign: "start",
   borderRadius: "2px",
 
-  maxWidth: "90%",
+  maxWidth: "95%",
+  width: "100%",
   maxHeight: "75%",
 };
 

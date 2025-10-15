@@ -59,11 +59,11 @@
 }
 
 .custom-prev {
-  right: 80px;
+  left: 30px;
 }
 
 .custom-next {
-  right: 20px;
+  left: 100px;
 }
 
 .swiper_arrow-icon {

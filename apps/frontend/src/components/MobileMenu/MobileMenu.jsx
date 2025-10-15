@@ -193,15 +193,15 @@ export default function MobileMenu({ isScroll }) {
                   )}
                 </li>
                 <li className={style.navbar_item}>
-                  <NavLink to="/about">
-                    <IoDocumentText />
-                    <span>Про Нас</span>
-                  </NavLink>
-                </li>
-                <li className={style.navbar_item}>
                   <NavLink to="/gallery">
                     <GrGallery />
                     <span>Галерея</span>
+                  </NavLink>
+                </li>
+                <li className={style.navbar_item}>
+                  <NavLink to="/about">
+                    <IoDocumentText />
+                    <span>Про Нас</span>
                   </NavLink>
                 </li>
                 <li className={style.navbar_item}>

@@ -14,6 +14,7 @@ export const gymPriceList = create((set) => ({
       set({ data: res.data.result.data, loading: false });
     } catch (err) {
       set({ error: "Помилка при завантаженні", loading: false });
+      setLoading(false);
     }
   },
 }));

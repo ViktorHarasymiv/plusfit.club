@@ -1,32 +1,11 @@
 .overflow {
+  padding-block: 100px;
   z-index: 10;
 
   position: absolute;
 
-  width: 100vw;
-  height: 100vh;
+  top: 50%;
+  left: 50%;
 
-  background: rgba(0, 0, 0, 1);
-
-  display: flex;
-  gap: 50px;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.loader_title {
-  color: var(--accent-color);
-
-  text-transform: uppercase;
-
-  font-family: var(--font-family-accent);
-
-  font-size: clamp(1.75rem, 0.8697rem + 3.7559vw, 4.5rem);
-
-  letter-spacing: 0.05em;
-
-  transform: rotateX(35deg);
-
-  transform-origin: center;
+  transform: translate(-50%, -50%);
 }

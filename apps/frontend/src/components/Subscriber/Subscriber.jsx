@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { GET_ONE } from "../../services/Api";
 
+import NavigationContext from "../NavigationContext/NavigationContext";
+
 export default function Subscriber() {
   const { id } = useParams();
 
@@ -23,5 +25,10 @@ export default function Subscriber() {
     fetchData();
   }, []);
 
-  return <main>{subscription?.fullName}</main>;
+  return (
+    <main>
+      <NavigationContext />
+      <div className="container">{subscription?.fullName}</div>
+    </main>
+  );
 }

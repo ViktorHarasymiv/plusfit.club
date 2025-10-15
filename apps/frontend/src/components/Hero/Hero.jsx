@@ -26,36 +26,37 @@ const sliderArray = [
     about:
       "Ми створили простір, де кожен крок до здорового тіла стає натхненням. Ми не просто тренуємо — ми підтримуємо, надихаємо і допомагаємо тобі розкрити власний потенціал.",
     action: ["/offer/gym", "contacts"],
-    video: "/video/file.mp4",
+    image:
+      "https://res.cloudinary.com/dcmbg0k5a/image/upload/v1760370985/zrgc6rjo13swdddjsivi.jpg",
   },
-  // {
-  //   id: 1,
-  //   icon: "",
-  //   greeting: "Personal training sessions",
-  //   title: {
-  //     base: "Тренуйся з тими, хто знає",
-  //     accent: "як досягати результату ",
-  //     baseFinish: "обери заняття з тренером",
-  //   },
-  //   about: "Індивідуальний підхід. Максимальна ефективність. Видимий прогрес",
-  //   action: ["/price/gym", "info"],
-  //   image: "/img/slider/slider-2.jpg",
-  // },
-  // {
-  //   id: 2,
-  //   icon: "",
-  //   greeting: "DANCE CLASSES FOR KIDS",
-  //   title: {
-  //     base: "ДАЙТЕ СТАРТ ТВОРЧОМУ РУХУ",
-  //     accent: "ТАНЦІ ДЛЯ РОЗВИТКУ І РАДОСТІ",
-  //     baseFinish: "Дозволь дитині сяяти",
-  //   },
+  {
+    id: 1,
+    icon: "",
+    greeting: "Personal training sessions",
+    title: {
+      base: "Тренуйся з тими, хто знає",
+      accent: "як досягати результату ",
+      baseFinish: "обери заняття з тренером",
+    },
+    about: "Індивідуальний підхід. Максимальна ефективність. Видимий прогрес",
+    action: ["/price/gym", "info"],
+    image: "/img/slider/slider-2.jpg",
+  },
+  {
+    id: 2,
+    icon: "",
+    greeting: "DANCE CLASSES FOR KIDS",
+    title: {
+      base: "ДАЙТЕ СТАРТ ТВОРЧОМУ РУХУ",
+      accent: "ТАНЦІ ДЛЯ РОЗВИТКУ І РАДОСТІ",
+      baseFinish: "Дозволь дитині сяяти",
+    },
 
-  //   about:
-  //     "Ми допоможемо зробити перший крок до великої сцени , запрошуємо до нашої студії",
-  //   action: ["/offer/kids", "contacts"],
-  //   image: "/img/slider/slider-4.jpg",
-  // },
+    about:
+      "Ми допоможемо зробити перший крок до великої сцени , запрошуємо до нашої студії",
+    action: ["/offer/kids", "contacts"],
+    image: "/img/slider/slider-4.jpg",
+  },
 ];
 
 export default function Hero() {

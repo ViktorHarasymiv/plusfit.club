@@ -1,3 +1,7 @@
+.tarife_wrapper {
+  position: relative;
+}
+
 .list {
   display: grid;
   gap: 24px;

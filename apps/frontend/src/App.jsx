@@ -8,18 +8,16 @@ import Router from "./components/Routes/Routes";
 
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Loader from "./components/ui/Loader/Loader";
-import { useLoaderStore } from "./store/loadingStore";
+
 import { useFullscreenStore } from "./store/fullscreenStore";
 
 function App() {
-  const { isLoading } = useLoaderStore();
   const { isOpen } = useFullscreenStore();
 
   useEffect(() => {
     const body = document.body;
 
-    if (isLoading || isOpen) {
+    if (isOpen) {
       body.classList.add("lock");
     } else {
       body.classList.remove("lock");
@@ -28,7 +26,7 @@ function App() {
     return () => {
       body.classList.remove("lock");
     };
-  }, [isLoading, isOpen]);
+  }, [isOpen]);
 
   const location = useLocation();
 
@@ -40,8 +38,6 @@ function App() {
 
   return (
     <>
-      <Loader />
-
       <Header />
       <Router />
       <Footer />

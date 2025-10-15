@@ -1,7 +1,3 @@
-import React from "react";
-
-import css from "./Trainers.module.css";
-
 import SectionTitle from "../SectionTitle/SectionTitle";
 import Treiner from "./Trainer";
 

@@ -1,4 +1,3 @@
-import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 import css from "./Trainers.module.css";
@@ -12,8 +11,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "./swiper.css";
 import "swiper/css";
 import "swiper/css/pagination";
-
-// import "./styles.css";
 
 // import required modules
 import { Pagination, Autoplay } from "swiper/modules";

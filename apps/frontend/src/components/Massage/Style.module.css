@@ -4,9 +4,13 @@
   display: flex;
   flex-wrap: wrap-reverse;
   justify-content: space-between;
+
+  gap: 100px;
 }
 
 .price_wrapper {
+  max-width: 700px;
+
   display: flex;
   flex-direction: column;
 

@@ -17,6 +17,7 @@ import Modal from "../ui/Modal/Modal";
 
 import MobileMenu from "../MobileMenu/MobileMenu";
 import Search from "../Search/Search";
+import AuthTile from "../AuthTile/AuthTile";
 
 export default function General({ resizeWidth }) {
   const currentHeight = useRef(null);
@@ -198,12 +199,8 @@ export default function General({ resizeWidth }) {
                     </li>
                   </ul>
                 </div>
-                <Search />
-                {resizeWidth > 1199.98 && (
-                  <Button type={"button"} action={setModalOpen}>
-                    {"Отримати пропозицію"}
-                  </Button>
-                )}
+                {resizeWidth > 1199.98 && <Search />}
+                <AuthTile />
               </div>
             )}
             {resizeWidth < 991.98 && <MobileMenu isScroll={isScroll} />}

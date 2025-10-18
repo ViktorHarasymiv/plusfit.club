@@ -20,8 +20,6 @@
 
   padding: 30px;
 
-  border-radius: 20px;
-
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 
   backdrop-filter: blur(12px);
@@ -33,7 +31,6 @@
   max-height: 60vh;
 
   width: 50%;
-  height: 100%;
 
   position: relative;
 
@@ -45,12 +42,10 @@
 
   background-color: rgba(0, 0, 0, 0.8);
 
-  border-radius: 4px !important;
+  border-radius: 4px;
 
   text-align: center;
-}
 
-.modal_content {
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE 10+ */
 }
@@ -67,4 +62,10 @@
   background: none;
   border: none;
   cursor: pointer;
+}
+
+@media screen and (min-width: 767.98px) {
+  .modal_content {
+    padding: 30px 60px;
+  }
 }

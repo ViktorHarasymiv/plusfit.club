@@ -26,6 +26,7 @@ import style from "./MobileMenu.module.css";
 import css from "../Header/Header.module.css";
 
 import Modal from "../ui/Modal/Modal";
+import AuthTile from "../AuthTile/AuthTile";
 
 const buttonStyle = {
   position: "absolute",
@@ -47,6 +48,7 @@ const mobilePanelStyle = {
   opacity: "1",
   width: "80vw",
   maxHeight: "100%",
+  height: "100%",
   borderRadius: "0",
   background: "rgba(0,0,0, 0.6)",
 };
@@ -215,6 +217,9 @@ export default function MobileMenu({ isScroll }) {
           </div>
           {/* MENU */}
           <footer className={style.footer}>
+            <div className={style.auth_wrapper}>
+              <AuthTile />
+            </div>
             <div className={style.footer_action}>
               {/* SOCIAL */}
               <div className={style.footer_social}>
@@ -275,7 +280,7 @@ export default function MobileMenu({ isScroll }) {
               <div className={style.work_time_block}>
                 <h6>
                   <FaCalendarAlt />
-                  Графік роботи
+                  Режим роботи
                 </h6>
                 <ul className={style.work_time_list}>
                   <li>

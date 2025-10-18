@@ -143,9 +143,23 @@
   width: 100px;
 }
 
+@media screen and (min-width: 991.98px) {
+  .logo_header {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 1190.98px) {
+  .logo_header {
+    display: block;
+  }
+}
+
 .action_bar_wrapper {
   display: flex;
   align-items: center;
+
+  justify-content: space-between;
 
   flex-wrap: nowrap;
 

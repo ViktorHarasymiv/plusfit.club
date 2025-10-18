@@ -22,6 +22,10 @@ import GymPrice from "../Gym/GymPrice";
 import Gym from "../Gym/Gym";
 import Subscription from "../Subscription/Subscription";
 import Gallery from "../../pages/Gallery/Gallery";
+import Registration from "../../pages/Auth/Registration/Registration";
+import Profile from "../../pages/Profile/Profile";
+import { AuthGuard } from "../AuthGuard/AuthGuard";
+import Policy from "../../pages/Policy/Policy";
 
 function Router() {
   return (
@@ -29,6 +33,17 @@ function Router() {
       <Routes>
         {/* Home */}
         <Route path="/" element={<Home />} />
+
+        {/* Auth */}
+
+        <Route
+          path="/profile"
+          element={
+            <AuthGuard>
+              <Profile />
+            </AuthGuard>
+          }
+        />
 
         {/* Components navigation */}
 
@@ -52,9 +67,13 @@ function Router() {
           <Route path="kids" element={<KidsDance />} />
         </Route>
 
+        {/* about */}
+
         <Route path="/about" element={<AboutUs />}>
           {/* <Route path="rehabilitation" element={<Rehabilitation />} /> */}
         </Route>
+
+        {/* price */}
 
         <Route path="/price" element={<Price />}>
           <Route path="gym" element={<GymPrice />} />
@@ -62,13 +81,19 @@ function Router() {
           <Route path="rehabilitation" element={<RehabilitationPrice />} />
         </Route>
 
+        {/* gallery */}
+
         <Route path="/gallery" element={<Gallery />}>
           {/* <Route path="rehabilitation" element={<Rehabilitation />} /> */}
         </Route>
 
+        {/* contacts */}
+
         <Route path="/contacts" element={<Contacts />}>
           {/* <Route path="rehabilitation" element={<Rehabilitation />} /> */}
         </Route>
+
+        <Route path="/policy" element={<Policy />} />
 
         {/* Not found page */}
         <Route path="*" element={<NotFound />} />

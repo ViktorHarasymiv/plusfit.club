@@ -36,7 +36,7 @@ export default function Modal({
 
   return ReactDOM.createPortal(
     <div
-      onClick={() => onClose()}
+      onClick={onClose}
       className={style.modal_overlay}
       style={{ ...overlayStyle }}
     >

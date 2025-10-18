@@ -37,6 +37,7 @@
 /* NAVIGATION */
 
 .content_wrapper {
+  width: 100%;
   height: 100%;
 
   display: flex;
@@ -172,6 +173,12 @@
 
 .footer {
   color: var(--white);
+}
+
+.auth_wrapper {
+  margin-bottom: 40px;
+  display: flex;
+  justify-content: center;
 }
 
 .footer_action {

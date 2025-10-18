@@ -1,8 +1,10 @@
+// src/db/models/session.js
+
 import { model, Schema } from 'mongoose';
 
 const sessionsSchema = new Schema(
   {
-    userId: { type: Schema.Types.ObjectId, ref: 'auth' },
+    userId: { type: Schema.Types.ObjectId, ref: 'users' },
     accessToken: { type: String, required: true },
     refreshToken: { type: String, required: true },
     accessTokenValidUntil: { type: Date, required: true },

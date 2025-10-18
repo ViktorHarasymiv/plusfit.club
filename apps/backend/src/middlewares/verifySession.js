@@ -1,18 +1,18 @@
 import { SessionsCollection } from '../db/models/session.js';
-import { UsersCollection } from '../db/models/admin.js';
+import { UsersCollection } from '../db/models/user.js';
 
 export const verifySession = async (req, res, next) => {
   try {
     const { sessionId } = req.cookies;
 
     if (!sessionId) {
-      return res
-        .status(401)
-        .json({ message: console.Console.log('Сесія не знайдена') });
+      console.log('Сесія не знайдена');
+      return res.status(401).json({ message: 'Сесія не знайдена' });
     }
 
     const session = await SessionsCollection.findById(sessionId);
-    if (!session || session.accessTokenValidUntil < new Date()) {
+
+    if (!session || new Date(session.accessTokenValidUntil) < new Date()) {
       return res
         .status(401)
         .json({ message: 'Сесія недійсна або протермінована' });
@@ -27,8 +27,8 @@ export const verifySession = async (req, res, next) => {
       id: user._id,
       name: user.name,
       email: user.email,
-      role: user.role,
     };
+
     console.log('Cесія створена');
 
     next();

@@ -9,7 +9,7 @@ import cookieParser from 'cookie-parser';
 
 import router from './routers/index.js';
 
-import { getEnvVar } from './utils/getEnvVar.js';
+import { getEnvVar } from './middlewares/getEnvVar.js';
 
 import { errorHandler } from './middlewares/errorHandler.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
@@ -31,10 +31,10 @@ export const startServer = () => {
   app.use(
     cors({
       origin: [
-        'http://localhost:5173',
-        'http://localhost:5174',
         'https://plusfit-club-nmf7.vercel.app',
         'https://plusfit-club-dashboard.vercel.app',
+        'http://localhost:5173',
+        'http://localhost:5174',
       ],
 
       credentials: true,

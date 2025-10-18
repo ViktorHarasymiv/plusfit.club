@@ -9,6 +9,8 @@ import {
 } from '../services/portfolio.js';
 
 import { saveFileToUploadDir } from '../utils/saveFileToUploadDir.js';
+import { saveFileToCloudinary } from '../middlewares/saveFileToCloudinary.js';
+import { getEnvVar } from '../middlewares/getEnvVar.js';
 
 // ALL
 
@@ -33,7 +35,14 @@ export const createPortfolioController = async (req, res, next) => {
       return res.status(400).json({ message: 'Файл не передано' });
     }
 
-    const photoUrl = await saveFileToUploadDir(photo);
+    let photoUrl;
+
+    if (photo) {
+      photoUrl =
+        getEnvVar('ENABLE_CLOUDINARY') === 'true'
+          ? await saveFileToCloudinary(photo)
+          : await saveFileToUploadDir(photo);
+    }
 
     const portfolio = await createPortfolio({ alt, section, photo: photoUrl });
 
@@ -58,9 +67,6 @@ export const createPortfolioController = async (req, res, next) => {
 export const deletePortfolioController = async (req, res, next) => {
   const { photoId } = req.params;
   const { filename } = req.body;
-
-  console.log('filename:', filename.split('/').pop());
-  console.log('body:', req.body);
 
   const photo = await deletePhoto(photoId);
 

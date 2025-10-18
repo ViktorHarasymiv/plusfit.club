@@ -1,17 +1,25 @@
 import { Router } from 'express';
 import { ctrlWrapper } from '../utils/ctrlWrapper.js';
-import { loginUserSchema } from '../validation/auth.js';
-import { verifySession } from '../middlewares/verifySession.js';
+import { registerUserSchema, loginUserSchema } from '../validation/auth.js';
 
 import {
+  registerUserController,
   loginUserController,
   logoutUserController,
   refreshUserSessionController,
+  checkSessionController,
 } from '../controllers/auth.js';
 
 import { validateBody } from '../middlewares/validateBody.js';
+import { verifySession } from '../middlewares/verifySession.js';
 
 const router = Router();
+
+router.post(
+  '/register',
+  validateBody(registerUserSchema),
+  ctrlWrapper(registerUserController),
+);
 
 router.post(
   '/login',
@@ -21,12 +29,7 @@ router.post(
 
 router.post('/logout', ctrlWrapper(logoutUserController));
 
-router.get('/check-session', verifySession, (req, res) => {
-  res.status(200).json({
-    message: 'Сесія активна',
-    user: req.user,
-  });
-});
+router.get('/session', verifySession, ctrlWrapper(checkSessionController));
 
 router.post('/refresh', ctrlWrapper(refreshUserSessionController));
 

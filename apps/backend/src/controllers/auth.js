@@ -31,12 +31,14 @@ export const loginUserController = async (req, res) => {
     httpOnly: true,
     secure: true,
     sameSite: 'none',
+    path: '/',
     expires: new Date(Date.now() + ONE_DAY),
   });
   res.cookie('sessionId', session._id, {
     httpOnly: true,
     secure: true,
     sameSite: 'none',
+    path: '/',
     expires: new Date(Date.now() + ONE_DAY),
   });
 
@@ -89,12 +91,14 @@ const setupSession = (res, session) => {
     httpOnly: true,
     secure: true,
     sameSite: 'none',
+    path: '/',
     expires: new Date(session.refreshTokenValidUntil),
   });
   res.cookie('sessionId', session._id.toString(), {
     httpOnly: true,
     secure: true,
     sameSite: 'none',
+    path: '/',
     expires: new Date(session.refreshTokenValidUntil),
   });
 };

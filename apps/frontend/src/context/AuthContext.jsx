@@ -55,14 +55,14 @@ export const AuthProvider = ({ children }) => {
         }
         console.log("✅ Session valid");
       } else {
-        const hasSessionCookie =
-          document.cookie.includes("refreshToken") ||
-          document.cookie.includes("sessionId");
+        // const hasSessionCookie =
+        //   document.cookie.includes("refreshToken") ||
+        //   document.cookie.includes("sessionId");
 
-        if (!hasSessionCookie) {
-          console.log("🚫 No session cookie — skipping refresh");
-          return;
-        }
+        // if (!hasSessionCookie) {
+        //   console.log("🚫 No session cookie — skipping refresh");
+        //   return;
+        // }
 
         console.log("⚠️ Session invalid, trying refresh...");
         await getRefreshSession();

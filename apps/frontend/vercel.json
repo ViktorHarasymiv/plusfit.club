@@ -3,6 +3,7 @@
     {
       "source": "/api/:path*",
       "destination": "https://plusfit-club-backend.onrender.com/:path*"
-    }
+    },
+    { "source": "/(.*)", "destination": "/" }
   ]
 }

@@ -14,6 +14,8 @@ function AuthTile() {
 
   const { user, getLogout } = useAuth();
 
+  console.log(user);
+
   const navigateProfile = () => {
     navigate("/profile");
   };
@@ -38,10 +40,10 @@ function AuthTile() {
   ) : (
     <div className={css.user_wrapper}>
       <div className={css.user_tile}>
-        <h34 className={css.user_name}>
+        <h3 className={css.user_name}>
           Привіт <br />
           {user?.name}
-        </h34>
+        </h3>
         <img
           src={user?.avatar || previewAvatar}
           alt="User avatar"

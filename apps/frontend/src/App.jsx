@@ -10,8 +10,8 @@ import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 
 import { useFullscreenStore } from "./store/fullscreenStore";
-import Login from "./pages/Auth/Login/Login";
-import Registration from "./pages/Auth/Registration/Registration";
+import LoginModal from "./pages/Auth/LoginModal";
+import RegistrationModal from "./pages/Auth/RegistrationModal";
 
 function App() {
   const { isOpen } = useFullscreenStore();
@@ -40,8 +40,8 @@ function App() {
 
   return (
     <>
-      <Login />
-      <Registration />
+      <LoginModal />
+      <RegistrationModal />
 
       <Header />
       <Router />

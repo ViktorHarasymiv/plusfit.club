@@ -12,9 +12,6 @@ import { useScrollY } from "../../hooks/useScrollY";
 
 import { MdKeyboardArrowDown } from "react-icons/md";
 
-import Button from "../ui/Button/Button";
-import Modal from "../ui/Modal/Modal";
-
 import MobileMenu from "../MobileMenu/MobileMenu";
 import Search from "../Search/Search";
 import AuthTile from "../AuthTile/AuthTile";
@@ -23,7 +20,6 @@ export default function General({ resizeWidth }) {
   const currentHeight = useRef(null);
 
   const scrollY = useScrollY();
-  const [isModalOpen, setModalOpen] = useState(false);
 
   const [isScroll, setIsScroll] = useState(false);
 
@@ -207,12 +203,6 @@ export default function General({ resizeWidth }) {
           </nav>
         </div>
       </div>
-
-      {/* MODAL */}
-      <Modal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
-        <h2>Акції та знижки</h2>
-        <p>Дякую за увагу !</p>
-      </Modal>
     </>
   );
 }

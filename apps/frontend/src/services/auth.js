@@ -14,7 +14,7 @@ export const register = async (data) => {
 // LOGIN
 
 export const login = async (data) => {
-  const res = await axios.post(`${API_URL}/auth/login`, data, {
+  const res = await axios.post(`/api/auth/login`, data, {
     withCredentials: true,
   });
   return res.data;
@@ -33,7 +33,7 @@ export const editProfile = async (data) => {
 
 export const checkSession = async () => {
   try {
-    const res = await axios.get(`${API_URL}/auth/session`, {
+    const res = await axios.get(`/api/auth/session`, {
       withCredentials: true,
     });
     return res.data.success;
@@ -49,7 +49,7 @@ export const checkSession = async () => {
 
 export const refreshSession = async () => {
   const res = await axios.post(
-    `${API_URL}/auth/refresh`,
+    `/api/auth/refresh`,
     {},
     {
       withCredentials: true,
@@ -62,7 +62,7 @@ export const refreshSession = async () => {
 // AUTH ME
 
 export const getMe = async () => {
-  const { data } = await axios.get(`${API_URL}/users/me`, {
+  const { data } = await axios.get(`/api/users/me`, {
     withCredentials: true,
   });
 

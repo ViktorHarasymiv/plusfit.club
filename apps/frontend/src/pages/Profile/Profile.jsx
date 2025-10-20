@@ -3,13 +3,9 @@ import React from "react";
 import { useAuth } from "../../context/AuthContext";
 
 function Profile() {
-  const { user, loading, refreshSession } = useAuth();
+  const { user } = useAuth();
 
-  return (
-    <main>
-      <section>{user?.name}</section>
-    </main>
-  );
+  return <div className="">{user?.name}</div>;
 }
 
 export default Profile;

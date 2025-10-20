@@ -5,12 +5,14 @@ import { checkSession, getMe, logout, refreshSession } from "../services/auth";
 import { login } from "../services/auth.js";
 
 import Loader from "../components/ui/Loader/Loader.jsx";
+import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
 
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
+  const navigate = useNavigate();
   const [user, setUser] = useState(null);
   const [authorized, setAuthorized] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -33,6 +35,7 @@ export const AuthProvider = ({ children }) => {
 
   const getLogout = async () => {
     await logout();
+    navigate("/");
     setUser(null);
   };
 
@@ -41,29 +44,22 @@ export const AuthProvider = ({ children }) => {
   };
 
   const fetchUser = async () => {
-    try {
-      setLoading(true);
-      setAuthorized(false);
+    setLoading(true);
 
-      const isAuthenticated = await checkSession(); // GET /auth/session
+    try {
+      const isAuthenticated = await checkSession();
 
       if (isAuthenticated) {
-        const user = await getMe(); // GET /auth/me
+        const user = await getMe();
         if (user) {
           setUser(user);
           setAuthorized(true);
+          console.log("✅ Session valid");
+        } else {
+          setAuthorized(false);
+          console.log("⚠️ No user returned");
         }
-        console.log("✅ Session valid");
       } else {
-        // const hasSessionCookie =
-        //   document.cookie.includes("refreshToken") ||
-        //   document.cookie.includes("sessionId");
-
-        // if (!hasSessionCookie) {
-        //   console.log("🚫 No session cookie — skipping refresh");
-        //   return;
-        // }
-
         console.log("⚠️ Session invalid, trying refresh...");
         await getRefreshSession();
 
@@ -73,15 +69,17 @@ export const AuthProvider = ({ children }) => {
           if (user) {
             setUser(user);
             setAuthorized(true);
+            console.log("✅ Session refreshed");
+          } else {
+            setAuthorized(false);
+            console.log("⚠️ No user after refresh");
           }
-
-          console.log("✅ Session refreshed");
         } else {
+          setAuthorized(false);
           console.log("❌ Refresh failed");
         }
       }
     } catch (err) {
-      setLoading(false);
       setAuthorized(false);
       console.error("❌ Session check error:", err);
     } finally {

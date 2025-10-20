@@ -1,14 +1,12 @@
-import { useAuthModalStore } from "../../../store/useAuthModalStore";
+import { useState } from "react";
+import { useAuthModalStore } from "../../store/useAuthModalStore";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { Field, Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-import css from "./Style.module.css";
-
-import Modal from "../../../components/ui/Modal/Modal";
-import Button from "../../../components/ui/Button/Button";
+import Button from "../../components/ui/Button/Button";
 
 import logoLight from "/logo/logoLight.png";
 
@@ -17,10 +15,14 @@ import { HiOutlineUser } from "react-icons/hi2";
 import { GrSecure } from "react-icons/gr";
 
 import { IoCheckmark } from "react-icons/io5";
-import { register } from "../../../services/auth";
-
+import { register } from "../../services/auth";
+import ConfirmModal from "../ConfirmModal/ConfirmModal";
+import { useAuth } from "../../context/AuthContext";
 function Registration() {
-  const { isSignUpOpen, closeSignUp } = useAuthModalStore();
+  const navigate = useNavigate();
+  const { fetchUser } = useAuth();
+  const [succsess, setSuccess] = useState(false);
+  const { closeSignUp } = useAuthModalStore();
 
   const initialValues = {
     email: "",
@@ -55,22 +57,13 @@ function Registration() {
       .required("Потрібно погодитися з умовами"),
   });
 
-  const styleObj = {
-    maxWidth: "500px",
-    width: "90%",
-    maxHeight: "100%",
-    borderRadius: "8px",
-
-    backgroundColor: "rgba(0, 0, 0, 0.3)",
-  };
-
   const hundlerSubmit = async (values, { setSubmitting, resetForm }) => {
     const { confirmPassword, ...payload } = values;
 
     try {
       await register(payload); // твій API-запит
       resetForm(); // очищення форми після успіху
-      // можеш додати toast або модалку успіху
+      setSuccess(true);
     } catch (error) {
       console.error("Помилка реєстрації:", error);
       // можеш показати повідомлення про помилку
@@ -79,9 +72,15 @@ function Registration() {
     }
   };
 
+  const closeAllModal = () => {
+    setSuccess(false);
+    closeSignUp();
+    fetchUser();
+    navigate("/profile/user");
+  };
   return (
     <>
-      <Modal isOpen={isSignUpOpen} onClose={closeSignUp} styles={styleObj}>
+      <div>
         <img
           src={logoLight}
           alt="Firm logo"
@@ -200,16 +199,28 @@ function Registration() {
                   <div className="error">{errors.acceptedTerms}</div>
                 )}
               </div>
-              <Button
-                type="submit"
-                styles={{ maxWidth: "226px", marginTop: "auto" }}
-              >
-                Зареєструватися
-              </Button>
+              <div className="action_wrapper">
+                <Button
+                  type="submit"
+                  styles={{ maxWidth: "226px", marginTop: "auto" }}
+                >
+                  Зареєструватися
+                </Button>
+                <Button
+                  type="submit"
+                  styles={{ maxWidth: "226px", marginTop: "auto" }}
+                >
+                  Google
+                </Button>
+              </div>
             </Form>
           )}
         </Formik>
-      </Modal>
+      </div>
+      <ConfirmModal isOpen={succsess}>
+        Успішно зареєстровано користувача
+        <span onClick={() => closeAllModal()}>X</span>
+      </ConfirmModal>
     </>
   );
 }

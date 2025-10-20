@@ -193,6 +193,16 @@
   transform: scale(1);
 }
 
+/* Action */
+
+.action_wrapper {
+  display: flex;
+
+  flex-wrap: nowrap;
+
+  gap: 20px;
+}
+
 /* Error */
 
 .error {

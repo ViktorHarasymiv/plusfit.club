@@ -1,37 +1,24 @@
 import React from "react";
-import { useAuthModalStore } from "../../../store/useAuthModalStore";
+import { useAuthModalStore } from "../../store/useAuthModalStore";
+import { useAuth } from "../../context/AuthContext";
+
 import { Link, useNavigate } from "react-router-dom";
 
 import { Field, Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-import css from "./Style.module.css";
-
-import Modal from "../../../components/ui/Modal/Modal";
-import Button from "../../../components/ui/Button/Button";
-
 import { IoCheckmark } from "react-icons/io5";
-
-const styleObj = {
-  maxWidth: "500px",
-  width: "90%",
-  maxHeight: "100%",
-  borderRadius: "8px",
-
-  backgroundColor: "rgba(0, 0, 0, 0.3)",
-};
 
 import logoLight from "/logo/logoLight.png";
 
 import { MdOutlineMail } from "react-icons/md";
 import { GrSecure } from "react-icons/gr";
 
-import { useAuth } from "../../../context/AuthContext";
+import Button from "../ui/Button/Button";
 
 function Login() {
   const navigate = useNavigate();
-  const { isSignInOpen, closeSignIn } = useAuthModalStore();
-
+  const { closeSignIn } = useAuthModalStore();
   const { getLogin, fetchUser } = useAuth();
 
   const initialValues = {
@@ -68,7 +55,7 @@ function Login() {
   };
 
   return (
-    <Modal isOpen={isSignInOpen} onClose={closeSignIn} styles={styleObj}>
+    <>
       <img
         src={logoLight}
         alt="Firm logo"
@@ -143,16 +130,24 @@ function Login() {
                 <div className="error">{errors.acceptedTerms}</div>
               )}
             </div>
-            <Button
-              type="submit"
-              styles={{ maxWidth: "226px", marginTop: "auto" }}
-            >
-              Увійти
-            </Button>
+            <div className="action_wrapper">
+              <Button
+                type="submit"
+                styles={{ maxWidth: "226px", marginTop: "auto" }}
+              >
+                Увійти
+              </Button>
+              <Button
+                type="submit"
+                styles={{ maxWidth: "226px", marginTop: "auto" }}
+              >
+                Google
+              </Button>
+            </div>
           </Form>
         )}
       </Formik>
-    </Modal>
+    </>
   );
 }
 

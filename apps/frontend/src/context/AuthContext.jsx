@@ -1,6 +1,12 @@
-import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
-import { checkSession, getMe, logout, refreshSession } from "../services/auth";
+import { createContext, useContext, useEffect, useMemo, useState } from "react";
+import {
+  checkSession,
+  editProfile,
+  getMe,
+  logout,
+  refreshSession,
+} from "../services/auth";
 
 import { login } from "../services/auth.js";
 
@@ -31,6 +37,10 @@ export const AuthProvider = ({ children }) => {
       withCredentials: true,
     });
     setUser(res.data.user);
+  };
+
+  const patchUser = async (data) => {
+    await editProfile(data);
   };
 
   const getLogout = async () => {
@@ -89,21 +99,25 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     fetchUser();
-  }, []);
+  }, [authorized]);
+
+  const authValue = useMemo(
+    () => ({
+      loading,
+      user,
+      authorized,
+      patchUser,
+      getLogin,
+      fetchUser,
+      register,
+      getLogout,
+      refreshSession,
+    }),
+    [user, authorized, loading]
+  );
 
   return (
-    <AuthContext.Provider
-      value={{
-        user,
-        authorized,
-        loading,
-        getLogin,
-        fetchUser,
-        register,
-        getLogout,
-        refreshSession,
-      }}
-    >
+    <AuthContext.Provider value={authValue}>
       {loading ? <Loader /> : children}
     </AuthContext.Provider>
   );

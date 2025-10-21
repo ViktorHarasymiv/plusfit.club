@@ -13,7 +13,7 @@ function ProfileHistory() {
 
   return (
     <ul className={css.carnet_list}>
-      {history.map((info, index) => {
+      {history?.map((info, index) => {
         return <MyCarnet key={index} info={info} />;
       })}
     </ul>

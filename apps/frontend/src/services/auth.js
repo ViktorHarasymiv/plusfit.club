@@ -24,7 +24,7 @@ export const login = async (data) => {
 
 export const editProfile = async (data) => {
   const res = await axios.patch(`${API_URL}/users/me`, data, {
-    withCredentials: true, // дозволяє браузеру приймати HttpOnly cookies
+    withCredentials: true,
   });
   return res.data;
 };

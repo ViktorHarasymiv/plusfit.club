@@ -15,12 +15,15 @@ import style from "../CalculatorCalories/Form/FormCalculate.module.css";
 import css from "./CommentForm.module.css";
 import TextField from "@mui/material/TextField";
 import { CREATE_REVIEW } from "../../services/reviews";
+import { useAuth } from "../../context/AuthContext";
 
 export default function FormReview() {
+  const { user } = useAuth();
+
   const initialValues = {
-    name: "",
-    email: "",
-    section: "",
+    name: user?.name || "",
+    email: user?.email || "",
+    section: user?.section || "",
     rating: "",
     message: "",
   };

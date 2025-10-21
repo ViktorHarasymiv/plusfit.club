@@ -102,6 +102,7 @@ function Registration() {
                   type="email"
                   placeholder=""
                   className="input"
+                  autoFocus={false}
                   style={{
                     borderColor:
                       errors.email && touched.email
@@ -120,6 +121,7 @@ function Registration() {
                   type="name"
                   placeholder=""
                   className="input"
+                  autoFocus={false}
                   style={{
                     borderColor:
                       errors.name && touched.name
@@ -139,6 +141,7 @@ function Registration() {
                   placeholder=""
                   className="input"
                   autoComplete="new-password"
+                  autoFocus={false}
                   style={{
                     borderColor:
                       errors.password && touched.password
@@ -161,6 +164,7 @@ function Registration() {
                   type="password"
                   placeholder=""
                   className="input"
+                  autoFocus={false}
                   style={{
                     borderColor:
                       errors.confirmPassword && touched.confirmPassword
@@ -202,13 +206,21 @@ function Registration() {
               <div className="action_wrapper">
                 <Button
                   type="submit"
-                  styles={{ maxWidth: "226px", marginTop: "auto" }}
+                  styles={{
+                    maxWidth: "226px",
+                    maxHeight: "38px",
+                    marginTop: "auto",
+                  }}
                 >
                   Зареєструватися
                 </Button>
                 <Button
                   type="submit"
-                  styles={{ maxWidth: "226px", marginTop: "auto" }}
+                  styles={{
+                    maxWidth: "226px",
+                    maxHeight: "38px",
+                    marginTop: "auto",
+                  }}
                 >
                   Google
                 </Button>

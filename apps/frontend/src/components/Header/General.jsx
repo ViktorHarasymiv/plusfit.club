@@ -196,7 +196,7 @@ export default function General({ resizeWidth }) {
                   </ul>
                 </div>
                 {resizeWidth > 1199.98 && <Search />}
-                <AuthTile />
+                <AuthTile isScroll={isScroll} />
               </div>
             )}
             {resizeWidth < 991.98 && <MobileMenu isScroll={isScroll} />}

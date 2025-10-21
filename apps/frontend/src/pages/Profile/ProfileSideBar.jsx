@@ -30,6 +30,16 @@ function ProfileSideBar() {
             <MdDoubleArrow /> Мої абонементи
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            to={"/profile/setup"}
+            className={({ isActive }) =>
+              clsx(css.nav_link, isActive && css.active)
+            }
+          >
+            <MdDoubleArrow /> Налаштування
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

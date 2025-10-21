@@ -36,7 +36,7 @@ export default function CalculatorCalories() {
             <FormCalculate setCalories={setCalories} />
           </div>
           <div className={style.calculator_result_wrapper}>
-            <Table></Table>
+            <Table />
             <h5 className={style.result_title}>
               Базальний метаболізм (BMR) / Індекс маси тіла (BMI){" "}
               <FaInfoCircle

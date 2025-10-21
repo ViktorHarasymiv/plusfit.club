@@ -2,7 +2,7 @@
   padding-bottom: 120px;
 
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: nowrap;
 
   gap: 30px;
@@ -18,13 +18,19 @@
 }
 
 .side_bar_list {
+  overflow-x: auto;
+
   display: inherit;
 
-  flex-direction: column;
+  flex-direction: row;
 
-  gap: 10px;
+  gap: 20px;
 
   flex: 1;
+}
+
+.side_bar_list::-webkit-scrollbar {
+  display: none;
 }
 
 .nav_link {
@@ -52,8 +58,6 @@
 .active {
   color: var(--white);
   background-color: rgba(253, 95, 38, 0.8);
-
-  transform: translate(10px, 0px);
 }
 
 /* Carnet */
@@ -66,4 +70,25 @@
   grid-template-columns: repeat(auto-fit, minmax(220px, 320px));
 
   gap: 20px;
+}
+
+@media screen and (min-width: 767.98px) {
+  .layout_wrapper {
+    padding-bottom: 120px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+
+    gap: 30px;
+  }
+
+  .side_bar_list {
+    overflow-x: visible;
+    flex-direction: column;
+  }
+
+  .active {
+    transform: translate(10px, 0px);
+  }
 }

@@ -10,9 +10,20 @@
 }
 
 .user_tile {
+  margin-bottom: 10px;
   display: inherit;
-  justify-content: space-between;
+  gap: 20px;
+  align-items: end;
+  justify-content: end;
 
   font-size: 14px;
   color: var(--white);
+}
+
+.user_tile h3 {
+  line-height: 1;
+}
+
+.avatar {
+  border-radius: 6px;
 }

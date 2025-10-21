@@ -30,6 +30,7 @@ import AuthLayout from "../Auth/AuthLayout";
 
 import LoginPage from "../../components/Auth/LoginPage";
 import RegistrationPage from "../../components/Auth/RegistrationPage";
+import ProfileSetup from "../../pages/Profile/ProfileSetup";
 
 function Router() {
   return (
@@ -75,6 +76,15 @@ function Router() {
             element={
               <AuthGuard>
                 <ProfileHistory />
+              </AuthGuard>
+            }
+          />
+
+          <Route
+            path="setup"
+            element={
+              <AuthGuard>
+                <ProfileSetup />
               </AuthGuard>
             }
           />

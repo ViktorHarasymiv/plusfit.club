@@ -33,16 +33,16 @@ const usersSchema = new Schema(
       maxlength: [32, 'Name cannot exceed 32 characters'],
       trim: true,
     },
-    email: {
+    goal: {
       type: String,
-      required: [true, 'Email is required'],
-      maxlength: [64, 'Email cannot exceed 64 characters'],
-      match: [
-        /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
-        'Email is invalid',
+      enum: [
+        'Схуднення',
+        'Утримати вагу',
+        'Повільний набір маси',
+        'Активний набір маси',
+        'Набір сухої мязової маси',
       ],
-      trim: true,
-      unique: true,
+      default: null,
     },
     section: {
       type: String,

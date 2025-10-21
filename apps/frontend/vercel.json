@@ -1,6 +1,10 @@
 {
   "rewrites": [
     {
+      "source": "/profile/api/:path*",
+      "destination": "https://plusfit-club-backend.onrender.com/:path*"
+    },
+    {
       "source": "/api/:path*",
       "destination": "https://plusfit-club-backend.onrender.com/:path*"
     },

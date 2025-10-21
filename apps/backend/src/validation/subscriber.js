@@ -1,10 +1,15 @@
 import Joi from 'joi';
 
 export const createSubscriptionSchema = Joi.object({
-  clientId: Joi.string().min(8).max(8).required(),
+  clientId: Joi.string()
+    .min(8)
+    .max(8)
+    .pattern(/^CL\d{6}$/)
+    .message('clientId має бути у форматі CLXXXXXX')
+    .required(),
   fullName: Joi.string()
     .min(2)
-    .max(100)
+    .max(35)
     .pattern(/^[А-Яа-яЁёІіЇїЄєҐґA-Za-z]+ [А-Яа-яЁёІіЇїЄєҐґA-Za-z]+$/)
     .message('Ім’я має містити прізвище та ім’я через пробіл')
     .required(),

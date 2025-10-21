@@ -7,6 +7,7 @@ import {
   updateSubscriber,
   getSubscriberByParams,
 } from '../services/subscription.js';
+import { UsersCollection } from '../db/models/user.js';
 
 export const getSubscriptionsController = async (req, res) => {
   const { page, perPage } = parsePaginationParams(req.query);
@@ -57,11 +58,38 @@ export const createSubscriberController = async (req, res) => {
   };
   const contact = await createSubscriber(contactData);
 
-  res.status(201).json({
-    status: 201,
-    message: 'Абонемент успішно створений!',
-    data: contact,
+  const user = await UsersCollection.findOne({
+    email: contact.email.toLowerCase(),
   });
+
+  if (user) {
+    // 🔁 Перевірити, чи абонемент вже є в історії
+    const alreadyLinked = user.history?.some(
+      (entry) => entry.subscriptionId?.toString() === contact._id.toString(),
+    );
+
+    if (!alreadyLinked) {
+      // 🔗 Додати абонемент в історію
+      user.history.push({
+        subscriptionId: contact._id,
+        clientId: contact.clientId,
+        type: contact.type,
+        price: contact.price,
+        method: contact.method,
+        status: contact.status,
+        startDate: contact.startDate,
+        endDate: contact.endDate,
+      });
+
+      await user.save();
+    }
+
+    res.status(201).json({
+      status: 201,
+      message: 'Абонемент успішно створений!',
+      data: contact,
+    });
+  }
 };
 
 export const upsertContactController = async (req, res, next) => {

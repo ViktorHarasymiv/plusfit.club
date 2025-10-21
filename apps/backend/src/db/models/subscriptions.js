@@ -4,9 +4,9 @@ const subscriptionsSchema = new Schema(
   {
     clientId: { type: String, required: true, unique: true },
     fullName: { type: String, required: true },
-    birthday: { type: String, require: true },
-    phone: { type: String, required: true, unique: true },
-    email: { type: String, required: true, unique: true },
+    birthday: { type: String, required: true },
+    phone: { type: String, required: true },
+    email: { type: String, required: true },
 
     type: { type: String, required: true },
     status: { type: String, required: true },
@@ -21,9 +21,9 @@ const subscriptionsSchema = new Schema(
   { timestamps: true, versionKey: false },
 );
 
-subscriptionsSchema.index({ phone: 1 }, { unique: true });
+// subscriptionsSchema.index({ phone: 1 }, { unique: true });
 subscriptionsSchema.index({ clientId: 1 }, { unique: true });
-subscriptionsSchema.index({ email: 1 }, { unique: true });
+// subscriptionsSchema.index({ email: 1 }, { unique: true });
 
 export const SubscriptionsCollection = model(
   'subscriptions',

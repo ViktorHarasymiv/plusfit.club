@@ -1,13 +1,69 @@
 // src/db/models/user.js
 
-import { model, Schema } from 'mongoose';
+import { model, Schema, Types } from 'mongoose';
+
+const subscriptionHistorySchema = new Schema(
+  {
+    subscriptionId: {
+      type: Types.ObjectId,
+      ref: 'subscriptions',
+      required: true,
+    },
+    clientId: { type: String, required: true },
+    type: { type: String, required: true },
+    startDate: { type: Date, required: true },
+    endDate: { type: Date, required: true },
+    price: { type: String, required: true },
+    method: { type: String, required: true },
+    status: { type: String, required: true }, // наприклад: 'active', 'expired', 'claimed'
+    addedAt: { type: Date, default: Date.now },
+  },
+  { _id: false },
+);
 
 const usersSchema = new Schema(
   {
-    name: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
-    acceptedTerms: { type: Boolean, require: true },
+    avatar: {
+      type: String,
+      trim: true,
+    },
+    name: {
+      type: String,
+      required: [true, 'Name is required'],
+      maxlength: [32, 'Name cannot exceed 32 characters'],
+      trim: true,
+    },
+    email: {
+      type: String,
+      required: [true, 'Email is required'],
+      maxlength: [64, 'Email cannot exceed 64 characters'],
+      match: [
+        /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
+        'Email is invalid',
+      ],
+      trim: true,
+      unique: true,
+    },
+    section: {
+      type: String,
+      enum: [
+        'Спортивний зал',
+        'Реабілітація та масаж',
+        'Йога',
+        'Дитячі танці',
+        'Ендосфера',
+      ],
+      default: null,
+    },
+    activityLevel: {
+      type: String,
+      enum: ['Сидячий', 'Слабо', 'Середній', 'Активний', 'Сильна активність'],
+      default: null,
+    },
+    password: { type: String, trim: true, required: true },
+    acceptedTerms: { type: Boolean, trim: true, require: true },
+
+    history: [subscriptionHistorySchema],
   },
   { timestamps: true, versionKey: false },
 );

@@ -1,12 +1,50 @@
-import { registerUser, loginUser, logoutUser } from '../services/auth.js';
+import {
+  registerUser,
+  loginUser,
+  logoutUser,
+  loginAdmin,
+} from '../services/auth.js';
 import { refreshUsersSession } from '../services/auth.js';
 
 import { ONE_DAY } from '../constants/index.js';
+import { SubscriptionsCollection } from '../db/models/subscriptions.js';
 
 export const registerUserController = async (req, res) => {
   const user = await registerUser(req.body);
 
   const session = await loginUser(req.body);
+
+  // 🔍 Знайти абонемент по email
+  const subscriptions = await SubscriptionsCollection.find({
+    email: user.email.toLowerCase(),
+  });
+
+  if (subscriptions.length > 0) {
+    for (const sub of subscriptions) {
+      const alreadyLinked = user.history?.some(
+        (entry) => entry.subscriptionId?.toString() === sub._id.toString(),
+      );
+
+      if (!alreadyLinked) {
+        user.history.push({
+          subscriptionId: sub._id,
+          clientId: sub.clientId,
+          type: sub.type,
+          startDate: sub.startDate,
+          endDate: sub.endDate,
+          price: sub.price,
+          method: sub.method,
+          status: sub.status,
+        });
+
+        // ❗️Опціонально: позначити як використаний
+        // sub.status = 'claimed';
+        // await sub.save();
+      }
+    }
+
+    await user.save();
+  }
 
   res.cookie('refreshToken', session.refreshToken, {
     httpOnly: true,
@@ -100,5 +138,34 @@ const setupSession = (res, session) => {
     sameSite: 'none',
     path: '/',
     expires: new Date(session.refreshTokenValidUntil),
+  });
+};
+
+// ADMIN
+
+export const loginAdminController = async (req, res) => {
+  const session = await loginAdmin(req.body);
+
+  res.cookie('refreshToken', session.refreshToken, {
+    httpOnly: true,
+    secure: true,
+    sameSite: 'none',
+    path: '/',
+    expires: new Date(Date.now() + ONE_DAY),
+  });
+  res.cookie('sessionId', session._id, {
+    httpOnly: true,
+    secure: true,
+    sameSite: 'none',
+    path: '/',
+    expires: new Date(Date.now() + ONE_DAY),
+  });
+
+  res.json({
+    status: 200,
+    message: 'Successfully logged in an admin!',
+    data: {
+      accessToken: session.accessToken,
+    },
   });
 };

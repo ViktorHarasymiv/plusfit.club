@@ -16,14 +16,18 @@ import { MdOutlineMail } from "react-icons/md";
 import Button from "../../components/ui/Button/Button";
 
 import ReverseBtn from "../../components/ui/Button/ReverseBtn";
+import { useToastStore } from "../../store/toastStore";
+import { useLoaderStore } from "../../store/loadingStore";
+import Loader from "../../components/ui/Loader/Loader";
 
 function ProfileSetup() {
-  const { user, patchUser } = useAuth();
+  const { isLoading } = useLoaderStore();
+  const { user, fetchUser, patchUser } = useAuth();
 
   const initialValues = {
     avatar: user.avatar || null,
-    email: user.email || "",
     name: user.name || "",
+    goal: user.goal || "",
     section: user.section || "",
     activityLevel: user.activityLevel || "",
   };
@@ -37,11 +41,13 @@ function ProfileSetup() {
         "Ім’я має містити прізвище та ім’я через пробіл"
       )
       .required("Ім’я обов’язкове"),
-
-    email: Yup.string()
-      .email("Некоректний email")
-      .required("Email обов’язковий"),
-
+    goal: Yup.string().oneOf[
+      ("Схуднення",
+      "Утримати вагу",
+      "Повільний набір маси",
+      "Активний набір маси",
+      "Набір сухої мязової маси")
+    ],
     section:
       Yup.string().oneOf[
         ("Спортивний зал",
@@ -64,8 +70,8 @@ function ProfileSetup() {
         formData.append("avatar", formValues.avatar);
       }
 
-      formData.append("email", formValues.email);
       formData.append("name", formValues.name);
+      formData.append("goal", formValues.goal);
       formData.append("section", formValues.section);
       formData.append("activityLevel", formValues.activityLevel);
 
@@ -75,14 +81,23 @@ function ProfileSetup() {
 
       const res = await patchUser(formData);
 
+      await fetchUser();
+
       if (res) {
-        setSuccsess(true);
+        useToastStore
+          .getState()
+          .showToast("Дані успішно змінено" || res.data.message, "success");
         return res;
       }
     } catch (error) {
-      console.log("error", error);
+      useToastStore.getState().showToast(error.message);
+      console.log("error", error.messages);
     }
   };
+
+  if (isLoading) {
+    return <Loader />;
+  }
 
   return (
     <div>
@@ -97,31 +112,6 @@ function ProfileSetup() {
 
             <div className="input_wrapper">
               <AvatarPicker name={"avatar"} isContent={false} />
-            </div>
-            {/* Email */}
-
-            <div className="input_wrapper">
-              <Field
-                name="email"
-                type="email"
-                placeholder=""
-                className="input"
-                autoFocus={false}
-                style={{
-                  color:
-                    errors.email && touched.email
-                      ? "var(--pastel-red)"
-                      : "var(--dark)",
-                  borderColor:
-                    errors.email && touched.email
-                      ? "var(--pastel-red)"
-                      : "var(--dark)",
-                }}
-              />
-              <label htmlFor="email" className="label">
-                <MdOutlineMail className="form_icon" /> Введіть емейл
-              </label>
-              <ErrorMessage name="email" component="div" className="error" />
             </div>
 
             {/* Name */}
@@ -145,9 +135,70 @@ function ProfileSetup() {
                 }}
               />
               <label htmlFor="name" className="label">
-                <MdOutlineMail className="form_icon" /> Введіть емейл
+                <MdOutlineMail className="form_icon" /> Введіть ім’я та фамілію
               </label>
               <ErrorMessage name="name" component="div" className="error" />
+            </div>
+
+            {/* Goal */}
+
+            <div className="input_wrapper">
+              <FormControl sx={{ m: 1, width: "100%", margin: "0px" }}>
+                <Select
+                  name="goal"
+                  value={values.goal}
+                  onChange={handleChange}
+                  displayEmpty
+                  inputProps={{ "aria-label": "Without label" }}
+                  MenuProps={{
+                    disableScrollLock: true,
+                  }}
+                  sx={{
+                    fontSize: "14px",
+                    height: "44px",
+
+                    backgroundColor: "transparent",
+                    color: "var(--dark)",
+
+                    "& .MuiOutlinedInput-input": {
+                      padding: "12px 18px",
+                    },
+
+                    borderRadius: "0",
+                    "& .MuiSelect-icon": {
+                      color: "var(--dark)",
+                    },
+                    "&.Mui-focused .MuiSelect-icon": {
+                      color: "var(--accent-color)",
+                    },
+
+                    ".MuiOutlinedInput-notchedOutline": {
+                      borderRadius: "6px",
+                      borderColor: "var(--dark)",
+                    },
+                    "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                      borderWidth: "1px",
+                      borderColor: "var(--accent-color)",
+                    },
+                  }}
+                >
+                  <MenuItem value="" disabled>
+                    <em>Оберіть мету</em>
+                  </MenuItem>
+                  <MenuItem value={"Схуднення"}>Схуднення</MenuItem>
+                  <MenuItem value={"Утримати вагу"}>Утримати вагу</MenuItem>
+                  <MenuItem value={"Повільний набір маси"}>
+                    Повільний набір маси
+                  </MenuItem>
+                  <MenuItem value={"Активний набір маси"}>
+                    Активний набір маси
+                  </MenuItem>
+                  <MenuItem value={"Набір сухої мязової маси"}>
+                    Набір сухої мязової маси
+                  </MenuItem>
+                </Select>
+              </FormControl>
+              <ErrorMessage name="section" component="div" className="error" />
             </div>
 
             {/* Section */}

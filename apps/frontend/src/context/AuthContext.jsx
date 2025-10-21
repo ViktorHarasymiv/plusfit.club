@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const patchUser = async (data) => {
-    await editProfile(data);
+    return await editProfile(data);
   };
 
   const getLogout = async () => {

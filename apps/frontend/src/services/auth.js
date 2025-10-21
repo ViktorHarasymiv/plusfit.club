@@ -23,10 +23,46 @@ export const login = async (data) => {
 // PATCH
 
 export const editProfile = async (data) => {
-  const res = await axios.patch(`${API_URL}/users/me`, data, {
-    withCredentials: true,
-  });
-  return res.data;
+  try {
+    const res = await axios.patch(`${API_URL}/users/me`, data, {
+      withCredentials: true,
+    });
+
+    return {
+      success: true,
+      data: res.data,
+      error: null,
+    };
+  } catch (error) {
+    if (axios.isAxiosError(error) && error.response) {
+      const { status, data } = error.response;
+
+      // Якщо бекенд повертає Joi-помилки у вигляді масиву
+      const messages = data?.details?.map((d) => d.message) ||
+        (typeof data?.message === "string" ? [data.message] : []) || [
+          "Невідома помилка",
+        ];
+
+      return {
+        success: false,
+        data: null,
+        error: {
+          status,
+          messages,
+        },
+      };
+    }
+
+    // Інші помилки (мережа, таймаут, невідоме)
+    return {
+      success: false,
+      data: null,
+      error: {
+        status: null,
+        messages: ["Помилка з’єднання або невідома помилка"],
+      },
+    };
+  }
 };
 
 // CHECK SESSION

@@ -27,7 +27,7 @@ export default function SideNavigation() {
       >
         <span style={{ color: isOpen ? "var(--accent-color)" : "" }}>
           <MdAdsClick style={{ marginRight: "6px" }} />
-          {isOpen ? "Скрити меню" : "Показати меню"}
+          {isOpen ? "Приховати меню" : "Показати меню"}
         </span>
       </button>
 

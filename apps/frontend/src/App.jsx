@@ -12,6 +12,7 @@ import Footer from "./components/Footer/Footer";
 import { useFullscreenStore } from "./store/fullscreenStore";
 import LoginModal from "./pages/Auth/LoginModal";
 import RegistrationModal from "./pages/Auth/RegistrationModal";
+import Toast from "./components/ui/Toast/Toast";
 
 function App() {
   const { isOpen } = useFullscreenStore();
@@ -40,6 +41,7 @@ function App() {
 
   return (
     <>
+      <Toast />
       <LoginModal />
       <RegistrationModal />
 

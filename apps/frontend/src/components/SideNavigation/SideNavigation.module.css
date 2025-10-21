@@ -16,7 +16,7 @@
 
   width: 300px;
 
-  padding: 30px;
+  padding: 10px 20px;
 
   display: flex;
   justify-content: space-between;
@@ -40,7 +40,9 @@
   transition: all 0.2s ease-in;
 
   padding-block: 15px;
+}
 
+.panel_wrapper a:not(:last-child) {
   border-bottom: 1px solid var(--border-info-color);
 }
 
@@ -53,6 +55,12 @@
 }
 
 @media screen and (min-width: 1200px) {
+  .panel {
+    position: sticky;
+
+    top: 120px;
+  }
+
   .show_button {
     display: none;
   }

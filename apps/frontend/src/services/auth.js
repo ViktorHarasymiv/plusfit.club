@@ -37,7 +37,6 @@ export const editProfile = async (data) => {
     if (axios.isAxiosError(error) && error.response) {
       const { status, data } = error.response;
 
-      // Якщо бекенд повертає Joi-помилки у вигляді масиву
       const messages = data?.details?.map((d) => d.message) ||
         (typeof data?.message === "string" ? [data.message] : []) || [
           "Невідома помилка",
@@ -53,7 +52,6 @@ export const editProfile = async (data) => {
       };
     }
 
-    // Інші помилки (мережа, таймаут, невідоме)
     return {
       success: false,
       data: null,

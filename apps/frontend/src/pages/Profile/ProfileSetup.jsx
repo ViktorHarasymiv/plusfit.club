@@ -319,26 +319,6 @@ function ProfileSetup() {
               />
             </div>
 
-            {/* <div className="input_wrapper">
-              <Field
-                name="password"
-                type="password"
-                placeholder=""
-                className="input"
-                autoComplete="new-password"
-                style={{
-                  borderColor:
-                    errors.password && touched.password
-                      ? "var(--pastel-red)"
-                      : "inherit",
-                }}
-              />
-              <label htmlFor="password" className="label">
-                <GrSecure className="form_icon" /> Введіть пароль
-              </label>
-              <ErrorMessage name="password" component="div" className="error" />
-            </div> */}
-
             <div className="action_wrapper">
               <Button
                 type="submit"

@@ -58,53 +58,49 @@ export default function General({ resizeWidth }) {
               />
             </Link>
             {resizeWidth > 991.98 && (
-              <div className={style.action_bar_wrapper}>
-                <div className={style.navbar}>
-                  <ul className={style.navbar_list}>
-                    <li className={style.navbar_item}>
-                      <NavLink to="/">
-                        <span>Головна</span>
-                      </NavLink>
-                    </li>
-                    <li className={style.navbar_item}>
-                      <NavLink to={"/offer"} style={{ pointerEvents: "none" }}>
-                        Пропозиції <MdKeyboardArrowDown />
-                      </NavLink>
-                      <ul className={style.dropmenu}>
-                        <li>
-                          <NavLink
-                            to="offer/gym"
-                            className={style.dropdown_item}
-                          >
-                            Тренажерний зал
-                          </NavLink>
-                        </li>
+              <div className={style.navbar}>
+                <ul className={style.navbar_list}>
+                  <li className={style.navbar_item}>
+                    <NavLink to="/">
+                      <span>Головна</span>
+                    </NavLink>
+                  </li>
+                  <li className={style.navbar_item}>
+                    <NavLink to={"/offer"} style={{ pointerEvents: "none" }}>
+                      Пропозиції <MdKeyboardArrowDown />
+                    </NavLink>
+                    <ul className={style.dropmenu}>
+                      <li>
+                        <NavLink to="offer/gym" className={style.dropdown_item}>
+                          Тренажерний зал
+                        </NavLink>
+                      </li>
 
-                        <li>
-                          <NavLink
-                            to="/offer/massage"
-                            className={style.dropdown_item}
-                          >
-                            Масаж
-                          </NavLink>
-                        </li>
-                        <li>
-                          <NavLink
-                            to="/offer/rehabilitation"
-                            className={style.dropdown_item}
-                          >
-                            Реабілітація
-                          </NavLink>
-                        </li>
-                        <li>
-                          <NavLink
-                            to="/offer/yoga"
-                            className={style.dropdown_item}
-                          >
-                            Йога
-                          </NavLink>
-                        </li>
-                        {/* 
+                      <li>
+                        <NavLink
+                          to="/offer/massage"
+                          className={style.dropdown_item}
+                        >
+                          Масаж
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink
+                          to="/offer/rehabilitation"
+                          className={style.dropdown_item}
+                        >
+                          Реабілітація
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink
+                          to="/offer/yoga"
+                          className={style.dropdown_item}
+                        >
+                          Йога
+                        </NavLink>
+                      </li>
+                      {/* 
                         <li>
                           <NavLink
                             to="/offer/kids"
@@ -113,7 +109,7 @@ export default function General({ resizeWidth }) {
                             Дитячі танці
                           </NavLink>
                         </li> */}
-                        {/* <li>
+                      {/* <li>
                           <NavLink
                             to="/offer/endosphere"
                             className={style.dropdown_item}
@@ -121,46 +117,43 @@ export default function General({ resizeWidth }) {
                             Сфератерапія
                           </NavLink>
                         </li> */}
-                      </ul>
-                    </li>
-                    <li className={style.navbar_item}>
-                      <NavLink to={"/price"} style={{ pointerEvents: "none" }}>
-                        Ціни <MdKeyboardArrowDown />
-                      </NavLink>
-                      <ul className={style.dropmenu}>
-                        <li>
-                          <NavLink
-                            to="price/gym"
-                            className={style.dropdown_item}
-                          >
-                            Тренажерний зал
-                          </NavLink>
-                        </li>
-                        <li>
-                          <NavLink
-                            to="price/massage"
-                            className={style.dropdown_item}
-                          >
-                            Масаж
-                          </NavLink>
-                        </li>
-                        <li>
-                          <NavLink
-                            to="price/rehabilitation"
-                            className={style.dropdown_item}
-                          >
-                            Реабілітація
-                          </NavLink>
-                        </li>
-                        <li>
-                          <NavLink
-                            to="price/yoga"
-                            className={style.dropdown_item}
-                          >
-                            Йога
-                          </NavLink>
-                        </li>
-                        {/* <li>
+                    </ul>
+                  </li>
+                  <li className={style.navbar_item}>
+                    <NavLink to={"/price"} style={{ pointerEvents: "none" }}>
+                      Ціни <MdKeyboardArrowDown />
+                    </NavLink>
+                    <ul className={style.dropmenu}>
+                      <li>
+                        <NavLink to="price/gym" className={style.dropdown_item}>
+                          Тренажерний зал
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink
+                          to="price/massage"
+                          className={style.dropdown_item}
+                        >
+                          Масаж
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink
+                          to="price/rehabilitation"
+                          className={style.dropdown_item}
+                        >
+                          Реабілітація
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink
+                          to="price/yoga"
+                          className={style.dropdown_item}
+                        >
+                          Йога
+                        </NavLink>
+                      </li>
+                      {/* <li>
                           <NavLink
                             to="price/kids"
                             className={style.dropdown_item}
@@ -168,7 +161,7 @@ export default function General({ resizeWidth }) {
                             Дитячі танці
                           </NavLink>
                         </li> */}
-                        {/* <li>
+                      {/* <li>
                           <NavLink
                             to="price/endosphere"
                             className={style.dropdown_item}
@@ -176,26 +169,29 @@ export default function General({ resizeWidth }) {
                             Сфератерапія
                           </NavLink>
                         </li> */}
-                      </ul>
-                    </li>
-                    <li className={style.navbar_item}>
-                      <NavLink to="/gallery">
-                        <span>Галерея</span>
-                      </NavLink>
-                    </li>
-                    <li className={style.navbar_item}>
-                      <NavLink to="/about">
-                        <span>Про Нас</span>
-                      </NavLink>
-                    </li>
-                    <li className={style.navbar_item}>
-                      <NavLink to="/contacts">
-                        <span>Контакти</span>
-                      </NavLink>
-                    </li>
-                  </ul>
-                </div>
-                {resizeWidth > 1199.98 && <Search />}
+                    </ul>
+                  </li>
+                  <li className={style.navbar_item}>
+                    <NavLink to="/gallery">
+                      <span>Галерея</span>
+                    </NavLink>
+                  </li>
+                  <li className={style.navbar_item}>
+                    <NavLink to="/about">
+                      <span>Про Нас</span>
+                    </NavLink>
+                  </li>
+                  <li className={style.navbar_item}>
+                    <NavLink to="/contacts">
+                      <span>Контакти</span>
+                    </NavLink>
+                  </li>
+                </ul>
+              </div>
+            )}
+            {resizeWidth > 991.98 && (
+              <div className={style.action_bar_wrapper}>
+                {/* {resizeWidth > 1199.98 && <Search />} */}
                 <AuthTile isScroll={isScroll} />
               </div>
             )}

@@ -27,7 +27,7 @@ const sliderArray = [
       "Ми створили простір, де кожен крок до здорового тіла стає натхненням. Ми не просто тренуємо — ми підтримуємо, надихаємо і допомагаємо тобі розкрити власний потенціал.",
     action: ["/offer/gym", "contacts"],
     image:
-      "https://res.cloudinary.com/dcmbg0k5a/image/upload/v1760370985/zrgc6rjo13swdddjsivi.jpg",
+      "https://res.cloudinary.com/dcmbg0k5a/image/upload/v1760371560/fgmkeoytm1ittxrtjni9.jpg",
   },
   {
     id: 1,

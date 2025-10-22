@@ -6,8 +6,10 @@ import NavigationContext from "../../components/NavigationContext/NavigationCont
 import SideNavigation from "../../components/SideNavigation/SideNavigation";
 import Reviews from "../../components/Reviews/Reviews";
 import CommentForm from "../../components/CommentForm/CommentForm";
+import EatBrand from "../../components/EatBrand/EatBrand";
 
 export default function OfferLayout() {
+  document.title = "Plus Fit - Пропозиції";
   return (
     <main>
       <NavigationContext />
@@ -20,6 +22,7 @@ export default function OfferLayout() {
       <Reviews />
 
       <CommentForm />
+      <EatBrand />
     </main>
   );
 }

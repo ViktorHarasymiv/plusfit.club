@@ -4,6 +4,7 @@ import TotalArea from "../../components/TotalArea/TotalArea";
 import Reviews from "../../components/Reviews/Reviews";
 import Trainer from "../../components/Trainers/Trainer";
 import CommentForm from "../../components/CommentForm/CommentForm";
+import EatBrand from "../../components/EatBrand/EatBrand";
 
 export default function AboutUs() {
   return (
@@ -13,6 +14,7 @@ export default function AboutUs() {
       <TotalArea />
       <Reviews />
       <CommentForm />
+      <EatBrand />
     </main>
   );
 }

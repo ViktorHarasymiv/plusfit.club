@@ -1,4 +1,6 @@
 import axios from "axios";
+import isEqual from "lodash.isequal";
+
 import { createContext, useContext, useEffect, useMemo, useState } from "react";
 import {
   checkSession,
@@ -59,35 +61,26 @@ export const AuthProvider = ({ children }) => {
     try {
       const isAuthenticated = await checkSession();
 
-      if (isAuthenticated) {
-        const user = await getMe();
-        if (user) {
-          setUser(user);
-          setAuthorized(true);
-          console.log("✅ Session valid");
-        } else {
-          setAuthorized(false);
-          console.log("⚠️ No user returned");
-        }
-      } else {
+      if (!isAuthenticated) {
         console.log("⚠️ Session invalid, trying refresh...");
         await getRefreshSession();
+      }
 
-        const isAuthenticatedAfterRefresh = await checkSession();
-        if (isAuthenticatedAfterRefresh) {
-          const user = await getMe();
-          if (user) {
-            setUser(user);
-            setAuthorized(true);
-            console.log("✅ Session refreshed");
-          } else {
-            setAuthorized(false);
-            console.log("⚠️ No user after refresh");
-          }
-        } else {
-          setAuthorized(false);
-          console.log("❌ Refresh failed");
-        }
+      const finalAuth = await checkSession();
+      if (!finalAuth) {
+        setAuthorized(false);
+        console.log("❌ Refresh failed");
+        return;
+      }
+
+      const user = await getMe();
+      if (user) {
+        setUser((prev) => (isEqual(prev, user) ? prev : user));
+        setAuthorized(true);
+        console.log("✅ Session valid");
+      } else {
+        setAuthorized(false);
+        console.log("⚠️ No user returned");
       }
     } catch (err) {
       setAuthorized(false);
@@ -99,7 +92,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     fetchUser();
-  }, [authorized]);
+  }, []);
 
   const authValue = useMemo(
     () => ({

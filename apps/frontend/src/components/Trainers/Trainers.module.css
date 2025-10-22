@@ -132,6 +132,8 @@
 
   display: flex;
 
+  justify-content: center;
+
   flex-wrap: wrap;
   gap: 80px;
 }
@@ -145,5 +147,9 @@
 @media screen and (min-width: 992px) {
   .wrapper {
     flex-wrap: wrap;
+  }
+
+  .staticList {
+    justify-content: start;
   }
 }

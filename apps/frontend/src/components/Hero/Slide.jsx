@@ -60,6 +60,7 @@ export default function Slide({ slide }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0 }}
             transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
+            style={{ pointerEvents: "auto" }}
           >
             <div className={style.hero_action}>
               <Link to={slide.action[0]}>

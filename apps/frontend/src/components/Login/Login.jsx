@@ -56,13 +56,7 @@ function Login() {
 
   return (
     <>
-      <img
-        src={logoLight}
-        alt="Firm logo"
-        width={96}
-        height={45}
-        className="form_logo"
-      />
+      <img src={logoLight} alt="Firm logo" width={96} className="form_logo" />
       <h1 className="form_title">Вхід</h1>
       <Formik
         initialValues={initialValues}

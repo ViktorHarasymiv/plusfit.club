@@ -1,5 +1,5 @@
 .carnet_content {
-  height: clamp(9.375rem, 4.695vw + 8.275rem, 12.5rem);
+  height: clamp(9.375rem, 6vw + 12rem, 12rem);
 
   position: relative;
 

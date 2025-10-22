@@ -67,12 +67,12 @@
 
   display: grid;
 
-  grid-template-columns: repeat(auto-fit, minmax(220px, 320px));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 
   gap: 20px;
 }
 
-@media screen and (min-width: 767.98px) {
+@media screen and (min-width: 991.98px) {
   .layout_wrapper {
     padding-bottom: 120px;
 
@@ -90,5 +90,11 @@
 
   .active {
     transform: translate(10px, 0px);
+  }
+}
+
+@media screen and (min-width: 767.98px) {
+  .carnet_list {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 320px));
   }
 }

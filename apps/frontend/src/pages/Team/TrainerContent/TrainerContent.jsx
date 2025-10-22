@@ -1,4 +1,3 @@
-import React, { Fragment, useState } from "react";
 import css from "./Style.module.css";
 import { Link, useParams } from "react-router-dom";
 import { useTrainerStore } from "../../../store/trainerStore";
@@ -19,7 +18,7 @@ function TrainerContent() {
   const uniqueCategories = [...new Set(filteredData.map((t) => t.section))];
 
   return (
-    <Fragment>
+    <>
       <div className="container">
         <div className={css.content_wrapper}>
           <div className={css.swiper_wraper}>
@@ -39,32 +38,34 @@ function TrainerContent() {
                       <p className={css.greeting}>{greeting}</p>
                       <p>{about}</p>
                     </div>
-                    <ul>
-                      <h5
-                        style={{
-                          fontFamily: "var(--font-family-oswald)",
-                          color: "var(--accent-color)",
-                        }}
-                      >
-                        Ціни:
-                      </h5>
-                      {pricePath?.map(({ label, path }, index) => {
-                        return (
-                          <li key={index}>
-                            <Link to={`/price/${path}`}>
-                              <span
-                                style={{
-                                  textDecoration: "underline",
-                                  color: "var(--accent-color)",
-                                }}
-                              >
-                                {label}
-                              </span>
-                            </Link>
-                          </li>
-                        );
-                      })}
-                    </ul>
+                    {pricePath && (
+                      <ul>
+                        <h5
+                          style={{
+                            fontFamily: "var(--font-family-oswald)",
+                            color: "var(--accent-color)",
+                          }}
+                        >
+                          Ціни:
+                        </h5>
+                        {pricePath?.map(({ label, path }, index) => {
+                          return (
+                            <li key={index}>
+                              <Link to={`/price/${path}`}>
+                                <span
+                                  style={{
+                                    textDecoration: "underline",
+                                    color: "var(--accent-color)",
+                                  }}
+                                >
+                                  {label}
+                                </span>
+                              </Link>
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    )}
                     <ul className={css.social}>
                       {social.map((item, index) => (
                         <li key={index} className={css.social_item}>
@@ -163,7 +164,7 @@ function TrainerContent() {
         </div>
       </div>
       <Reviews filterType={uniqueCategories} />
-    </Fragment>
+    </>
   );
 }
 

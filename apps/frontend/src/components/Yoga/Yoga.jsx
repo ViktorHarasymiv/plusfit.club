@@ -1,15 +1,15 @@
 import React from "react";
 import Content from "../../pages/Offer/Content/Content";
 
-import BG from "../../../public/img/yoga.jpg";
 import BG1 from "../../../public/img/yoga1.JPG";
 import BG2 from "../../../public/img/yoga2.jpg";
 
 export default function Yoga() {
-  document.title = "ПЛЮС ФІТ - Йога";
+  document.title = "Плюс Фіт - Йога";
 
   const content = {
-    frontImage: BG,
+    frontImage:
+      "https://res.cloudinary.com/dcmbg0k5a/image/upload/v1760490698/ef6pio7aqqqdoebuoy7i.jpg",
     firstParagraph: {
       firstTitle: "Йога",
 

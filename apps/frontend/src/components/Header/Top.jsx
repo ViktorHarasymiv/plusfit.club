@@ -35,28 +35,26 @@ function Top() {
               </li>
             </ul>
           </div>
-          <div>
-            <div className={style.social_content_wrapper}>
-              <h5 className="h5">Follow Us:</h5>
-              <ul className={style.social_bar}>
-                <li>
-                  <a
-                    href="https://www.facebook.com/plusfit.brody.2025"
-                    target="_blank"
-                  >
-                    <FaFacebook />
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="https://www.instagram.com/plusfit.brody/"
-                    target="_blank"
-                  >
-                    <FaInstagram />
-                  </a>
-                </li>
-              </ul>
-            </div>
+          <div className={style.social_content_wrapper}>
+            <h5 className="h5">Follow Us:</h5>
+            <ul className={style.social_bar}>
+              <li>
+                <a
+                  href="https://www.facebook.com/plusfit.brody.2025"
+                  target="_blank"
+                >
+                  <FaFacebook />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.instagram.com/plusfit.brody/"
+                  target="_blank"
+                >
+                  <FaInstagram />
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>

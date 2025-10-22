@@ -4,16 +4,16 @@ import NavigationContext from "../../components/NavigationContext/NavigationCont
 import CommentForm from "../../components/CommentForm/CommentForm";
 
 import Pricing from "../../components/Pricing/Pricing";
+import EatBrand from "../../components/EatBrand/EatBrand";
 
 export default function Price() {
   return (
     <main>
       <NavigationContext />
-      <section>
-        <Outlet />
-        <Pricing />
-        <CommentForm />
-      </section>
+      <Outlet />
+      <Pricing />
+      <CommentForm />
+      <EatBrand />
     </main>
   );
 }

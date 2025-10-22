@@ -108,3 +108,16 @@ export const getMe = async () => {
 export const logout = async () => {
   await axios.post(`${API_URL}/auth/logout`, {}, { withCredentials: true });
 };
+
+// GOOGLE
+
+export const handleGoogleLogin = async () => {
+  try {
+    const res = await axios.get(`${API_URL}/auth/get-oauth-url`);
+
+    const url = res.data.data.url;
+    window.location.href = url;
+  } catch (err) {
+    console.error("Failed to get Google OAuth URL", err);
+  }
+};

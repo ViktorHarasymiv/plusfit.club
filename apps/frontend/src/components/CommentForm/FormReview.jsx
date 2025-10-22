@@ -1,4 +1,5 @@
-import React from "react";
+import { useAuth } from "../../context/AuthContext";
+
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
@@ -15,7 +16,6 @@ import style from "../CalculatorCalories/Form/FormCalculate.module.css";
 import css from "./CommentForm.module.css";
 import TextField from "@mui/material/TextField";
 import { CREATE_REVIEW } from "../../services/reviews";
-import { useAuth } from "../../context/AuthContext";
 
 export default function FormReview() {
   const { user } = useAuth();

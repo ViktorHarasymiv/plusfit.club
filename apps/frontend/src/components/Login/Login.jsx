@@ -15,6 +15,7 @@ import { MdOutlineMail } from "react-icons/md";
 import { GrSecure } from "react-icons/gr";
 
 import Button from "../ui/Button/Button";
+import { handleGoogleLogin } from "../../services/auth";
 
 function Login() {
   const navigate = useNavigate();
@@ -138,12 +139,13 @@ function Login() {
                 Увійти
               </Button>
               <Button
-                type="submit"
+                type="button"
                 styles={{
                   maxWidth: "226px",
                   maxHeight: "38px",
                   marginTop: "auto",
                 }}
+                action={handleGoogleLogin}
               >
                 Google
               </Button>

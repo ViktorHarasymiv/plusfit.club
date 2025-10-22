@@ -3,6 +3,7 @@ import React from "react";
 import { FaRegStar } from "react-icons/fa";
 import { FaStar } from "react-icons/fa";
 import css from "./Reviews.module.css";
+
 function ReviewItem({ content: { name, section, message, rating } }) {
   return (
     <li className={css.item_wrapper}>

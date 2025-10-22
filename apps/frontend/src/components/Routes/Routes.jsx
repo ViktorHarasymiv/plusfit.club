@@ -31,6 +31,7 @@ import AuthLayout from "../Auth/AuthLayout";
 import LoginPage from "../../components/Auth/LoginPage";
 import RegistrationPage from "../../components/Auth/RegistrationPage";
 import ProfileSetup from "../../pages/Profile/ProfileSetup";
+import GoogleAuthRedirect from "../GoogleAuthRedirect/GoogleAuthRedirect";
 
 function Router() {
   return (
@@ -52,6 +53,8 @@ function Router() {
           <Route path="login" element={<LoginPage />} />
           <Route path="registration" element={<RegistrationPage />} />
         </Route>
+
+        <Route path="/google-auth" element={<GoogleAuthRedirect />} />
 
         {/* Profile */}
 

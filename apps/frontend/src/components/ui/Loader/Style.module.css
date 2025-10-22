@@ -1,6 +1,19 @@
 .overflow {
-  padding-block: 100px;
-  z-index: 10;
+  z-index: 99998;
+
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  background: var(--white);
+}
+
+.content {
+  z-index: 99999;
 
   position: absolute;
 

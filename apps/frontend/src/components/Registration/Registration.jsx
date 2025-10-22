@@ -18,6 +18,9 @@ import { IoCheckmark } from "react-icons/io5";
 import { register } from "../../services/auth";
 import ConfirmModal from "../ConfirmModal/ConfirmModal";
 import { useAuth } from "../../context/AuthContext";
+
+import { handleGoogleLogin } from "../../services/auth";
+
 function Registration() {
   const navigate = useNavigate();
   const { fetchUser } = useAuth();
@@ -215,12 +218,13 @@ function Registration() {
                   Зареєструватися
                 </Button>
                 <Button
-                  type="submit"
+                  type="button"
                   styles={{
                     maxWidth: "226px",
                     maxHeight: "38px",
                     marginTop: "auto",
                   }}
+                  action={handleGoogleLogin}
                 >
                   Google
                 </Button>

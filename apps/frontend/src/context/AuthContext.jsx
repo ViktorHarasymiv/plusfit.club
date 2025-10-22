@@ -14,6 +14,7 @@ import { login } from "../services/auth.js";
 
 import Loader from "../components/ui/Loader/Loader.jsx";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../config/api.js";
 
 const AuthContext = createContext();
 
@@ -55,19 +56,38 @@ export const AuthProvider = ({ children }) => {
     await refreshSession();
   };
 
-  const fetchUser = async () => {
-    setLoading(true);
-
+  const loginWithGoogleCode = async (code) => {
     try {
-      const isAuthenticated = await checkSession();
+      const res = await axios.post(
+        `${API_URL}/auth/confirm-oauth`,
+        { code },
+        { withCredentials: true }
+      );
+      const { user } = res.data.data;
+
+      if (user) {
+        setUser(user);
+        setAuthorized(true);
+      }
+    } catch (err) {
+      console.error("❌ Google login failed:", err);
+      setAuthorized(false);
+      setUser(null);
+    }
+  };
+
+  const fetchUser = async () => {
+    try {
+      setLoading(true);
+      let isAuthenticated = await checkSession();
 
       if (!isAuthenticated) {
         console.log("⚠️ Session invalid, trying refresh...");
         await getRefreshSession();
+        isAuthenticated = await checkSession();
       }
 
-      const finalAuth = await checkSession();
-      if (!finalAuth) {
+      if (!isAuthenticated) {
         setAuthorized(false);
         console.log("❌ Refresh failed");
         return;
@@ -105,6 +125,7 @@ export const AuthProvider = ({ children }) => {
       register,
       getLogout,
       refreshSession,
+      loginWithGoogleCode,
     }),
     [user, authorized, loading]
   );

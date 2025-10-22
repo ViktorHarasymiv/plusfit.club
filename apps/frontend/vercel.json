@@ -1,7 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/api/auth/:path*",
+      "source": "/auth/api/:path*",
       "destination": "https://plusfit-club-backend.onrender.com/:path*"
     },
     {

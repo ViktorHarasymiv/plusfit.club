@@ -27,6 +27,17 @@ const usersSchema = new Schema(
       type: String,
       trim: true,
     },
+    email: {
+      type: String,
+      required: [true, 'Email is required'],
+      unique: true,
+      maxlength: [64, 'Email cannot exceed 64 characters'],
+      match: [
+        /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/,
+        'Email is invalid',
+      ],
+      trim: true,
+    },
     name: {
       type: String,
       required: [true, 'Name is required'],

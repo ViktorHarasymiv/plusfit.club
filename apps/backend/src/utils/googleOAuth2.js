@@ -4,7 +4,7 @@ import createHttpError from 'http-errors';
 
 import { OAuth2Client } from 'google-auth-library';
 import { readFile } from 'fs/promises';
-import { getEnvVar } from './getEnvVar.js';
+import { getEnvVar } from '../middlewares/getEnvVar.js';
 
 import path from 'node:path';
 

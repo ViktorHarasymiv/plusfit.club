@@ -1,6 +1,14 @@
 {
   "rewrites": [
     {
+      "source": "/api/auth/:path*",
+      "destination": "https://plusfit-club-backend.onrender.com/auth/:path*"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "https://plusfit-club-backend.onrender.com/:path*"
+    },
+    {
       "source": "/auth/api/:path*",
       "destination": "https://plusfit-club-backend.onrender.com/:path*"
     },
@@ -9,9 +17,8 @@
       "destination": "https://plusfit-club-backend.onrender.com/:path*"
     },
     {
-      "source": "/api/:path*",
-      "destination": "https://plusfit-club-backend.onrender.com/:path*"
-    },
-    { "source": "/(.*)", "destination": "/" }
+      "source": "/(.*)",
+      "destination": "/"
+    }
   ]
 }

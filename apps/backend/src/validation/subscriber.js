@@ -7,13 +7,12 @@ export const createSubscriptionSchema = Joi.object({
     .pattern(/^CL\d{6}$/)
     .message('clientId має бути у форматі CLXXXXXX')
     .required(),
-  fullName: Joi.string()
+  name: Joi.string()
     .min(2)
     .max(35)
     .pattern(/^[А-Яа-яЁёІіЇїЄєҐґA-Za-z]+ [А-Яа-яЁёІіЇїЄєҐґA-Za-z]+$/)
     .message('Ім’я має містити прізвище та ім’я через пробіл')
     .required(),
-  birthday: Joi.date().iso().required(),
   phone: Joi.string()
     .pattern(/^\+380\d{9}$/)
     .message('Телефон має бути у форматі +380XXXXXXXXX')
@@ -25,6 +24,7 @@ export const createSubscriptionSchema = Joi.object({
     .message('Email має бути @gmail.com')
     .required(),
   type: Joi.string().required(),
+  timeBorder: Joi.number(),
   status: Joi.string().required(),
   startDate: Joi.date().iso().required(),
   endDate: Joi.date()
@@ -32,14 +32,13 @@ export const createSubscriptionSchema = Joi.object({
     .greater(Joi.ref('startDate'))
     .message('Дата завершення має бути пізніше за дату початку')
     .required(),
-  price: Joi.string().min(0).message('Ціна не може бути відʼємною').required(),
-  currency: Joi.string().required(),
+  price: Joi.number().min(0).message('Ціна не може бути відʼємною').required(),
   method: Joi.string().required(),
 });
 
 export const updateSubscriptionSchema = Joi.object({
   clientId: Joi.string().min(8).max(8),
-  fullName: Joi.string()
+  name: Joi.string()
     .min(2)
     .max(100)
     .pattern(/^[А-Яа-яЁёІіЇїЄєҐґA-Za-z]+ [А-Яа-яЁёІіЇїЄєҐґA-Za-z]+$/)
@@ -59,7 +58,6 @@ export const updateSubscriptionSchema = Joi.object({
     .iso()
     .greater(Joi.ref('startDate'))
     .message('Дата завершення має бути пізніше за дату початку'),
-  price: Joi.string().min(0).message('Ціна не може бути відʼємною'),
-  currency: Joi.string(),
+  price: Joi.number().min(0).message('Ціна не може бути відʼємною'),
   method: Joi.string(),
 });

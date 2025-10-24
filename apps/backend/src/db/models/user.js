@@ -15,7 +15,7 @@ const subscriptionHistorySchema = new Schema(
     endDate: { type: Date, required: true },
     price: { type: String, required: true },
     method: { type: String, required: true },
-    status: { type: String, required: true }, // наприклад: 'active', 'expired', 'claimed'
+    status: { type: String }, // наприклад: 'active', 'expired', 'claimed'
     addedAt: { type: Date, default: Date.now },
   },
   { _id: false },

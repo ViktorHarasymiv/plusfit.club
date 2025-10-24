@@ -3,19 +3,18 @@ import { model, Schema } from 'mongoose';
 const subscriptionsSchema = new Schema(
   {
     clientId: { type: String, required: true, unique: true },
-    fullName: { type: String, required: true },
-    birthday: { type: String, required: true },
+    name: { type: String, required: true },
     phone: { type: String, required: true },
     email: { type: String, required: true },
 
     type: { type: String, required: true },
-    status: { type: String, required: true },
+    timeBorder: { type: Number },
+    status: { type: String },
 
     startDate: { type: Date, required: true },
     endDate: { type: Date, required: true },
 
-    price: { type: String, required: true },
-    currency: { type: String, default: 'UAH' },
+    price: { type: Number, required: true },
     method: { type: String, required: true },
   },
   { timestamps: true, versionKey: false },

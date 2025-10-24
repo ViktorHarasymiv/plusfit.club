@@ -32,11 +32,11 @@
   max-width: 90vw;
   max-height: 90vh;
 
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .image_context {
-  padding-block: 15px;
+  padding-block: 10px;
   position: absolute;
 
   width: 100%;
@@ -45,6 +45,7 @@
 
   background: rgba(0, 0, 0, 0.2);
 
+  font-size: 14px;
   text-align: center;
   color: var(--white);
 }

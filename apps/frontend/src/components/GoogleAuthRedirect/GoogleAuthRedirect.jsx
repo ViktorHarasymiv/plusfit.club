@@ -5,7 +5,7 @@ import { checkSession } from "../../services/auth";
 import Loader from "../ui/Loader/Loader";
 
 const GoogleAuthRedirect = () => {
-  const { loginWithGoogleCode, fetchUser, authorized } = useAuth();
+  const { loginWithGoogleCode, fetchUser } = useAuth();
   const navigate = useNavigate();
   useEffect(() => {
     const code = new URLSearchParams(window.location.search).get("code");

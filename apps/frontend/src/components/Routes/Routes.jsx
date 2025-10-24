@@ -95,7 +95,7 @@ function Router() {
 
         {/* Components navigation */}
 
-        <Route path="/subscriber/:id" element={<Subscriber />} />
+        <Route path="/subscriber/" element={<Subscriber />} />
 
         {/* Team */}
 
@@ -129,6 +129,8 @@ function Router() {
           <Route path="rehabilitation" element={<RehabilitationPrice />} />
         </Route>
 
+        {/* Components navigation */}
+
         {/* gallery */}
 
         <Route path="/gallery" element={<Gallery />}>
@@ -140,6 +142,8 @@ function Router() {
         <Route path="/contacts" element={<Contacts />}>
           {/* <Route path="rehabilitation" element={<Rehabilitation />} /> */}
         </Route>
+
+        {/* Policy  */}
 
         <Route path="/policy" element={<Policy />} />
 

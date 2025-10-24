@@ -14,6 +14,8 @@ import LoginModal from "./pages/Auth/LoginModal";
 import RegistrationModal from "./pages/Auth/RegistrationModal";
 import Toast from "./components/ui/Toast/Toast";
 
+import OrderModal from "./components/OrderModal/OrderModal";
+
 function App() {
   const { isOpen } = useFullscreenStore();
 
@@ -42,8 +44,16 @@ function App() {
   return (
     <>
       <Toast />
+      {/* Auth  */}
+
       <LoginModal />
       <RegistrationModal />
+
+      {/* Order */}
+
+      <OrderModal />
+
+      {/* Body */}
 
       <Header />
       <Router />

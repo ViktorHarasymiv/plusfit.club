@@ -63,3 +63,16 @@
 .carnet_date {
   text-wrap: nowrap;
 }
+
+.carnet_status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.carnet_detektor {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+}

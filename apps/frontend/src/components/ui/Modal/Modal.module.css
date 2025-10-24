@@ -6,7 +6,7 @@
   right: 0;
   left: 0;
 
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.8);
 
   display: flex;
   justify-content: center;
@@ -37,9 +37,9 @@
 
   color: var(--white);
 
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.6);
 
-  border-radius: 4px;
+  border-radius: 8px;
 
   text-align: center;
 

@@ -66,18 +66,11 @@ function ProfileSetup() {
     try {
       const formData = new FormData();
 
-      if (formValues.avatar) {
-        formData.append("avatar", formValues.avatar);
+      for (const [key, value] of Object.entries(formValues)) {
+        if (value !== undefined && value !== null && value !== "") {
+          formData.append(key, value);
+        }
       }
-
-      formData.append("name", formValues.name);
-      formData.append("goal", formValues.goal);
-      formData.append("section", formValues.section);
-      formData.append("activityLevel", formValues.activityLevel);
-
-      //   for (const [key, value] of formData.entries()) {
-      //     console.log(`${key}:`, value);
-      //   }
 
       const res = await patchUser(formData);
 

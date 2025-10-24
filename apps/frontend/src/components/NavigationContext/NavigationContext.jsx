@@ -23,7 +23,7 @@ export default function NavigationContext() {
             return (
               isLast && (
                 <h1 key={index} className={css.title}>
-                  {Name}
+                  {decodeURIComponent(Name)}
                 </h1>
               )
             );
@@ -40,9 +40,11 @@ export default function NavigationContext() {
                 <li key={routeTo}>
                   <MdOutlineDoubleArrow />
                   {isLast ? (
-                    <span style={{ color: "var(--accent-color)" }}>{Name}</span>
+                    <span style={{ color: "var(--accent-color)" }}>
+                      {decodeURIComponent(Name)}
+                    </span>
                   ) : (
-                    <Link to={routeTo}>{Name}</Link>
+                    <Link to={routeTo}>{decodeURIComponent(Name)}</Link>
                   )}
                 </li>
               );

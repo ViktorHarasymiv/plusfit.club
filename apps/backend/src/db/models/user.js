@@ -12,7 +12,7 @@ const subscriptionHistorySchema = new Schema(
     clientId: { type: String, required: true },
     type: { type: String, required: true },
     startDate: { type: Date, required: true },
-    endDate: { type: Date, required: true },
+    endDate: { type: Date },
     price: { type: String, required: true },
     method: { type: String, required: true },
     status: { type: String }, // наприклад: 'active', 'expired', 'claimed'

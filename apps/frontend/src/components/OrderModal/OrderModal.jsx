@@ -7,6 +7,7 @@ import css from "./Style.module.css";
 
 import { BsArrowLeft } from "react-icons/bs";
 import OrderForm from "./OrderForm";
+import { border, borderRadius, height } from "@mui/system";
 
 function OrderModal() {
   const { isOrderModal, closeOrderModal, payload } = useOrderModalStore();
@@ -17,10 +18,12 @@ function OrderModal() {
   };
 
   const styleObj = {
-    maxWidth: "600px",
-    padding: "30px",
+    maxWidth: "750px",
+    padding: "20px 30px",
     width: "100%",
-    height: "100vh",
+    maxHeight: "99.9vh",
+    height: "100%",
+    borderRadius: "0px",
     transform: "translateX(0)",
     animation: "slideInX 0.2s ease-in-out",
   };
@@ -34,11 +37,12 @@ function OrderModal() {
     >
       <div className={css.modal_wrapper}>
         <div className={css.modal_header}>
-          <BsArrowLeft onClick={closeOrderModal} />
-          <div className={css.title}>
-            Замовлення абонементу
-            <h1 className={css.label}>{payload?.name}</h1>
+          <div className={css.head_nav}>
+            <BsArrowLeft onClick={closeOrderModal} />
+            <span className={css.title}>Замовлення абонементу</span>
           </div>
+
+          <h1 className={css.label}>{payload?.name}</h1>
         </div>
       </div>
       <div className={css.form_wrapper}>

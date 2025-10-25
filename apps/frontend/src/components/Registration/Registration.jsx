@@ -99,7 +99,7 @@ function Registration() {
         >
           {({ values, handleChange, errors, touched }) => (
             <Form className="form_wrapper">
-              <div className="input_wrapper">
+              <div className="input_wrapper full_width">
                 <Field
                   name="email"
                   type="email"
@@ -118,7 +118,7 @@ function Registration() {
                 </label>
                 <ErrorMessage name="email" component="div" className="error" />
               </div>
-              <div className="input_wrapper">
+              <div className="input_wrapper full_width">
                 <Field
                   name="name"
                   type="name"
@@ -137,7 +137,7 @@ function Registration() {
                 </label>
                 <ErrorMessage name="name" component="div" className="error" />
               </div>
-              <div className="input_wrapper">
+              <div className="input_wrapper full_width">
                 <Field
                   name="password"
                   type="password"
@@ -161,7 +161,7 @@ function Registration() {
                   className="error"
                 />
               </div>
-              <div className="input_wrapper">
+              <div className="input_wrapper full_width">
                 <Field
                   name="confirmPassword"
                   type="password"

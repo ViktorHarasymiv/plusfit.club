@@ -66,7 +66,7 @@ function Login() {
       >
         {({ values, handleChange, errors, touched }) => (
           <Form className="form_wrapper">
-            <div className="input_wrapper">
+            <div className="input_wrapper full_width">
               <Field
                 name="email"
                 type="email"
@@ -85,7 +85,7 @@ function Login() {
               </label>
               <ErrorMessage name="email" component="div" className="error" />
             </div>
-            <div className="input_wrapper">
+            <div className="input_wrapper full_width">
               <Field
                 name="password"
                 type="password"
@@ -127,7 +127,7 @@ function Login() {
                 <div className="error">{errors.acceptedTerms}</div>
               )}
             </div>
-            <div className="action_wrapper">
+            <div className="action_wrapper ">
               <Button
                 type="submit"
                 styles={{

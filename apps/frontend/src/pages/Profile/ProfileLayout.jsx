@@ -7,6 +7,7 @@ import Reviews from "../../components/Reviews/Reviews";
 import CommentForm from "../../components/CommentForm/CommentForm";
 
 import css from "./Style.module.css";
+import ProfileDashboard from "./ProfileDashboard";
 
 function ProfileLayout() {
   return (
@@ -16,7 +17,10 @@ function ProfileLayout() {
         <div className="container">
           <div className={css.layout_wrapper}>
             <ProfileSideBar />
-            <Outlet />
+            <div className={css.outlet_wrapper}>
+              <ProfileDashboard />
+              <Outlet />
+            </div>
           </div>
         </div>
         <Reviews />

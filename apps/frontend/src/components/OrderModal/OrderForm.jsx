@@ -179,7 +179,7 @@ function OrderForm({ payload }) {
     switch (type) {
       case "1 місяць":
         return 1;
-      case "3 місяці":
+      case "3 місяці БЕЗЛІМ":
         return 3;
       case "Піврічний БЕЗЛІМ":
         return 6;
@@ -189,7 +189,7 @@ function OrderForm({ payload }) {
   };
 
   const calculateEndDate = (startDate, monthsToAdd) => {
-    return dayjs(startDate).add(monthsToAdd, "month");
+    return dayjs(startDate).add(monthsToAdd, "month").toISOString();
   };
 
   return (
@@ -207,7 +207,9 @@ function OrderForm({ payload }) {
           endDate,
         };
 
-        console.log(payload);
+        console.log(data);
+
+        console.log(subscriptionDurationMonths(payload.name));
 
         try {
           await create_subscripter(data);
@@ -278,7 +280,9 @@ function OrderForm({ payload }) {
               {/* Тип */}
 
               <div className="input_wrapper">
-                <FormControl sx={{ m: 1, margin: "0px" }}>
+                <FormControl
+                  sx={{ m: 1, maxWidth: "186px", width: "100%", margin: "0px" }}
+                >
                   <Select
                     name="type"
                     value={values.type}
@@ -361,72 +365,75 @@ function OrderForm({ payload }) {
                 </FormControl>
                 <ErrorMessage name="type" component="div" className="error" />
               </div>
+              {payload.description.length > 1 && (
+                <div className="input_wrapper">
+                  <FormControl sx={{ m: 1, margin: "0px" }}>
+                    <Select
+                      name="timeBorder"
+                      value={values.timeBorder}
+                      onChange={(e) => {
+                        const selected = e.target.value;
+                        handleChange(e); // оновлює timeBorder у Formik
+
+                        // оновлюємо price залежно від вибору
+                        const newPrice =
+                          selected === 0
+                            ? payload.description[0]?.price
+                            : payload.description[1]?.price;
+
+                        if (newPrice !== undefined) {
+                          setFieldValue("price", newPrice);
+                        }
+                      }}
+                      displayEmpty
+                      inputProps={{ "aria-label": "Without label" }}
+                      MenuProps={{
+                        disableScrollLock: true,
+                      }}
+                      sx={{
+                        color: "rgba(255, 255, 255, 0.8)",
+
+                        padding: "12px 0",
+                        height: "44px",
+
+                        fontSize: "14px",
+
+                        borderRadius: "0",
+                        "& .MuiSelect-icon": {
+                          color: " rgba(255, 255, 255, 0.8)",
+                        },
+                        "&.Mui-focused .MuiSelect-icon": {
+                          color: " rgba(255, 255, 255, 0.8)",
+                        },
+
+                        "&:hover .MuiOutlinedInput-notchedOutline": {
+                          borderColor: "rgba(255, 255, 255, 1)", // яскравіше при ховері
+                        },
+                        ".MuiOutlinedInput-notchedOutline": {
+                          borderRadius: "6px",
+                          borderColor: " rgba(255, 255, 255, 0.8)",
+                        },
+                        "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                          borderWidth: "1px",
+                          borderColor: "rgba(255, 255, 255, 0.8);",
+                        },
+                      }}
+                    >
+                      <MenuItem value="" disabled>
+                        <em>Часові рамки</em>
+                      </MenuItem>
+                      <MenuItem value={0}>9:00-13:00</MenuItem>
+                      <MenuItem value={1}>9:00-21:00</MenuItem>
+                    </Select>
+                  </FormControl>
+                  <ErrorMessage
+                    name="method"
+                    component="div"
+                    className="error"
+                  />
+                </div>
+              )}
             </div>
-
-            {payload.description.length > 1 && (
-              <div className="input_wrapper">
-                <FormControl sx={{ m: 1, margin: "0px" }}>
-                  <Select
-                    name="timeBorder"
-                    value={values.timeBorder}
-                    onChange={(e) => {
-                      const selected = e.target.value;
-                      handleChange(e); // оновлює timeBorder у Formik
-
-                      // оновлюємо price залежно від вибору
-                      const newPrice =
-                        selected === 0
-                          ? payload.description[0]?.price
-                          : payload.description[1]?.price;
-
-                      if (newPrice !== undefined) {
-                        setFieldValue("price", newPrice);
-                      }
-                    }}
-                    displayEmpty
-                    inputProps={{ "aria-label": "Without label" }}
-                    MenuProps={{
-                      disableScrollLock: true,
-                    }}
-                    sx={{
-                      color: "rgba(255, 255, 255, 0.8)",
-
-                      padding: "12px 0",
-                      height: "44px",
-
-                      fontSize: "14px",
-
-                      borderRadius: "0",
-                      "& .MuiSelect-icon": {
-                        color: " rgba(255, 255, 255, 0.8)",
-                      },
-                      "&.Mui-focused .MuiSelect-icon": {
-                        color: " rgba(255, 255, 255, 0.8)",
-                      },
-
-                      "&:hover .MuiOutlinedInput-notchedOutline": {
-                        borderColor: "rgba(255, 255, 255, 1)", // яскравіше при ховері
-                      },
-                      ".MuiOutlinedInput-notchedOutline": {
-                        borderRadius: "6px",
-                        borderColor: " rgba(255, 255, 255, 0.8)",
-                      },
-                      "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                        borderWidth: "1px",
-                        borderColor: "rgba(255, 255, 255, 0.8);",
-                      },
-                    }}
-                  >
-                    <MenuItem value="" disabled>
-                      <em>Часові рамки</em>
-                    </MenuItem>
-                    <MenuItem value={0}>9:00-13:00</MenuItem>
-                    <MenuItem value={1}>9:00-21:00</MenuItem>
-                  </Select>
-                </FormControl>
-                <ErrorMessage name="method" component="div" className="error" />
-              </div>
-            )}
 
             {/* Початкова дата */}
             <h2 className={css.section_title}>Тривалість</h2>
@@ -445,7 +452,7 @@ function OrderForm({ payload }) {
               </div>
 
               {/* Кінцева дата */}
-              <div className="input_wrapper" style={{ marginTop: "10px" }}>
+              {/* <div className="input_wrapper" style={{ marginTop: "10px" }}>
                 <h3>
                   Термін дії :{" "}
                   {values.startDate ? (
@@ -459,7 +466,7 @@ function OrderForm({ payload }) {
                     "-"
                   )}
                 </h3>
-              </div>
+              </div> */}
             </div>
 
             <h2 className={css.section_title}>Оплата</h2>
@@ -524,16 +531,20 @@ function OrderForm({ payload }) {
 
           <div className={css.total_wrapper}>
             <div className={css.price}>
+              Сумма :{" "}
               <span>
-                До оплати:{" "}
                 {values.timeBorder === 0
                   ? payload.description[0].price
                   : payload.description[1].price}
                 ГРН
               </span>
             </div>
-            <Button type="submit" className="button">
-              Зробити замовлення
+            <Button
+              type="submit"
+              className="button"
+              styles={{ fontSize: "12px" }}
+            >
+              Надіслати
             </Button>
           </div>
         </Form>

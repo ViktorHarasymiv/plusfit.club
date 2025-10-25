@@ -1,7 +1,7 @@
 import React from "react";
 import clsx from "clsx";
 
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 import css from "./Style.module.css";
 import { MdDoubleArrow } from "react-icons/md";
@@ -12,12 +12,22 @@ function ProfileSideBar() {
       <ul className={css.side_bar_list}>
         <li>
           <NavLink
-            to={"/profile/user"}
+            to={"/profile"}
             className={({ isActive }) =>
               clsx(css.nav_link, isActive && css.active)
             }
           >
             <MdDoubleArrow /> Мій кабінет
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to={"/profile/console"}
+            className={({ isActive }) =>
+              clsx(css.nav_link, isActive && css.active)
+            }
+          >
+            <MdDoubleArrow /> Моя консоль
           </NavLink>
         </li>
         <li>

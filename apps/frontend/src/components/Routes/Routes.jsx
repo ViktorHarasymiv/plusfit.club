@@ -5,7 +5,6 @@ import Home from "../../pages/Home/Home";
 
 import NotFound from "../NotFound/NotFound";
 import Subscriber from "../Subscriber/Subscriber";
-import Offer from "../../pages/Offer/Offer";
 import Rehabilitation from "../Rehabilitation/Rehabilitation";
 import AboutUs from "../../pages/AboutUs/AboutUs";
 import Price from "../../pages/Price/Price";
@@ -22,7 +21,6 @@ import RehabilitationPrice from "../Rehabilitation/RehabilitationPrice";
 import GymPrice from "../Gym/GymPrice";
 import Gym from "../Gym/Gym";
 import Gallery from "../../pages/Gallery/Gallery";
-import Profile from "../../pages/Profile/Profile";
 import Policy from "../../pages/Policy/Policy";
 import ProfileLayout from "../../pages/Profile/ProfileLayout";
 import ProfileHistory from "../../pages/Profile/ProfileHistory";
@@ -32,6 +30,7 @@ import LoginPage from "../../components/Auth/LoginPage";
 import RegistrationPage from "../../components/Auth/RegistrationPage";
 import ProfileSetup from "../../pages/Profile/ProfileSetup";
 import GoogleAuthRedirect from "../GoogleAuthRedirect/GoogleAuthRedirect";
+import ProfileTabs from "../../pages/Profile/ProfileTabs";
 
 function Router() {
   return (
@@ -67,10 +66,10 @@ function Router() {
           }
         >
           <Route
-            path="user"
+            path="console"
             element={
               <AuthGuard>
-                <Profile />
+                <ProfileTabs />
               </AuthGuard>
             }
           />

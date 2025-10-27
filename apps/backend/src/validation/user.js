@@ -2,8 +2,10 @@ import Joi from 'joi';
 
 export const updateUserSchema = Joi.object({
   avatar: Joi.string().uri().optional(),
+  wrapper: Joi.string().uri().optional(),
   email: Joi.string().email().max(64).optional(),
   name: Joi.string().min(1).max(32).optional(),
+  age: Joi.number().min(12).max(99).optional(),
   goal: Joi.string()
     .valid(
       'Схуднення',

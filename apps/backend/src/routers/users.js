@@ -21,7 +21,11 @@ router.get('/admin/me', verifySessionAdmin, ctrlWrapper(getMeAdminController));
 
 router.patch(
   '/me',
-  upload.single('avatar'),
+  upload.fields([
+    { name: 'avatar', maxCount: 1 },
+    { name: 'wrapper', maxCount: 1 },
+  ]),
+
   verifySession,
   validateBody(updateUserSchema),
   ctrlWrapper(patchUserController),

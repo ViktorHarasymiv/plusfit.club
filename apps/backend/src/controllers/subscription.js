@@ -78,6 +78,7 @@ export const createSubscriberController = async (req, res) => {
         method: contact.method,
         status: contact.status,
         startDate: contact.startDate,
+        endDate: contact.endDate,
       });
 
       await user.save();

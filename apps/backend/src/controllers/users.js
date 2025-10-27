@@ -72,18 +72,31 @@ export const patchUserController = async (req, res, next) => {
     }
 
     // Обробка фото
-    const avatar = req.file;
-    let photoUrl;
 
-    if (avatar) {
-      photoUrl =
+    const avatarFile = req.files?.avatar?.[0];
+    const wrapperFile = req.files?.wrapper?.[0];
+
+    let avatarUrl;
+    let wrapperUrl;
+
+    if (avatarFile) {
+      avatarUrl =
         getEnvVar('ENABLE_CLOUDINARY') === 'true'
-          ? await saveFileToCloudinary(avatar)
-          : await saveFileToUploadDir(avatar);
+          ? await saveFileToCloudinary(avatarFile)
+          : await saveFileToUploadDir(avatarFile);
+    }
+
+    if (wrapperFile) {
+      wrapperUrl =
+        getEnvVar('ENABLE_CLOUDINARY') === 'true'
+          ? await saveFileToCloudinary(wrapperFile)
+          : await saveFileToUploadDir(wrapperFile);
     }
 
     const updateData = { ...value };
-    if (photoUrl) updateData.avatar = photoUrl;
+
+    if (avatarUrl) updateData.avatar = avatarUrl;
+    if (wrapperUrl) updateData.wrapper = wrapperUrl;
 
     // Уникнення порожнього pregnancy
     if (

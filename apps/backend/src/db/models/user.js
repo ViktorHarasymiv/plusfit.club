@@ -27,6 +27,10 @@ const usersSchema = new Schema(
       type: String,
       trim: true,
     },
+    wrapper: {
+      type: String,
+      trim: true,
+    },
     email: {
       type: String,
       required: [true, 'Email is required'],
@@ -44,6 +48,7 @@ const usersSchema = new Schema(
       maxlength: [32, 'Name cannot exceed 32 characters'],
       trim: true,
     },
+    age: { type: Number, trim: true, required: true },
     goal: {
       type: String,
       enum: [

@@ -26,7 +26,7 @@ const GoogleAuthRedirect = () => {
       const isAuthenticated = await checkSession();
       if (isAuthenticated) {
         await fetchUser();
-        navigate("/profile/user", { replace: true });
+        navigate("/profile", { replace: true });
       } else {
         console.warn("❌ Сесія не встановилась після логіну");
       }

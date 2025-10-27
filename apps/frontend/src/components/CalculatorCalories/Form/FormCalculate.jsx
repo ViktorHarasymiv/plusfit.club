@@ -14,14 +14,17 @@ import Select from "@mui/material/Select";
 /* UTILS */
 
 import { calculateCalories } from "../../../utils/calculateCalories";
+import { useAuth } from "../../../context/AuthContext";
 
 export default function FormCalculate({ setCalories }) {
+  const { user } = useAuth();
+
   const initialValues = {
     height: "",
     weight: "",
     age: "",
     sex: "",
-    activityLevel: "",
+    activityLevel: user?.activityLevel || "",
   };
 
   const validationSchema = Yup.object({
@@ -194,11 +197,13 @@ export default function FormCalculate({ setCalories }) {
                 <MenuItem value="">
                   <em>Активність</em>
                 </MenuItem>
-                <MenuItem value={"sedentary"}>Сидячий</MenuItem>
-                <MenuItem value={"light"}>Слабо</MenuItem>
-                <MenuItem value={"moderate"}>Середній</MenuItem>
-                <MenuItem value={"active"}>Активний</MenuItem>
-                <MenuItem value={"veryActive"}>Сильна активність</MenuItem>
+                <MenuItem value={"Сидячий"}>Сидячий</MenuItem>
+                <MenuItem value={"Слабо"}>Слабо</MenuItem>
+                <MenuItem value={"Середній"}>Середній</MenuItem>
+                <MenuItem value={"Активний"}>Активний</MenuItem>
+                <MenuItem value={"Сильна активність"}>
+                  Сильна активність
+                </MenuItem>
               </Select>
             </FormControl>
             <ErrorMessage

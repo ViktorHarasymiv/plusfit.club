@@ -1,5 +1,3 @@
-"use client";
-
 import { useRef, useState } from "react";
 
 import { useFormikContext } from "formik";
@@ -10,24 +8,22 @@ import Button from "../ui/Button/Button";
 import avatar from "/img/avatarPreview.png";
 import { useAuth } from "../../context/AuthContext";
 
-export const AvatarPicker = ({
-  name,
-  initialPhoto,
-  styles,
-  isContent,
-  buttonStyles,
-}) => {
+export const AvatarPicker = ({ name, styles, buttonStyles }) => {
   const inputRef = useRef(null);
   const [error, setError] = useState("");
   const [previewUrl, setPreviewUrl] = useState("");
 
-  const { setFieldValue, errors, touched } = useFormikContext();
+  // STATE
+
+  const { user, fetchUser, patchUser } = useAuth();
+
+  const { setFieldValue } = useFormikContext();
 
   const handleClick = () => {
     inputRef.current?.click();
   };
 
-  const handleFileChange = (e) => {
+  const handleFileChange = async (e) => {
     const file = e.target.files?.[0];
     setError("");
 
@@ -48,18 +44,29 @@ export const AvatarPicker = ({
         setFieldValue(name, file);
       };
       reader.readAsDataURL(file);
+
+      try {
+        const formData = new FormData();
+        formData.append("avatar", file);
+
+        const res = await patchUser(formData);
+
+        // ✅ Оновити user у контексті, якщо потрібно
+        if (res) {
+          await fetchUser(); // або fetchUser() з AuthContext
+        }
+      } catch (err) {
+        console.error("❌ Avatar update failed:", err);
+        setError("Не вдалося оновити аватар");
+      }
     }
   };
-
-  // STATE
-
-  const { user } = useAuth();
 
   return (
     <div className={css.avatar_picker_wrapper} style={{ ...styles }}>
       <div className={css.preview_avatar}>
         <img
-          src={previewUrl || initialPhoto || user.avatar}
+          src={user.avatar || previewUrl || avatar}
           alt="Preview avatar"
           width={132}
           height={132}
@@ -88,15 +95,6 @@ export const AvatarPicker = ({
         onChange={handleFileChange}
         className={css.custom_avatar_input}
       />
-
-      {isContent && (
-        <div className={css.user_info_wrapper}>
-          <div className={css.content_wrapper}>
-            <p className={css.user_name}>{user?.name}</p>
-            <p className={css.user_email}>{user?.email}</p>
-          </div>
-        </div>
-      )}
     </div>
   );
 };

@@ -2,6 +2,7 @@ import React from "react";
 import { useAuth } from "../../context/AuthContext";
 
 import css from "./Style.module.css";
+import WrapperPicker from "../../components/WrapperPicker/WrapperPicker";
 
 function ProfileDashboard() {
   const { user } = useAuth();
@@ -14,11 +15,7 @@ function ProfileDashboard() {
     <div className={css.dashboard_wrapper}>
       <div className={css.user_wrapper}>
         <div className={css.background_tile}>
-          <img
-            src="https://res.cloudinary.com/dcmbg0k5a/image/upload/v1760370985/zrgc6rjo13swdddjsivi.jpg"
-            alt=""
-            className={css.background}
-          />
+          <WrapperPicker name={"wrapper"} />
         </div>
         <div className={css.user_info_wrapper}>
           <img

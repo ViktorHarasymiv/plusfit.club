@@ -57,7 +57,7 @@
 
 .user_name {
   font-weight: 700;
-  font-size: 24px;
+  font-size: clamp(1rem, 0.8239rem + 0.7512vw, 1.5rem);
   line-height: 140%;
   letter-spacing: 0.01em;
 }
@@ -77,6 +77,13 @@
 
   .content_wrapper {
     align-items: start;
+  }
+}
+
+@media screen and (min-width: 767.98px) {
+  .avatar {
+    width: 150px;
+    height: 150px;
   }
 }
 

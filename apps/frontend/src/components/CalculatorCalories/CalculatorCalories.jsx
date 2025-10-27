@@ -17,14 +17,14 @@ const modalObjStyle = {
   maxHeight: "75%",
 };
 
-export default function CalculatorCalories() {
+export default function CalculatorCalories({ styles }) {
   const [calories, setCalories] = useState(null);
 
   const [info, setInfo] = useState(false);
 
   return (
     <section className={style.calculator_section_wrapper}>
-      <div className="container">
+      <div className={`container ${styles}`}>
         <div className={style.calculator_content_wrapper}>
           <div className={style.calculator_form_wrapper}>
             <span className={style.calculator_section_title}>

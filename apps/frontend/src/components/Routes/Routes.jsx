@@ -30,7 +30,7 @@ import LoginPage from "../../components/Auth/LoginPage";
 import RegistrationPage from "../../components/Auth/RegistrationPage";
 import ProfileSetup from "../../pages/Profile/ProfileSetup";
 import GoogleAuthRedirect from "../GoogleAuthRedirect/GoogleAuthRedirect";
-import ProfileTabs from "../../pages/Profile/ProfileTabs";
+import ProfileTabs from "../../pages/Profile/ProfileTabs/ProfileTabs";
 
 function Router() {
   return (

@@ -5,6 +5,8 @@ import { AvatarPicker } from "../../components/AvatarPicker/AvatarPicker";
 import { Field, Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
+import css from "./Style.module.css";
+
 /* MUI SELECT */
 
 import MenuItem from "@mui/material/MenuItem";
@@ -93,225 +95,249 @@ function ProfileSetup() {
   }
 
   return (
-    <div>
+    <div className={css.setup_wrapper}>
       <Formik
         initialValues={initialValues}
         validationSchema={userPatchSchema}
         onSubmit={handlerSubmit}
       >
         {({ values, handleChange, errors, touched, resetForm }) => (
-          <Form className="form_wrapper">
+          <Form className={css.form_wrapper}>
             {/* Avatar */}
 
-            <div className="input_wrapper">
-              <AvatarPicker name={"avatar"} isContent={false} />
+            <div className={css.coll_1}>
+              <div className="input_wrapper">
+                <AvatarPicker name={"avatar"} />
+              </div>
+
+              <div className={css.user_info_input}>
+                {/* Name */}
+
+                <div className="input_wrapper">
+                  <label htmlFor="name" className={css.setup_label}>
+                    Введіть ім’я та фамілію
+                    <Field
+                      name="name"
+                      type="text"
+                      placeholder=""
+                      className="input"
+                      autoFocus={false}
+                      style={{
+                        color:
+                          errors.name && touched.name
+                            ? "var(--pastel-red)"
+                            : "var(--dark)",
+                        borderColor:
+                          errors.name && touched.name
+                            ? "var(--pastel-red)"
+                            : "var(--dark)",
+                      }}
+                    />
+                  </label>
+                  <ErrorMessage name="name" component="div" className="error" />
+                </div>
+
+                {/* Goal */}
+
+                <div className="input_wrapper">
+                  <label htmlFor="goal" className={css.setup_label}>
+                    Позначте свою ціль
+                    <FormControl sx={{ m: 1, width: "100%", margin: "0px" }}>
+                      <Select
+                        name="goal"
+                        value={values.goal}
+                        onChange={handleChange}
+                        displayEmpty
+                        inputProps={{ "aria-label": "Without label" }}
+                        MenuProps={{
+                          disableScrollLock: true,
+                        }}
+                        sx={{
+                          fontSize: "14px",
+                          height: "44px",
+
+                          backgroundColor: "transparent",
+                          color: "var(--dark)",
+
+                          "& .MuiOutlinedInput-input": {
+                            padding: "12px 18px",
+                          },
+
+                          borderRadius: "0",
+                          "& .MuiSelect-icon": {
+                            color: "var(--dark)",
+                          },
+                          "&.Mui-focused .MuiSelect-icon": {
+                            color: "var(--accent-color)",
+                          },
+
+                          ".MuiOutlinedInput-notchedOutline": {
+                            borderRadius: "6px",
+                            borderColor: "var(--dark)",
+                          },
+                          "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                            borderWidth: "1px",
+                            borderColor: "var(--accent-color)",
+                          },
+                        }}
+                      >
+                        <MenuItem value="" disabled>
+                          <em>Оберіть мету</em>
+                        </MenuItem>
+                        <MenuItem value={"Схуднення"}>Схуднення</MenuItem>
+                        <MenuItem value={"Утримати вагу"}>
+                          Утримати вагу
+                        </MenuItem>
+                        <MenuItem value={"Повільний набір маси"}>
+                          Повільний набір маси
+                        </MenuItem>
+                        <MenuItem value={"Активний набір маси"}>
+                          Активний набір маси
+                        </MenuItem>
+                        <MenuItem value={"Набір сухої мязової маси"}>
+                          Набір сухої мязової маси
+                        </MenuItem>
+                      </Select>
+                    </FormControl>
+                  </label>
+                  <ErrorMessage
+                    name="section"
+                    component="div"
+                    className="error"
+                  />
+                </div>
+
+                {/* Section */}
+
+                <div className="input_wrapper">
+                  <label htmlFor="section" className={css.setup_label}>
+                    Позначте свою секцію
+                    <FormControl sx={{ m: 1, width: "100%", margin: "0px" }}>
+                      <Select
+                        name="section"
+                        value={values.section}
+                        onChange={handleChange}
+                        displayEmpty
+                        inputProps={{ "aria-label": "Without label" }}
+                        MenuProps={{
+                          disableScrollLock: true,
+                        }}
+                        sx={{
+                          fontSize: "14px",
+                          height: "44px",
+
+                          backgroundColor: "transparent",
+                          color: "var(--dark)",
+
+                          "& .MuiOutlinedInput-input": {
+                            padding: "12px 18px",
+                          },
+
+                          borderRadius: "0",
+                          "& .MuiSelect-icon": {
+                            color: "var(--dark)",
+                          },
+                          "&.Mui-focused .MuiSelect-icon": {
+                            color: "var(--accent-color)",
+                          },
+
+                          ".MuiOutlinedInput-notchedOutline": {
+                            borderRadius: "6px",
+                            borderColor: "var(--dark)",
+                          },
+                          "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                            borderWidth: "1px",
+                            borderColor: "var(--accent-color)",
+                          },
+                        }}
+                      >
+                        <MenuItem value="" disabled>
+                          <em>Оберіть відділ</em>
+                        </MenuItem>
+                        <MenuItem value={"Спортивний зал"}>
+                          Спортивний зал
+                        </MenuItem>
+                        <MenuItem value={"Реабілітація та масаж"}>
+                          Реабілітація та масаж
+                        </MenuItem>
+                        <MenuItem value={"Йога"}>Йога</MenuItem>
+                        <MenuItem value={"Дитячі танці"}>Дитячі танці</MenuItem>
+                        <MenuItem value={"Ендосфера"}>Ендосфера</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </label>
+                  <ErrorMessage
+                    name="section"
+                    component="div"
+                    className="error"
+                  />
+                </div>
+
+                {/* Activity */}
+
+                <div className="input_wrapper">
+                  <label htmlFor="activityLevel" className={css.setup_label}>
+                    Оберіть свій рівент активності
+                    <FormControl sx={{ m: 1, width: "100%", margin: "0px" }}>
+                      <Select
+                        name="activityLevel"
+                        value={values.activityLevel}
+                        onChange={handleChange}
+                        displayEmpty
+                        inputProps={{ "aria-label": "Without label" }}
+                        MenuProps={{
+                          disableScrollLock: true,
+                        }}
+                        sx={{
+                          fontSize: "14px",
+                          height: "44px",
+
+                          backgroundColor: "transparent",
+                          color: "var(--dark)",
+
+                          "& .MuiOutlinedInput-input": {
+                            padding: "12px 18px",
+                          },
+
+                          borderRadius: "0",
+                          "& .MuiSelect-icon": {
+                            color: "var(--dark)",
+                          },
+                          "&.Mui-focused .MuiSelect-icon": {
+                            color: "var(--accent-color)",
+                          },
+
+                          ".MuiOutlinedInput-notchedOutline": {
+                            borderRadius: "6px",
+                            borderColor: "var(--dark)",
+                          },
+                          "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                            borderWidth: "1px",
+                            borderColor: "var(--accent-color)",
+                          },
+                        }}
+                      >
+                        <MenuItem value="" disabled>
+                          <em>Активність</em>
+                        </MenuItem>
+                        <MenuItem value={"Сидячий"}>Сидячий</MenuItem>
+                        <MenuItem value={"Слабо"}>Слабо</MenuItem>
+                        <MenuItem value={"Середній"}>Середній</MenuItem>
+                        <MenuItem value={"Активний"}>Активний</MenuItem>
+                        <MenuItem value={"Сильна активність"}>
+                          Сильна активність
+                        </MenuItem>
+                      </Select>
+                    </FormControl>
+                  </label>
+                  <ErrorMessage
+                    name="activityLevel"
+                    component="div"
+                    className="error"
+                  />
+                </div>
+              </div>
             </div>
-
-            {/* Name */}
-
-            <div className="input_wrapper">
-              <Field
-                name="name"
-                type="text"
-                placeholder=""
-                className="input"
-                autoFocus={false}
-                style={{
-                  color:
-                    errors.name && touched.name
-                      ? "var(--pastel-red)"
-                      : "var(--dark)",
-                  borderColor:
-                    errors.name && touched.name
-                      ? "var(--pastel-red)"
-                      : "var(--dark)",
-                }}
-              />
-              <label htmlFor="name" className="label">
-                <MdOutlineMail className="form_icon" /> Введіть ім’я та фамілію
-              </label>
-              <ErrorMessage name="name" component="div" className="error" />
-            </div>
-
-            {/* Goal */}
-
-            <div className="input_wrapper">
-              <FormControl sx={{ m: 1, width: "100%", margin: "0px" }}>
-                <Select
-                  name="goal"
-                  value={values.goal}
-                  onChange={handleChange}
-                  displayEmpty
-                  inputProps={{ "aria-label": "Without label" }}
-                  MenuProps={{
-                    disableScrollLock: true,
-                  }}
-                  sx={{
-                    fontSize: "14px",
-                    height: "44px",
-
-                    backgroundColor: "transparent",
-                    color: "var(--dark)",
-
-                    "& .MuiOutlinedInput-input": {
-                      padding: "12px 18px",
-                    },
-
-                    borderRadius: "0",
-                    "& .MuiSelect-icon": {
-                      color: "var(--dark)",
-                    },
-                    "&.Mui-focused .MuiSelect-icon": {
-                      color: "var(--accent-color)",
-                    },
-
-                    ".MuiOutlinedInput-notchedOutline": {
-                      borderRadius: "6px",
-                      borderColor: "var(--dark)",
-                    },
-                    "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                      borderWidth: "1px",
-                      borderColor: "var(--accent-color)",
-                    },
-                  }}
-                >
-                  <MenuItem value="" disabled>
-                    <em>Оберіть мету</em>
-                  </MenuItem>
-                  <MenuItem value={"Схуднення"}>Схуднення</MenuItem>
-                  <MenuItem value={"Утримати вагу"}>Утримати вагу</MenuItem>
-                  <MenuItem value={"Повільний набір маси"}>
-                    Повільний набір маси
-                  </MenuItem>
-                  <MenuItem value={"Активний набір маси"}>
-                    Активний набір маси
-                  </MenuItem>
-                  <MenuItem value={"Набір сухої мязової маси"}>
-                    Набір сухої мязової маси
-                  </MenuItem>
-                </Select>
-              </FormControl>
-              <ErrorMessage name="section" component="div" className="error" />
-            </div>
-
-            {/* Section */}
-
-            <div className="input_wrapper">
-              <FormControl sx={{ m: 1, width: "100%", margin: "0px" }}>
-                <Select
-                  name="section"
-                  value={values.section}
-                  onChange={handleChange}
-                  displayEmpty
-                  inputProps={{ "aria-label": "Without label" }}
-                  MenuProps={{
-                    disableScrollLock: true,
-                  }}
-                  sx={{
-                    fontSize: "14px",
-                    height: "44px",
-
-                    backgroundColor: "transparent",
-                    color: "var(--dark)",
-
-                    "& .MuiOutlinedInput-input": {
-                      padding: "12px 18px",
-                    },
-
-                    borderRadius: "0",
-                    "& .MuiSelect-icon": {
-                      color: "var(--dark)",
-                    },
-                    "&.Mui-focused .MuiSelect-icon": {
-                      color: "var(--accent-color)",
-                    },
-
-                    ".MuiOutlinedInput-notchedOutline": {
-                      borderRadius: "6px",
-                      borderColor: "var(--dark)",
-                    },
-                    "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                      borderWidth: "1px",
-                      borderColor: "var(--accent-color)",
-                    },
-                  }}
-                >
-                  <MenuItem value="" disabled>
-                    <em>Оберіть відділ</em>
-                  </MenuItem>
-                  <MenuItem value={"Спортивний зал"}>Спортивний зал</MenuItem>
-                  <MenuItem value={"Реабілітація та масаж"}>
-                    Реабілітація та масаж
-                  </MenuItem>
-                  <MenuItem value={"Йога"}>Йога</MenuItem>
-                  <MenuItem value={"Дитячі танці"}>Дитячі танці</MenuItem>
-                  <MenuItem value={"Ендосфера"}>Ендосфера</MenuItem>
-                </Select>
-              </FormControl>
-              <ErrorMessage name="section" component="div" className="error" />
-            </div>
-
-            {/* Activity */}
-
-            <div className="input_wrapper">
-              <FormControl sx={{ m: 1, width: "100%", margin: "0px" }}>
-                <Select
-                  name="activityLevel"
-                  value={values.activityLevel}
-                  onChange={handleChange}
-                  displayEmpty
-                  inputProps={{ "aria-label": "Without label" }}
-                  MenuProps={{
-                    disableScrollLock: true,
-                  }}
-                  sx={{
-                    fontSize: "14px",
-                    height: "44px",
-
-                    backgroundColor: "transparent",
-                    color: "var(--dark)",
-
-                    "& .MuiOutlinedInput-input": {
-                      padding: "12px 18px",
-                    },
-
-                    borderRadius: "0",
-                    "& .MuiSelect-icon": {
-                      color: "var(--dark)",
-                    },
-                    "&.Mui-focused .MuiSelect-icon": {
-                      color: "var(--accent-color)",
-                    },
-
-                    ".MuiOutlinedInput-notchedOutline": {
-                      borderRadius: "6px",
-                      borderColor: "var(--dark)",
-                    },
-                    "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                      borderWidth: "1px",
-                      borderColor: "var(--accent-color)",
-                    },
-                  }}
-                >
-                  <MenuItem value="" disabled>
-                    <em>Активність</em>
-                  </MenuItem>
-                  <MenuItem value={"Сидячий"}>Сидячий</MenuItem>
-                  <MenuItem value={"Слабо"}>Слабо</MenuItem>
-                  <MenuItem value={"Середній"}>Середній</MenuItem>
-                  <MenuItem value={"Активний"}>Активний</MenuItem>
-                  <MenuItem value={"Сильна активність"}>
-                    Сильна активність
-                  </MenuItem>
-                </Select>
-              </FormControl>
-              <ErrorMessage
-                name="activityLevel"
-                component="div"
-                className="error"
-              />
-            </div>
-
             <div className="action_wrapper">
               <Button
                 type="submit"
@@ -320,7 +346,7 @@ function ProfileSetup() {
                 Зберегти зміни
               </Button>
               <ReverseBtn
-                type="submit"
+                type="button"
                 styles={{ maxWidth: "226px", marginTop: "auto" }}
                 action={resetForm}
               >

@@ -1,3 +1,4 @@
+import { useAuth } from "../../context/AuthContext";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
@@ -19,14 +20,15 @@ import { useWindowWidth } from "../../hooks/useWindowWidth";
 import { CREATE_MESSAGE } from "../../services/message";
 
 function MessageForm() {
+  const { user } = useAuth();
   const width = useWindowWidth();
 
   const initialValues = {
-    name: "",
-    email: "",
-    section: "",
+    name: user?.name || "",
+    email: user?.email || "",
+    section: user?.section || "",
     message: "",
-    phone: "",
+    phone: user?.phone || "",
   };
 
   const validationSchema = Yup.object({

@@ -1,5 +1,6 @@
 import React from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 import NavigationContext from "../../components/NavigationContext/NavigationContext";
 import ProfileSideBar from "./ProfileSideBar";
 
@@ -8,8 +9,10 @@ import CommentForm from "../../components/CommentForm/CommentForm";
 
 import css from "./Style.module.css";
 import ProfileDashboard from "./ProfileDashboard";
+import EatBrand from "../../components/EatBrand/EatBrand";
 
 function ProfileLayout() {
+  const { user } = useAuth();
   return (
     <main>
       <NavigationContext />
@@ -23,6 +26,7 @@ function ProfileLayout() {
             </div>
           </div>
         </div>
+        <EatBrand filterArgs={user.section} />
         <Reviews />
         <CommentForm />
       </section>

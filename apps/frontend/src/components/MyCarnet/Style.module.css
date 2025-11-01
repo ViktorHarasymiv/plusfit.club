@@ -54,6 +54,11 @@
   justify-content: space-between;
 }
 
+.carnet_verify {
+  display: flex;
+  flex-direction: column;
+}
+
 .carnet_info {
   width: 100%;
   display: flex;
@@ -66,8 +71,7 @@
 
 .carnet_status {
   display: flex;
-  align-items: center;
-  gap: 10px;
+  flex-direction: column;
 }
 
 .carnet_detektor {

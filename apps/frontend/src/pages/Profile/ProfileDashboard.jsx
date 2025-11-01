@@ -1,8 +1,8 @@
-import React from "react";
 import { useAuth } from "../../context/AuthContext";
 
 import css from "./Style.module.css";
 import WrapperPicker from "../../components/WrapperPicker/WrapperPicker";
+import PreviewAvatar from "/img/avatarPreview.png";
 
 function ProfileDashboard() {
   const { user } = useAuth();
@@ -19,7 +19,7 @@ function ProfileDashboard() {
         </div>
         <div className={css.user_info_wrapper}>
           <img
-            src={avatar}
+            src={avatar || PreviewAvatar}
             alt="User avatar"
             width={160}
             height={160}

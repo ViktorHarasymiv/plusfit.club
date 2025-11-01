@@ -10,11 +10,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999;
+  z-index: 1001;
 }
 
 .lightbox_content {
-  position: relative;
   max-width: 90%;
   max-height: 90%;
 }
@@ -84,11 +83,11 @@
 }
 
 .nav_btn_left {
-  left: -80px;
+  left: 30px;
 }
 
 .nav_btn_right {
-  right: -80px;
+  right: 30px;
 }
 
 .close_btn:hover {

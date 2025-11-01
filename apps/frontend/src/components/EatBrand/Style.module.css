@@ -1,0 +1,14 @@
+.image {
+  max-width: none;
+  width: 200px;
+  height: 250px;
+
+  object-fit: cover;
+}
+
+.eat_swiper {
+  padding-block: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

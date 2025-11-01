@@ -17,7 +17,7 @@
   --hero-overlay-color: #000000;
   --theme-gradient: linear-gradient(to right, #ff7e38 0%, #fa4014 100%);
   --theme-gradient2: linear-gradient(to bottom right, #ff7e38 0%, #fa4014 100%);
-  --slider-arrow-bg: rgba(255, 255, 255, 0.2);
+  --slider-arrow-bg: rgba(255, 255, 255, 0.13);
   --box-shadow: 0 0 40px 5px rgb(0 0 0 / 5%);
   --box-shadow2: 0 0 15px rgba(0, 0, 0, 0.17);
   --transition: all 0.5s ease-in-out;

@@ -13,7 +13,7 @@ export default function Slide({ slide }) {
   return (
     <div
       className="hero_slide"
-      style={{ backgroundImage: `url(${slide.image})` }}
+      style={{ backgroundImage: `url(${slide.backgroundImage})` }}
     >
       <div className="container">
         <div className={style.hero_content_wrapper}>

@@ -6,7 +6,7 @@ import Logo from "/logo/logoLight.png";
 import FormattedDate from "../../utils/RemainingTime";
 
 function MyCarnet({ info }) {
-  const { clientId, type, status, startDate, endDate } = info;
+  const { clientId, type, status, startDate, endDate, isVerify } = info;
 
   const statusColors = {
     "Очікує оплати": "#fffeca",
@@ -15,26 +15,50 @@ function MyCarnet({ info }) {
     Активний: "#54b2a9",
   };
 
+  const verifyColors = {
+    true: "green",
+    false: "red",
+  };
+
   const color = statusColors[status] || "inherit";
+
+  const verifyColor = verifyColors[isVerify] || "inherit";
 
   return (
     <li className={css.carnet_content}>
       <aside className={css.carnet_wrapper}>
         <div className={css.carnet_head}>
-          <div>{clientId}</div>
+          <div className={css.carnet_verify}>
+            {clientId}
+            <p>{type}</p>
+          </div>
           <img src={Logo} alt="Firm logo PlusFit" width={72} height="100%" />
         </div>
         <div className={css.carnet_info}>
           <div className={css.carnet_date}>
-            <p>{type}</p>
             <div className={css.carnet_status}>
-              {status}
-              <span
-                className={css.carnet_detektor}
-                style={{
-                  background: color,
-                }}
-              ></span>
+              <div>
+                <span>
+                  {isVerify == true ? "Підтвердженно" : "Очікує підтвердження"}
+                </span>
+                <span
+                  className={css.carnet_detektor}
+                  style={{
+                    background: verifyColor,
+                    marginLeft: "10px",
+                  }}
+                ></span>
+              </div>
+              <div>
+                {status}
+                <span
+                  className={css.carnet_detektor}
+                  style={{
+                    background: color,
+                    marginLeft: "10px",
+                  }}
+                ></span>
+              </div>
             </div>
           </div>
           <div className={css.carnet_date}>

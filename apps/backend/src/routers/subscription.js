@@ -11,6 +11,7 @@ import {
   getSubscriptionsController,
   createSubscriberController,
   upsertContactController,
+  getSubscriptionsByEmailController,
 } from '../controllers/subscription.js';
 
 import {
@@ -21,6 +22,7 @@ import {
 const router = Router();
 
 router.get('/', ctrlWrapper(getSubscriptionsController));
+router.get('/my', ctrlWrapper(getSubscriptionsByEmailController));
 
 router.get('/:contactId', ctrlWrapper(getSubscriberByParamsController));
 

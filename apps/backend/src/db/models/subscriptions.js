@@ -16,6 +16,7 @@ const subscriptionsSchema = new Schema(
 
     price: { type: Number, required: true },
     method: { type: String, required: true },
+    isVerify: { type: Boolean, default: false },
   },
   { timestamps: true, versionKey: false },
 );

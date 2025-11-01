@@ -3,6 +3,7 @@ import { Router } from 'express';
 import subscriptionsRouter from './subscription.js';
 import authRouter from './auth.js';
 import usersRouter from './users.js';
+import heroRouter from './hero.js';
 import reviewRouter from './review.js';
 import messageRouter from './message.js';
 import massageRouter from './massage.js';
@@ -12,10 +13,12 @@ import portfolioRouter from './portfolio.js';
 
 const router = Router();
 
-router.use('/subscriptions', subscriptionsRouter);
 router.use('/auth', authRouter);
 router.use('/users', usersRouter);
 
+router.use('/subscriptions', subscriptionsRouter);
+
+router.use('/hero', heroRouter);
 router.use('/review', reviewRouter);
 router.use('/message', messageRouter);
 router.use('/massage', massageRouter);

@@ -60,4 +60,5 @@ export const updateSubscriptionSchema = Joi.object({
     .message('Дата завершення має бути пізніше за дату початку'),
   price: Joi.number().min(0).message('Ціна не може бути відʼємною'),
   method: Joi.string(),
+  isVerify: Joi.boolean(),
 });

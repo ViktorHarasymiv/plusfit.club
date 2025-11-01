@@ -6,8 +6,8 @@ import {
   createSubscriber,
   updateSubscriber,
   getSubscriberByParams,
+  getSubscriptionsByEmail,
 } from '../services/subscription.js';
-import { UsersCollection } from '../db/models/user.js';
 
 export const getSubscriptionsController = async (req, res) => {
   const { page, perPage } = parsePaginationParams(req.query);
@@ -58,38 +58,11 @@ export const createSubscriberController = async (req, res) => {
   };
   const contact = await createSubscriber(contactData);
 
-  const user = await UsersCollection.findOne({
-    email: contact.email.toLowerCase(),
+  res.status(201).json({
+    status: 201,
+    message: 'Абонемент успішно створений!',
+    data: contact,
   });
-
-  if (user) {
-    // 🔁 Перевірити, чи абонемент вже є в історії
-    const alreadyLinked = user.history?.some(
-      (entry) => entry.subscriptionId?.toString() === contact._id.toString(),
-    );
-
-    if (!alreadyLinked) {
-      // 🔗 Додати абонемент в історію
-      user.history.push({
-        subscriptionId: contact._id,
-        clientId: contact.clientId,
-        type: contact.type,
-        price: contact.price,
-        method: contact.method,
-        status: contact.status,
-        startDate: contact.startDate,
-        endDate: contact.endDate,
-      });
-
-      await user.save();
-    }
-
-    res.status(201).json({
-      status: 201,
-      message: 'Абонемент успішно створений!',
-      data: contact,
-    });
-  }
 };
 
 export const upsertContactController = async (req, res, next) => {
@@ -97,13 +70,11 @@ export const upsertContactController = async (req, res, next) => {
 
   const result = await updateSubscriber(
     contactId,
-    {
-      ...req.body,
-    },
-    {
-      upsert: true,
-    },
+    { ...req.body },
+    { upsert: true },
   );
+
+  const contact = result.contact;
 
   if (!result) {
     next(createHttpError(404, 'Subscriber not found'));
@@ -114,7 +85,29 @@ export const upsertContactController = async (req, res, next) => {
 
   res.status(status).json({
     status,
-    message: `Successfully upserted a subscriber!`,
-    data: result.contact,
+    message: `Успішно оновлено абонемент !`,
+    data: contact,
   });
+};
+
+export const getSubscriptionsByEmailController = async (req, res, next) => {
+  const { email } = req.query;
+
+  try {
+    if (!email) {
+      throw createHttpError(400, 'Email is required');
+    }
+
+    const subscriptions = await getSubscriptionsByEmail(email);
+
+    res.status(200).json({
+      status: 200,
+      message: 'Абонементи знайдено',
+      data: subscriptions,
+    });
+  } catch (error) {
+    next(
+      createHttpError(500, error.message || 'Помилка при пошуку абонементів'),
+    );
+  }
 };

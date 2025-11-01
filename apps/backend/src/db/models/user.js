@@ -1,25 +1,6 @@
 // src/db/models/user.js
 
-import { model, Schema, Types } from 'mongoose';
-
-const subscriptionHistorySchema = new Schema(
-  {
-    subscriptionId: {
-      type: Types.ObjectId,
-      ref: 'subscriptions',
-      required: true,
-    },
-    clientId: { type: String, required: true },
-    type: { type: String, required: true },
-    startDate: { type: Date, required: true },
-    endDate: { type: Date },
-    price: { type: String, required: true },
-    method: { type: String, required: true },
-    status: { type: String }, // наприклад: 'active', 'expired', 'claimed'
-    addedAt: { type: Date, default: Date.now },
-  },
-  { _id: false },
-);
+import { model, Schema } from 'mongoose';
 
 const usersSchema = new Schema(
   {
@@ -48,7 +29,7 @@ const usersSchema = new Schema(
       maxlength: [32, 'Name cannot exceed 32 characters'],
       trim: true,
     },
-    age: { type: Number, trim: true, required: true },
+    age: { type: Number, trim: true },
     goal: {
       type: String,
       enum: [
@@ -78,8 +59,6 @@ const usersSchema = new Schema(
     },
     password: { type: String, trim: true, required: true },
     acceptedTerms: { type: Boolean, trim: true, require: true },
-
-    history: [subscriptionHistorySchema],
   },
   { timestamps: true, versionKey: false },
 );

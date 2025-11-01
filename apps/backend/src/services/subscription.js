@@ -57,3 +57,15 @@ export const updateSubscriber = async (contactId, payload, options = {}) => {
     isNew: Boolean(rawResult?.lastErrorObject?.upserted),
   };
 };
+
+export const getSubscriptionsByEmail = async (email) => {
+  if (!email) throw new Error('Email is required');
+
+  const normalizedEmail = email.toLowerCase();
+
+  const subscriptions = await SubscriptionsCollection.find({
+    email: normalizedEmail,
+  });
+
+  return subscriptions;
+};

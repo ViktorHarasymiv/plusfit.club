@@ -13,6 +13,7 @@ import EatBrand from "../../components/EatBrand/EatBrand";
 
 function ProfileLayout() {
   const { user } = useAuth();
+
   return (
     <main>
       <NavigationContext />

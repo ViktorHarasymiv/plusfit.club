@@ -10,6 +10,7 @@
 
 .outlet_wrapper {
   width: 100%;
+
   display: flex;
   gap: 32px;
   flex-direction: column;
@@ -19,13 +20,20 @@
 
 .side_bar {
   display: flex;
+  align-self: flex-start;
+
   flex-wrap: nowrap;
   text-wrap: nowrap;
 }
 
-.side_bar_list {
-  overflow-x: auto;
+@media screen and (min-width: 991.98px) {
+  .side_bar {
+    position: sticky;
+    top: 120px;
+  }
+}
 
+.side_bar_list {
   display: inherit;
 
   flex-direction: row;
@@ -73,7 +81,7 @@
 
   display: grid;
 
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 
   gap: 20px;
 }
@@ -85,10 +93,12 @@
 }
 
 .user_wrapper {
-  height: 310px;
+  height: 320px;
 
   overflow: hidden;
-  border-radius: 10px;
+
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 
   border: 1px solid var(--border-info-color);
 }
@@ -102,7 +112,7 @@
 
   display: flex;
   gap: 32px;
-  align-items: center;
+  align-items: end;
 }
 
 .avatar {
@@ -124,6 +134,16 @@
   font-size: 20px;
 }
 
+.user_email {
+  font-size: 16px;
+}
+
+/* Profile */
+
+.profile_wrapper {
+  margin-top: -32px;
+}
+
 /* Setup */
 
 .setup_wrapper {
@@ -138,15 +158,16 @@
 
 .form_wrapper {
   display: flex;
+  align-items: center;
   flex-direction: column;
   gap: 50px;
 }
 
 .coll_1 {
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column;
   justify-content: space-between;
-  gap: 100px;
+  gap: 30px;
 }
 
 .user_info_input {
@@ -158,6 +179,7 @@
 }
 
 .setup_label {
+  width: 100%;
   font-size: 14px;
   color: var(--dark);
 }
@@ -192,10 +214,21 @@
   .active {
     transform: translate(10px, 0px);
   }
+
+  .carnet_list {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 320px));
+  }
 }
 
 @media screen and (min-width: 767.98px) {
+  .form_wrapper {
+    align-items: stretch;
+  }
+  .coll_1 {
+    flex-direction: row;
+  }
+
   .carnet_list {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 320px));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 }

@@ -9,6 +9,7 @@ import MyCalculator from "./Tab/MyCalculator";
 
 function ProfileTabs() {
   const [currentTab, setCurrentTab] = useState("Новини");
+
   const consoleTabs = [
     {
       id: 0,
@@ -27,8 +28,6 @@ function ProfileTabs() {
       label: "Калькулятор калорій",
     },
   ];
-
-  console.log(currentTab);
 
   return (
     <div className={css.console_wrapper}>

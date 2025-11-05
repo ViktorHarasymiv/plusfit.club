@@ -1,20 +1,20 @@
 export function calculateCalories(sex, weight, height, age, activityLevel) {
   let bmr;
 
-  if (sex === "male") {
+  if (sex === "Чоловік") {
     bmr = 10 * weight + 6.25 * height - 5 * age + 5;
-  } else if (sex === "female") {
+  } else if (sex === "Жінка") {
     bmr = 10 * weight + 6.25 * height - 5 * age - 161;
   } else {
     throw new Error("Стать має бути 'male' або 'female'");
   }
 
   const activityMultipliers = {
-    sedentary: 1.2,
-    light: 1.375,
-    moderate: 1.55,
-    active: 1.725,
-    veryActive: 1.9,
+    Сидячий: 1.2,
+    Слабо: 1.375,
+    Середній: 1.55,
+    Активний: 1.725,
+    "Сильна активність": 1.9,
   };
 
   const multiplier = activityMultipliers[activityLevel];

@@ -531,13 +531,10 @@ function OrderForm({ payload }) {
 
           <div className={css.total_wrapper}>
             <div className={css.price}>
-              Сумма :{" "}
-              <span>
-                {values.timeBorder === 0
-                  ? payload.description[0].price
-                  : payload.description[1].price}
-                ГРН
-              </span>
+              {values.timeBorder === 0
+                ? payload.description[0].price
+                : payload.description[1].price}{" "}
+              ГРН
             </div>
             <Button
               type="submit"

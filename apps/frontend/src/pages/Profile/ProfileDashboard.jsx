@@ -3,13 +3,14 @@ import { useAuth } from "../../context/AuthContext";
 import css from "./Style.module.css";
 import WrapperPicker from "../../components/WrapperPicker/WrapperPicker";
 import PreviewAvatar from "/img/avatarPreview.png";
+import UserInfoBar from "./UserInfoBar/UserInfoBar";
 
 function ProfileDashboard() {
   const { user } = useAuth();
 
   console.log(user);
 
-  const { avatar, name, goal } = user;
+  const { avatar, name, email } = user;
 
   return (
     <div className={css.dashboard_wrapper}>
@@ -27,7 +28,8 @@ function ProfileDashboard() {
           />
           <div className={css.info_panel_wrapper}>
             <h4 className={css.user_name}>{name}</h4>
-            <h5>{goal}</h5>
+            <h5 className={css.user_email}>{email}</h5>
+            <UserInfoBar />
           </div>
         </div>
       </div>

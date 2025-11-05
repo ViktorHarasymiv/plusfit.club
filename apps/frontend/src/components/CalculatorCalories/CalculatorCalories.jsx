@@ -33,7 +33,7 @@ export default function CalculatorCalories({ styles }) {
             <h2 className={style.calculator_section_about}>
               Обчисліть норму калорій
             </h2>
-            <FormCalculate setCalories={setCalories} />
+            <FormCalculate calories={calories} setCalories={setCalories} />
           </div>
           <div className={style.calculator_result_wrapper}>
             <Table />

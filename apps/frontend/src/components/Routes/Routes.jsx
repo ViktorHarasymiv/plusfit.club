@@ -31,6 +31,7 @@ import RegistrationPage from "../../components/Auth/RegistrationPage";
 import ProfileSetup from "../../pages/Profile/ProfileSetup";
 import GoogleAuthRedirect from "../GoogleAuthRedirect/GoogleAuthRedirect";
 import ProfileTabs from "../../pages/Profile/ProfileTabs/ProfileTabs";
+import ProfileUser from "../../pages/Profile/ProfileUser";
 
 function Router() {
   return (
@@ -66,10 +67,10 @@ function Router() {
           }
         >
           <Route
-            path="console"
+            path="user"
             element={
               <AuthGuard>
-                <ProfileTabs />
+                <ProfileUser />
               </AuthGuard>
             }
           />

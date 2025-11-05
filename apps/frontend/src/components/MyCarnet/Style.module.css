@@ -1,5 +1,6 @@
 .carnet_content {
-  height: clamp(9.375rem, 6vw + 12rem, 12rem);
+  overflow: hidden;
+  height: clamp(9.375rem, 6vw + 12rem, 13rem);
 
   position: relative;
 
@@ -23,6 +24,7 @@
 }
 
 .carnet_content::after {
+  pointer-events: none;
   position: absolute;
 
   top: 90px;

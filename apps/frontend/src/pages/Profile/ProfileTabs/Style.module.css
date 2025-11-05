@@ -97,17 +97,15 @@
 
 /* Tab section */
 
-/* .tab_section {
+.tab_section {
   padding: 24px;
 
   border: 1px solid var(--border-info-color);
   border-radius: 10px;
-} */
+}
 
 .active {
   background-color: var(--accent-color);
-
-  transform: scale(1.02);
 }
 
 .tab.active .tab_section {

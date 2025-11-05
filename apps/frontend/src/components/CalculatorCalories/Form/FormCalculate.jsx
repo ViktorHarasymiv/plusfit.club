@@ -1,9 +1,20 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { useMemo } from "react";
+
+import { Formik, Form, Field, ErrorMessage, useFormikContext } from "formik";
 import * as Yup from "yup";
 
 import style from "./FormCalculate.module.css";
 
 import Button from "../../ui/Button/Button";
+
+/* MUI DATA */
+
+import dayjs from "dayjs";
+import "dayjs/locale/uk";
+
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 
 /* MUI SELECT */
 
@@ -13,18 +24,22 @@ import Select from "@mui/material/Select";
 
 /* UTILS */
 
-import { calculateCalories } from "../../../utils/calculateCalories";
 import { useAuth } from "../../../context/AuthContext";
 
-export default function FormCalculate({ setCalories }) {
-  const { user } = useAuth();
+import { calculateCalories } from "../../../utils/calculateCalories";
+import { calculateAge } from "../../../utils/calculateAge";
+
+export default function FormCalculate({ calories, setCalories }) {
+  const { user, fetchUser, patchUser } = useAuth();
 
   const initialValues = {
-    height: "",
-    weight: "",
-    age: "",
-    sex: "",
+    height: user?.height || "",
+    weight: user?.weight || "",
+    sex: user?.sex || "",
+    birthday: user?.birthday || "",
     activityLevel: user?.activityLevel || "",
+    BMI: user?.BMI || "",
+    BMR: user?.BMR || "",
   };
 
   const validationSchema = Yup.object({
@@ -46,22 +61,103 @@ export default function FormCalculate({ setCalories }) {
         Number.isInteger(value)
       ),
 
-    age: Yup.number()
-      .typeError("Вік має бути числом")
-      .required("Вік обов’язковий")
-      .min(14, "Вік має бути не менше 14 років")
-      .max(80, "Вік має бути не більше 80 років"),
+    birthday: Yup.date().required("Вік обов’язковий"),
 
     sex: Yup.string().required("Стать обов’язкова"),
 
+    // BMI: Yup.number(),
+    // BMR: Yup.number(),
     activityLevel: Yup.string().required("Активність обов'язкова"),
   });
 
+  // CONSTANT
+
+  let age = 0;
+
+  dayjs.locale("uk");
+
+  const formattedBirthday = dayjs(initialValues.birthday).format("D MMMM YYYY");
+
+  const today = dayjs();
+
+  const minDate = today.subtract(70, "year"); // найстарший допустимий вік
+  const maxDate = today.subtract(13, "year"); // наймолодший допустимий вік
+
+  // DATA UTILS
+
+  const FormikDatePickerBirthday = () => {
+    const { values, setFieldValue } = useFormikContext();
+
+    age = useMemo(() => {
+      if (!values.birthday) return null;
+      return calculateAge(values.birthday);
+    }, [values.birthday]);
+
+    const handleChange = (newValue) => {
+      if (newValue && newValue.isValid()) {
+        const iso = newValue.toISOString();
+        setFieldValue("birthday", iso);
+      }
+    };
+
+    return (
+      <DesktopDatePicker
+        label={formattedBirthday}
+        minDate={minDate}
+        maxDate={maxDate}
+        onChange={handleChange}
+        slotProps={{
+          textField: {
+            sx: {
+              width: "100%",
+              borderColor: "transparent",
+              "& .MuiInputLabel-root": {
+                fontSize: "14px",
+                lineHeight: "1",
+                color: "var(--dark)",
+              },
+              "& .MuiInputLabel-root": {
+                textAlign: "center",
+                alignItems: "center",
+              },
+              "& .MuiPickersSectionList-root": {
+                height: "56px",
+              },
+
+              "& .MuiPickersOutlinedInput-root": {
+                borderRadius: "0px !important",
+              },
+
+              "& .MuiPickersOutlinedInput-notchedOutline": {
+                borderColor: "rgba(0,0,0, 0.6)",
+              },
+              "&.Mui-focused .MuiPickersOutlinedInput-notchedOutline": {
+                borderWidth: "1px",
+                borderColor: "var(--accent-color) !important",
+              },
+            },
+          },
+        }}
+      />
+    );
+  };
+
   /* SUBMIT */
 
-  const handleSubmit = (values, { resetForm }) => {
-    const { height, weight, age, sex, activityLevel } = values;
+  const handleSubmit = async (values, { resetForm }) => {
+    const { height, weight, sex, activityLevel } = values;
+
     setCalories(calculateCalories(sex, weight, height, age, activityLevel));
+
+    const result = calculateCalories(sex, weight, height, age, activityLevel);
+
+    values.BMI = result?.BMI || 0;
+    values.BMR = result?.BMR || 0;
+
+    console.log(values);
+
+    await patchUser(values);
+
     resetForm();
   };
 
@@ -71,7 +167,7 @@ export default function FormCalculate({ setCalories }) {
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
-      {({ values, handleChange, touched, errors }) => (
+      {({ values, handleChange }) => (
         <Form className={style.form_wrapper}>
           {/* height */}
           <div className={style.input_wrapper}>
@@ -103,15 +199,16 @@ export default function FormCalculate({ setCalories }) {
             />
           </div>
 
-          {/* age */}
+          {/* Birthday */}
+
           <div className={style.input_wrapper}>
-            <Field
-              name="age"
-              type="text"
-              placeholder="Вік"
-              className={style.input}
-            />
-            <ErrorMessage name="age" component="div" className={style.error} />
+            <div>
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <FormikDatePickerBirthday />
+              </LocalizationProvider>
+            </div>
+
+            <ErrorMessage name="birthday" component="div" className="error" />
           </div>
 
           {/* Sex */}
@@ -152,8 +249,8 @@ export default function FormCalculate({ setCalories }) {
                 <MenuItem value="">
                   <em>Стать</em>
                 </MenuItem>
-                <MenuItem value={"male"}>Чоловік</MenuItem>
-                <MenuItem value={"female"}>Жінка</MenuItem>
+                <MenuItem value={"Чоловік"}>Чоловік</MenuItem>
+                <MenuItem value={"Жінка"}>Жінка</MenuItem>
               </Select>
             </FormControl>
             <ErrorMessage name="sex" component="div" className={style.error} />

@@ -1,0 +1,13 @@
+.change_link {
+  margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.link {
+  cursor: pointer;
+
+  color: var(--accent-color);
+  text-decoration: underline;
+}

@@ -12,13 +12,15 @@ const styleObj = {
 };
 
 import Login from "../../components/Login/Login";
+import ChangeLink from "./ChangeLink";
 
 function LoginModal() {
-  const { isSignInOpen, closeSignIn } = useAuthModalStore();
+  const { isSignInOpen, closeSignIn, changeSign } = useAuthModalStore();
 
   return (
     <Modal isOpen={isSignInOpen} onClose={closeSignIn} styles={styleObj}>
       <Login />
+      <ChangeLink name={"Зареєструватись"} />
     </Modal>
   );
 }

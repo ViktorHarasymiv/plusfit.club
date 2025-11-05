@@ -24,11 +24,13 @@ function ProfileHistory() {
   }, []);
 
   return (
-    <ul className={css.carnet_list}>
-      {subscription?.map((info, index) => {
-        return <MyCarnet key={index} info={info} />;
-      })}
-    </ul>
+    <div className={css.setup_wrapper}>
+      <ul className={css.carnet_list}>
+        {subscription?.map((info, index) => {
+          return <MyCarnet key={index} info={info} />;
+        })}
+      </ul>
+    </div>
   );
 }
 

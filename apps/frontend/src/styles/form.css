@@ -50,6 +50,10 @@
   color: rgba(255, 255, 255, 0.8);
 }
 
+.placeholder::placeholder {
+  color: rgba(0, 0, 0, 0.4);
+}
+
 .input:focus {
   border-color: var(--accent-color) !important;
 }

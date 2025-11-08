@@ -8,6 +8,9 @@ import {
   getSubscriberByParams,
   getSubscriptionsByEmail,
 } from '../services/subscription.js';
+import { SubscriptionsCollection } from '../db/models/subscriptions.js';
+
+// NONE
 
 export const getSubscriptionsController = async (req, res) => {
   const { page, perPage } = parsePaginationParams(req.query);
@@ -23,21 +26,70 @@ export const getSubscriptionsController = async (req, res) => {
   });
 };
 
+// GET
+
 export const getSubscriberByParamsController = async (req, res, next) => {
-  const { contactId } = req.params;
+  try {
+    const { page = 1, perPage = 8, ...subscriptionsParams } = req.query;
 
-  const contact = await getSubscriberByParams(contactId);
+    // Приведення типів, якщо потрібно
+    if (subscriptionsParams.isVerify !== undefined) {
+      subscriptionsParams.isVerify = subscriptionsParams.isVerify === 'true';
+    }
 
-  if (!contact) {
-    throw createHttpError(404, 'Contact not found');
+    const subscriptions = await getSubscriberByParams({
+      subscriptionsParams,
+      page: Number(page),
+      perPage: Number(perPage),
+    });
+
+    if (!subscriptions || subscriptions.data.length === 0) {
+      throw createHttpError(404, 'No matching subscriptions found');
+    }
+
+    res.json({
+      status: 200,
+      message: 'Successfully found subscriptions',
+      data: subscriptions.data,
+      pagination: {
+        ...subscriptions,
+        data: undefined,
+      },
+    });
+  } catch (error) {
+    console.error('❌ Controller error:', error);
+    next(error);
   }
-
-  res.json({
-    status: 200,
-    message: `Successfully found contact with id ${contactId}`,
-    data: contact,
-  });
 };
+
+// COUNT
+
+export const getFilteredSubscriberCountController = async (req, res, next) => {
+  try {
+    const rawParams = { ...req.query };
+    const filters = {};
+
+    //  Приведення типів
+    if ('isVerify' in rawParams) {
+      filters.isVerify = rawParams.isVerify === 'true';
+    }
+
+    const count = await SubscriptionsCollection.countDocuments(filters);
+
+    res.status(200).json({
+      status: 200,
+      message: 'Successfully counted filtered subscriptions',
+      count,
+    });
+  } catch (error) {
+    console.error('❌ Count controller error:', error);
+    next(
+      createHttpError(500, error.message || 'Failed to count subscriptions'),
+    );
+  }
+};
+
+// DELETE
 
 export const deleteSubscriberController = async (req, res, next) => {
   const { contactId } = req.params;

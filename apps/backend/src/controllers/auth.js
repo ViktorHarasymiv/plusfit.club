@@ -3,7 +3,9 @@ import {
   loginUser,
   logoutUser,
   loginAdmin,
+  registerAdmin,
 } from '../services/auth.js';
+
 import { refreshUsersSession } from '../services/auth.js';
 
 import { generateAuthUrl } from '../utils/googleOAuth2.js';
@@ -111,35 +113,6 @@ const setupSession = (res, session) => {
   });
 };
 
-// ADMIN
-
-export const loginAdminController = async (req, res) => {
-  const session = await loginAdmin(req.body);
-
-  res.cookie('refreshToken', session.refreshToken, {
-    httpOnly: true,
-    secure: true,
-    sameSite: 'none',
-    path: '/',
-    expires: new Date(Date.now() + ONE_DAY),
-  });
-  res.cookie('sessionId', session._id, {
-    httpOnly: true,
-    secure: true,
-    sameSite: 'none',
-    path: '/',
-    expires: new Date(Date.now() + ONE_DAY),
-  });
-
-  res.json({
-    status: 200,
-    message: 'Successfully logged in an admin!',
-    data: {
-      accessToken: session.accessToken,
-    },
-  });
-};
-
 // GOOGLE
 
 export const getGoogleOAuthUrlController = async (req, res) => {
@@ -161,6 +134,56 @@ export const loginWithGoogleController = async (req, res) => {
   res.json({
     status: 200,
     message: 'Successfully logged in via Google OAuth!',
+    data: {
+      accessToken: session.accessToken,
+    },
+  });
+};
+
+// ADMIN
+
+export const registerAdminController = async (req, res) => {
+  const user = await registerAdmin(req.body);
+
+  const session = await loginAdmin(req.body);
+
+  res.cookie('refreshToken', session.refreshToken, {
+    httpOnly: true,
+    expires: new Date(Date.now() + ONE_DAY),
+  });
+  res.cookie('sessionId', session._id, {
+    httpOnly: true,
+    expires: new Date(Date.now() + ONE_DAY),
+  });
+  res.status(201).json({
+    status: 201,
+    message: 'Successfully registered a Admin !',
+    data: user,
+  });
+};
+
+export const loginAdminController = async (req, res) => {
+  const session = await loginAdmin(req.body);
+
+  res.cookie('refreshToken', session.refreshToken, {
+    httpOnly: true,
+    secure: true,
+    sameSite: 'none',
+    path: '/',
+    expires: new Date(Date.now() + ONE_DAY),
+  });
+
+  res.cookie('sessionId', session._id, {
+    httpOnly: true,
+    secure: true,
+    sameSite: 'none',
+    path: '/',
+    expires: new Date(Date.now() + ONE_DAY),
+  });
+
+  res.json({
+    status: 200,
+    message: 'Successfully logged in an admin!',
     data: {
       accessToken: session.accessToken,
     },

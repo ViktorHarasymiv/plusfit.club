@@ -12,6 +12,7 @@ import {
   createSubscriberController,
   upsertContactController,
   getSubscriptionsByEmailController,
+  getFilteredSubscriberCountController,
 } from '../controllers/subscription.js';
 
 import {
@@ -21,10 +22,10 @@ import {
 
 const router = Router();
 
-router.get('/', ctrlWrapper(getSubscriptionsController));
-router.get('/my', ctrlWrapper(getSubscriptionsByEmailController));
+router.get('/', ctrlWrapper(getSubscriberByParamsController));
+router.get('/count', getFilteredSubscriberCountController);
 
-router.get('/:contactId', ctrlWrapper(getSubscriberByParamsController));
+router.get('/my', ctrlWrapper(getSubscriptionsByEmailController));
 
 router.post(
   '/',

@@ -1,12 +1,17 @@
 import { SubscriptionsCollection } from '../db/models/subscriptions.js';
 import { calculatePaginationData } from '../utils/calculatePaginationData.js';
 
-export const getAllSubscriptions = async ({ page = 1, perPage = 10 }) => {
+export const getAllSubscriptions = async ({ page = 1, perPage = 8 }) => {
   const skip = (page - 1) * perPage;
 
   const [totalCount, subscriptions] = await Promise.all([
     SubscriptionsCollection.countDocuments(),
-    SubscriptionsCollection.find().skip(skip).limit(perPage).exec(),
+    SubscriptionsCollection.find()
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(perPage)
+      .lean()
+      .exec(),
   ]);
 
   const pagination = calculatePaginationData(totalCount, perPage, page);
@@ -17,11 +22,28 @@ export const getAllSubscriptions = async ({ page = 1, perPage = 10 }) => {
   };
 };
 
-export const getSubscriberByParams = async (contactById) => {
-  const contact = await SubscriptionsCollection.findOne({
-    clientId: contactById,
-  });
-  return contact;
+export const getSubscriberByParams = async ({
+  page = 1,
+  perPage = 8,
+  subscriptionsParams = {},
+}) => {
+  const skip = (page - 1) * perPage;
+
+  const [totalCount, subscriptions] = await Promise.all([
+    SubscriptionsCollection.countDocuments(subscriptionsParams),
+    SubscriptionsCollection.find(subscriptionsParams)
+      .sort({ createdAt: -1 })
+      .skip(skip)
+      .limit(perPage)
+      .exec(),
+  ]);
+
+  const pagination = calculatePaginationData(totalCount, perPage, page);
+
+  return {
+    data: subscriptions,
+    ...pagination,
+  };
 };
 
 export const deleteSubscriber = async (contactId) => {
@@ -65,7 +87,7 @@ export const getSubscriptionsByEmail = async (email) => {
 
   const subscriptions = await SubscriptionsCollection.find({
     email: normalizedEmail,
-  });
+  }).sort({ createdAt: -1 });
 
   return subscriptions;
 };

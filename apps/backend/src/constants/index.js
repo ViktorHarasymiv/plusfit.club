@@ -1,5 +1,10 @@
 import path from 'node:path';
 
+export const ROLES = {
+  ADMIN: 'admin',
+  TRAINER: 'trainer',
+};
+
 export const SORT_ORDER = {
   ASC: 'asc',
   DESC: 'desc',

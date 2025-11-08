@@ -29,7 +29,9 @@ const usersSchema = new Schema(
       maxlength: [32, 'Name cannot exceed 32 characters'],
       trim: true,
     },
-    age: { type: Number, trim: true },
+    sex: { type: String, enum: ['Чоловік', 'Жінка'] },
+    birthday: { type: Date, trim: true },
+    phone: { type: String },
     goal: {
       type: String,
       enum: [
@@ -52,10 +54,18 @@ const usersSchema = new Schema(
       ],
       default: null,
     },
+    height: { type: Number, trim: true },
+    weight: { type: Number, trim: true },
     activityLevel: {
       type: String,
       enum: ['Сидячий', 'Слабо', 'Середній', 'Активний', 'Сильна активність'],
       default: null,
+    },
+    BMR: {
+      type: Number,
+    },
+    BMI: {
+      type: Number,
     },
     password: { type: String, trim: true, required: true },
     acceptedTerms: { type: Boolean, trim: true, require: true },

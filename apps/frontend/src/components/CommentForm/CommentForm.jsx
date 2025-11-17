@@ -3,15 +3,13 @@ import FormReview from "./FormReview";
 
 import css from "./CommentForm.module.css";
 
-import background from "/img/commentBg.jpg";
-
 export default function CommentForm() {
   return (
     <section>
       <div className="container">
         <div className={css.comment_wrapper}>
           <img
-            src={background}
+            src=""
             alt=""
             width={550}
             height={635}

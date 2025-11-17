@@ -15,7 +15,7 @@ import style from "../CalculatorCalories/Form/FormCalculate.module.css";
 import css from "./Style.module.css";
 import TextField from "@mui/material/TextField";
 
-import background from "/img/navBarBg.jpg";
+import background from "/img/image-1.jpg";
 import { useWindowWidth } from "../../hooks/useWindowWidth";
 import { CREATE_MESSAGE } from "../../services/message";
 
@@ -92,7 +92,7 @@ function MessageForm() {
         />
       )}
       <div className={css.form_block}>
-        <SectionTitle title={"Send message"} about={"Зв'яжіться з нами"} />
+        <SectionTitle title={"Send message"} about={"Write your message"} />
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}

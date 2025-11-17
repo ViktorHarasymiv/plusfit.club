@@ -57,7 +57,7 @@ p {
 img {
   max-width: 100%;
   height: auto;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 /* section:nth-child(2) {

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import SectionTitle from "../SectionTitle/SectionTitle";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -80,7 +80,11 @@ function EatBrand({ filterArgs }) {
   const canLoop = filteredItems.length > 6;
 
   return (
-    <>
+    <section>
+      <SectionTitle
+        title={"Sports supplements"}
+        about={"Наш магазин"}
+      ></SectionTitle>
       <Swiper
         slidesPerView={6}
         spaceBetween={100}
@@ -89,24 +93,46 @@ function EatBrand({ filterArgs }) {
           delay: 2000,
           disableOnInteraction: false,
         }}
+        breakpoints={{
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          480: {
+            slidesPerView: 2,
+            spaceBetween: 30,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 40,
+          },
+          1024: {
+            slidesPerView: 4,
+            spaceBetween: 60,
+          },
+          1280: {
+            slidesPerView: 6,
+            spaceBetween: 100,
+          },
+        }}
         modules={[Autoplay]}
         className={css.eat_swiper}
       >
         {filteredItems.map(({ name, media }, i) => {
           return (
-            <SwiperSlide key={i}>
+            <SwiperSlide key={i} className={css.swiper_slide}>
               <img
                 src={media[0]}
                 alt={name}
-                width={200}
-                height={250}
+                width={130}
+                height={200}
                 className={css.image}
               />
             </SwiperSlide>
           );
         })}
       </Swiper>
-    </>
+    </section>
   );
 }
 

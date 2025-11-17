@@ -1,4 +1,3 @@
-import React from "react";
 import { useAuthModalStore } from "../../store/useAuthModalStore";
 import { useAuth } from "../../context/AuthContext";
 
@@ -7,9 +6,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { Field, Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
-import { IoCheckmark } from "react-icons/io5";
+import Logo from "../../components/Logo/Logo";
 
-import logoLight from "/logo/logoLight.png";
+import { IoCheckmark } from "react-icons/io5";
 
 import { MdOutlineMail } from "react-icons/md";
 import { GrSecure } from "react-icons/gr";
@@ -57,8 +56,8 @@ function Login() {
 
   return (
     <>
-      <img src={logoLight} alt="Firm logo" width={96} className="form_logo" />
-      <h1 className="form_title">Вхід</h1>
+      <Logo />
+      <h1 className="form_title">Sign In</h1>
       <Formik
         initialValues={initialValues}
         validationSchema={registerUserSchema}
@@ -81,7 +80,8 @@ function Login() {
                 }}
               />
               <label htmlFor="email" className="label">
-                <MdOutlineMail className="form_icon" /> Введіть емейл
+                <MdOutlineMail className="form_icon" />
+                Enter email
               </label>
               <ErrorMessage name="email" component="div" className="error" />
             </div>
@@ -101,7 +101,7 @@ function Login() {
                 }}
               />
               <label htmlFor="password" className="label">
-                <GrSecure className="form_icon" /> Введіть пароль
+                <GrSecure className="form_icon" /> Enter password
               </label>
               <ErrorMessage name="password" component="div" className="error" />
             </div>
@@ -119,8 +119,8 @@ function Login() {
                 </div>
 
                 <Link to={"/policy"} className="terms_link">
-                  Я погоджуюсь з
-                  <span> умовами зберігання та обробки данних</span>
+                  I agree with
+                  <span> conditions of data storage and processing</span>
                 </Link>
               </label>
               {errors.acceptedTerms && touched.acceptedTerms && (
@@ -136,7 +136,7 @@ function Login() {
                   marginTop: "auto",
                 }}
               >
-                Увійти
+                Enter
               </Button>
               <Button
                 type="button"

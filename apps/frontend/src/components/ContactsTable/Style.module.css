@@ -103,6 +103,10 @@
 
 .image {
   box-shadow: rgba(0, 0, 0, 0.2) 2.95px 2.95px 5.6px;
+
+  height: 635px;
+
+  object-position: 70%;
 }
 
 @media screen and (min-width: 1191.98px) {

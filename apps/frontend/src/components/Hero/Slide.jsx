@@ -64,10 +64,10 @@ export default function Slide({ slide }) {
           >
             <div className={style.hero_action}>
               <Link to={slide.action[0]}>
-                <Button>{"Дізнатись більше"}</Button>
+                <Button>{"MORE"}</Button>
               </Link>
               <Link to={slide.action[1]}>
-                <ReverseBtn>{"Записатись"}</ReverseBtn>
+                <ReverseBtn>{"GET STARTED"}</ReverseBtn>
               </Link>
             </div>
           </motion.div>

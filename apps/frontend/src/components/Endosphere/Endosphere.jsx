@@ -1,12 +1,10 @@
 import React from "react";
 import Content from "../../pages/Offer/Content/Content";
 
-import BG from "/img/Endosphere.PNG";
-
 export default function Endosphere() {
   document.title = "ПЛЮС ФІТ - Сфератерапія";
   const content = {
-    frontImage: BG,
+    frontImage: null,
     firstParagraph: {
       firstTitle: "Ендосфера",
 

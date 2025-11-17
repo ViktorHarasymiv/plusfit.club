@@ -16,22 +16,19 @@ function Top() {
             <ul className={style.contact_bar_list}>
               <li className={style.bar_list_item}>
                 <SlLocationPin />
-                <a
-                  href="https://maps.app.goo.gl/ASMqpRVMyCiMFmyp9"
-                  target="_blank"
-                >
-                  Гончарська, 5Б, Броди, 80600
+                <a href="#" target="_blank">
+                  Ventura Boulevard, CA 91604
                 </a>
               </li>
               <li className={style.bar_list_item}>
                 <TiMessages />
-                <a href="mailto:info.plusfitclub@gmail.com">
-                  info.plusfitclub@gmail.com
+                <a href="mailto:info.ironman@gmail.com">
+                  info.ironman@gmail.com
                 </a>
               </li>
               <li className={style.bar_list_item}>
                 <BsTelephoneForward />
-                <a href="tel:+380933144087">+380 93 314 4087</a>
+                <a href="tel:+4878998758">+48 789 987 58</a>
               </li>
             </ul>
           </div>
@@ -39,18 +36,12 @@ function Top() {
             <h5 className="h5">Follow Us:</h5>
             <ul className={style.social_bar}>
               <li>
-                <a
-                  href="https://www.facebook.com/plusfit.brody.2025"
-                  target="_blank"
-                >
+                <a href="#" target="_blank">
                   <FaFacebook />
                 </a>
               </li>
               <li>
-                <a
-                  href="https://www.instagram.com/plusfit.brody/"
-                  target="_blank"
-                >
+                <a href="#" target="_blank">
                   <FaInstagram />
                 </a>
               </li>

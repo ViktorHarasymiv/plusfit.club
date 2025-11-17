@@ -142,8 +142,7 @@
 
 .logo_header {
   position: relative;
-
-  width: 100px;
+  width: fit-content;
 }
 
 @media screen and (min-width: 991.98px) {

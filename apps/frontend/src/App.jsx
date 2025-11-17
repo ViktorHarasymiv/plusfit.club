@@ -15,9 +15,12 @@ import RegistrationModal from "./pages/Auth/RegistrationModal";
 import Toast from "./components/ui/Toast/Toast";
 
 import OrderModal from "./components/OrderModal/OrderModal";
+import { usePostStore } from "./store/postStore";
 
 function App() {
   const { isOpen } = useFullscreenStore();
+
+  const { data, get_post } = usePostStore();
 
   useEffect(() => {
     const body = document.body;
@@ -40,6 +43,15 @@ function App() {
   useEffect(() => {
     scrollTo(0, 0);
   }, [location]);
+
+  useEffect(() => {
+    const fetch_post_data = async () => {
+      await get_post();
+    };
+    fetch_post_data();
+  }, []);
+
+  console.log(data);
 
   return (
     <>

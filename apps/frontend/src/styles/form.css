@@ -1,3 +1,7 @@
+.form_logo {
+  width: 96px;
+}
+
 .form_title {
   margin-block: 20px;
   font-family: var(--font-family-oswald);
@@ -12,7 +16,7 @@
   align-items: center;
   flex-direction: column;
 
-  gap: 40px;
+  gap: 25px;
 }
 
 .input_wrapper {

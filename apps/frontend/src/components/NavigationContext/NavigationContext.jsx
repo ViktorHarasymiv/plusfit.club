@@ -13,7 +13,7 @@ export default function NavigationContext() {
   return (
     <nav
       className={css.wrapper}
-      style={{ background: "url(/img/navBarBg.jpg)" }}
+      style={{ background: "url(/img/image-2.jpg)" }}
     >
       <div className="container">
         <div className={css.content_wrapper}>

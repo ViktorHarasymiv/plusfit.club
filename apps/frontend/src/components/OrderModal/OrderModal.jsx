@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useOrderModalStore } from "../../store/useOrderModalStore";
 
 import Modal from "../ui/Modal/Modal";
@@ -7,12 +7,44 @@ import css from "./Style.module.css";
 
 import { BsArrowLeft } from "react-icons/bs";
 import OrderForm from "./OrderForm";
-import { border, borderRadius, height } from "@mui/system";
+import { useWindowWidth } from "../../hooks/useWindowWidth";
 
 function OrderModal() {
+  const width = useWindowWidth();
+
   const { isOrderModal, closeOrderModal, payload } = useOrderModalStore();
 
   // STYLE
+
+  const [newStyle, setNewStyle] = useState([]);
+
+  const changeStyle = (dynamicWidth) => {
+    if (dynamicWidth > 767.98) {
+      return {
+        borderBottomLeftRadius: "20px",
+        borderTopLeftRadius: "20px",
+        borderTopRightRadius: "0px",
+        borderBottomRightRadius: "0px",
+        borderWidth: "2px",
+        borderRight: "none",
+        borderTop: "transparent",
+        borderBottom: "none",
+      };
+    } else {
+      return {
+        borderWidth: "0px",
+        borderRight: "none",
+        borderTop: "transparent",
+        borderBottom: "none",
+        borderRadius: "0px",
+      };
+    }
+  };
+
+  useEffect(() => {
+    setNewStyle(changeStyle(width));
+  }, [width]);
+
   const overlayObjStyle = {
     justifyContent: "end",
   };
@@ -23,9 +55,11 @@ function OrderModal() {
     width: "100%",
     maxHeight: "99.9vh",
     height: "100%",
-    borderRadius: "0px",
+
     transform: "translateX(0)",
     animation: "slideInX 0.2s ease-in-out",
+
+    ...newStyle,
   };
 
   return (
@@ -46,7 +80,7 @@ function OrderModal() {
         </div>
       </div>
       <div className={css.form_wrapper}>
-        <OrderForm payload={payload} />
+        <OrderForm payload={payload} close={closeOrderModal} />
       </div>
     </Modal>
   );

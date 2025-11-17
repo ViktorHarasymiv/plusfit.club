@@ -8,30 +8,26 @@ function ContactsTable() {
   const contactsList = [
     {
       id: 0,
-      title: "Адреса",
-      content: "м. Броди, 80600 Гончарська, 5Б",
+      title: "Address",
+      content: "Ventura Boulevard, CA 91604",
       icon: "icon-map",
     },
     {
       id: 1,
-      title: "Телефон",
-      content: "+380 (93) 314 40 87",
+      title: "Phone",
+      content: "+48 789 987 58",
       icon: "icon-phone-call",
     },
     {
       id: 2,
-      title: "Пошта",
-      content: "info.plusfitclub@gmail.com",
+      title: "Message",
+      content: "info.ironman@gmail.com",
       icon: "icon-message",
     },
     {
       id: 3,
-      title: "Графік",
-      content: [
-        "Пн-Пт 9:00 - 21:00",
-        "Субота 10:00 - 17:00",
-        "Неділя 10:00 - 15:00",
-      ],
+      title: "Schedule",
+      content: ["Mn - Fr 9:00 - 21:00"],
       icon: "icon-calendar",
     },
   ];

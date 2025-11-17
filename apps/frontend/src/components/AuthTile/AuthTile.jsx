@@ -27,14 +27,14 @@ const AuthTile = React.memo(function AuthTile({ isScroll }) {
         action={openSignIn}
         styles={{ maxHeight: "34px", fontSize: "12px" }}
       >
-        Вхід
+        Sign In
       </Button>
       <Button
         type="button"
         action={openSignUp}
         styles={{ maxHeight: "34px", fontSize: "12px" }}
       >
-        Реєстрація
+        Sign Up
       </Button>
     </div>
   ) : (

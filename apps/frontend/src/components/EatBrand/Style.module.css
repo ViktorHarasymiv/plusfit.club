@@ -1,14 +1,25 @@
-.image {
-  max-width: none;
-  width: 200px;
-  height: 250px;
-
-  object-fit: cover;
-}
-
 .eat_swiper {
   padding-block: 25px;
+
   display: flex;
+
   justify-content: center;
   align-items: center;
+}
+
+.swiper_slide {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.image {
+  width: 140px;
+  height: 200px;
+}
+
+.image:hover {
+  filter: drop-shadow(-5px 6px 11px #555555);
+  transform: scale(1.1);
 }

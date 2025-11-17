@@ -6,6 +6,7 @@ import { create_subscripter } from "../../services/subscriptions";
 
 import css from "./Style.module.css";
 
+import { MdAddCard } from "react-icons/md";
 import { IoMdRefresh } from "react-icons/io";
 
 /* FORMIK */
@@ -28,10 +29,12 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker";
 import { useAuth } from "../../context/AuthContext";
 
+import { useToastStore } from "../../store/toastStore";
+
 import Button from "../ui/Button/Button";
 
-function OrderForm({ payload }) {
-  console.log(payload);
+function OrderForm({ payload, close }) {
+  const { showToast } = useToastStore();
 
   // USER
 
@@ -207,14 +210,21 @@ function OrderForm({ payload }) {
           endDate,
         };
 
-        console.log(data);
-
-        console.log(subscriptionDurationMonths(payload.name));
-
         try {
           await create_subscripter(data);
           resetForm();
-          alert("Успішно додано абонемент");
+          close();
+          showToast(
+            <span style={{ display: "flex", alignItems: "center" }}>
+              <MdAddCard
+                style={{
+                  color: "var(--white)",
+                  marginRight: "6px",
+                }}
+              />
+              Абонемент успішно зареєстровано
+            </span>
+          );
         } catch (error) {
           const message = error?.message;
           alert(message);
@@ -519,8 +529,8 @@ function OrderForm({ payload }) {
                   <MenuItem value={"Готівка"}>
                     Готівка при першому вході
                   </MenuItem>
-                  <MenuItem value={"Картка"}>Картка при першому вході</MenuItem>
-                  <MenuItem value={"Р ахунок"}>Переказ на рахунок</MenuItem>
+                  <MenuItem value={"Карта"}>Картка при першому вході</MenuItem>
+                  <MenuItem value={"Рахунок"}>Переказ на рахунок</MenuItem>
                 </Select>
               </FormControl>
               <ErrorMessage name="method" component="div" className="error" />

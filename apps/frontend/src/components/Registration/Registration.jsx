@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useAuthModalStore } from "../../store/useAuthModalStore";
 
 import { Link, useNavigate } from "react-router-dom";
@@ -6,9 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { Field, Formik, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
+import Logo from "../../components/Logo/Logo";
 import Button from "../../components/ui/Button/Button";
-
-import logoLight from "/logo/logoLight.png";
 
 import { MdOutlineMail } from "react-icons/md";
 import { HiOutlineUser } from "react-icons/hi2";
@@ -16,7 +14,6 @@ import { GrSecure } from "react-icons/gr";
 
 import { IoCheckmark } from "react-icons/io5";
 import { register } from "../../services/auth";
-import ConfirmModal from "../ConfirmModal/ConfirmModal";
 import { useAuth } from "../../context/AuthContext";
 
 import { handleGoogleLogin } from "../../services/auth";
@@ -24,7 +21,6 @@ import { handleGoogleLogin } from "../../services/auth";
 function Registration() {
   const navigate = useNavigate();
   const { fetchUser } = useAuth();
-  const [succsess, setSuccess] = useState(false);
   const { closeSignUp } = useAuthModalStore();
 
   const initialValues = {
@@ -67,6 +63,7 @@ function Registration() {
       await register(payload); // твій API-запит
       resetForm(); // очищення форми після успіху
       setSuccess(true);
+      closeAllModal();
     } catch (error) {
       console.error("Помилка реєстрації:", error);
       // можеш показати повідомлення про помилку
@@ -81,17 +78,12 @@ function Registration() {
     fetchUser();
     navigate("/profile/user");
   };
+
   return (
     <>
       <div>
-        <img
-          src={logoLight}
-          alt="Firm logo"
-          width={96}
-          height={45}
-          className="form_logo"
-        />
-        <h1 className="form_title">Реєстрація</h1>
+        <Logo />
+        <h1 className="form_title">Sign Up</h1>
         <Formik
           initialValues={initialValues}
           validationSchema={registerUserSchema}
@@ -114,7 +106,7 @@ function Registration() {
                   }}
                 />
                 <label htmlFor="email" className="label">
-                  <MdOutlineMail className="form_icon" /> Введіть емейл
+                  <MdOutlineMail className="form_icon" /> Enter email
                 </label>
                 <ErrorMessage name="email" component="div" className="error" />
               </div>
@@ -133,7 +125,7 @@ function Registration() {
                   }}
                 />
                 <label htmlFor="name" className="label">
-                  <HiOutlineUser className="form_icon" /> Ваше ім'я та фамілія
+                  <HiOutlineUser className="form_icon" /> Enter full name
                 </label>
                 <ErrorMessage name="name" component="div" className="error" />
               </div>
@@ -153,7 +145,7 @@ function Registration() {
                   }}
                 />
                 <label htmlFor="password" className="label">
-                  <GrSecure className="form_icon" /> Введіть пароль
+                  <GrSecure className="form_icon" /> Enter password
                 </label>
                 <ErrorMessage
                   name="password"
@@ -176,7 +168,7 @@ function Registration() {
                   }}
                 />
                 <label htmlFor="confirmPassword" className="label">
-                  <GrSecure className="form_icon" /> Повторіть свій пароль
+                  <GrSecure className="form_icon" /> Repeat password
                 </label>
                 <ErrorMessage
                   name="confirmPassword"
@@ -198,8 +190,8 @@ function Registration() {
                   </div>
 
                   <Link to={"/policy"} className="terms_link">
-                    Я погоджуюсь з
-                    <span> умовами зберігання та обробки данних</span>
+                    I agree with
+                    <span> conditions of data storage and processing</span>
                   </Link>
                 </label>
                 {errors.acceptedTerms && touched.acceptedTerms && (
@@ -215,7 +207,7 @@ function Registration() {
                     marginTop: "auto",
                   }}
                 >
-                  Зареєструватися
+                  Enter
                 </Button>
                 <Button
                   type="button"
@@ -233,10 +225,6 @@ function Registration() {
           )}
         </Formik>
       </div>
-      <ConfirmModal isOpen={succsess}>
-        Успішно зареєстровано користувача
-        <span onClick={() => closeAllModal()}>X</span>
-      </ConfirmModal>
     </>
   );
 }

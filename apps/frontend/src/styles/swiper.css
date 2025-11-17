@@ -5,11 +5,17 @@
   padding-top: 150px;
   padding-bottom: 150px;
 
-  background-position: center !important;
+  background-position: 70% !important;
   background-size: cover !important;
   background-repeat: no-repeat !important;
 
   height: 100%;
+}
+
+@media screen and (min-width: 767.98px) {
+  .hero_slide {
+    background-position: center !important;
+  }
 }
 
 .heroSwiper {
@@ -17,7 +23,7 @@
 }
 
 .swiper-slide {
-  height: auto !important;
+  height: 100dvh !important;
 }
 
 .hero_slide::before {

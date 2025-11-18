@@ -2,7 +2,7 @@
   z-index: 1;
   position: relative;
 
-  padding-top: 150px;
+  padding-top: 180px;
   padding-bottom: 150px;
 
   background-position: 70% !important;
@@ -27,7 +27,7 @@
 }
 
 .heroSwiper .swiper-slide {
-  height: calc(100dvh + 3em) !important;
+  height: calc(100vh + 3em) !important;
 }
 
 .hero_slide::before {

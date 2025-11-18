@@ -1,12 +1,14 @@
 import { create } from "zustand";
 
+import first from "/img/trainer/trainer1.png";
+
 export const useTrainerStore = create((set, get) => ({
   trainers: [
     {
       id: 0,
-      name: "",
+      name: "BASIC CROSSFIT",
       greeting: "",
-      link: "",
+      link: "BASIC-CROSSFIT",
       pricePath: [
         { label: "Массаж", path: "massage" },
         { label: "Реабілітація", path: "rehabilitation" },
@@ -22,9 +24,9 @@ export const useTrainerStore = create((set, get) => ({
           phone: "",
         },
       ],
-      category: "Реабілітація та масаж",
+      category: "BASIC CROSSFIT",
       section: "Реабілітація та масаж",
-      photo: "",
+      photo: first,
       education: [],
       experience: [],
       about: [],

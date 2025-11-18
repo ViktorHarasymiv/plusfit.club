@@ -1,8 +1,16 @@
+.hero_content_wrapper {
+  display: flex;
+
+  flex-direction: column;
+}
+
 .hero_text_wrapper {
-  margin-bottom: 85px;
+  margin-bottom: 145px;
 
   display: flex;
   flex-direction: column;
+
+  flex: 1;
 
   text-transform: uppercase;
 
@@ -74,7 +82,7 @@
     max-width: 70%;
   }
   .hero_text_wrapper {
-    margin-bottom: 55px;
+    margin-bottom: 100px;
   }
   .hero_title {
     margin: 15px 0px 40px;

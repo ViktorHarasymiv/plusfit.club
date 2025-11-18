@@ -23,7 +23,11 @@
 }
 
 .swiper-slide {
-  height: 100dvh !important;
+  height: auto !important;
+}
+
+.heroSwiper .swiper-slide {
+  height: calc(100dvh + 3em) !important;
 }
 
 .hero_slide::before {

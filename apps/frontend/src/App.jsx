@@ -51,8 +51,6 @@ function App() {
     fetch_post_data();
   }, []);
 
-  console.log(data);
-
   return (
     <>
       <Toast />

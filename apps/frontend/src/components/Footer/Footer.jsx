@@ -16,6 +16,7 @@ import Button from "../ui/Button/Button";
 import TitleDecor from "../ui/TitleDecor/TitleDecor";
 
 import { useWindowWidth } from "../../hooks/useWindowWidth";
+import Logo from "../Logo/Logo";
 
 const styleObj = {
   width: "100%",
@@ -32,18 +33,12 @@ export default function Footer() {
             <ul className={style.footer_navbar_list}>
               <li className={style.info_block}>
                 <div>
-                  <Link to="/" className="logo_header footer_logo">
-                    <img
-                      src={logoLight}
-                      alt="PLUSFIT CLUB"
-                      width={150}
-                      height={80}
-                      className="logo"
-                    />
+                  <Link to="/" className=" footer_logo">
+                    <Logo />
                   </Link>
                   <p className={style.info_about_text}>
-                    Тренування стає мистецтвом, коли тренуєшся не лише для сили,
-                    а й для витонченості. Підкорюйте нові висоти разом з нами!
+                    Training becomes an art when you train not only for
+                    strength, but also for grace. Conquer new heights with us!
                   </p>
                 </div>
                 <div className={style.contact_bar}>
@@ -52,26 +47,21 @@ export default function Footer() {
                       <div className={style.icon_box}>
                         <SlLocationPin />
                       </div>
-                      <a
-                        href="https://maps.app.goo.gl/ASMqpRVMyCiMFmyp9"
-                        target="_blank"
-                      >
-                        Гончарська, 5Б, Броди, 80600
+                      <a href="#" target="_blank">
+                        Ventura Boulevard, CA 91604
                       </a>
                     </li>
                     <li className={style.bar_list_item}>
                       <div className={style.icon_box}>
                         <TiMessages />
                       </div>
-                      <a href="mailto:info.plusfitclub@gmail.com">
-                        info.plusfitclub@gmail.com
-                      </a>
+                      <a href="#">info.ironman@gmail.com</a>
                     </li>
                     <li className={style.bar_list_item}>
                       <div className={style.icon_box}>
                         <BsTelephoneForward />
                       </div>
-                      <a href="tel:+380933144087">+380 93 314 4087</a>
+                      <a href="tel:+4878998758">+48 789 987 58</a>
                     </li>
                   </ul>
                 </div>
@@ -79,37 +69,37 @@ export default function Footer() {
               <li className={style.navigation_block}>
                 <nav>
                   <h4 className={style.navigation_title}>
-                    Навігація <TitleDecor />
+                    Navigation <TitleDecor />
                   </h4>
                   <ul className={style.navbar_list}>
                     <li className={style.navbar_item}>
                       <NavLink to="/">
                         <TiArrowSortedDown className={style.icon_route} />
-                        <span>Головна</span>
+                        <span>Home</span>
                       </NavLink>
                     </li>
                     <li className={style.navbar_item}>
                       <a href="#tarife">
                         <TiArrowSortedDown className={style.icon_route} />
-                        <span>Абонемент</span>
+                        <span>Subscription</span>
                       </a>
                     </li>
                     <li className={style.navbar_item}>
                       <NavLink to="/about">
                         <TiArrowSortedDown className={style.icon_route} />
-                        <span>Про Нас</span>
+                        <span>About Us</span>
                       </NavLink>
                     </li>
                     <li className={style.navbar_item}>
                       <NavLink to="/gallery">
                         <TiArrowSortedDown className={style.icon_route} />
-                        <span>Галерея</span>
+                        <span>Gallery</span>
                       </NavLink>
                     </li>
                     <li className={style.navbar_item}>
                       <NavLink to="/contacts">
                         <TiArrowSortedDown className={style.icon_route} />
-                        <span>Контакти</span>
+                        <span>Contacts</span>
                       </NavLink>
                     </li>
                   </ul>
@@ -122,37 +112,25 @@ export default function Footer() {
                     <li className={style.navbar_item}>
                       <NavLink to="offer/gym">
                         <TiArrowSortedDown className={style.icon_route} />
-                        <span>Тренажерний зал</span>
+                        <span>Gym / Fitness</span>
                       </NavLink>
                     </li>
                     <li className={style.navbar_item}>
                       <NavLink to="/offer/massage">
                         <TiArrowSortedDown className={style.icon_route} />
-                        <span>Масаж</span>
+                        <span>Massage</span>
                       </NavLink>
                     </li>
                     <li className={style.navbar_item}>
                       <NavLink to="/offer/rehabilitation">
                         <TiArrowSortedDown className={style.icon_route} />
-                        <span>Реабілітація</span>
+                        <span>Rehabilitation</span>
                       </NavLink>
                     </li>
                     <li className={style.navbar_item}>
                       <NavLink to="offer/yoga">
                         <TiArrowSortedDown className={style.icon_route} />
-                        <span>Йога</span>
-                      </NavLink>
-                    </li>
-                    <li className={style.navbar_item}>
-                      <NavLink to="offer/kids">
-                        <TiArrowSortedDown className={style.icon_route} />
-                        <span>Дитячі танці</span>
-                      </NavLink>
-                    </li>
-                    <li className={style.navbar_item}>
-                      <NavLink to="offer/endosphere">
-                        <TiArrowSortedDown className={style.icon_route} />
-                        <span>Ендосфера</span>
+                        <span>Yoga</span>
                       </NavLink>
                     </li>
                   </ul>
@@ -162,11 +140,11 @@ export default function Footer() {
                     Новини <TitleDecor />
                   </h4>
                   <p className={style.news_text}>
-                    Слідкуй за оновленнями: ми готуємо щось особливе для тих,
-                    хто не боїться ставити собі великі цілі.
+                    Stay tuned: we have something special for those who are not
+                    afraid to set big goals.
                   </p>
                   <Button type={"button"} styles={styleObj}>
-                    {"Перейти до новин"}
+                    {"Go to news"}
                   </Button>
                 </nav>
               </li>
@@ -181,10 +159,8 @@ export default function Footer() {
             <div className={style.footer_copyright}>
               <div className="container">
                 &copy; Copyright 2025{" "}
-                <span className="accent_text non_full_width">
-                  PLUSFIT BRODY
-                </span>{" "}
-                Усі права захищено.
+                <span className="accent_text non_full_width">IRON MASS</span>{" "}
+                All rights reserved.
               </div>
             </div>
             {width > 576.98 && (
@@ -192,7 +168,7 @@ export default function Footer() {
                 <li>
                   <a
                     className="icon_block"
-                    href="https://www.facebook.com/plusfit.brody.2025"
+                    href="#"
                     title="Facebook"
                     target="_blank"
                   >
@@ -202,7 +178,7 @@ export default function Footer() {
                 <li>
                   <a
                     className="icon_block"
-                    href="https://www.instagram.com/plusfit.brody/"
+                    href="#"
                     target="_blank"
                     title="Instagram"
                   >

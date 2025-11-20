@@ -30,7 +30,6 @@ import LoginPage from "../../components/Auth/LoginPage";
 import RegistrationPage from "../../components/Auth/RegistrationPage";
 import ProfileSetup from "../../pages/Profile/ProfileSetup";
 import GoogleAuthRedirect from "../GoogleAuthRedirect/GoogleAuthRedirect";
-import ProfileTabs from "../../pages/Profile/ProfileTabs/ProfileTabs";
 import ProfileUser from "../../pages/Profile/ProfileUser";
 
 function Router() {
@@ -124,9 +123,10 @@ function Router() {
         {/* price */}
 
         <Route path="/price" element={<Price />}>
-          <Route path="gym" element={<GymPrice />} />
+          <Route path="Gym&Fitness" element={<GymPrice />} />
           <Route path="massage" element={<MassagePrice />} />
           <Route path="rehabilitation" element={<RehabilitationPrice />} />
+          <Route path="yoga" element={<RehabilitationPrice />} />
         </Route>
 
         {/* Components navigation */}

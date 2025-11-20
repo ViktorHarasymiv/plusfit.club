@@ -1,13 +1,13 @@
 import Content from "../../pages/Offer/Content/Content";
 
 function Gym() {
-  document.title = "Плюс Фіт - Тренажерний зал";
+  document.title = "Iron Mass | GYM / Fitness";
 
   const content = {
     frontImage:
       "https://res.cloudinary.com/dcmbg0k5a/image/upload/v1760373457/qgynz9yx5gjbclyeamqk.jpg",
     firstParagraph: {
-      firstTitle: "Фітнес і Тренажерний зал",
+      firstTitle: "GYM and Fitness",
 
       first:
         "Фітнес — це не лише про тіло. Це про вибір. Про внутрішню силу, яка змушує тебе вставати раніше, коли інші ще сплять. Про бажання бути кращим, ніж учора. Тренажерний зал — це простір, де біль перетворюється на прогрес, а втома — на перемогу.",
@@ -30,7 +30,7 @@ function Gym() {
       ],
     },
   };
-  return <Content content={content} selectetCategory={"Спортивний зал"} />;
+  return <Content content={content} selectetCategory={"Gym"} />;
 }
 
 export default Gym;

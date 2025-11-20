@@ -9,7 +9,7 @@ import CommentForm from "../../components/CommentForm/CommentForm";
 import EatBrand from "../../components/EatBrand/EatBrand";
 
 export default function OfferLayout() {
-  document.title = "Plus Fit - Пропозиції";
+  document.title = "Iron Mass - Offers";
   return (
     <main>
       <NavigationContext />

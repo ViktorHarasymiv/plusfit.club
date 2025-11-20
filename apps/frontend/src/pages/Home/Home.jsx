@@ -13,7 +13,7 @@ import EatBrand from "../../components/EatBrand/EatBrand";
 import TotalArea from "../../components/TotalArea/TotalArea";
 export default function Home() {
   const width = useWindowWidth();
-  document.title = "Плюс Фіт - Спортивний комплекс";
+  document.title = "Iron Mass - Sports complex";
   return (
     <main>
       <Hero />

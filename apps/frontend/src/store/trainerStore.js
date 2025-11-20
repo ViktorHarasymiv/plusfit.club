@@ -63,7 +63,7 @@ export const useTrainerStore = create((set, get) => ({
         },
       ],
       category: "Crossfit",
-      section: "Crossfit",
+      section: "Gym",
       photo: crossfit,
       education: [
         "Certified CrossFit Level 2 Trainer",
@@ -100,7 +100,7 @@ export const useTrainerStore = create((set, get) => ({
         },
       ],
       category: "Weightlifting",
-      section: "Weightlifting",
+      section: "Gym",
       photo: weightlifting,
       education: [
         "Certified Weightlifting Coach (IFBB)",
@@ -136,7 +136,7 @@ export const useTrainerStore = create((set, get) => ({
         },
       ],
       category: "Bodybilding",
-      section: "Bodybilding",
+      section: "Gym",
       photo: weightlifting2,
       education: [
         "Certified Bodybilding Coach (IFBB)",

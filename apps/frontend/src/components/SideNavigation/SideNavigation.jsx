@@ -27,7 +27,7 @@ export default function SideNavigation() {
       >
         <span style={{ color: isOpen ? "var(--accent-color)" : "" }}>
           <MdAdsClick style={{ marginRight: "6px" }} />
-          {isOpen ? "Приховати меню" : "Показати меню"}
+          {isOpen ? "Hide menu" : "Show menu"}
         </span>
       </button>
 
@@ -36,23 +36,16 @@ export default function SideNavigation() {
         style={{ display: isOpen ? "block" : "none" }}
       >
         <NavLink to="/offer/gym">
-          <MdKeyboardDoubleArrowRight /> <span>Тренажерний зал</span>
+          <MdKeyboardDoubleArrowRight /> <span>Gym / Fitness</span>
         </NavLink>
         <NavLink to="/offer/massage">
-          <MdKeyboardDoubleArrowRight /> <span>Масаж</span>
+          <MdKeyboardDoubleArrowRight /> <span>Massage</span>
         </NavLink>
         <NavLink to="/offer/rehabilitation">
-          <MdKeyboardDoubleArrowRight /> <span>Реабілітація</span>
+          <MdKeyboardDoubleArrowRight /> <span>Rehabilitation</span>
         </NavLink>
         <NavLink to="/offer/yoga">
-          <MdKeyboardDoubleArrowRight /> <span>Йога</span>
-        </NavLink>
-        <NavLink to="/offer/kids">
-          <MdKeyboardDoubleArrowRight />
-          <span>Дитячі танці</span>
-        </NavLink>
-        <NavLink to="/offer/endosphere">
-          <MdKeyboardDoubleArrowRight /> <span>Ендосфера</span>
+          <MdKeyboardDoubleArrowRight /> <span>Yoga</span>
         </NavLink>
       </nav>
     </div>

@@ -101,7 +101,10 @@ export default function General({ resizeWidth }) {
                     </NavLink>
                     <ul className={style.dropmenu}>
                       <li>
-                        <NavLink to="price/gym" className={style.dropdown_item}>
+                        <NavLink
+                          to="price/Gym&Fitness"
+                          className={style.dropdown_item}
+                        >
                           Gym
                         </NavLink>
                       </li>

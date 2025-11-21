@@ -4,7 +4,7 @@ import Plans from "./Plans";
 export default function Pricing() {
   return (
     <section id="tarife">
-      <SectionTitle title={"Pricing"} about={"Абонемент"} />
+      <SectionTitle title={"Pricing"} about={"Subscription"} />
       <Plans />
     </section>
   );

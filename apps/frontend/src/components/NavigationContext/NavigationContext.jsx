@@ -11,10 +11,7 @@ export default function NavigationContext() {
   const pathnames = location.pathname.split("/").filter((x) => x);
 
   return (
-    <nav
-      className={css.wrapper}
-      style={{ background: "url(/img/inner-banner.png)" }}
-    >
+    <nav className={css.wrapper} style={{ background: "url(/img/bg.jpg)" }}>
       <div className="container">
         <div className={css.content_wrapper}>
           {pathnames.map((name, index) => {

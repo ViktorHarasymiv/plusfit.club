@@ -30,27 +30,27 @@ export default function FormReview() {
 
   const validationSchema = Yup.object({
     name: Yup.string()
-      .required("Ім'я обов'язкове")
-      .min(2, "Ім'я мінімум 2 символи")
-      .max(40, "Ім'я максимум 40 символів"),
+      .required("Name is required")
+      .min(2, "Name must be at least 2 characters")
+      .max(40, "Name must be at most 40 characters"),
 
     email: Yup.string()
-      .email("Невірний формат емейлу")
-      .required("Емейл обов'язковий")
-      .min(6, "Емейл мінімум 6 букв")
-      .max(34, "Емейл максимум 34 букви"),
+      .email("Invalid email format")
+      .required("Email is required")
+      .min(6, "Email must be at least 6 characters")
+      .max(34, "Email must be at most 34 characters"),
 
-    section: Yup.string().required("Секція обов'язкова"),
+    section: Yup.string().required("Section is required"),
 
     rating: Yup.number()
-      .required("Оцінка обов'язкова")
-      .min(1, "Оцінка мінімум 1")
-      .max(5, "Оцінка максимум 5"),
+      .required("Rating is required")
+      .min(1, "Rating must be at least 1")
+      .max(5, "Rating must be at most 5"),
 
     message: Yup.string()
-      .required("Повідомлення обов'язкове")
-      .min(10, "Повідомлення мінімум 10 символів")
-      .max(340, "Повідомлення максимум 340 символів"),
+      .required("Message is required")
+      .min(10, "Message must be at least 10 characters")
+      .max(340, "Message must be at most 340 characters"),
   });
 
   /* SUBMIT */
@@ -75,7 +75,7 @@ export default function FormReview() {
 
   return (
     <div className={css.form_block}>
-      <SectionTitle title={"Leave a review"} about={"Залиш свій коментар"} />
+      <SectionTitle title={"Leave a review"} about={"Leave your comment"} />
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
@@ -88,7 +88,7 @@ export default function FormReview() {
               <Field
                 name="email"
                 type="text"
-                placeholder="Пошта"
+                placeholder="E-mail"
                 className={style.input}
               />
               <ErrorMessage
@@ -102,7 +102,7 @@ export default function FormReview() {
               <Field
                 name="name"
                 type="text"
-                placeholder="Ім'я"
+                placeholder="Full name"
                 className={style.input}
               />
               <ErrorMessage
@@ -147,15 +147,13 @@ export default function FormReview() {
                   }}
                 >
                   <MenuItem value="" disabled>
-                    <em>Оберіть відділ</em>
+                    <em>Check a department</em>
                   </MenuItem>
-                  <MenuItem value={"Спортивний зал"}>Спортивний зал</MenuItem>
-                  <MenuItem value={"Реабілітація та масаж"}>
-                    Реабілітація та масаж
-                  </MenuItem>
-                  <MenuItem value={"Йога"}>Йога</MenuItem>
-                  <MenuItem value={"Дитячі танці"}>Дитячі танці</MenuItem>
-                  <MenuItem value={"Ендосфера"}>Ендосфера</MenuItem>
+                  <MenuItem value={"Gym"}>Gym</MenuItem>
+                  <MenuItem value={"Fitness"}>Fitness</MenuItem>
+                  <MenuItem value={"Massage"}>Massage</MenuItem>
+                  <MenuItem value={"Rehabilitation"}>Rehabilitation</MenuItem>
+                  <MenuItem value={"Yoga"}>Yoga</MenuItem>
                 </Select>
               </FormControl>
               <ErrorMessage
@@ -201,7 +199,7 @@ export default function FormReview() {
                   }}
                 >
                   <MenuItem value="" disabled>
-                    <em>Ваша оцінка</em>
+                    <em>Your rating</em>
                   </MenuItem>
                   <MenuItem value={"5"}>5</MenuItem>
                   <MenuItem value={"4"}>4</MenuItem>
@@ -224,7 +222,7 @@ export default function FormReview() {
               <TextField
                 multiline
                 name="message"
-                label="Ваш відгук"
+                label="Your feedback"
                 rows={4}
                 value={values.message}
                 onChange={handleChange}
@@ -279,7 +277,7 @@ export default function FormReview() {
                 alignSelf: "end",
               }}
             >
-              {"Надіслати"}
+              {"Send"}
             </Button>
           </Form>
         )}

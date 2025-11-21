@@ -2,12 +2,12 @@ import React from "react";
 import Content from "../../pages/Offer/Content/Content";
 
 export default function Rehabilitation() {
-  document.title = "ПЛЮС ФІТ - Реабілітація";
+  document.title = "Iron Mass | Rehabilitation";
   const content = {
     frontImage:
       "https://www.hopequre.com/live-images/expert-detail/rehab-plan-img.webp",
     firstParagraph: {
-      firstTitle: "Реабілітація",
+      firstTitle: "Rehabilitation",
 
       first:
         "Ми допомагаємо відновитися після травм, операцій та тривалих навантажень.",
@@ -36,7 +36,7 @@ export default function Rehabilitation() {
   };
   return (
     <div>
-      <Content content={content} selectetCategory={"Реабілітація та масаж"} />
+      <Content content={content} selectetCategory={"Rehabilitation"} />
     </div>
   );
 }

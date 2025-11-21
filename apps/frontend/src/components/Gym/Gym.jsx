@@ -1,35 +1,36 @@
 import Content from "../../pages/Offer/Content/Content";
 
 function Gym() {
-  document.title = "Iron Mass | GYM / Fitness";
+  document.title = "Iron Mass | Gym | Fitness";
 
   const content = {
     frontImage:
-      "https://res.cloudinary.com/dcmbg0k5a/image/upload/v1760373457/qgynz9yx5gjbclyeamqk.jpg",
+      "https://res.cloudinary.com/dcmbg0k5a/image/upload/v1763744351/dnqlmxupyv9s6uc6ksth.jpg",
     firstParagraph: {
-      firstTitle: "GYM and Fitness",
+      firstTitle: "Gym and Fitness",
 
       first:
-        "Фітнес — це не лише про тіло. Це про вибір. Про внутрішню силу, яка змушує тебе вставати раніше, коли інші ще сплять. Про бажання бути кращим, ніж учора. Тренажерний зал — це простір, де біль перетворюється на прогрес, а втома — на перемогу.",
+        "Fitness is not only about the body. It’s about choice. About the inner strength that makes you get up earlier when others are still asleep. About the desire to be better than yesterday. The gym is a space where pain turns into progress, and fatigue becomes victory.",
       secound:
-        "Тут немає випадкових результатів. Кожен повтор — це крок до мети. Кожна крапля поту — це доказ того, що ти не здався. І навіть коли здається, що сил більше немає — саме тоді народжується справжня витривалість.",
+        "There are no accidental results here. Every repetition is a step toward the goal. Every drop of sweat is proof that you didn’t give up. And even when it feels like you have no strength left — that’s exactly when true endurance is born.",
       contentImage: ["", ""],
       third:
-        "Фітнес — це не про ідеальне тіло. Це про дисципліну, характер і повагу до себе. Це про те, щоб дивитись у дзеркало і бачити не просто м’язи, а людину, яка не боїться викликів.",
+        "Fitness is not about the perfect body. It’s about discipline, character, and respect for yourself. It’s about looking in the mirror and seeing not just muscles, but a person who is not afraid of challenges.",
     },
     secoundParagraph: {
-      firstTitle: "Для чого потрібний фітнес та силові тренування ?",
+      firstTitle: "Why do we need fitness and strength training?",
       article: [
-        "Покращити роботу серця та легенів",
-        "Знизити рівень стресу та тривожності",
-        "Підтримувати здорову вагу",
-        "Розвивати гнучкість і координацію",
-        "Зміцнюють м’язи та кістки",
-        "Покращують метаболізм і спалювання калорій",
-        "Знижують ризик остеопорозу, діабету та серцевих хвороб",
+        "Improve heart and lung function",
+        "Reduce stress and anxiety levels",
+        "Maintain a healthy weight",
+        "Develop flexibility and coordination",
+        "Strengthen muscles and bones",
+        "Improve metabolism and calorie burning",
+        "Reduce the risk of osteoporosis, diabetes, and heart disease",
       ],
     },
   };
+
   return <Content content={content} selectetCategory={"Gym"} />;
 }
 

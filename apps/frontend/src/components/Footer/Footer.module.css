@@ -1,4 +1,5 @@
 .footer {
+  margin-top: 140px;
   background: var(--footer-bg);
   color: var(--white);
 }

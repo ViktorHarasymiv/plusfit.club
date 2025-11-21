@@ -17,7 +17,6 @@ import { EffectCoverflow, Navigation } from "swiper/modules";
 import "./PricingSwiper.css";
 import { useLoaderStore } from "../../store/loadingStore";
 import Loader from "../ui/Loader/Loader";
-import OrderModal from "../OrderModal/OrderModal";
 
 export default function Plans() {
   const { data, error, fetchGymPriceList } = gymPriceList();

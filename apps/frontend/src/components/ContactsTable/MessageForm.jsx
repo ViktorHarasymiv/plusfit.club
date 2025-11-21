@@ -33,28 +33,28 @@ function MessageForm() {
 
   const validationSchema = Yup.object({
     name: Yup.string()
-      .required("Ім'я обов'язкове")
-      .min(2, "Ім'я мінімум 2 символи")
-      .max(40, "Ім'я максимум 40 символів"),
+      .required("Name is required")
+      .min(2, "Name must be at least 2 characters")
+      .max(40, "Name must be at most 40 characters"),
 
     email: Yup.string()
-      .email("Невірний формат емейлу")
-      .required("Емейл обов'язковий")
-      .min(6, "Емейл мінімум 6 букв")
-      .max(34, "Емейл максимум 34 букви"),
+      .email("Invalid email format")
+      .required("Email is required")
+      .min(6, "Email must be at least 6 characters")
+      .max(34, "Email must be at most 34 characters"),
 
-    section: Yup.string().required("Секція обов'язкова"),
+    section: Yup.string().required("Section is required"),
 
     message: Yup.string()
-      .required("Повідомлення обов'язкове")
-      .min(10, "Повідомлення мінімум 10 символів")
-      .max(500, "Повідомлення максимум 500 символів"),
+      .required("Message is required")
+      .min(10, "Message must be at least 10 characters")
+      .max(500, "Message must be at most 500 characters"),
 
     phone: Yup.string()
-      .required("Номер телефону обов'язковий")
+      .required("Phone number is required")
       .matches(
         /^(\+380|0)\d{9}$/,
-        "Невірний формат номера. Приклад: +380XXXXXXXXX або 0XXXXXXXXX"
+        "Invalid phone number format. Example: +380XXXXXXXXX or 0XXXXXXXXX"
       ),
   });
 
@@ -108,7 +108,7 @@ function MessageForm() {
                 <Field
                   name="email"
                   type="text"
-                  placeholder="Пошта"
+                  placeholder="Email"
                   className={style.input}
                 />
                 <ErrorMessage
@@ -126,7 +126,7 @@ function MessageForm() {
                 <Field
                   name="phone"
                   type="tel"
-                  placeholder="Номер телефону"
+                  placeholder="Phone number"
                   className={style.input}
                 />
                 <ErrorMessage
@@ -144,7 +144,7 @@ function MessageForm() {
                 <Field
                   name="name"
                   type="text"
-                  placeholder="Ім'я"
+                  placeholder="Full name"
                   className={style.input}
                 />
                 <ErrorMessage
@@ -195,18 +195,13 @@ function MessageForm() {
                     }}
                   >
                     <MenuItem value="" disabled>
-                      <em>Оберіть відділ</em>
+                      <em>Check section</em>
                     </MenuItem>
-                    <MenuItem value={"Загальне повідомлення"}>
-                      Загальне повідомлення
-                    </MenuItem>
-                    <MenuItem value={"Спортивний зал"}>Спортивний зал</MenuItem>
-                    <MenuItem value={"Реабілітація та масаж"}>
-                      Реабілітація та масаж
-                    </MenuItem>
-                    <MenuItem value={"Йога"}>Йога</MenuItem>
-                    <MenuItem value={"Дитячі танці"}>Дитячі танці</MenuItem>
-                    <MenuItem value={"Ендосфера"}>Ендосфера</MenuItem>
+                    <MenuItem value={"Other"}>Other</MenuItem>
+                    <MenuItem value={"Gym"}>Gym</MenuItem>
+                    <MenuItem value={"Fitness"}>Fitness</MenuItem>
+                    <MenuItem value={"Yoga"}>Yoga</MenuItem>
+                    <MenuItem value={"Massage"}>Massage</MenuItem>
                   </Select>
                 </FormControl>
                 <ErrorMessage
@@ -222,7 +217,7 @@ function MessageForm() {
                 fullWidth
                 multiline
                 name="message"
-                label="Ваше повідомлення"
+                label="Your massage"
                 rows={4}
                 value={values.message}
                 onChange={handleChange}
@@ -271,7 +266,7 @@ function MessageForm() {
                   alignSelf: "end",
                 }}
               >
-                {"Надіслати"}
+                {"Send"}
               </Button>
             </Form>
           )}

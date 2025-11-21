@@ -22,10 +22,11 @@ export default function Trainer({ selectedCategory }) {
   const isHomePage = ["/", "/team", "/about"].includes(pathname.pathname);
 
   const dataTreiners = useTrainerStore((s) => s.trainers);
+
   const selectedGroup = selectedCategory || null;
 
   const filtered = dataTreiners.filter(({ section }) =>
-    selectedGroup ? section === selectedGroup : true
+    selectedGroup ? section.includes(selectedGroup) : true
   );
 
   return (

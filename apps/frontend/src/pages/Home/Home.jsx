@@ -22,9 +22,9 @@ export default function Home() {
       <Pricing />
       <CalculatorCalories />
       <TotalArea />
+      <EatBrand />
       <Reviews />
       <CommentForm />
-      <EatBrand />
     </main>
   );
 }

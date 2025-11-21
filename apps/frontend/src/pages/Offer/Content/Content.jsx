@@ -58,7 +58,7 @@ export default function Content({ content, selectetCategory }) {
 
       {/* Trainer block */}
       <h2 className={css.trainers_title}>
-        Наша <span className="active">команда</span>
+        Our <span className="active">trainers</span>
       </h2>
       <div className={css.trainer_block}>
         <Trainer selectedCategory={selectetCategory} />

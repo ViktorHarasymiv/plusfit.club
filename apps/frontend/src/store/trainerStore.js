@@ -26,7 +26,7 @@ export const useTrainerStore = create((set, get) => ({
         },
       ],
       category: "Yoga",
-      section: "Yoga",
+      section: ["Yoga", "Massage", "Rehabilitation"],
       photo: yoga,
       education: [
         "RYT-500 Certified Yoga Instructor — Yoga Alliance",

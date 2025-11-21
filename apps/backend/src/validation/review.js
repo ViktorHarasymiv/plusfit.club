@@ -14,9 +14,9 @@ export const getReviewSchema = Joi.object({
 
 export const createReviewSchema = Joi.object({
   name: Joi.string().min(2).max(40).required().messages({
-    'string.empty': "Ім'я обов'язкове",
-    'string.min': "Ім'я мінімум 2 символи",
-    'string.max': "Ім'я максимум 40 символів",
+    'string.empty': 'Name is required',
+    'string.min': 'Name must be at least 2 characters',
+    'string.max': 'Name must be at most 40 characters',
   }),
 
   email: Joi.string()
@@ -25,26 +25,26 @@ export const createReviewSchema = Joi.object({
     .max(34)
     .required()
     .messages({
-      'string.empty': "Емейл обов'язковий",
-      'string.email': 'Невірний формат емейлу',
-      'string.min': 'Емейл мінімум 6 букв',
-      'string.max': 'Емейл максимум 34 букви',
+      'string.empty': 'Email is required',
+      'string.email': 'Invalid email format',
+      'string.min': 'Email must be at least 6 characters',
+      'string.max': 'Email must be at most 34 characters',
     }),
 
   section: Joi.string().required().messages({
-    'string.empty': "Секція обов'язкова",
+    'string.empty': 'Section is required',
   }),
 
   rating: Joi.number().min(1).max(5).required().messages({
-    'number.base': 'Оцінка має бути числом',
-    'number.min': 'Оцінка мінімум 1',
-    'number.max': 'Оцінка максимум 5',
-    'any.required': "Оцінка обов'язкова",
+    'number.base': 'Rating must be a number',
+    'number.min': 'Rating must be at least 1',
+    'number.max': 'Rating must be at most 5',
+    'any.required': 'Rating is required',
   }),
 
   message: Joi.string().min(10).max(340).required().messages({
-    'string.empty': "Повідомлення обов'язкове",
-    'string.min': 'Повідомлення мінімум 10 символів',
-    'string.max': 'Повідомлення максимум 180 символів',
+    'string.empty': 'Message is required',
+    'string.min': 'Message must be at least 10 characters',
+    'string.max': 'Message must be at most 180 characters',
   }),
 });

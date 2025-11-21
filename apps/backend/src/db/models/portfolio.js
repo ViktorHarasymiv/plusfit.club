@@ -4,14 +4,7 @@ const PortfolioSchema = new Schema(
   {
     section: {
       type: String,
-      enum: [
-        'Тренажерний зал',
-        'Масаж',
-        'Реабілітація',
-        'Йога',
-        'Дитячі танці',
-        'Ендосфера',
-      ],
+      enum: ['Gym', 'Fitness', 'Rehabilitation', 'Yoga', 'Massage'],
       required: true,
     },
     alt: {

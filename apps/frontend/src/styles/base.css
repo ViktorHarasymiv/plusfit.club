@@ -24,13 +24,12 @@ header {
 }
 
 main {
-  margin-top: -6.2em;
-
+  margin-top: -5.8em;
   flex: 1;
 }
 
 .self_main {
-  margin-top: 6.2em;
+  margin-top: 5.7em;
 }
 
 h4 {
@@ -89,5 +88,9 @@ section {
 @media screen and (min-width: 1200px) {
   section {
     margin-bottom: 170px;
+  }
+
+  main {
+    margin-top: -5.7em;
   }
 }

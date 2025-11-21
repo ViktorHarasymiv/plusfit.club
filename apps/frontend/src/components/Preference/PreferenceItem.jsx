@@ -32,7 +32,7 @@ export default function PreferenceItem({ data, index }) {
             onClick={() => setExpanded(!expanded)}
             className={style.toggle_btn}
           >
-            {expanded ? "Менше..." : "Більше..."}
+            {expanded ? "Hide..." : "Show more..."}
           </button>
         </div>
       </div>

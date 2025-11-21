@@ -12,7 +12,7 @@ const modalObjStyle = {
   textAlign: "start",
   borderRadius: "2px",
 
-  maxWidth: "95%",
+  maxWidth: "50%",
   width: "100%",
   maxHeight: "75%",
 };
@@ -31,14 +31,14 @@ export default function CalculatorCalories({ styles }) {
               Weight Calculator
             </span>
             <h2 className={style.calculator_section_about}>
-              Обчисліть норму калорій
+              Calculate your calorie intake
             </h2>
             <FormCalculate calories={calories} setCalories={setCalories} />
           </div>
           <div className={style.calculator_result_wrapper}>
             <Table />
             <h5 className={style.result_title}>
-              Базальний метаболізм (BMR) / Індекс маси тіла (BMI){" "}
+              Basal metabolism (BMR) / Body mass index (BMI){" "}
               <FaInfoCircle
                 onClick={() => setInfo((prev) => !prev)}
                 className={style.info_icon}
@@ -46,9 +46,9 @@ export default function CalculatorCalories({ styles }) {
             </h5>
             {calories && (
               <>
-                <p className={style.result_value}>BMR : {calories?.BMR} Ккал</p>
+                <p className={style.result_value}>BMR : {calories?.BMR} kcal</p>
                 <p className={style.result_value}>
-                  BMI : {calories?.BMI} індекс
+                  BMI : {calories?.BMI} index
                 </p>
               </>
             )}
@@ -61,42 +61,44 @@ export default function CalculatorCalories({ styles }) {
         onClose={() => setInfo(false)}
         styles={modalObjStyle}
       >
-        <h3 className={style.modal_title}>Інформація💡</h3>
-        <h3>Розраховано за формулою Mifflin-St Jeor</h3>
+        <h3 className={style.modal_title}>Information</h3>
+        <h3>Calculated using the Mifflin-St Jeor formula</h3>
         <div style={{ marginBottom: "40px" }}>
           <b style={{ display: "inline-block", marginBottom: "20px" }}>
-            BMR — базальний рівень метаболізму.
+            BMR is the basal metabolic rate.
           </b>
           <br />
           <span>
-            Це кількість калорій, яку ваше тіло витрачає щодня в стані повного
-            спокою — просто для підтримки життєво важливих функцій, таких як
-            дихання, кровообіг, робота внутрішніх органів та нервової системи.
+            This is the number of calories your body burns each day at rest —
+            simply to maintain vital functions such as breathing, blood
+            circulation, the functioning of internal organs, and the nervous
+            system.
             <br />
             <br />
-            Важливо розуміти, що базальний рівень метаболізму (BMR) не враховує
-            м’язову масу, вік, стать чи розподіл жирової тканини. Наприклад,
-            людина зі значною м’язовою масою може мати високий індекс маси тіла
-            (BMI), але при цьому бути абсолютно здоровою.
+            It is important to understand that the basal metabolic rate (BMR)
+            does not take into account muscle mass, age, gender, or body fat
+            distribution. For example, a person with significant muscle mass can
+            have a high body mass index (BMI) and still be perfectly healthy.
             <br />
             <br />
             <b>
-              Наш алгоритм враховує також рівень фізичної активності протягом
-              дня, тому розрахунок показує орієнтовну кількість калорій, яку
-              потрібно споживати для підтримки поточного рівня. Це дозволяє
-              точніше адаптувати харчування до способу життя.
+              Our algorithm also takes into account your level of physical
+              activity throughout the day, so the calculation shows an
+              approximate number of calories you need to consume to maintain
+              your current level. This allows you to more accurately adapt your
+              diet to your lifestyle.
             </b>
           </span>
         </div>
         <div style={{ marginBottom: "40px" }}>
           <b style={{ display: "inline-block", marginBottom: "20px" }}>
-            BMI — це загальний індикатор.
+            BMI is a general indicator.
           </b>
           <br />
           <span>
-            Він не враховує м’язову масу, вік, стать чи розподіл жиру.
-            Наприклад, спортсмен може мати високий BMI, але бути абсолютно
-            здоровим.
+            It does not take into account muscle mass, age, gender, or fat
+            distribution. For example, an athlete can have a high BMI but be
+            completely healthy.
           </span>
         </div>
       </Modal>

@@ -33,27 +33,25 @@ function Registration() {
 
   const registerUserSchema = Yup.object({
     name: Yup.string()
-      .min(3, "Ім’я має містити щонайменше 3 символи")
-      .max(30, "Ім’я не може перевищувати 30 символів")
+      .min(3, "Name must contain at least 3 characters")
+      .max(30, "Name cannot exceed 30 characters")
       .matches(
         /^[А-Яа-яЁёІіЇїЄєҐґA-Za-z]+ [А-Яа-яЁёІіЇїЄєҐґA-Za-z]+$/,
-        "Ім’я має містити прізвище та ім’я через пробіл"
+        "Name must contain first name and last name separated by a space"
       )
-      .required("Ім’я обов’язкове"),
+      .required("Name is required"),
 
-    email: Yup.string()
-      .email("Некоректний email")
-      .required("Email обов’язковий"),
+    email: Yup.string().email("Invalid email").required("Email is required"),
 
-    password: Yup.string().required("Пароль обов’язковий"),
+    password: Yup.string().required("Password is required"),
 
     confirmPassword: Yup.string()
-      .oneOf([Yup.ref("password")], "Паролі не збігаються")
-      .required("Підтвердження пароля обов’язкове"),
+      .oneOf([Yup.ref("password")], "Passwords do not match")
+      .required("Password confirmation is required"),
 
     acceptedTerms: Yup.boolean()
-      .oneOf([true], "Потрібно погодитися з умовами")
-      .required("Потрібно погодитися з умовами"),
+      .oneOf([true], "You must accept the terms")
+      .required("You must accept the terms"),
   });
 
   const hundlerSubmit = async (values, { setSubmitting, resetForm }) => {

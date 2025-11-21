@@ -13,20 +13,20 @@ export default function Table() {
       </thead>
       <tbody className={style.tbody}>
         <tr>
-          <td>Менше 18.5</td>
-          <td>Недостатня вага</td>
+          <td>Less 18.5</td>
+          <td>Insufficient weight</td>
         </tr>
         <tr>
           <td>18.5 - 24.9</td>
-          <td>Здорова вага</td>
+          <td>A healthy weight</td>
         </tr>
         <tr>
           <td>25.0 – 29.9</td>
-          <td>Надмірна вага</td>
+          <td>Excessive weight</td>
         </tr>
         <tr>
-          <td>30.0 і більше</td>
-          <td>Ожиріння</td>
+          <td>30.0 and above</td>
+          <td>Adiposity</td>
         </tr>
       </tbody>
     </table>

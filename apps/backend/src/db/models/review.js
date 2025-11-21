@@ -23,13 +23,7 @@ const reviewSchema = new Schema(
     section: {
       type: String,
       required: true,
-      enum: [
-        'Спортивний зал',
-        'Реабілітація та масаж',
-        'Йога',
-        'Дитячі танці',
-        'Ендосфера',
-      ],
+      enum: ['Gym', 'Fitness', 'Massage', 'Rehabilitation', 'Yoga'],
     },
 
     rating: {

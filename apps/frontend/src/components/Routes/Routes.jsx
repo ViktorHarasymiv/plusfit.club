@@ -10,7 +10,6 @@ import AboutUs from "../../pages/AboutUs/AboutUs";
 import Price from "../../pages/Price/Price";
 import Contacts from "../../pages/Contacts/Contacts";
 import Massage from "../Massage/Massage";
-import Endosphere from "../Endosphere/Endosphere";
 import Yoga from "../Yoga/Yoga";
 import KidsDance from "../KidsDance/KidsDance";
 import OfferLayout from "../../pages/Offer/OfferLayout";
@@ -109,7 +108,6 @@ function Router() {
           <Route path="gym" element={<Gym />} />
           <Route path="rehabilitation" element={<Rehabilitation />} />
           <Route path="massage" element={<Massage />} />
-          <Route path="endosphere" element={<Endosphere />} />
           <Route path="yoga" element={<Yoga />} />
           <Route path="kids" element={<KidsDance />} />
         </Route>

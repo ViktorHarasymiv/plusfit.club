@@ -7,33 +7,33 @@ const preferenceArray = [
   {
     id: 0,
     icon: "icon-gym",
-    title: "Обладнання",
+    title: "Equipment",
     about:
-      "У нашому залі встановлено 38 сучасних тренажерів, які дозволяють комфортно та ефективно тренуватися людям із різним рівнем підготовки – від початківців до професіоналів.",
+      "Our gym has 38 modern exercise machines that allow people with different levels of training to train comfortably and effectively, from beginners to professionals.",
   },
   {
     id: 1,
     icon: "icon-muscle",
-    title: "Тренери",
+    title: "Trainers",
     ref: "trainer",
     about:
-      "Серце будь-якого тренажерного залу – це не лише обладнання, а й люди, які допомагають досягати результату. У нашій команді працюють два професійні тренери – Іван та Еліна.",
+      "The heart of any gym is not only the equipment, but also the people who help achieve results. Our team includes two professional trainers.",
   },
   {
     id: 2,
     icon: "icon-dumbbell",
-    title: "Кращі практики",
+    title: "Best practices",
 
     about:
-      "Ми створили простір, де кожен може обрати свій шлях – чи це класичні силові тренування, чи практика для тіла й душі, чи перші кроки дитини у спорті.",
+      "We have created a space where everyone can choose their own path – whether it's classic strength training, body and soul practice, or a child's first steps in sports.",
   },
   {
     id: 3,
     icon: "icon-moneyBag",
-    title: "Доступна ціна",
+    title: "Affordable price",
     ref: "tarife",
     about:
-      "Ми віримо, що спорт має бути доступним для кожного. Саме тому в нашому залі сформована прозора та гнучка система оплат, щоб ви могли обирати варіант, який максимально відповідає вашим цілям, можливостям та стилю життя.",
+      "We believe that sports should be accessible to everyone. That is why our gym has a transparent and flexible payment system so that you can choose the option that best suits your goals, capabilities, and lifestyle.",
   },
 ];
 

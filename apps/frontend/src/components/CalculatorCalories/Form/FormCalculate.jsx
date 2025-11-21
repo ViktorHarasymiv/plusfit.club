@@ -29,8 +29,8 @@ import { useAuth } from "../../../context/AuthContext";
 import { calculateCalories } from "../../../utils/calculateCalories";
 import { calculateAge } from "../../../utils/calculateAge";
 
-export default function FormCalculate({ calories, setCalories }) {
-  const { user, fetchUser, patchUser } = useAuth();
+export default function FormCalculate({ setCalories }) {
+  const { user, patchUser } = useAuth();
 
   const initialValues = {
     height: user?.height || "",
@@ -112,13 +112,12 @@ export default function FormCalculate({ calories, setCalories }) {
               width: "100%",
               borderColor: "transparent",
               "& .MuiInputLabel-root": {
+                textAlign: "center",
+                alignItems: "center",
+
                 fontSize: "14px",
                 lineHeight: "1",
                 color: "var(--dark)",
-              },
-              "& .MuiInputLabel-root": {
-                textAlign: "center",
-                alignItems: "center",
               },
               "& .MuiPickersSectionList-root": {
                 height: "56px",
@@ -174,7 +173,7 @@ export default function FormCalculate({ calories, setCalories }) {
             <Field
               name="height"
               type="text"
-              placeholder="Ріст / Cм"
+              placeholder="Height"
               className={style.input}
             />
             <ErrorMessage
@@ -189,7 +188,7 @@ export default function FormCalculate({ calories, setCalories }) {
             <Field
               name="weight"
               type="text"
-              placeholder="Вага / Кг"
+              placeholder="Weight"
               className={style.input}
             />
             <ErrorMessage

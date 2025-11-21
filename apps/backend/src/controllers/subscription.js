@@ -44,7 +44,17 @@ export const getSubscriberByParamsController = async (req, res, next) => {
     });
 
     if (!subscriptions || subscriptions.data.length === 0) {
-      throw createHttpError(404, 'No matching subscriptions found');
+      return res.status(200).json({
+        status: 200,
+        message: 'No subscriptions matched the filters',
+        data: [],
+        pagination: {
+          page: Number(page),
+          perPage: Number(perPage),
+          totalCount: 0,
+          totalPages: 0,
+        },
+      });
     }
 
     res.json({

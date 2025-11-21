@@ -2,37 +2,40 @@ import React from "react";
 import Content from "../../pages/Offer/Content/Content";
 
 export default function Massage() {
-  document.title = "Плюс Фіт - Масаж";
+  document.title = "Iron Mass | Massage";
+
   const content = {
-    frontImage: null,
+    frontImage:
+      "https://res.cloudinary.com/dcmbg0k5a/image/upload/v1763746853/c2drzl4r6ma6r8elzteh.jpg",
     firstParagraph: {
-      firstTitle: "Масаж",
+      firstTitle: "Massage",
 
       first:
-        "Масаж — це механічний вплив на тканини тіла (шкіру, м’язи, суглоби), який здійснюється руками або спеціальними пристроями з метою оздоровлення, релаксації або лікування. Його застосовують як у медицині, так і в косметології, спорті та реабілітації.",
+        "Massage is a mechanical impact on body tissues (skin, muscles, joints), performed by hands or special devices for the purpose of health improvement, relaxation, or treatment. It is used in medicine, cosmetology, sports, and rehabilitation.",
       secound:
-        "Кому рекомендовано масаж: cпортсменам — для відновлення після навантажен;  дітям — для розвитку та корекції постави; дорослим — для зняття стресу та болю; людям похилого віку — для підтримки рухливості",
+        "Who is massage recommended for: athletes — for recovery after exertion; children — for development and posture correction; adults — for stress and pain relief; elderly people — for maintaining mobility.",
       contentImage: [null, null],
       third:
-        "Масаж — це не просто приємна процедура, а потужний інструмент для підтримки здоров’я, профілактики хвороб і покращення психоемоційного стану. Його ефективність залежить від правильного вибору методу, кваліфікації фахівця та регулярності сеансів.",
+        "Massage is not just a pleasant procedure, but a powerful tool for maintaining health, preventing diseases, and improving psycho-emotional well-being. Its effectiveness depends on the correct choice of method, the specialist’s qualifications, and the regularity of sessions.",
     },
     secoundParagraph: {
-      firstTitle: "Для чого потрібний масаж ?",
+      firstTitle: "Why is massage needed?",
       first:
-        "Це один із найдавніших і найефективніших методів оздоровлення. Він поєднує в собі науково обґрунтовану дію на організм та приємні відчуття, які допомагають розслабитися, зняти напругу і відновити сили. У нашому центрі масаж — це не просто процедура. Це індивідуальний підхід, професійне виконання та турбота про ваше самопочуття.Усі масажисти мають медичну освіту та сертифікати. Ми працюємо з дорослими, дітьми, людьми похилого віку та клієнтами з особливими потребами. Запис на масаж — за телефоном, через форму на сайті або в месенджерах. Перший візит включає коротку консультацію, щоб підібрати оптимальний вид масажу саме для вас.",
+        "It is one of the oldest and most effective methods of health improvement. It combines scientifically proven effects on the body with pleasant sensations that help you relax, relieve tension, and restore energy. In our center, massage is not just a procedure. It is an individual approach, professional execution, and care for your well-being. All massage therapists have medical education and certificates. We work with adults, children, elderly people, and clients with special needs. You can book a massage by phone, through the website form, or via messengers. The first visit includes a short consultation to select the optimal type of massage specifically for you.",
       article: [
-        "Покращення кровообігу та лімфодренажу",
-        "Зниження м’язової напруги та болю",
-        "Релаксація та зменшення стресу",
-        "Покращення стану шкіри",
-        "Масаж стимулює регенерацію, підвищує еластичність, зменшує прояви целюліту",
-        "Допомагає при спазмах, перенапруженні, болях у спині, шиї, суглобах",
+        "Improvement of blood circulation and lymphatic drainage",
+        "Reduction of muscle tension and pain",
+        "Relaxation and stress reduction",
+        "Improvement of skin condition",
+        "Massage stimulates regeneration, increases elasticity, reduces cellulite manifestations",
+        "Helps with spasms, overstrain, back, neck, and joint pain",
       ],
     },
   };
+
   return (
     <>
-      <Content content={content} selectetCategory={"Реабілітація та масаж"} />
+      <Content content={content} selectetCategory={"Massage"} />
     </>
   );
 }

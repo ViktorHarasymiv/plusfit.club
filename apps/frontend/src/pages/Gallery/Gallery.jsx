@@ -7,11 +7,11 @@ import CommentForm from "../../components/CommentForm/CommentForm";
 import EatBrand from "../../components/EatBrand/EatBrand";
 
 export default function Gallery() {
-  document.title = "Плюс Фіт - Галерея";
+  document.title = "Iron Mass | Gallery ";
   return (
     <main>
       <NavigationContext />
-      <SectionTitle title={"Our gallery"} about={"Портфоліо"} />
+      <SectionTitle title={"Our gallery"} about={"Portfolio"} />
       <GalleryContent />
       <Reviews />
       <CommentForm />

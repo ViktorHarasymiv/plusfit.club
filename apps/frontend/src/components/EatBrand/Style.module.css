@@ -1,5 +1,5 @@
 .eat_swiper {
-  padding-block: 25px;
+  padding-block: 80px 25px;
 
   display: flex;
 
@@ -15,11 +15,11 @@
 }
 
 .image {
-  width: 140px;
-  height: 200px;
+  width: 180px;
+  height: 240px;
 }
 
-.image:hover {
+/* .image:hover {
   filter: drop-shadow(-5px 6px 11px #555555);
   transform: scale(1.1);
-}
+} */

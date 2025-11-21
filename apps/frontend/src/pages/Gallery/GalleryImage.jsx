@@ -18,7 +18,7 @@ function GalleryImage({ data, filter, page, setPage }) {
   const perPage = 6;
 
   const filteredImages = data.filter(
-    (img) => filter === "Усі" || img.section.includes(filter)
+    (img) => filter === "All" || img.section.includes(filter)
   );
 
   const pageCount = Math.ceil(filteredImages.length / perPage);

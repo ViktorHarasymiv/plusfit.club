@@ -7,28 +7,29 @@ export default function Yoga() {
     frontImage:
       "https://res.cloudinary.com/dcmbg0k5a/image/upload/v1760490698/ef6pio7aqqqdoebuoy7i.jpg",
     firstParagraph: {
-      firstTitle: "Йога",
+      firstTitle: "Yoga",
 
       first:
-        "Йога — це не просто вправи. Це зустріч із собою. Це момент, коли ти зупиняєшся, вдихаєш глибше і згадуєш, що твоє тіло — не ворог, а союзник. Кожна асана — це не про гнучкість, а про баланс. Не про ідеальну форму, а про внутрішню гармонію.",
+        "Yoga is not just exercise. It is a meeting with yourself. It is the moment when you pause, breathe deeper, and remember that your body is not an enemy but an ally. Every asana is not about flexibility, but about balance. Not about perfect form, but about inner harmony.",
       secound:
-        "На килимку немає змагань. Є лише ти, твій подих і тиша, яка лікує. Йога вчить слухати себе, приймати себе, бути в моменті. Вона не змінює тебе — вона повертає тебе до справжнього.",
+        "On the mat there are no competitions. There is only you, your breath, and the silence that heals. Yoga teaches you to listen to yourself, accept yourself, and be in the moment. It doesn’t change you — it brings you back to your true self.",
       contentImage: [],
       third:
-        "Це шлях не до досконалості, а до цілісності. І кожен крок на цьому шляху — це акт любові до себе.",
+        "It is a path not to perfection, but to wholeness. And every step on this path is an act of love for yourself.",
     },
     secoundParagraph: {
-      firstTitle: "Для чого потрібна реабілітація ?",
+      firstTitle: "Why is rehabilitation needed?",
       first:
-        "Загальна реабілітація — це не розкіш, а необхідна частина лікування, яка повертає людині не лише здоров’я, а й гідність, свободу та надію.",
+        "General rehabilitation is not a luxury, but a necessary part of treatment that restores not only health but also dignity, freedom, and hope.",
       article: [
-        "Покращення гнучкості та витривалості",
-        "Зняття стресу та відновлення емоційного стану",
-        "Відчуття легкості й внутрішньої гармонії",
-        "М’яка робота з тілом без перевантажень",
-        "Підвищення самооцінки та впевненості в собі",
+        "Improvement of flexibility and endurance",
+        "Relief of stress and restoration of emotional state",
+        "A feeling of lightness and inner harmony",
+        "Gentle work with the body without overload",
+        "Increase of self-esteem and self-confidence",
       ],
     },
   };
-  return <Content content={content} selectetCategory={"Йога"} />;
+
+  return <Content content={content} selectetCategory={"Yoga"} />;
 }

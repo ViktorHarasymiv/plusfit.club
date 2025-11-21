@@ -6,18 +6,10 @@ import { usePortfolioStore } from "../../store/portfolioStore";
 
 function GalleryContent() {
   const { data, fetchPortfolio } = usePortfolioStore();
-  const [filter, setFiter] = useState("Усі");
+  const [filter, setFiter] = useState("All");
   const [page, setPage] = useState(1);
 
-  const tabsGalleryList = [
-    "Усі",
-    "Тренажерний зал",
-    "Масаж",
-    // "Реабілітація",
-    "Йога",
-    "Дитячі танці",
-    // "Ендосфера",
-  ];
+  const tabsGalleryList = ["All", "Gym", "Fitness", "Massage", "Yoga"];
 
   useEffect(() => {
     setPage(1);

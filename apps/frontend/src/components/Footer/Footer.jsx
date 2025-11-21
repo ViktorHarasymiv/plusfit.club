@@ -1,4 +1,3 @@
-import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
 import style from "./Footer.module.css";
@@ -6,7 +5,6 @@ import style from "./Footer.module.css";
 import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 
-import logoLight from "/logo/logoLight.png";
 import { TiArrowSortedDown } from "react-icons/ti";
 import { SlLocationPin } from "react-icons/sl";
 import { TiMessages } from "react-icons/ti";
@@ -106,7 +104,7 @@ export default function Footer() {
                 </nav>
                 <nav>
                   <h4 className={style.navigation_title}>
-                    Пропозиції <TitleDecor />
+                    Offers <TitleDecor />
                   </h4>
                   <ul className={style.navbar_list}>
                     <li className={style.navbar_item}>
@@ -137,7 +135,7 @@ export default function Footer() {
                 </nav>
                 <nav className={style.news_block}>
                   <h4 className={style.navigation_title}>
-                    Новини <TitleDecor />
+                    News <TitleDecor />
                   </h4>
                   <p className={style.news_text}>
                     Stay tuned: we have something special for those who are not

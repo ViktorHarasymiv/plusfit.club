@@ -5,7 +5,7 @@ export default function Trainers() {
   return (
     <section id="trainer">
       <div className="container">
-        <SectionTitle title={"Our Team"} about={"Наша команда"} />
+        <SectionTitle title={"Our Team"} about={"Trainers"} />
         <Treiner />
       </div>
     </section>

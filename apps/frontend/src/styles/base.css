@@ -28,10 +28,6 @@ main {
   flex: 1;
 }
 
-.self_main {
-  margin-top: 5.7em;
-}
-
 h4 {
   color: var(--dark);
   margin: 0px;
@@ -71,6 +67,16 @@ section {
   margin-bottom: 80px;
 
   scroll-margin-top: 100px;
+}
+
+/* Back to standart */
+
+.self_main {
+  margin-top: 5.7em;
+}
+
+.list_style {
+  list-style: inherit;
 }
 
 @media screen and (min-width: 768px) {

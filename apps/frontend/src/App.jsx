@@ -16,11 +16,14 @@ import Toast from "./components/ui/Toast/Toast";
 
 import OrderModal from "./components/OrderModal/OrderModal";
 import { usePostStore } from "./store/postStore";
+import { useAuthModalStore } from "./store/useAuthModalStore";
 
 function App() {
+  const { closeAll } = useAuthModalStore();
+
   const { isOpen } = useFullscreenStore();
 
-  const { data, get_post } = usePostStore();
+  const { get_post } = usePostStore();
 
   useEffect(() => {
     const body = document.body;
@@ -42,6 +45,11 @@ function App() {
 
   useEffect(() => {
     scrollTo(0, 0);
+    if (location.pathname == "/private-policy") {
+      console.log("+");
+
+      closeAll();
+    }
   }, [location]);
 
   useEffect(() => {

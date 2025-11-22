@@ -22,13 +22,13 @@ function MassagePrice() {
   return (
     <>
       <div className="container">
-        <SectionTitle title={"Services"} about={"Масаж"} />
+        <SectionTitle title={"Services"} about={"Massage"} />
         <div className={css.content_wrapper}>
-          <Trainer selectedCategory={"Реабілітація та масаж"} />
+          <Trainer selectedCategory={"Massage"} />
           <PriceList data={data} />
         </div>
       </div>
-      <Reviews filterType={["Реабілітація та масаж"]} />
+      <Reviews filterType={["Massage"]} />
     </>
   );
 }

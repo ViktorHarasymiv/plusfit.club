@@ -3,6 +3,7 @@ import Content from "../../pages/Offer/Content/Content";
 
 export default function Rehabilitation() {
   document.title = "Iron Mass | Rehabilitation";
+
   const content = {
     frontImage:
       "https://www.hopequre.com/live-images/expert-detail/rehab-plan-img.webp",

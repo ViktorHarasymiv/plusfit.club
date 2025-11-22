@@ -4,7 +4,6 @@ import { AuthGuard } from "../AuthGuard/AuthGuard";
 import Home from "../../pages/Home/Home";
 
 import NotFound from "../NotFound/NotFound";
-import Subscriber from "../Subscriber/Subscriber";
 import Rehabilitation from "../Rehabilitation/Rehabilitation";
 import AboutUs from "../../pages/AboutUs/AboutUs";
 import Price from "../../pages/Price/Price";
@@ -30,6 +29,7 @@ import RegistrationPage from "../../components/Auth/RegistrationPage";
 import ProfileSetup from "../../pages/Profile/ProfileSetup";
 import GoogleAuthRedirect from "../GoogleAuthRedirect/GoogleAuthRedirect";
 import ProfileUser from "../../pages/Profile/ProfileUser";
+import YogaPrice from "../Yoga/YogaPrice";
 
 function Router() {
   return (
@@ -91,10 +91,6 @@ function Router() {
           />
         </Route>
 
-        {/* Components navigation */}
-
-        <Route path="/subscriber/" element={<Subscriber />} />
-
         {/* Team */}
 
         <Route path="/team" element={<TeamLayout />}>
@@ -124,7 +120,7 @@ function Router() {
           <Route path="Gym&Fitness" element={<GymPrice />} />
           <Route path="massage" element={<MassagePrice />} />
           <Route path="rehabilitation" element={<RehabilitationPrice />} />
-          <Route path="yoga" element={<RehabilitationPrice />} />
+          <Route path="yoga" element={<YogaPrice />} />
         </Route>
 
         {/* Components navigation */}
@@ -143,7 +139,7 @@ function Router() {
 
         {/* Policy  */}
 
-        <Route path="/policy" element={<Policy />} />
+        <Route path="/private-policy" element={<Policy />} />
 
         {/* Not found page */}
         <Route path="*" element={<NotFound />} />

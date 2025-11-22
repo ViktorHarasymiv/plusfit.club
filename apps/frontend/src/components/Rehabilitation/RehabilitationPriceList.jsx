@@ -30,7 +30,9 @@ function RehabilitationPriceList({ data }) {
               }}
             >
               <Typography component="span">
-                <h3 className={css.title}>Пакет №{categoryBlock.pack}</h3>
+                <h3 className={css.title}>
+                  Service package №{categoryBlock.pack}
+                </h3>
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
@@ -63,7 +65,7 @@ function RehabilitationPriceList({ data }) {
 
                   <p>
                     <MdAccessTime className={css.icon} />
-                    {categoryBlock.duration_min} хв
+                    {categoryBlock.duration_min} min
                   </p>
                 </li>
               </Typography>

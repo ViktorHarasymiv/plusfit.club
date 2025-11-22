@@ -81,7 +81,7 @@ function EatBrand({ filterArgs }) {
 
   return (
     <section>
-      <SectionTitle title={"Sports supplements"} about={"Shop"} />
+      <SectionTitle title={"Sports supplements"} about={"Popular Product"} />
 
       <Swiper
         slidesPerView={6}

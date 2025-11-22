@@ -5,10 +5,10 @@ import SectionTitle from "../SectionTitle/SectionTitle";
 
 import style from "../Massage/Style.module.css";
 import Trainer from "../Trainers/Trainer";
-import RehabilitationPriceList from "./RehabilitationPriceList";
 import Loader from "../ui/Loader/Loader";
+import RehabilitationPriceList from "../Rehabilitation/RehabilitationPriceList";
 
-function RehabilitationPrice() {
+function YogaPrice() {
   const { data, loading, error, fetchRehabilitationPriceList } =
     rehabilitationPriceList();
 
@@ -23,15 +23,15 @@ function RehabilitationPrice() {
   return (
     <>
       <div className="container">
-        <SectionTitle title={"Services"} about={"Rehabilitation"} />
+        <SectionTitle title={"Services"} about={"Yoga"} />
         <div className={style.content_wrapper}>
-          <Trainer selectedCategory={"Rehabilitation"} />
+          <Trainer selectedCategory={"Yoga"} />
           <RehabilitationPriceList data={data} />
         </div>
       </div>
-      <Reviews filterType={["Rehabilitation"]} />
+      <Reviews filterType={["Yoga"]} />
     </>
   );
 }
 
-export default RehabilitationPrice;
+export default YogaPrice;

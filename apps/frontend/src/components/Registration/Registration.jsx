@@ -187,7 +187,7 @@ function Registration() {
                     <IoCheckmark className="checkbox_icon" />
                   </div>
 
-                  <Link to={"/policy"} className="terms_link">
+                  <Link to={"/private-policy"} className="terms_link">
                     I agree with
                     <span> conditions of data storage and processing</span>
                   </Link>

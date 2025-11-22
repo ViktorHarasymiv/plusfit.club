@@ -1,0 +1,21 @@
+.block {
+  margin-bottom: 70px;
+}
+
+.title {
+  margin-bottom: 23px;
+
+  font-family: var(--font-family-accent);
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--dark);
+}
+
+.block ol,
+.block ul {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 15px;
+}

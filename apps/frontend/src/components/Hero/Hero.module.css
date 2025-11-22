@@ -1,5 +1,5 @@
 .hero_section {
-  height: calc(100vh + 5.8em);
+  height: calc(100vh + 2em);
 }
 
 .hero_content_wrapper {
@@ -86,5 +86,11 @@
   }
   .hero_title {
     margin: 15px 0px 40px;
+  }
+}
+
+@media screen and (min-width: 767.98px) {
+  .hero_section {
+    height: calc(100vh + 2em);
   }
 }

@@ -14,8 +14,6 @@ const AuthTile = React.memo(function AuthTile({ isScroll }) {
 
   const { user, getLogout } = useAuth();
 
-  console.log(user);
-
   const navigateProfile = () => {
     navigate("/profile");
   };

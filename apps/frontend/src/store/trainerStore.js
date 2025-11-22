@@ -50,7 +50,7 @@ export const useTrainerStore = create((set, get) => ({
       greeting:
         "Hey there! I'm Emily — your CrossFit coach and movement strategist. Let's unlock your full potential through sweat, grit, and smart training.",
       link: "Emily-Chang",
-      pricePath: [{ label: "Crossfit", path: "crossfit" }],
+      pricePath: [{ label: "Fitness", path: "Gym&Fitness" }],
       social: [
         {
           instagram: {
@@ -62,7 +62,7 @@ export const useTrainerStore = create((set, get) => ({
           phone: "+48 987 654 321",
         },
       ],
-      category: "Crossfit",
+      category: "Fitness",
       section: "Gym",
       photo: crossfit,
       education: [
@@ -87,7 +87,7 @@ export const useTrainerStore = create((set, get) => ({
       greeting:
         "Hi! I'm Rachel — your weightlifting coach. Together we'll build strength, endurance, and confidence.",
       link: "Rachel-Miller",
-      pricePath: [{ label: "Weightlifting", path: "weightlifting" }],
+      pricePath: [{ label: "Weightlifting", path: "Gym&Fitness" }],
       social: [
         {
           instagram: {
@@ -123,7 +123,7 @@ export const useTrainerStore = create((set, get) => ({
       greeting:
         "Hi! I'm Jason — your weightlifting coach. Together we'll build strength, endurance, and confidence.",
       link: "Jason-Smith",
-      pricePath: [{ label: "Bodybilding", path: "bodybilding" }],
+      pricePath: [{ label: "Bodybilding", path: "Gym&Fitness" }],
       social: [
         {
           instagram: {

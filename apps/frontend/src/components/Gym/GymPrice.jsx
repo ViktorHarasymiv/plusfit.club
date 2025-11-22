@@ -23,13 +23,13 @@ function GymPrice() {
   return (
     <>
       <div className="container">
-        <SectionTitle title={"Services"} about={"Тренажерний зал"} />
+        <SectionTitle title={"Services"} about={"Gym & Fitness"} />
         <div className={style.content_wrapper}>
-          <Trainer selectedCategory={"Спортивний зал"} />
+          <Trainer selectedCategory={"Gym"} />
           <GymPriceList data={data} />
         </div>
       </div>
-      <Reviews filterType={["Реабілітація та масаж"]} />
+      <Reviews filterType={["Gym", "Fitness"]} />
     </>
   );
 }

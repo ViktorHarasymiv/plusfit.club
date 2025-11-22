@@ -53,7 +53,7 @@ function GymPriceList({ data }) {
                         <p>
                           <span>
                             <IoPricetagOutline className={css.icon} />
-                            {item.price} ₴
+                            {item.price}$
                           </span>
                           <span style={{ marginLeft: "10px" }}>
                             <MdAccessTime className={css.icon} />

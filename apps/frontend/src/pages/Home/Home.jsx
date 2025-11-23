@@ -11,6 +11,7 @@ import CommentForm from "../../components/CommentForm/CommentForm";
 import Reviews from "../../components/Reviews/Reviews";
 import EatBrand from "../../components/EatBrand/EatBrand";
 import TotalArea from "../../components/TotalArea/TotalArea";
+import Blog from "../../components/Blog/Blog";
 export default function Home() {
   const width = useWindowWidth();
   document.title = "Iron Mass - Sports complex";
@@ -22,6 +23,7 @@ export default function Home() {
       <Pricing />
       <CalculatorCalories />
       <TotalArea />
+      <Blog />
       <EatBrand />
       <Reviews />
       <CommentForm />

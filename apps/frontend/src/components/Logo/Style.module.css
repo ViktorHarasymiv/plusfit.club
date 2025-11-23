@@ -1,5 +1,4 @@
 .logo {
-  font-size: clamp(1.125rem, 0.7729rem + 1.5023vw, 2.125rem);
   font-weight: 600;
   color: var(--white);
 }

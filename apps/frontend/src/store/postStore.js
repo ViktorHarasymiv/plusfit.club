@@ -2,13 +2,13 @@ import { create } from "zustand";
 import axios from "axios";
 import { API_URL } from "../config/api";
 
-export const usePostStore = create((set, get) => ({
-  data: [],
+export const usePostStore = create((set) => ({
+  content: [],
   loading: false,
   error: null,
   pagination: {
-    page: 1,
-    perPage: 8,
+    page: 0,
+    perPage: 0,
     totalPages: 0,
     totalItems: 0,
   },
@@ -18,7 +18,7 @@ export const usePostStore = create((set, get) => ({
 
     const {
       page = 1,
-      perPage = 8,
+      perPage = 3,
       sortBy = "createdAt",
       sortOrder = "asc",
       tags,
@@ -41,7 +41,7 @@ export const usePostStore = create((set, get) => ({
     try {
       const res = await axios.get(`${API_URL}/posts?${query.toString()}`);
       set({
-        data: res.data.data,
+        content: res.data.data.data,
         pagination: {
           page,
           perPage,

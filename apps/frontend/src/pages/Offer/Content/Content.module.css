@@ -7,11 +7,11 @@
   margin-bottom: 25px;
 
   max-width: 960px;
-  max-height: 550px;
+  max-height: 480px;
 
   object-fit: cover;
 
-  object-position: 0 60%;
+  object-position: 0 0;
 
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }

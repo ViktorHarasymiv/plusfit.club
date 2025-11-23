@@ -13,7 +13,7 @@ export default function Content({ content, selectetCategory }) {
         alt="Front image for page with text"
         className={css.front_image}
         width="100%"
-        height="400px"
+        height="480px"
       />
       {/* First content block */}
       <div>

@@ -14,7 +14,10 @@ export default function Massage() {
         "Massage is a mechanical impact on body tissues (skin, muscles, joints), performed by hands or special devices for the purpose of health improvement, relaxation, or treatment. It is used in medicine, cosmetology, sports, and rehabilitation.",
       secound:
         "Who is massage recommended for: athletes — for recovery after exertion; children — for development and posture correction; adults — for stress and pain relief; elderly people — for maintaining mobility.",
-      contentImage: [null, null],
+      contentImage: [
+        "https://res.cloudinary.com/dcmbg0k5a/image/upload/v1763907671/nbbt8khh803ilwmkx8ze.jpg",
+        "https://res.cloudinary.com/dcmbg0k5a/image/upload/v1763907657/c2utteffrltew0ifqhzs.jpg",
+      ],
       third:
         "Massage is not just a pleasant procedure, but a powerful tool for maintaining health, preventing diseases, and improving psycho-emotional well-being. Its effectiveness depends on the correct choice of method, the specialist’s qualifications, and the regularity of sessions.",
     },

@@ -10,7 +10,6 @@ import Price from "../../pages/Price/Price";
 import Contacts from "../../pages/Contacts/Contacts";
 import Massage from "../Massage/Massage";
 import Yoga from "../Yoga/Yoga";
-import KidsDance from "../KidsDance/KidsDance";
 import OfferLayout from "../../pages/Offer/OfferLayout";
 import Team from "../../pages/Team/Team";
 import TeamLayout from "../../pages/Team/TeamLayout";
@@ -19,6 +18,7 @@ import RehabilitationPrice from "../Rehabilitation/RehabilitationPrice";
 import GymPrice from "../Gym/GymPrice";
 import Gym from "../Gym/Gym";
 import Gallery from "../../pages/Gallery/Gallery";
+import Blog from "../../pages/BlogPage/BlogPage";
 import Policy from "../../pages/Policy/Policy";
 import ProfileLayout from "../../pages/Profile/ProfileLayout";
 import ProfileHistory from "../../pages/Profile/ProfileHistory";
@@ -30,6 +30,7 @@ import ProfileSetup from "../../pages/Profile/ProfileSetup";
 import GoogleAuthRedirect from "../GoogleAuthRedirect/GoogleAuthRedirect";
 import ProfileUser from "../../pages/Profile/ProfileUser";
 import YogaPrice from "../Yoga/YogaPrice";
+import Post from "../../pages/BlogPage/Post";
 
 function Router() {
   return (
@@ -105,16 +106,13 @@ function Router() {
           <Route path="rehabilitation" element={<Rehabilitation />} />
           <Route path="massage" element={<Massage />} />
           <Route path="yoga" element={<Yoga />} />
-          <Route path="kids" element={<KidsDance />} />
         </Route>
 
-        {/* about */}
+        {/* About */}
 
-        <Route path="/about" element={<AboutUs />}>
-          {/* <Route path="rehabilitation" element={<Rehabilitation />} /> */}
-        </Route>
+        <Route path="/about" element={<AboutUs />} />
 
-        {/* price */}
+        {/* Price */}
 
         <Route path="/price" element={<Price />}>
           <Route path="Gym&Fitness" element={<GymPrice />} />
@@ -125,23 +123,25 @@ function Router() {
 
         {/* Components navigation */}
 
-        {/* gallery */}
+        {/* Gallery */}
 
-        <Route path="/gallery" element={<Gallery />}>
-          {/* <Route path="rehabilitation" element={<Rehabilitation />} /> */}
-        </Route>
+        <Route path="/gallery" element={<Gallery />} />
 
-        {/* contacts */}
+        {/* Blog */}
 
-        <Route path="/contacts" element={<Contacts />}>
-          {/* <Route path="rehabilitation" element={<Rehabilitation />} /> */}
-        </Route>
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/blog/:id" element={<Post />} />
+
+        {/* Contacts */}
+
+        <Route path="/contacts" element={<Contacts />} />
 
         {/* Policy  */}
 
         <Route path="/private-policy" element={<Policy />} />
 
         {/* Not found page */}
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

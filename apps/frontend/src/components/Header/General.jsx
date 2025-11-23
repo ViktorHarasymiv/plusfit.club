@@ -5,9 +5,6 @@ import clsx from "clsx";
 
 import style from "./Header.module.css";
 
-import logoLight from "/logo/logoLight.png";
-import logoDark from "/logo/logoDark.png";
-
 import { useScrollY } from "../../hooks/useScrollY";
 
 import { MdKeyboardArrowDown } from "react-icons/md";

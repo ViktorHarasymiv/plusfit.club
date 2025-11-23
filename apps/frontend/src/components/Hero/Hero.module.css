@@ -1,5 +1,5 @@
 .hero_section {
-  height: calc(100vh + 2em);
+  height: calc(100dvh + 2em);
 }
 
 .hero_content_wrapper {

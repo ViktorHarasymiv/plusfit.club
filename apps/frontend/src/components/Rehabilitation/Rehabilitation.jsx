@@ -1,4 +1,3 @@
-import React from "react";
 import Content from "../../pages/Offer/Content/Content";
 
 export default function Rehabilitation() {
@@ -6,35 +5,36 @@ export default function Rehabilitation() {
 
   const content = {
     frontImage:
-      "https://www.hopequre.com/live-images/expert-detail/rehab-plan-img.webp",
+      "https://res.cloudinary.com/dcmbg0k5a/image/upload/v1763897652/yensqbt8itgjvb9a1pho.jpg",
     firstParagraph: {
       firstTitle: "Rehabilitation",
 
       first:
-        "Ми допомагаємо відновитися після травм, операцій та тривалих навантажень.",
+        "We help you recover after injuries, surgeries, and prolonged physical strain.",
       secound:
-        "Загальна реабілітація — це комплекс медичних, соціальних, психологічних та освітніх заходів, спрямованих на відновлення здоров’я, функціональних можливостей і якості життя людини після хвороб, травм або інших порушень. За визначенням ВООЗ, реабілітація — це процес, який допомагає людині з обмеженими функціями адаптуватися до нових умов життя, максимально реалізувати свій потенціал і повернутися до активної участі в суспільстві.",
+        "General rehabilitation is a set of medical, social, psychological, and educational measures aimed at restoring health, functional abilities, and quality of life after illnesses, injuries, or other disorders. According to the WHO, rehabilitation is a process that helps a person with limited functions adapt to new living conditions, fully realize their potential, and return to active participation in society.",
       contentImage: [
-        "https://www.psychologs.com/wp-content/uploads/2024/05/the-integral-role-of-rehabilitation-psychology.jpg",
-        "https://sa1s3optim.patientpop.com/assets/images/provider/photos/2463330.jpeg",
+        "https://res.cloudinary.com/dcmbg0k5a/image/upload/v1763897663/nkvtjrifuqjmpkx49t32.jpg",
+        "https://res.cloudinary.com/dcmbg0k5a/image/upload/v1763897671/ydeoouxaylrqftltsvag.jpg",
       ],
       third:
-        "Реабілітація може включати: фізіотерапію та лікувальну фізкультуру, масаж, ерготерапію, логопедію, психологічну допомогу. Спеціаліст з яким ви зможете працювати - фізичний терапевт Довгалюк Уляна ",
+        "Rehabilitation may include: physiotherapy and therapeutic exercise, massage, occupational therapy, speech therapy, psychological support. The specialist you can work with is physical therapist Ulyana Dovgalyuk.",
     },
     secoundParagraph: {
-      firstTitle: "Для чого потрібна реабілітація ?",
+      firstTitle: "Why is rehabilitation needed?",
       first:
-        "Загальна реабілітація — це не розкіш, а необхідна частина лікування, яка повертає людині не лише здоров’я, а й гідність, свободу та надію.",
+        "General rehabilitation is not a luxury but a necessary part of treatment that restores not only health but also dignity, freedom, and hope.",
       article: [
-        "Відновлення фізичних функцій (рухливість, сила, координація)",
-        "Психологічна підтримка та стабілізація емоційного стану",
-        "Соціальна адаптація — повернення до навчання, роботи, спілкування",
-        "Профілактика ускладнень і повторних захворювань",
-        "Підвищення самооцінки та впевненості в собі",
-        "Сприяє незалежності та самостійності",
+        "Restoration of physical functions (mobility, strength, coordination)",
+        "Psychological support and stabilization of emotional state",
+        "Social adaptation — return to education, work, communication",
+        "Prevention of complications and recurrent illnesses",
+        "Increase of self-esteem and self-confidence",
+        "Promotes independence and autonomy",
       ],
     },
   };
+
   return (
     <div>
       <Content content={content} selectetCategory={"Rehabilitation"} />

@@ -28,8 +28,6 @@ export default function Item({ data, i }) {
     }
   };
 
-  console.log(features);
-
   return (
     <>
       <li className={css.item}>

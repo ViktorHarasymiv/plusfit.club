@@ -23,8 +23,6 @@ function App() {
 
   const { isOpen } = useFullscreenStore();
 
-  const { get_post } = usePostStore();
-
   useEffect(() => {
     const body = document.body;
 
@@ -51,13 +49,6 @@ function App() {
       closeAll();
     }
   }, [location]);
-
-  useEffect(() => {
-    const fetch_post_data = async () => {
-      await get_post();
-    };
-    fetch_post_data();
-  }, []);
 
   return (
     <>

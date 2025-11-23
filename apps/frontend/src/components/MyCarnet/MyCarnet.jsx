@@ -2,8 +2,8 @@ import React from "react";
 
 import css from "./Style.module.css";
 
-import Logo from "/logo/logoLight.png";
 import FormattedDate from "../../utils/RemainingTime";
+import Logo from "../Logo/Logo";
 
 function MyCarnet({ info }) {
   const { clientId, type, status, startDate, endDate, isVerify } = info;
@@ -32,7 +32,7 @@ function MyCarnet({ info }) {
             {clientId}
             <p>{type}</p>
           </div>
-          <img src={Logo} alt="Firm logo PlusFit" width={72} height="100%" />
+          <Logo size={1} color={true} />
         </div>
         <div className={css.carnet_info}>
           <div className={css.carnet_date}>

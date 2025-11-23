@@ -7,20 +7,25 @@ import Table from "./Table/Table";
 import Modal from "../ui/Modal/Modal";
 
 import { FaInfoCircle } from "react-icons/fa";
-
-const modalObjStyle = {
-  textAlign: "start",
-  borderRadius: "2px",
-
-  maxWidth: "50%",
-  width: "100%",
-  maxHeight: "75%",
-};
+import { useWindowWidth } from "../../hooks/useWindowWidth";
 
 export default function CalculatorCalories({ styles }) {
   const [calories, setCalories] = useState(null);
 
+  const width = useWindowWidth();
+
   const [info, setInfo] = useState(false);
+
+  const modalObjStyle = {
+    textAlign: "start",
+    borderRadius: "2px",
+
+    maxWidth: width > 767 ? "50%" : "90%",
+    width: "100%",
+    maxHeight: "75%",
+  };
+
+  console.log(width);
 
   return (
     <section className={style.calculator_section_wrapper}>

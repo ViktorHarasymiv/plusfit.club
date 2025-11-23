@@ -127,7 +127,7 @@ export default function MobileMenu({ isScroll }) {
                 <li className={style.navbar_item}>
                   <NavLink to="/">
                     <GoHomeFill />
-                    <span>Головна</span>
+                    <span>Home</span>
                   </NavLink>
                 </li>
                 <li
@@ -135,29 +135,23 @@ export default function MobileMenu({ isScroll }) {
                   className={style.navbar_item}
                 >
                   <MdOutlineWidgets />
-                  <span>Пропозиції</span>
+                  <span>Offer</span>
                   <MdKeyboardArrowDown />
                   {isdropMenu && (
                     <ul className={style.dropmenu}>
                       <li className={style.dropdown_item}>
-                        <NavLink to="/offer/gym">Тренажерний зал</NavLink>
+                        <NavLink to="/offer/gym">Gym & Fitness</NavLink>
                       </li>
                       <li className={style.dropdown_item}>
-                        <NavLink to="/offer/massage">Масаж</NavLink>
+                        <NavLink to="/offer/massage">Massage</NavLink>
                       </li>
                       <li className={style.dropdown_item}>
                         <NavLink to="/offer/rehabilitation">
-                          Реабілітація
+                          Rehabilitation
                         </NavLink>
                       </li>
                       <li className={style.dropdown_item}>
-                        <NavLink to="/offer/yoga">Йога</NavLink>
-                      </li>
-                      <li className={style.dropdown_item}>
-                        <NavLink to="/offer/kids">Дитячі танці</NavLink>
-                      </li>
-                      <li className={style.dropdown_item}>
-                        <NavLink to="/offer/endosphere">Сфератерапія</NavLink>
+                        <NavLink to="/offer/yoga">Yoga</NavLink>
                       </li>
                     </ul>
                   )}
@@ -167,29 +161,23 @@ export default function MobileMenu({ isScroll }) {
                   className={style.navbar_item}
                 >
                   <MdLocalOffer />
-                  <span>Ціни</span>
+                  <span>Price</span>
                   <MdKeyboardArrowDown />
                   {isdropMenuPrice && (
                     <ul className={style.dropmenu}>
                       <li className={style.dropdown_item}>
-                        <NavLink to="price/gym">Тренажерний зал</NavLink>
+                        <NavLink to="price/gym">Gym & Fitness</NavLink>
                       </li>
                       <li className={style.dropdown_item}>
-                        <NavLink to="price/massage">Масаж</NavLink>
+                        <NavLink to="price/massage">Massage</NavLink>
                       </li>
                       <li className={style.dropdown_item}>
                         <NavLink to="price/rehabilitation">
-                          Реабілітація
+                          Rehabilitation
                         </NavLink>
                       </li>
                       <li className={style.dropdown_item}>
-                        <NavLink to="price/yoga">Йога</NavLink>
-                      </li>
-                      <li className={style.dropdown_item}>
-                        <NavLink to="price/children">Дитячі танці</NavLink>
-                      </li>
-                      <li className={style.dropdown_item}>
-                        <NavLink to="price/endosphere">Сфератерапія</NavLink>
+                        <NavLink to="price/yoga">Yoga</NavLink>
                       </li>
                     </ul>
                   )}
@@ -197,19 +185,19 @@ export default function MobileMenu({ isScroll }) {
                 <li className={style.navbar_item}>
                   <NavLink to="/gallery">
                     <GrGallery />
-                    <span>Галерея</span>
+                    <span>Gallery</span>
                   </NavLink>
                 </li>
                 <li className={style.navbar_item}>
                   <NavLink to="/about">
                     <IoDocumentText />
-                    <span>Про Нас</span>
+                    <span>About Us</span>
                   </NavLink>
                 </li>
                 <li className={style.navbar_item}>
                   <NavLink to="/contacts">
                     <IoMdContacts />
-                    <span>Контакти</span>
+                    <span>Contacts</span>
                   </NavLink>
                 </li>
               </ul>
@@ -225,18 +213,12 @@ export default function MobileMenu({ isScroll }) {
               <div className={style.footer_social}>
                 <ul className={css.social_bar}>
                   <li>
-                    <a
-                      href="https://www.facebook.com/plusfit.brody.2025"
-                      target="_blank"
-                    >
+                    <a href="#" target="_blank">
                       <FaFacebook />
                     </a>
                   </li>
                   <li>
-                    <a
-                      href="https://www.instagram.com/plusfit.brody/"
-                      target="_blank"
-                    >
+                    <a href="#" target="_blank">
                       <FaInstagram />
                     </a>
                   </li>
@@ -245,7 +227,7 @@ export default function MobileMenu({ isScroll }) {
               {/* PHONE */}
               <div className={style.footer_phonel}>
                 <div className="dws">
-                  <a href="tel:+380933144087">
+                  <a href="tel:+4878998758">
                     <div className="pulse">
                       <div className="bloc"></div>
                       <div className="phone">
@@ -258,10 +240,10 @@ export default function MobileMenu({ isScroll }) {
             </div>
 
             <div className={style.footer_copyright}>
-              &copy; Copyright 2025{" "}
-              <span className="accent_text non_full_width">PLUSFIT BRODY</span>{" "}
+              &copy; Copyright 2026{" "}
+              <span className="accent_text non_full_width">IRONMASS</span>
               <br />
-              Усі права захищено.
+              All rights reserved.
             </div>
           </footer>
         </div>
@@ -269,7 +251,8 @@ export default function MobileMenu({ isScroll }) {
         <>
           <div className={style.work_time_wrapper}>
             <h5 onClick={() => setWorkTimeOpen(true)}>
-              <FaBusinessTime /> Режим роботи
+              <FaBusinessTime />
+              Our work time
             </h5>
             {/* WORK TIME MODAL */}
             <Modal
@@ -280,19 +263,19 @@ export default function MobileMenu({ isScroll }) {
               <div className={style.work_time_block}>
                 <h6>
                   <FaCalendarAlt />
-                  Режим роботи
+                  Our work time
                 </h6>
                 <ul className={style.work_time_list}>
                   <li>
-                    <span>Пн - Пт</span>
+                    <span>Mn - Fr</span>
                     9:00 - 21:00
                   </li>
                   <li>
-                    <span>Субота</span>
+                    <span>Saturday</span>
                     10:00 - 17:00
                   </li>
                   <li>
-                    <span>Неділя</span>
+                    <span>Sunday</span>
                     10:00 - 15:00
                   </li>
                 </ul>

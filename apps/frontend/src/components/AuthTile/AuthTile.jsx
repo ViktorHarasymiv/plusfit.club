@@ -58,14 +58,14 @@ const AuthTile = React.memo(function AuthTile({ isScroll }) {
           action={() => navigateProfile()}
           styles={{ maxHeight: "24px", fontSize: "11px" }}
         >
-          Профіль
+          Profile
         </Button>
         <Button
           type="button"
           action={getLogout}
           styles={{ maxHeight: "24px", fontSize: "11px" }}
         >
-          Вийти
+          Go Out
         </Button>
       </div>
     </div>

@@ -1,5 +1,5 @@
 .hero_section {
-  height: calc(100dvh + 2em);
+  height: calc(100dvh + 2.1em);
 }
 
 .hero_content_wrapper {
@@ -9,7 +9,7 @@
 }
 
 .hero_text_wrapper {
-  margin-bottom: 145px;
+  margin-bottom: 60px;
 
   display: flex;
   flex-direction: column;

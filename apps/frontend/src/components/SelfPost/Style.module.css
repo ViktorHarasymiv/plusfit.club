@@ -1,0 +1,44 @@
+.wrapper {
+  flex: 0 0 70%;
+}
+
+.wrapper img {
+  height: 500px;
+}
+
+.blog_title {
+  font-size: 34px;
+  font-family: var(--font-family-accent);
+  color: var(--dark);
+}
+
+/* Navigation */
+
+.navigation_wrapper {
+  display: flex;
+
+  justify-content: space-between;
+}
+
+.first_tile {
+  display: inherit;
+
+  gap: 40px;
+}
+
+.tile {
+  display: inherit;
+  justify-content: center;
+  align-items: center;
+
+  gap: 5px;
+
+  text-align: end;
+
+  font-weight: 500;
+}
+
+.tile svg {
+  color: var(--accent-color);
+  stroke-width: 0.5px;
+}

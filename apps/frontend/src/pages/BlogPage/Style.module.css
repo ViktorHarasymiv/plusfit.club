@@ -1,0 +1,14 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+
+  flex-wrap: nowrap;
+
+  gap: 25px;
+}
+
+@media screen and (min-width: 991px) {
+  .wrapper {
+    flex-direction: row;
+  }
+}

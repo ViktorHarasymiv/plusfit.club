@@ -7,7 +7,7 @@ import { calculatePaginationData } from '../utils/calculatePaginationData.js';
 
 export const getAllPost = async ({
   page = 1,
-  perPage = 8,
+  perPage = 6,
   sortOrder = SORT_ORDER.ASC,
   sortBy = 'createdAt',
 }) => {
@@ -32,4 +32,21 @@ export const getAllPost = async ({
     data: posts,
     ...paginationData,
   };
+};
+
+// FETCH BY ID
+
+export const getPostById = async (id) => {
+  if (!id) throw new Error('Id is required');
+
+  try {
+    const post = await PostCollection.findById(id);
+    if (!post) {
+      throw new Error(`Post with id ${id} not found`);
+    }
+    return post;
+  } catch (error) {
+    console.error('Error fetching post by id:', error);
+    throw error;
+  }
 };

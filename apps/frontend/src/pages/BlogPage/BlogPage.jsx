@@ -16,8 +16,6 @@ function BlogPage() {
     fetch_post_data();
   }, []);
 
-  console.log(content);
-
   return (
     <main>
       <NavigationContext />

@@ -4,6 +4,7 @@ import { API_URL } from "../config/api";
 
 export const usePostStore = create((set) => ({
   content: [],
+  selfPost: [],
   loading: false,
   error: null,
   pagination: {
@@ -24,7 +25,6 @@ export const usePostStore = create((set) => ({
       tags,
       author,
       isFeatured,
-      isPrivate,
     } = params;
 
     const query = new URLSearchParams({
@@ -35,7 +35,6 @@ export const usePostStore = create((set) => ({
       ...(tags ? { tags: tags.join(",") } : {}),
       ...(author ? { author } : {}),
       ...(isFeatured !== undefined ? { isFeatured } : {}),
-      ...(isPrivate !== undefined ? { isPrivate } : {}),
     });
 
     try {
@@ -52,6 +51,26 @@ export const usePostStore = create((set) => ({
       });
     } catch (err) {
       set({ error: err.message || "Помилка при завантаженні", loading: false });
+    }
+  },
+
+  getPostById: async (id) => {
+    set({ loading: true, error: null });
+
+    try {
+      const res = await axios.get(`${API_URL}/posts/${id}`);
+      set({
+        selfPost: res.data.data, // якщо бекенд повертає { data: {...} }
+        loading: false,
+      });
+    } catch (err) {
+      set({
+        error:
+          err.response?.data?.message ||
+          err.message ||
+          "Помилка при завантаженні",
+        loading: false,
+      });
     }
   },
 

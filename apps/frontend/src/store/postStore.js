@@ -3,8 +3,8 @@ import axios from "axios";
 import { API_URL } from "../config/api";
 
 export const usePostStore = create((set) => ({
-  content: [],
-  selfPost: [],
+  content: null,
+  selfPost: null,
   loading: false,
   error: null,
   pagination: {

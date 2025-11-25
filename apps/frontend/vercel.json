@@ -4,11 +4,6 @@
       "source": "/profile/api/:path*",
       "destination": "https://plusfit-club-backend.onrender.com/:path*"
     },
-
-    {
-      "source": "/blog/api/:path*",
-      "destination": "https://plusfit-club-backend.onrender.com/:path*"
-    },
     {
       "source": "/price/api/:path*",
       "destination": "https://plusfit-club-backend.onrender.com/:path*"

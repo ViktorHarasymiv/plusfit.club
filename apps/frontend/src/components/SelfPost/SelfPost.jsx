@@ -15,6 +15,8 @@ function SelfPost({ id }) {
     getPostById(id);
   }, []);
 
+  if (!selfPost) return null;
+
   const { author, likes, commentsCount, title, images, content, quote } =
     selfPost;
 

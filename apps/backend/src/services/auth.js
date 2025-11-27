@@ -33,13 +33,15 @@ export const registerUser = async (payload) => {
     verifyExpires,
   });
 
-  await sendMail(
+  sendMail(
     payload.email,
     'Email verification code',
     `<p>Hello ${payload.name},</p>
      <p>Your verification code is <strong>${code}</strong>.</p>
      <p>It will expire in 15 minutes.</p>`,
-  );
+  ).catch((err) => {
+    console.error('Email send failed:', err);
+  });
 
   return newUser;
 };

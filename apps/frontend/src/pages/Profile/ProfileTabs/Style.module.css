@@ -41,6 +41,8 @@
   flex: 1;
 
   transition: all 0.2s ease-in-out;
+
+  font-family: var(--font-family-accent);
 }
 
 .tab::after {
@@ -91,8 +93,6 @@
 
 .tab:hover {
   background-color: var(--accent-color);
-
-  transform: scale(1.02);
 }
 
 /* Tab section */

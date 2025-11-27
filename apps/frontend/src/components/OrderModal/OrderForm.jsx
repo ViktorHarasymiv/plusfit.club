@@ -40,7 +40,7 @@ function OrderForm({ payload, close }) {
 
   const { user } = useAuth();
 
-  const { name, email } = user;
+  const { name, email, phone } = user;
 
   // CONSTANT
 
@@ -134,7 +134,7 @@ function OrderForm({ payload, close }) {
     clientId: generateCustomId(),
     name: name || "",
     email: email || "",
-    phone: "",
+    phone: phone || "",
     type: payload.name || "",
     timeBorder: 0,
     startDate: "",
@@ -146,46 +146,43 @@ function OrderForm({ payload, close }) {
 
   const validationSchema = Yup.object({
     clientId: Yup.string()
-      .matches(/^.{8}$/, "Має бути рівно 8 символів")
-      .matches(/^CL\d{6}$/, 'Має починатися з "CL" і містити 6 цифр')
-      .required("Обов'язково"),
+      .matches(/^.{8}$/, "Must be exactly 8 characters")
+      .matches(/^CL\d{6}$/, 'Must start with "CL" and contain 6 digits')
+      .required("Required"),
 
     name: Yup.string()
       .matches(
         /^[А-Яа-яЁёІіЇїЄєҐґA-Za-z]+ [А-Яа-яЁёІіЇїЄєҐґA-Za-z]+$/,
-        "Ім’я має містити прізвище та ім’я через пробіл"
+        "Name must contain surname and first name separated by a space"
       )
-      .required("Ім’я обов’язкове"),
+      .required("Name is required"),
 
     phone: Yup.string()
-      .matches(/^\+380\d{9}$/, "Телефон має бути у форматі +380XXXXXXXXX")
-      .required("Телефон обов’язковий"),
+      .matches(/^\+380\d{9}$/, "Phone must be in format +380XXXXXXXXX")
+      .required("Phone is required"),
 
-    email: Yup.string()
-      .email("Невірний email")
-      .matches(/@gmail\.com$/, "Email має бути @gmail.com")
-      .required("Обов’язково"),
+    email: Yup.string().email("Invalid email").required("Required"),
 
-    type: Yup.string().required("Тип обов’язковий"),
+    type: Yup.string().required("Type is required"),
 
-    startDate: Yup.date().required("Дата початку обов’язкова"),
+    startDate: Yup.date().required("Start date is required"),
 
     price: Yup.number()
-      .typeError("Ціна має бути числом")
-      .min(0, "Ціна не може бути відʼємною")
-      .required("Ціна обов’язкова"),
+      .typeError("Price must be a number")
+      .min(0, "Price cannot be negative")
+      .required("Price is required"),
 
-    method: Yup.string().required("Метод оплати обов’язковий"),
+    method: Yup.string().required("Payment method is required"),
   });
 
   const subscriptionDurationMonths = (type) => {
     switch (type) {
-      case "1 місяць":
+      case "Basic plan":
         return 1;
-      case "3 місяці БЕЗЛІМ":
-        return 3;
-      case "Піврічний БЕЗЛІМ":
+      case "Standart plan":
         return 6;
+      case "Year plan":
+        return 12;
       default:
         return 1;
     }
@@ -222,7 +219,7 @@ function OrderForm({ payload, close }) {
                   marginRight: "6px",
                 }}
               />
-              Абонемент успішно зареєстровано
+              Subscription successfully registered
             </span>
           );
         } catch (error) {
@@ -345,32 +342,11 @@ function OrderForm({ payload, close }) {
                     }}
                   >
                     <MenuItem value="">
-                      <em>Тип підписки</em>
+                      <em>Type</em>
                     </MenuItem>
-                    <MenuItem value={"1 тренування"}>1 тренування</MenuItem>
-                    <MenuItem value={"10 тренувань"}>10 тренувань</MenuItem>
-                    <MenuItem value={"1 місяць БЕЗЛІМ"}>
-                      1 місяць безліміт
-                    </MenuItem>
-                    <MenuItem value={"3 місяці БЕЗЛІМ"}>
-                      3 місяць безліміт
-                    </MenuItem>
-                    <MenuItem value={"Піврічний БЕЗЛІМ"}>
-                      Піврічний безліміт
-                    </MenuItem>
-                    <MenuItem value={"Тариф сімейний 1+1"}>
-                      Тариф сімейний 1 + 1
-                    </MenuItem>
-
-                    <MenuItem
-                      value={"Підлітковий 13-17 років"}
-                      disabled={age > 17 || 13 > age}
-                    >
-                      Підлітковий 13-17 р.
-                    </MenuItem>
-                    <MenuItem value={"РЕСПЕКТ +55"} disabled={age < 55}>
-                      "Респект" +55 р.
-                    </MenuItem>
+                    <MenuItem value={"Basic plan"}>Basic plan</MenuItem>
+                    <MenuItem value={"Standart plan"}>Standart plan</MenuItem>
+                    <MenuItem value={"Year plan"}>Year plan</MenuItem>
                   </Select>
                 </FormControl>
                 <ErrorMessage name="type" component="div" className="error" />

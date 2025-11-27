@@ -31,6 +31,7 @@ import GoogleAuthRedirect from "../GoogleAuthRedirect/GoogleAuthRedirect";
 import ProfileUser from "../../pages/Profile/ProfileUser";
 import YogaPrice from "../Yoga/YogaPrice";
 import Post from "../../pages/BlogPage/Post";
+import VerifyForm from "../Auth/VerifyForm";
 
 function Router() {
   return (
@@ -139,6 +140,8 @@ function Router() {
         {/* Policy  */}
 
         <Route path="/private-policy" element={<Policy />} />
+
+        <Route path="/verify" element={<VerifyForm />}></Route>
 
         {/* Not found page */}
 

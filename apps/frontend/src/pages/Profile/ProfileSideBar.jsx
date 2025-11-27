@@ -16,7 +16,7 @@ function ProfileSideBar() {
               clsx(css.nav_link, isActive && css.active)
             }
           >
-            <MdDoubleArrow /> Мій кабінет
+            <MdDoubleArrow /> Home
           </NavLink>
         </li>
         <li>
@@ -26,7 +26,7 @@ function ProfileSideBar() {
               clsx(css.nav_link, isActive && css.active)
             }
           >
-            <MdDoubleArrow /> Мої абонементи
+            <MdDoubleArrow /> My subscriptions
           </NavLink>
         </li>
         <li>
@@ -36,7 +36,7 @@ function ProfileSideBar() {
               clsx(css.nav_link, isActive && css.active)
             }
           >
-            <MdDoubleArrow /> Налаштування
+            <MdDoubleArrow /> Settings
           </NavLink>
         </li>
       </ul>

@@ -6,6 +6,7 @@ import css from "./Style.module.css";
 import { useEffect } from "react";
 import { my_subscription } from "../../services/subscriptions";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 function ProfileHistory() {
   const { user } = useAuth();
@@ -23,13 +24,24 @@ function ProfileHistory() {
     subsc();
   }, []);
 
+  console.log(subscription);
+
   return (
     <div className={css.setup_wrapper}>
-      <ul className={css.carnet_list}>
-        {subscription?.map((info, index) => {
-          return <MyCarnet key={index} info={info} />;
-        })}
-      </ul>
+      {subscription?.length > 0 ? (
+        <ul className={css.carnet_list}>
+          {subscription?.map((info, index) => {
+            return <MyCarnet key={index} info={info} />;
+          })}
+        </ul>
+      ) : (
+        <div>
+          <h3>
+            You don't have a current subscription, order one here -{" "}
+            <Link to="/price"> Select a subscription</Link>
+          </h3>
+        </div>
+      )}
     </div>
   );
 }

@@ -46,18 +46,27 @@
 }
 
 .upload {
-  padding: 12px 24px;
+  opacity: 0;
 
-  color: var(--white);
+  padding: 8px 16px;
+
+  color: var(--accent-color);
+  font-weight: 500;
 
   font-size: 12px;
 
   background-color: rgba(0, 0, 0, 0.3);
 
-  border-radius: 10px;
-  border: 1px solid var(--footer-text-color);
+  border-radius: 4px;
+  border: 1px solid var(--accent-color);
+
+  transition: all 0.2s ease-in;
 }
 
 .upload:active {
   transform: scale(0.98);
+}
+
+.background_tile:hover .upload {
+  opacity: 1;
 }

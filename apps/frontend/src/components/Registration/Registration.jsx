@@ -60,8 +60,10 @@ function Registration() {
     try {
       await register(payload); // твій API-запит
       resetForm(); // очищення форми після успіху
-      setSuccess(true);
-      closeAllModal();
+      navigate("/verify", { state: { email: payload.email } });
+      console.log("Після редіректу");
+
+      // closeSignUp();
     } catch (error) {
       console.error("Помилка реєстрації:", error);
       // можеш показати повідомлення про помилку
@@ -70,12 +72,11 @@ function Registration() {
     }
   };
 
-  const closeAllModal = () => {
-    setSuccess(false);
-    closeSignUp();
-    fetchUser();
-    navigate("/profile/user");
-  };
+  // const closeAllModal = () => {
+  //   setSuccess(false);
+  //   closeSignUp();
+  //   fetchUser();
+  // };
 
   return (
     <>

@@ -68,48 +68,59 @@ function ProfileSetup() {
         /^[А-Яа-яЁёІіЇїЄєҐґA-Za-z]+ [А-Яа-яЁёІіЇїЄєҐґA-Za-z]+$/,
         "Ім’я має містити прізвище та ім’я через пробіл"
       )
-      .required("Ім’я обов’язкове"),
-    phone: Yup.string()
-      .matches(/^\+380\d{9}$/, "Введіть номер у форматі +380XXXXXXXXX")
-      .required("Номер телефону обов'язковий"),
-    sex: Yup.string(),
+      .optional(), // для PATCH краще optional
+
+    phone: Yup.string().matches(
+      /^\+380\d{9}$/,
+      "Введіть номер у форматі +380XXXXXXXXX"
+    ),
+
+    sex: Yup.string().oneOf(["Man", "Woman"]).optional(),
+
     birthday: Yup.date()
-      .min(minDate, "Вік не може перевищувати 80 років")
-      .max(maxDate, "Вам має бути щонайменше 13 років"),
-    goal: Yup.string().oneOf[
-      ("Схуднення",
-      "Утримати вагу",
-      "Повільний набір маси",
-      "Активний набір маси",
-      "Набір сухої мязової маси")
-    ],
-    section:
-      Yup.string().oneOf[
-        ("Спортивний зал",
-        "Реабілітація та масаж",
-        "Йога",
-        "Дитячі танці",
-        "Ендосфера")
-      ],
+      .min(minDate, "Дата народження занадто стара")
+      .max(maxDate, "Вам має бути щонайменше 13 років")
+      .optional(),
+
+    goal: Yup.string()
+      .oneOf([
+        "Схуднення",
+        "Утримати вагу",
+        "Повільний набір маси",
+        "Активний набір маси",
+        "Набір сухої мязової маси",
+      ])
+      .optional(),
+
+    section: Yup.string()
+      .oneOf(["Gym", "Fitness", "Massage", "Rehabilitation", "Yoga"])
+      .optional(),
+
     height: Yup.number()
+      .nullable()
       .typeError("Ріст має бути числом")
       .min(140, "Ріст має бути не менше 140 см")
       .max(220, "Ріст має бути не більше 220 см")
-      .test("is-integer", "Ріст має бути цілим числом", (value) =>
-        Number.isInteger(value)
+      .test(
+        "is-integer",
+        "Ріст має бути цілим числом",
+        (value) => value == null || Number.isInteger(value)
       ),
 
     weight: Yup.number()
+      .nullable()
       .typeError("Вага має бути числом")
       .min(35, "Вага має бути не менше 35 кг")
       .max(220, "Вага має бути не більше 220 кг")
-      .test("is-integer", "Вага має бути цілим числом", (value) =>
-        Number.isInteger(value)
+      .test(
+        "is-integer",
+        "Вага має бути цілим числом",
+        (value) => value == null || Number.isInteger(value)
       ),
-    activityLevel:
-      Yup.string().oneOf[
-        ("Сидячий", "Слабо", "Середній", "Активний", "Сильна активність")
-      ],
+
+    activityLevel: Yup.string()
+      .oneOf(["Сидячий", "Слабо", "Середній", "Активний", "Сильна активність"])
+      .optional(),
   });
 
   // DATA UTILS
@@ -217,7 +228,7 @@ function ProfileSetup() {
 
                 <div className="input_wrapper">
                   <label htmlFor="name" className={css.setup_label}>
-                    Введіть ім’я та фамілію
+                    Enter your full name
                     <Field
                       name="name"
                       type="text"
@@ -244,7 +255,7 @@ function ProfileSetup() {
                 <div className="input_wrapper">
                   <div>
                     <label htmlFor="birthday" className={css.setup_label}>
-                      Ваш день народження
+                      Your birthday
                     </label>
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                       <FormikDatePickerBirthday />
@@ -262,7 +273,7 @@ function ProfileSetup() {
 
                 <div className="input_wrapper">
                   <label htmlFor="sex" className={css.setup_label}>
-                    Оберіть свою стать
+                    Choose your gender
                     <FormControl sx={{ m: 2, width: "100%", margin: "0px" }}>
                       <Select
                         name="sex"
@@ -303,10 +314,10 @@ function ProfileSetup() {
                         }}
                       >
                         <MenuItem value="" disabled>
-                          <em>Оберіть стать</em>
+                          <em>Choose your gender</em>
                         </MenuItem>
-                        <MenuItem value={"Чоловік"}>Чоловік</MenuItem>
-                        <MenuItem value={"Жінка"}>Жінка</MenuItem>
+                        <MenuItem value={"Man"}>Man</MenuItem>
+                        <MenuItem value={"Woman"}>Woman</MenuItem>
                       </Select>
                     </FormControl>
                   </label>
@@ -317,7 +328,7 @@ function ProfileSetup() {
 
                 <div className="input_wrapper">
                   <label htmlFor="phone" className={css.setup_label}>
-                    Введіть свій номер телефону
+                    Enter your phone number
                     <Field
                       name="phone"
                       type="text"
@@ -347,7 +358,7 @@ function ProfileSetup() {
 
                 <div className="input_wrapper">
                   <label htmlFor="section" className={css.setup_label}>
-                    Позначте свою секцію
+                    Mark your section
                     <FormControl sx={{ m: 1, width: "100%", margin: "0px" }}>
                       <Select
                         name="section"
@@ -388,17 +399,15 @@ function ProfileSetup() {
                         }}
                       >
                         <MenuItem value="" disabled>
-                          <em>Оберіть відділ</em>
+                          <em>Check a department</em>
                         </MenuItem>
-                        <MenuItem value={"Спортивний зал"}>
-                          Спортивний зал
+                        <MenuItem value={"Gym"}>Gym</MenuItem>
+                        <MenuItem value={"Fitness"}>Fitness</MenuItem>
+                        <MenuItem value={"Massage"}>Massage</MenuItem>
+                        <MenuItem value={"Rehabilitation"}>
+                          Rehabilitation
                         </MenuItem>
-                        <MenuItem value={"Реабілітація та масаж"}>
-                          Реабілітація та масаж
-                        </MenuItem>
-                        <MenuItem value={"Йога"}>Йога</MenuItem>
-                        <MenuItem value={"Дитячі танці"}>Дитячі танці</MenuItem>
-                        <MenuItem value={"Ендосфера"}>Ендосфера</MenuItem>
+                        <MenuItem value={"Yoga"}>Yoga</MenuItem>
                       </Select>
                     </FormControl>
                   </label>
@@ -415,11 +424,11 @@ function ProfileSetup() {
 
                 <div className="input_wrapper">
                   <label htmlFor="height" className={css.setup_label}>
-                    Введіть ваш ріст
+                    Enter your height
                     <Field
                       name="height"
                       type="number"
-                      placeholder="Ріст / См"
+                      placeholder="Height / sm"
                       className="input placeholder"
                       autoFocus={false}
                       style={{
@@ -445,11 +454,11 @@ function ProfileSetup() {
 
                 <div className="input_wrapper">
                   <label htmlFor="weight" className={css.setup_label}>
-                    Введіть вашу вагу
+                    Enter your weight
                     <Field
                       name="weight"
                       type="number"
-                      placeholder="Вага / Кг"
+                      placeholder="Weight / kg"
                       className="input placeholder"
                       autoFocus={false}
                       style={{
@@ -475,7 +484,7 @@ function ProfileSetup() {
 
                 <div className="input_wrapper">
                   <label htmlFor="goal" className={css.setup_label}>
-                    Позначте свою ціль
+                    Mark your goal
                     <FormControl sx={{ m: 1, width: "100%", margin: "0px" }}>
                       <Select
                         name="goal"
@@ -545,7 +554,7 @@ function ProfileSetup() {
 
                 <div className="input_wrapper">
                   <label htmlFor="activityLevel" className={css.setup_label}>
-                    Оберіть свій рівень активності
+                    Choose your activity level
                     <FormControl sx={{ m: 1, width: "100%", margin: "0px" }}>
                       <Select
                         name="activityLevel"

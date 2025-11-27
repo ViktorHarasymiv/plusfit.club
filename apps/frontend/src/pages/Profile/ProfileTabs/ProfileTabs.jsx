@@ -8,31 +8,31 @@ import MyReviews from "./Tab/MyReviews";
 import MyCalculator from "./Tab/MyCalculator";
 
 function ProfileTabs() {
-  const [currentTab, setCurrentTab] = useState("Новини");
+  const [currentTab, setCurrentTab] = useState("News");
 
   const consoleTabs = [
     {
       id: 0,
-      label: "Новини",
+      label: "News",
     },
     {
       id: 1,
-      label: "Рекомендації",
+      label: "Recommendations",
     },
     {
       id: 2,
-      label: "Коментарі",
+      label: "My review",
     },
     {
       id: 3,
-      label: "Калькулятор калорій",
+      label: "Calorie calculator",
     },
   ];
 
   return (
     <div className={css.console_wrapper}>
       <ul className={css.tab_list}>
-        {consoleTabs.map(({ id, label }, index) => (
+        {consoleTabs.map(({ label }, index) => (
           <li
             key={index}
             className={clsx(css.tab, label === currentTab && css.active)}
@@ -43,13 +43,13 @@ function ProfileTabs() {
         ))}
       </ul>
       <section className={css.tab_section}>
-        {currentTab == "Новини" ? (
+        {currentTab == "News" ? (
           <News />
-        ) : currentTab == "Рекомендації" ? (
+        ) : currentTab == "Recommendations" ? (
           <Recomendation />
-        ) : currentTab == "Коментарі" ? (
+        ) : currentTab == "My review" ? (
           <MyReviews />
-        ) : currentTab == "Калькулятор калорій" ? (
+        ) : currentTab == "Calorie calculator" ? (
           <MyCalculator />
         ) : null}
       </section>

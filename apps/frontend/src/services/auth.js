@@ -121,3 +121,25 @@ export const handleGoogleLogin = async () => {
     console.error("Failed to get Google OAuth URL", err);
   }
 };
+
+// VERIFY
+
+export const verifyEmailCode = async (email, code) => {
+  if (!email || !code) {
+    throw new Error("Email і код обовʼязкові");
+  }
+
+  try {
+    const response = await axios.post(`${API_URL}/auth/verify`, {
+      email,
+      code,
+    });
+    return response.data; // повертаємо результат бекенду
+  } catch (error) {
+    console.error(
+      "Verification failed:",
+      error.response?.data || error.message
+    );
+    throw error; // пробросимо помилку далі, щоб UI міг показати повідомлення
+  }
+};

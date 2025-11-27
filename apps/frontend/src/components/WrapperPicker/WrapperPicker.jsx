@@ -81,7 +81,7 @@ function WrapperPicker({ name }) {
         />
 
         <button onClick={handleClick} className={css.upload}>
-          Оберіть фото
+          Choose a cover
         </button>
       </div>
     </div>

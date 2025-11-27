@@ -73,7 +73,7 @@ function OrderModal() {
         <div className={css.modal_header}>
           <div className={css.head_nav}>
             <BsArrowLeft onClick={closeOrderModal} />
-            <span className={css.title}>Замовлення абонементу</span>
+            <span className={css.title}>Order a subscription</span>
           </div>
 
           <h1 className={css.label}>{payload?.name}</h1>

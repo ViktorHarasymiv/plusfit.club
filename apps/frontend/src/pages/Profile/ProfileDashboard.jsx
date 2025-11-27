@@ -2,15 +2,17 @@ import { useAuth } from "../../context/AuthContext";
 
 import css from "./Style.module.css";
 import WrapperPicker from "../../components/WrapperPicker/WrapperPicker";
-import PreviewAvatar from "/img/avatarPreview.png";
+
+import previewAvatar from "/img/user-man.png";
+import PreviewAvatarMan from "/img/user-man.png";
+import PreviewAvatarWomen from "/img/user-women.png";
+
 import UserInfoBar from "./UserInfoBar/UserInfoBar";
 
 function ProfileDashboard() {
   const { user } = useAuth();
 
-  console.log(user);
-
-  const { avatar, name, email } = user;
+  const { avatar, name, email, sex } = user;
 
   return (
     <div className={css.dashboard_wrapper}>
@@ -20,7 +22,12 @@ function ProfileDashboard() {
         </div>
         <div className={css.user_info_wrapper}>
           <img
-            src={avatar || PreviewAvatar}
+            src={
+              avatar ||
+              (sex == "Man" && PreviewAvatarMan) ||
+              (sex == "Woman" && PreviewAvatarWomen) ||
+              previewAvatar
+            }
             alt="User avatar"
             width={160}
             height={160}

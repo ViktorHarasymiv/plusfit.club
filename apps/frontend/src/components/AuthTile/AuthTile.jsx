@@ -6,7 +6,10 @@ import { useNavigate } from "react-router-dom";
 
 import css from "./Style.module.css";
 import Button from "../ui/Button/Button";
-import previewAvatar from "/img/avatarPreview.png";
+
+import previewAvatar from "/img/user-man.png";
+import PreviewAvatarMan from "/img/user-man.png";
+import PreviewAvatarWomen from "/img/user-women.png";
 
 const AuthTile = React.memo(function AuthTile({ isScroll }) {
   const navigate = useNavigate();
@@ -45,7 +48,12 @@ const AuthTile = React.memo(function AuthTile({ isScroll }) {
           {user?.name}
         </h3>
         <img
-          src={user?.avatar || previewAvatar}
+          src={
+            user?.avatar ||
+            (user?.sex == "Man" && PreviewAvatarMan) ||
+            (user?.sex == "Woman" && PreviewAvatarWomen) ||
+            previewAvatar
+          }
           alt="User avatar"
           className={css.avatar}
           width={34}

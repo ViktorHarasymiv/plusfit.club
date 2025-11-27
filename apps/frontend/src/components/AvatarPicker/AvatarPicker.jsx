@@ -5,8 +5,11 @@ import { useFormikContext } from "formik";
 import css from "./AvatarPicker.module.css";
 import Button from "../ui/Button/Button";
 
-import avatar from "/img/avatarPreview.png";
 import { useAuth } from "../../context/AuthContext";
+
+import previewAvatar from "/img/user-man.png";
+import PreviewAvatarMan from "/img/user-man.png";
+import PreviewAvatarWomen from "/img/user-women.png";
 
 export const AvatarPicker = ({ name, styles, buttonStyles }) => {
   const inputRef = useRef(null);
@@ -16,6 +19,8 @@ export const AvatarPicker = ({ name, styles, buttonStyles }) => {
   // STATE
 
   const { user, fetchUser, patchUser } = useAuth();
+
+  const { avatar, sex } = user;
 
   const { setFieldValue } = useFormikContext();
 
@@ -66,7 +71,12 @@ export const AvatarPicker = ({ name, styles, buttonStyles }) => {
     <div className={css.avatar_picker_wrapper} style={{ ...styles }}>
       <div className={css.preview_avatar}>
         <img
-          src={user.avatar || previewUrl || avatar}
+          src={
+            avatar ||
+            (sex == "Man" && PreviewAvatarMan) ||
+            (sex == "Woman" && PreviewAvatarWomen) ||
+            previewAvatar
+          }
           alt="Preview avatar"
           width={132}
           height={132}

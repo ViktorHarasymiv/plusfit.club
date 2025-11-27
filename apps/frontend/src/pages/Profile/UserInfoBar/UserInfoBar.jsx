@@ -8,7 +8,11 @@ function UserInfoBar() {
 
   const { BMI, BMR } = user;
 
-  return <div>{BMI}</div>;
+  return (
+    <div>
+      {BMI} BMI / {BMR} BMR
+    </div>
+  );
 }
 
 export default UserInfoBar;

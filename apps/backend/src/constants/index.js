@@ -23,6 +23,7 @@ export const SMTP = {
   SMTP_PASSWORD: 'SMTP_PASSWORD',
   SMTP_FROM: 'SMTP_FROM',
   JWT_SECRET: 'JWT_SECRET',
+  SMTP_ADMIN: 'ADMIN_EMAIL',
 };
 
 export const CLOUDINARY = {

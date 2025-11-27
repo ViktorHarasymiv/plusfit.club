@@ -21,6 +21,7 @@ import { validateBody } from '../middlewares/validateBody.js';
 import { verifySession } from '../middlewares/verifySession.js';
 import { loginAdminSchema } from '../validation/admin.js';
 import { verifySessionAdmin } from '../middlewares/verifySessionAdmin.js';
+import { verifyEmailController } from '../controllers/verifyController.js';
 
 const router = Router();
 
@@ -35,6 +36,8 @@ router.post(
   validateBody(loginUserSchema),
   ctrlWrapper(loginUserController),
 );
+
+router.post('/verify', verifyEmailController);
 
 router.post('/logout', ctrlWrapper(logoutUserController));
 

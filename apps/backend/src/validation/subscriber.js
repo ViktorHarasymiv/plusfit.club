@@ -20,8 +20,6 @@ export const createSubscriptionSchema = Joi.object({
   email: Joi.string()
     .email()
     .email({ tlds: { allow: false } })
-    .pattern(/@gmail\.com$/)
-    .message('Email має бути @gmail.com')
     .required(),
   type: Joi.string().required(),
   timeBorder: Joi.number(),

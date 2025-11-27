@@ -14,6 +14,7 @@ import {
   validateCode,
 } from '../utils/googleOAuth2.js';
 import { SubscriptionsCollection } from '../db/models/subscriptions.js';
+import { sendMail } from './mailer.js';
 
 export const registerUser = async (payload) => {
   const user = await UsersCollection.findOne({ email: payload.email });
@@ -21,10 +22,26 @@ export const registerUser = async (payload) => {
 
   const encryptedPassword = await bcrypt.hash(payload.password, 10);
 
-  return await UsersCollection.create({
+  const code = Math.floor(100000 + Math.random() * 900000).toString();
+  const verifyExpires = Date.now() + 15 * 60 * 1000;
+
+  const newUser = await UsersCollection.create({
     ...payload,
     password: encryptedPassword,
+    isVerified: false,
+    verifyCode: code,
+    verifyExpires,
   });
+
+  await sendMail(
+    payload.email,
+    'Email verification code',
+    `<p>Hello ${payload.name},</p>
+     <p>Your verification code is <strong>${code}</strong>.</p>
+     <p>It will expire in 15 minutes.</p>`,
+  );
+
+  return newUser;
 };
 
 export const loginUser = async (payload) => {
@@ -32,6 +49,14 @@ export const loginUser = async (payload) => {
   if (!user) {
     throw createHttpError(404, 'User not found');
   }
+
+  if (!user.isVerified) {
+    throw createHttpError(
+      403,
+      'Account not verified. Please check your email.',
+    );
+  }
+
   const isEqual = await bcrypt.compare(payload.password, user.password);
 
   if (!isEqual) {

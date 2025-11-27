@@ -5,7 +5,7 @@ export const updateUserSchema = Joi.object({
   wrapper: Joi.string().uri().optional(),
   email: Joi.string().email().max(64).optional(),
   name: Joi.string().min(1).max(32).optional(),
-  sex: Joi.string().valid('Чоловік', 'Жінка').optional(),
+  sex: Joi.string().valid('Man', 'Woman').optional(),
   phone: Joi.string()
     .pattern(/^\+380\d{9}$/)
     .messages({
@@ -27,13 +27,7 @@ export const updateUserSchema = Joi.object({
     )
     .optional(),
   section: Joi.string()
-    .valid(
-      'Спортивний зал',
-      'Реабілітація та масаж',
-      'Йога',
-      'Дитячі танці',
-      'Ендосфера',
-    )
+    .valid('Gym', 'Fitness', 'Massage', 'Yoga', 'Rehabilitation')
     .optional(),
   height: Joi.number().min(130).max(220).optional(),
   weight: Joi.number().min(35).max(220).optional(),
@@ -42,4 +36,7 @@ export const updateUserSchema = Joi.object({
     .optional(),
   BMR: Joi.number().optional(),
   BMI: Joi.number().optional(),
+  isVerified: Joi.boolean().optional(),
+  verifyCode: Joi.string().length(6).optional(), // наприклад, 6-значний код
+  verifyExpires: Joi.date().optional(),
 });

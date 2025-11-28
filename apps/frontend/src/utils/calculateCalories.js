@@ -1,12 +1,12 @@
 export function calculateCalories(sex, weight, height, age, activityLevel) {
   let bmr;
 
-  if (sex === "Чоловік") {
+  if (sex === "Man") {
     bmr = 10 * weight + 6.25 * height - 5 * age + 5;
-  } else if (sex === "Жінка") {
+  } else if (sex === "Woman") {
     bmr = 10 * weight + 6.25 * height - 5 * age - 161;
   } else {
-    throw new Error("Стать має бути 'male' або 'female'");
+    throw new Error("Стать має бути 'Man' або 'Woman'");
   }
 
   const activityMultipliers = {

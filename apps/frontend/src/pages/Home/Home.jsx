@@ -14,7 +14,7 @@ import TotalArea from "../../components/TotalArea/TotalArea";
 import Blog from "../../components/Blog/Blog";
 export default function Home() {
   const width = useWindowWidth();
-  document.title = "Iron Mass - Sports complex";
+  document.title = "Iron Mass - Sport complex";
   return (
     <main>
       <Hero />

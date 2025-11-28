@@ -19,6 +19,7 @@ function EatBrand({ filterArgs }) {
       name: "WHEY Protein 5kg Banana",
       media: ["/img/eat/8.avif"],
       about: "",
+      tags: ["Woman", "Fitness"],
       price: 599,
     },
     {
@@ -26,12 +27,7 @@ function EatBrand({ filterArgs }) {
       name: "Optimum Nutrition, Opti-Men, мультивітаміни для чоловіків, 90 таблеток",
       media: ["/img/eat/40.avif"],
       about: "",
-      tags: [
-        "чоловік",
-        "чоловічі вітаміни",
-        "Спортивний зал",
-        "Фітнес тренування ",
-      ],
+      tags: ["Man", "Bodybilding", "Gym", "Fitness"],
       price: 599,
     },
     {
@@ -39,6 +35,7 @@ function EatBrand({ filterArgs }) {
       name: "WHEY Protein 5kg Banana",
       media: ["/img/eat/48.avif"],
       about: "",
+      tags: ["Man", "Bodybilding", "Gym", "Fitness"],
       price: 599,
     },
     {
@@ -46,6 +43,7 @@ function EatBrand({ filterArgs }) {
       name: "WHEY Protein 5kg Banana",
       media: ["/img/eat/53.avif"],
       about: "",
+      tags: ["Man", "Bodybilding", "Gym", "Fitness"],
       price: 599,
     },
     {
@@ -53,6 +51,7 @@ function EatBrand({ filterArgs }) {
       name: "WHEY Protein 5kg Banana",
       media: ["/img/eat/100.avif"],
       about: "",
+      tags: ["Man", "Bodybilding", "Gym", "Fitness"],
       price: 599,
     },
     {
@@ -60,6 +59,7 @@ function EatBrand({ filterArgs }) {
       name: "Optimum Nutrition, Opti-Men, мультивітаміни для чоловіків, 90 таблеток",
       media: ["/img/eat/eu_banana.png"],
       about: "",
+      tags: ["Man", "Bodybilding", "Gym", "Fitness"],
       price: 599,
     },
     {
@@ -67,6 +67,7 @@ function EatBrand({ filterArgs }) {
       name: "WHEY Protein 5kg Banana",
       media: ["/img/eat/nutrition-bcca.webp"],
       about: "",
+      tags: ["Woman", "Bodybilding", "Gym", "Fitness"],
       price: 599,
     },
   ];
@@ -85,7 +86,7 @@ function EatBrand({ filterArgs }) {
 
       <Swiper
         slidesPerView={6}
-        spaceBetween={100}
+        spaceBetween={20}
         loop={canLoop}
         autoplay={{
           delay: 2000,
@@ -122,8 +123,8 @@ function EatBrand({ filterArgs }) {
               <img
                 src={media[0]}
                 alt={name}
-                width={130}
-                height={200}
+                width={100}
+                height={180}
                 className={css.image}
               />
             </SwiperSlide>

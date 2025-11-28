@@ -17,7 +17,7 @@ function SelfPost({ id }) {
 
   if (!selfPost) return null;
 
-  const { author, likes, commentsCount, title, images, content, quote } =
+  const { author, likes, commentsCount, title, images, content, quote, tags } =
     selfPost;
 
   return (
@@ -43,9 +43,49 @@ function SelfPost({ id }) {
         </div>
       </div>
       <h3 className={css.blog_title}>{title}</h3>
+      {/* Paragraph  1 2 */}
       <div>
-        {content?.length > 0 && <p>{content[0]}</p>}
-        {content?.length > 1 && <p>{content[1]}</p>}
+        {content?.length > 0 && <p className={css.paragraph}>{content[0]}</p>}
+        {content?.length > 1 && <p className={css.paragraph}>{content[1]}</p>}
+      </div>
+      <div className={css.quote_tile}>
+        <div className={css.quote_wrapper}>
+          <p className={css.quote_text}>{quote.text}</p>
+          <div className={css.quote_author}>
+            <span className={css.quote_decor}></span>
+            <h6 className={css.quote_author}>{quote.author}</h6>
+          </div>
+        </div>
+      </div>
+      {/* Paragraph  3 */}
+      <div>
+        {content?.length > 0 && <p className={css.paragraph}>{content[2]}</p>}
+      </div>
+      {/* Thumb images */}
+      <div className={css.thumb_tile}>
+        {images?.length > 1 && <img src={images[0]} alt="Фото поста" />}
+        {images?.length > 1 && <img src={images[0]} alt="Фото поста" />}
+      </div>
+      {/* Paragraph  4 */}
+      <div>
+        {content?.length > 0 && <p className={css.paragraph}>{content[3]}</p>}
+      </div>
+
+      {/* Tags block */}
+
+      <div className={css.tags_tile}>
+        <div className={css.tags_wrapper}>
+          <h4 className={css.tags_title}>Tags:</h4>
+          <ul className={css.tags_list}>
+            {tags.map((item, i) => {
+              return (
+                <li key={i} className={css.tags_item}>
+                  #{item}
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
     </div>
   );

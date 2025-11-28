@@ -50,15 +50,14 @@
 
   padding: 8px 16px;
 
-  color: var(--accent-color);
-  font-weight: 500;
+  color: var(--white);
 
   font-size: 12px;
 
   background-color: rgba(0, 0, 0, 0.3);
 
   border-radius: 4px;
-  border: 1px solid var(--accent-color);
+  border: 1px solid var(--white);
 
   transition: all 0.2s ease-in;
 }

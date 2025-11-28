@@ -16,10 +16,10 @@ function Post() {
     <main>
       <NavigationContext />
       <div className="container">
-        <div className={css.wrapper}>
+        <section className={css.wrapper}>
           <SelfPost id={id} />
           <PostNavigation />
-        </div>
+        </section>
       </div>
     </main>
   );

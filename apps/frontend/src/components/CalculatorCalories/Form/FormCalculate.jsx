@@ -248,8 +248,8 @@ export default function FormCalculate({ setCalories }) {
                 <MenuItem value="">
                   <em>Стать</em>
                 </MenuItem>
-                <MenuItem value={"Чоловік"}>Чоловік</MenuItem>
-                <MenuItem value={"Жінка"}>Жінка</MenuItem>
+                <MenuItem value={"Man"}>Man</MenuItem>
+                <MenuItem value={"Woman"}>Woman</MenuItem>
               </Select>
             </FormControl>
             <ErrorMessage name="sex" component="div" className={style.error} />

@@ -22,8 +22,6 @@ export default function OfferLayout() {
 
   const group = capitalizeFirst(selectedGroup);
 
-  console.log(group);
-
   return (
     <main>
       <NavigationContext />

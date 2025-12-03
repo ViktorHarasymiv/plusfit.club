@@ -26,7 +26,7 @@ export const useTrainerStore = create((set, get) => ({
         },
       ],
       category: "Yoga",
-      section: ["Yoga", "Massage", "Rehabilitation"],
+      section: ["Yoga"],
       photo: yoga,
       education: [
         "RYT-500 Certified Yoga Instructor — Yoga Alliance",
@@ -63,7 +63,7 @@ export const useTrainerStore = create((set, get) => ({
         },
       ],
       category: "Fitness",
-      section: "Gym",
+      section: ["Fitness"],
       photo: crossfit,
       education: [
         "Certified CrossFit Level 2 Trainer",
@@ -100,7 +100,7 @@ export const useTrainerStore = create((set, get) => ({
         },
       ],
       category: "Weightlifting",
-      section: "Gym",
+      section: ["Gym"],
       photo: weightlifting,
       education: [
         "Certified Weightlifting Coach (IFBB)",
@@ -136,7 +136,7 @@ export const useTrainerStore = create((set, get) => ({
         },
       ],
       category: "Bodybilding",
-      section: "Gym",
+      section: ["Gym"],
       photo: weightlifting2,
       education: [
         "Certified Bodybilding Coach (IFBB)",

@@ -22,10 +22,13 @@ function Reviews({ filterType }) {
     fetchReviews();
   }, []);
 
-  const selectedGroup = filterType || null;
+  const selectedGroup =
+    Array.isArray(filterType) && filterType.length > 0 ? filterType : null;
 
   const filtered = reviews.filter(({ section }) =>
-    selectedGroup ? section.includes(selectedGroup) : true
+    selectedGroup
+      ? selectedGroup.some((group) => section.includes(group))
+      : true
   );
 
   return (

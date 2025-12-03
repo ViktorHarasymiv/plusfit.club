@@ -1,5 +1,5 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 import css from "./Offer.module.css";
 import NavigationContext from "../../components/NavigationContext/NavigationContext";
@@ -10,6 +10,20 @@ import EatBrand from "../../components/EatBrand/EatBrand";
 
 export default function OfferLayout() {
   document.title = "Iron Mass - Offers";
+
+  const location = useLocation();
+
+  const selectedGroup = location.pathname.replace("/offer/", "");
+
+  function capitalizeFirst(str) {
+    if (!str) return "";
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  const group = capitalizeFirst(selectedGroup);
+
+  console.log(group);
+
   return (
     <main>
       <NavigationContext />
@@ -19,7 +33,7 @@ export default function OfferLayout() {
           <Outlet />
         </div>
       </div>
-      <Reviews />
+      <Reviews filterType={group} />
 
       <CommentForm />
       <EatBrand />

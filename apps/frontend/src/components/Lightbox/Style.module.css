@@ -72,6 +72,8 @@
 
 .nav_btn_left,
 .nav_btn_right {
+  display: none;
+  z-index: 1;
   padding-inline: 30px;
   font-size: clamp(1.75rem, 1.0898rem + 2.8169vw, 3.625rem);
   color: var(--white);
@@ -92,4 +94,11 @@
 
 .close_btn:hover {
   transform: scale(1.04);
+}
+
+@media screen and (min-width: 991px) {
+  .nav_btn_left,
+  .nav_btn_right {
+    display: block;
+  }
 }

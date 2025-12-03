@@ -226,8 +226,6 @@ export default function FormReview() {
                 rows={4}
                 value={values.message}
                 onChange={handleChange}
-                // error={touched.message && Boolean(errors.message)}
-                // helperText={touched.message && errors.message}
                 sx={{
                   width: "100%",
                   backgroundColor: "transparent",
@@ -237,7 +235,7 @@ export default function FormReview() {
                   },
 
                   "& .MuiOutlinedInput-notchedOutline": {
-                    borderColor: "#6c757d",
+                    borderColor: "var(--border-info-color)",
                   },
 
                   "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":

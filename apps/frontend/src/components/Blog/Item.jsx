@@ -6,8 +6,8 @@ import Button from "../ui/Button/Button";
 import { Link } from "react-router-dom";
 
 function Item({ data }) {
-  return data.map(({ _id, images, author, title, description }) => (
-    <aside className={css.item}>
+  return data.map(({ _id, images, author, title, description }, i) => (
+    <aside key={i} className={css.item}>
       <div className={css.thumb_tile}>
         <img src={images[0]} alt="Thumb" className={css.thumb_img} />
       </div>

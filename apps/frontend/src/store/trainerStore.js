@@ -13,7 +13,7 @@ export const useTrainerStore = create((set, get) => ({
       greeting:
         "Namaste! I'm Sarah — your guide to mindful movement, balance, and inner peace through yoga.",
       link: "Sarah-Johnson",
-      pricePath: [{ label: "Yoga", path: "yoga" }],
+      pricePath: [{ label: "Yoga", path: "Yoga" }],
       social: [
         {
           instagram: {

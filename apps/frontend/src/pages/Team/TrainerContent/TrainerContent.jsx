@@ -17,6 +17,8 @@ function TrainerContent() {
 
   const uniqueCategories = [...new Set(filteredData.map((t) => t.section))];
 
+  console.log(uniqueCategories);
+
   return (
     <>
       <div className="container">

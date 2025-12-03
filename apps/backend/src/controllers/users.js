@@ -20,7 +20,7 @@ export const getMeController = async (req, res) => {
     }
     const user = await UsersCollection.findById(userId).lean();
     if (!user) {
-      return res.status(404).json({ error: 'User not found' });
+      return res.status(201).json({ error: 'User not found' });
     }
 
     const { password, ...safeUser } = user;

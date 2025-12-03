@@ -22,6 +22,12 @@ function Reviews({ filterType }) {
     fetchReviews();
   }, []);
 
+  const selectedGroup = filterType || null;
+
+  const filtered = reviews.filter(({ section }) =>
+    selectedGroup ? section.includes(selectedGroup) : true
+  );
+
   return (
     <section className={css.wrapper}>
       <SectionTitle title={"Our reviews"} about={"Reviews"} />
@@ -61,21 +67,15 @@ function Reviews({ filterType }) {
             }
           }}
         >
-          {reviews
-            .filter((review) =>
-              filterType?.length
-                ? filterType.some((type) => review.section.includes(type))
-                : true
-            )
-            .map((content, index) => {
-              return (
-                <SwiperSlide key={index}>
-                  <ul className={css.list}>
-                    <ReviewItem content={content} />
-                  </ul>
-                </SwiperSlide>
-              );
-            })}
+          {filtered.map((content, index) => {
+            return (
+              <SwiperSlide key={index}>
+                <ul className={css.list}>
+                  <ReviewItem content={content} />
+                </ul>
+              </SwiperSlide>
+            );
+          })}
         </Swiper>
       </div>
     </section>

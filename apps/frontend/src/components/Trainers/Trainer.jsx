@@ -66,6 +66,7 @@ export default function Trainer({ selectedCategory }) {
             <div className={css.staticList}>
               {filtered.map(({ name, category, photo, link }, index) => (
                 <TrainerItem
+                  key={index}
                   name={name}
                   category={category}
                   photo={photo}

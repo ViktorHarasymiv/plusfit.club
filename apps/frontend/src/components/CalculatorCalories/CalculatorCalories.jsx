@@ -25,8 +25,6 @@ export default function CalculatorCalories({ styles }) {
     maxHeight: "75%",
   };
 
-  console.log(width);
-
   return (
     <section className={style.calculator_section_wrapper}>
       <div className={`container ${styles}`}>

@@ -5,6 +5,7 @@ import { API_URL } from "../config/api";
 export const usePostStore = create((set) => ({
   content: null,
   selfPost: null,
+  comment: null,
   loading: false,
   error: null,
   pagination: {
@@ -61,6 +62,25 @@ export const usePostStore = create((set) => ({
       const res = await axios.get(`${API_URL}/posts/${id}`);
       set({
         selfPost: res.data.data, // якщо бекенд повертає { data: {...} }
+        loading: false,
+      });
+    } catch (err) {
+      set({
+        error:
+          err.response?.data?.message ||
+          err.message ||
+          "Помилка при завантаженні",
+        loading: false,
+      });
+    }
+  },
+
+  getCommentPost: async (postId) => {
+    set({ loading: true, error: null });
+    try {
+      const res = await axios.get(`${API_URL}/posts/comments/${postId}`);
+      set({
+        comment: res.data,
         loading: false,
       });
     } catch (err) {

@@ -1,5 +1,5 @@
 .wrapper {
-  flex: 0 0 70%;
+  flex: 0 0 68%;
 }
 
 .wrapper img {
@@ -21,7 +21,9 @@
 
 .navigation_wrapper {
   display: flex;
-
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
   justify-content: space-between;
 }
 
@@ -34,6 +36,7 @@
 
 .tile {
   display: inherit;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 
@@ -110,6 +113,7 @@
   margin-bottom: 20px;
 
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 
   gap: 20px;
@@ -137,12 +141,17 @@
 }
 
 .tags_list {
+  overflow-x: auto;
   display: flex;
 
   flex-direction: row;
   flex-wrap: nowrap;
 
   gap: 15px;
+}
+
+.tags_list::-webkit-scrollbar {
+  display: none;
 }
 
 .tags_item {
@@ -152,4 +161,115 @@
 
   color: var(--dark);
   background-color: var(--light-color);
+}
+
+/* Comment block */
+
+.navigation {
+  margin-top: 50px;
+
+  font-size: 28px;
+
+  color: var(--dark);
+}
+
+.sign_in_link {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+.form_block {
+  margin-top: 50px;
+
+  padding: 30px;
+  background-color: var(--light-color);
+}
+
+.form_wrapper {
+  display: flex;
+  flex-direction: column;
+
+  gap: 30px;
+}
+
+.first_column {
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+.input_wrapper {
+  position: relative;
+  width: 100%;
+
+  background-color: var(--white);
+}
+
+.input {
+  outline-color: var(--border-info-color) !important;
+}
+
+.comment_title {
+  margin-bottom: 20px;
+
+  font-size: 28px;
+}
+
+/* Comment list */
+
+.comment_wrapper {
+  margin-top: 50px;
+}
+
+.comment_title {
+  font-family: var(--font-family-accent);
+  font-size: 18px;
+}
+
+.comment_list {
+  margin-top: 30px;
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 50px;
+}
+
+.comment_list li:nth-child(even) {
+  margin-left: 50px;
+}
+
+.comment_list li {
+  display: flex;
+
+  gap: 30px;
+}
+
+.user_name {
+  font-family: var(--font-family-accent);
+
+  color: var(--dark);
+
+  font-size: 24px;
+}
+
+.time {
+  margin-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
+  font-size: 13px;
+
+  color: var(--accent-color);
+}
+
+.comment_avatar {
+  border-radius: 50%;
+
+  width: 80px;
+  height: 80px !important;
 }

@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 
 import css from "./Style.module.css";
 import { usePostStore } from "../../store/postStore";
@@ -7,18 +8,41 @@ import { FaRegUser } from "react-icons/fa";
 import { FaRegMessage } from "react-icons/fa6";
 import { GrLike } from "react-icons/gr";
 import { BsShare } from "react-icons/bs";
+import CommentFormPost from "./CommentFormPost";
+import { useAuth } from "../../context/AuthContext";
+import { useAuthModalStore } from "../../store/useAuthModalStore";
+import CommentList from "./CommentList";
 
 function SelfPost({ id }) {
-  const { getPostById, selfPost } = usePostStore();
+  const { user } = useAuth();
+  const { openSignIn } = useAuthModalStore();
+  const { getPostById, selfPost, getCommentPost, comment } = usePostStore();
+
+  const [commentScroll, setCommentScroll] = useState();
+
+  const commentListRef = useRef(null);
+
+  const scrollToComponent = (toWhat) => {
+    if (toWhat) {
+      const rect = toWhat.getBoundingClientRect();
+
+      const offset = window.pageYOffset + rect.top - 80;
+      window.scrollTo({ top: offset, behavior: "smooth" });
+    }
+  };
 
   useEffect(() => {
     getPostById(id);
+    getCommentPost(id);
+
+    if (commentListRef.current) {
+      setCommentScroll(commentListRef.current);
+    }
   }, []);
 
   if (!selfPost) return null;
 
-  const { author, likes, commentsCount, title, images, content, quote, tags } =
-    selfPost;
+  const { author, likes, title, images, content, quote, tags } = selfPost;
 
   return (
     <div className={css.wrapper}>
@@ -29,9 +53,12 @@ function SelfPost({ id }) {
             <FaRegUser />
             {author}
           </div>
-          <div className={css.tile}>
+          <div
+            className={css.tile}
+            onClick={() => scrollToComponent(commentScroll)}
+          >
             <FaRegMessage />
-            {commentsCount} Comments
+            {comment?.length} Comments
           </div>
           <div className={css.tile}>
             <GrLike />
@@ -87,6 +114,24 @@ function SelfPost({ id }) {
           </ul>
         </div>
       </div>
+
+      {/* Comment list  */}
+
+      <div ref={commentListRef}>
+        <CommentList data={comment} />
+      </div>
+
+      {/* Comment Form Post  */}
+      {user ? (
+        <CommentFormPost postId={id} fetchNewComment={getCommentPost} />
+      ) : (
+        <div className={css.navigation}>
+          To leave a comment, you must be{" "}
+          <span onClick={openSignIn} className={css.sign_in_link}>
+            logged in.
+          </span>
+        </div>
+      )}
     </div>
   );
 }

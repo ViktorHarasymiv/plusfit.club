@@ -50,3 +50,35 @@ export const getPostById = async (id) => {
     throw error;
   }
 };
+
+// PATCH LIKE
+
+export const toggleLike = async (postId, userId) => {
+  if (!postId || !userId) throw new Error("postId і userId обов'язкові");
+
+  try {
+    const post = await getPostById(postId);
+
+    if (!post.likedBy) post.likedBy = [];
+
+    const alreadyLiked = post.likedBy.includes(userId);
+
+    if (alreadyLiked) {
+      // якщо вже лайкнув — прибираємо лайк
+      post.likedBy = post.likedBy.filter((u) => u !== userId);
+    } else {
+      // якщо ще не лайкнув — додаємо
+      post.likedBy.push(userId);
+    }
+
+    // кількість лайків = довжина масиву
+    post.likes = post.likedBy.length;
+
+    await post.save();
+
+    return post;
+  } catch (error) {
+    console.error('Error toggling like:', error);
+    throw error;
+  }
+};

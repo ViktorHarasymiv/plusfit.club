@@ -21,6 +21,7 @@ export const postValidationSchema = Joi.object({
   tags: Joi.array().items(Joi.string().trim().min(1)).default([]),
 
   views: Joi.number().integer().min(0).default(0),
+  likedBy: Joi.array(),
   likes: Joi.number().integer().min(0).default(0),
   commentsCount: Joi.number().integer().min(0).default(0),
 

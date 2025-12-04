@@ -1,5 +1,5 @@
 import createHttpError from 'http-errors';
-import { getAllPost, getPostById } from '../services/posts.js';
+import { getAllPost, getPostById, toggleLike } from '../services/posts.js';
 
 import { parsePaginationParams } from '../utils/parsePaginationParams.js';
 import { parseSortParams } from '../utils/parseSortParams.js';
@@ -50,5 +50,19 @@ export const getPostByIdController = async (req, res, next) => {
         error.message || 'Помилка при пошуку поста',
       ),
     );
+  }
+};
+
+//  LIKE
+
+export const likePostController = async (req, res) => {
+  const { postId } = req.params; // правильна назва параметра
+  const { userId } = req.body; // id користувача
+
+  try {
+    const updatedPost = await toggleLike(postId, userId);
+    res.json(updatedPost);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
   }
 };

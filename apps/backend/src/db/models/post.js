@@ -13,6 +13,7 @@ const PostSchema = new Schema(
     images: { type: [String], required: false },
     tags: { type: [String], default: [] },
     views: { type: Number, default: 0 },
+    likedBy: { type: [String], default: [] }, // масив userId
     likes: { type: Number, default: 0 },
     commentsCount: { type: Number, default: 0 },
     isFeatured: { type: Boolean, default: true },

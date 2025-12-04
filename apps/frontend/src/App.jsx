@@ -42,10 +42,9 @@ function App() {
   // EFFECTS
 
   useEffect(() => {
-    scrollTo(0, 0);
-    if (location.pathname == "/private-policy") {
-      console.log("+");
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" });
 
+    if (location.pathname == "/private-policy") {
       closeAll();
     }
   }, [location]);

@@ -14,7 +14,7 @@ function CommentList({ data }) {
           <ul className={css.comment_list}>
             {data.map(({ userSnapshot, text, createdAt }, i) => {
               return (
-                <li>
+                <li key={i}>
                   <img
                     src={userSnapshot.avatar}
                     alt={`${userSnapshot.name} avatar`}

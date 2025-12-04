@@ -12,12 +12,15 @@ import CommentFormPost from "./CommentFormPost";
 import { useAuth } from "../../context/AuthContext";
 import { useAuthModalStore } from "../../store/useAuthModalStore";
 import CommentList from "./CommentList";
+import axios from "axios";
+import { API_URL } from "../../config/api";
 
 function SelfPost({ id }) {
   const { user } = useAuth();
   const { openSignIn } = useAuthModalStore();
   const { getPostById, selfPost, getCommentPost, comment } = usePostStore();
 
+  const [isLike, setIsLike] = useState(false);
   const [commentScroll, setCommentScroll] = useState();
 
   const commentListRef = useRef(null);
@@ -38,7 +41,17 @@ function SelfPost({ id }) {
     if (commentListRef.current) {
       setCommentScroll(commentListRef.current);
     }
-  }, []);
+  }, [isLike]);
+
+  const handleLike = async (postId, userId) => {
+    const { data } = await axios.patch(`${API_URL}/posts/${postId}/like`, {
+      userId,
+    });
+    setIsLike((prev) => !prev);
+    return data;
+  };
+
+  console.log(isLike);
 
   if (!selfPost) return null;
 
@@ -61,7 +74,7 @@ function SelfPost({ id }) {
             {comment?.length} Comments
           </div>
           <div className={css.tile}>
-            <GrLike />
+            <GrLike onClick={() => handleLike(id, user._id)} />
             {likes} Like
           </div>
         </div>

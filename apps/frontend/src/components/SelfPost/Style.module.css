@@ -273,3 +273,9 @@
   width: 80px;
   height: 80px !important;
 }
+
+@media screen and (min-width: 768px) {
+  .thumb_tile {
+    flex-wrap: nowrap;
+  }
+}

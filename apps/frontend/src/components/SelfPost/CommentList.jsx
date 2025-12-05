@@ -26,7 +26,7 @@ function CommentList({ data }) {
                       <FaRegClock />
                       {timeFormatted(createdAt)}
                     </p>
-                    <p>{text}</p>
+                    <p className={css.comment_text}>{text}</p>
                   </div>
                 </li>
               );

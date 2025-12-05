@@ -1,7 +1,8 @@
 import React from "react";
+import PostSearch from "./PostSearch";
 
 function PostNavigation() {
-  return <div>PostNavigation</div>;
+  return <PostSearch />;
 }
 
 export default PostNavigation;

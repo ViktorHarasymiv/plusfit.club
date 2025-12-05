@@ -7,6 +7,22 @@
   gap: 25px;
 }
 
+/* Navigation panel */
+
+.wrapper_navigation {
+  display: flex;
+  flex-direction: column;
+
+  gap: 40px;
+
+  flex: 1 1 100%;
+}
+
+.tile_wrapper {
+  padding: 30px;
+  background-color: var(--light-color);
+}
+
 @media screen and (min-width: 991px) {
   .wrapper {
     flex-direction: row;

@@ -8,7 +8,7 @@
 
 .blog_title {
   margin-bottom: 15px;
-  font-size: 34px;
+  font-size: clamp(1.5rem, 1.2799rem + 0.939vw, 2.125rem);
   font-family: var(--font-family-accent);
   color: var(--dark);
 }
@@ -45,6 +45,11 @@
   text-align: end;
 
   font-size: 14px;
+}
+
+.tile:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .tile svg {
@@ -252,7 +257,7 @@
 
   color: var(--dark);
 
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .time {
@@ -270,8 +275,12 @@
 .comment_avatar {
   border-radius: 50%;
 
-  width: 80px;
-  height: 80px !important;
+  width: 60px;
+  height: 60px !important;
+}
+
+.comment_text {
+  font-size: 14px;
 }
 
 @media screen and (min-width: 768px) {

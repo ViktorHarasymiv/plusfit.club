@@ -235,7 +235,7 @@ export default function FormReview() {
                   },
 
                   "& .MuiOutlinedInput-notchedOutline": {
-                    borderColor: "var(--border-info-color)",
+                    borderColor: "rgb(118, 118, 118)",
                   },
 
                   "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":

@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
 
 import css from "./Style.module.css";
 import { usePostStore } from "../../store/postStore";
@@ -51,7 +50,34 @@ function SelfPost({ id }) {
     return data;
   };
 
-  console.log(isLike);
+  function ShareButton({ post }) {
+    const handleShare = async () => {
+      if (navigator.share) {
+        try {
+          console.log(post);
+
+          await navigator.share({
+            title: post.title,
+            text: post.text,
+            url: window.location.href,
+          });
+          console.log("Post shared successfully");
+        } catch (error) {
+          console.error("Error sharing:", error);
+        }
+      } else {
+        // fallback: копіювати лінк
+        navigator.clipboard.writeText(window.location.href);
+        alert("Лінк скопійовано!");
+      }
+    };
+
+    return (
+      <div className={css.tile} onClick={handleShare}>
+        <BsShare /> Share
+      </div>
+    );
+  }
 
   if (!selfPost) return null;
 
@@ -79,7 +105,7 @@ function SelfPost({ id }) {
           </div>
         </div>
         <div className={css.tile}>
-          <BsShare /> Share
+          <ShareButton post={selfPost} />
         </div>
       </div>
       <h3 className={css.blog_title}>{title}</h3>

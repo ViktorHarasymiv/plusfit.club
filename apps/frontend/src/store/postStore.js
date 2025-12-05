@@ -24,8 +24,6 @@ export const usePostStore = create((set) => ({
       sortBy = "createdAt",
       sortOrder = "asc",
       tags,
-      author,
-      isFeatured,
     } = params;
 
     const query = new URLSearchParams({
@@ -34,8 +32,6 @@ export const usePostStore = create((set) => ({
       sortBy,
       sortOrder,
       ...(tags ? { tags: tags.join(",") } : {}),
-      ...(author ? { author } : {}),
-      ...(isFeatured !== undefined ? { isFeatured } : {}),
     });
 
     try {

@@ -1,11 +1,24 @@
 import React from "react";
+import ReactPaginate from "react-paginate";
 
 import css from "./Style.module.css";
 
 import { FaRegClock } from "react-icons/fa";
 import { timeFormatted } from "../../utils/timeFormated";
 
-function CommentList({ data }) {
+import { FaArrowRightLong } from "react-icons/fa6";
+import { FaArrowLeftLong } from "react-icons/fa6";
+
+function CommentList({ data, pagination, setPage }) {
+  console.log(pagination);
+
+  const { currentPage, totalPages } = pagination;
+
+  const handlePageClick = (event) => {
+    const selectedPage = event.selected + 1;
+    setPage(selectedPage);
+  };
+
   return (
     <div className={css.comment_wrapper}>
       {data?.length > 0 ? (
@@ -32,6 +45,18 @@ function CommentList({ data }) {
               );
             })}
           </ul>
+          <ReactPaginate
+            className={css.pagination}
+            breakLabel="..."
+            activeClassName={css.active_pagination}
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={5}
+            pageCount={totalPages}
+            forcePage={currentPage - 1}
+            nextLabel={<FaArrowRightLong />}
+            previousLabel={<FaArrowLeftLong />}
+            renderOnZeroPageCount={null}
+          />
         </div>
       ) : null}
     </div>

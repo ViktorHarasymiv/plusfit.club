@@ -46,6 +46,22 @@
   transition: all 0.2s ease-in;
 }
 
+.blog_input {
+  position: relative;
+
+  padding-right: 50px;
+  background-color: var(--white);
+
+  border-color: var(--border-color);
+  border-radius: 0px;
+
+  color: var(--dark);
+}
+
+.blog_input::placeholder {
+  color: var(--body-text-color) !important;
+}
+
 .full_width {
   width: 100%;
 }

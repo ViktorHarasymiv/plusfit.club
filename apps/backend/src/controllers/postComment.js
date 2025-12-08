@@ -1,5 +1,8 @@
 import { postCommentCollection } from '../db/models/postComment.js';
 import { UsersCollection } from '../db/models/user.js';
+import { getPostComments } from '../services/postCommentServices.js';
+import { parsePaginationParams } from '../utils/parsePaginationParams.js';
+import { parseSortParams } from '../utils/parseSortParams.js';
 
 export const createPostCommentController = async (req, res) => {
   try {
@@ -31,17 +34,28 @@ export const getPostCommentController = async (req, res) => {
   try {
     const { postId } = req.params;
 
-    const postComment = await postCommentCollection
-      .find({ postId })
-      .sort({ createdAt: -1 });
+    const { page, perPage } = parsePaginationParams(req.query);
+    const { sortBy, sortOrder } = parseSortParams(req.query);
 
-    if (!postComment || postComment.length === 0) {
-      return res
-        .status(201)
-        .json({ message: 'No comments found for this post' });
+    // Валідація postId (якщо це Mongo ObjectId)
+    if (!postId || !/^[0-9a-fA-F]{24}$/.test(postId)) {
+      return res.status(400).json({ message: 'Invalid postId format' });
     }
 
-    res.status(201).json(postComment);
+    const commentsResult = await getPostComments(postId, {
+      page: page || 1,
+      perPage: Math.min(perPage || 3, 50), // максимум 50
+      sortBy,
+      sortOrder,
+    });
+
+    // Завжди повертаємо однакову структуру
+    return res.status(200).json({
+      data: commentsResult.data || [],
+      totalItems: commentsResult.totalItems || 0,
+      totalPages: commentsResult.totalPages || 0,
+      currentPage: commentsResult.currentPage || page || 1,
+    });
   } catch (err) {
     res.status(500).json({ message: err.message });
   }

@@ -82,3 +82,16 @@ export const toggleLike = async (postId, userId) => {
     throw error;
   }
 };
+
+// SEARCH
+
+export async function searchPostsByTitle(query) {
+  try {
+    const posts = await PostCollection.find({
+      title: { $regex: query, $options: 'i' },
+    });
+    return posts;
+  } catch (error) {
+    throw new Error('Помилка при пошуку постів: ' + error.message);
+  }
+}

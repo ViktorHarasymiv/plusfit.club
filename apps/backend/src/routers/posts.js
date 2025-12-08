@@ -3,6 +3,7 @@ import {
   getPostByIdController,
   getPostController,
   likePostController,
+  searchPostsController,
 } from '../controllers/post.js';
 import {
   createPostCommentController,
@@ -12,6 +13,7 @@ import {
 const router = Router();
 
 router.get('/', getPostController);
+router.get('/search', searchPostsController);
 router.get('/:id', getPostByIdController);
 
 router.post('/comments', createPostCommentController);

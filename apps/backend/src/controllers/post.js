@@ -1,10 +1,15 @@
 import createHttpError from 'http-errors';
-import { getAllPost, getPostById, toggleLike } from '../services/posts.js';
+import {
+  getAllPost,
+  getPostById,
+  searchPostsByTitle,
+  toggleLike,
+} from '../services/posts.js';
 
 import { parsePaginationParams } from '../utils/parsePaginationParams.js';
 import { parseSortParams } from '../utils/parseSortParams.js';
 
-/* Решта коду файла */
+// FETCH ALL POST
 
 export const getPostController = async (req, res) => {
   const { page, perPage } = parsePaginationParams(req.query);
@@ -24,6 +29,8 @@ export const getPostController = async (req, res) => {
     data: posts,
   });
 };
+
+// FETCH POST BY ID
 
 export const getPostByIdController = async (req, res, next) => {
   const { id } = req.params;
@@ -66,3 +73,20 @@ export const likePostController = async (req, res) => {
     res.status(400).json({ error: error.message });
   }
 };
+
+// SEARCH
+
+export async function searchPostsController(req, res) {
+  const { query } = req.query;
+
+  if (!query) {
+    return res.status(400).json({ error: "Параметр 'query' обов'язковий" });
+  }
+
+  try {
+    const posts = await searchPostsByTitle(query);
+    res.json(posts);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+}

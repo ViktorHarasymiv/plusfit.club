@@ -153,6 +153,80 @@ export const useTrainerStore = create((set, get) => ({
         "Training with me is not just sport — it's a journey to a new version of yourself.",
       ],
     },
+    {
+      id: 4,
+      name: "Sophia Miller",
+      greeting:
+        "Namaste! I'm Sophia — your guide to mindful movement, balance, and inner peace through yoga.",
+      link: "Sophia-Miller",
+      pricePath: [{ label: "Rehabilitation", path: "Rehabilitation" }],
+      social: [
+        {
+          instagram: {
+            link: "https://instagram.com/sarah.yoga.flow",
+            nickname: "@Sophia.Rehabilitation.Miller",
+          },
+        },
+        {
+          phone: "+48 321 654 987",
+        },
+      ],
+      category: "Rehabilitation",
+      section: ["Rehabilitation"],
+      photo: yoga,
+      education: [
+        "RYT-500 Certified Yoga Instructor — Yoga Alliance",
+        "Mindfulness & Meditation Teacher Training — Warsaw Wellness Institute",
+        "Anatomy for Yoga Teachers — Online Course by Leslie Kaminoff",
+      ],
+      experience: [
+        "Over 6 years teaching Vinyasa, Hatha, and Restorative yoga",
+        "Led retreats and workshops across Poland and the Baltics",
+        "Specialized in yoga for stress relief, flexibility, and emotional resilience",
+      ],
+      about: [
+        "My mission is to help you reconnect with your body and breath — one mindful movement at a time.",
+        "I create a safe, inclusive space where every student can grow at their own pace.",
+        "Yoga with me is more than a workout — it's a journey inward toward clarity, calm, and confidence.",
+      ],
+    },
+    {
+      id: 5,
+      name: "Emily Johnson",
+      greeting:
+        "Namaste! I'm Sarah — your guide to mindful movement, balance, and inner peace through yoga.",
+      link: "Emily-Johnson",
+      pricePath: [{ label: "Massage", path: "Massage" }],
+      social: [
+        {
+          instagram: {
+            link: "https://instagram.com/sarah.yoga.flow",
+            nickname: "@Emily.Massage.Johnson",
+          },
+        },
+        {
+          phone: "+48 321 654 987",
+        },
+      ],
+      category: "Massage",
+      section: ["Massage"],
+      photo: yoga,
+      education: [
+        "RYT-500 Certified Yoga Instructor — Yoga Alliance",
+        "Mindfulness & Meditation Teacher Training — Warsaw Wellness Institute",
+        "Anatomy for Yoga Teachers — Online Course by Leslie Kaminoff",
+      ],
+      experience: [
+        "Over 6 years teaching Vinyasa, Hatha, and Restorative yoga",
+        "Led retreats and workshops across Poland and the Baltics",
+        "Specialized in yoga for stress relief, flexibility, and emotional resilience",
+      ],
+      about: [
+        "My mission is to help you reconnect with your body and breath — one mindful movement at a time.",
+        "I create a safe, inclusive space where every student can grow at their own pace.",
+        "Yoga with me is more than a workout — it's a journey inward toward clarity, calm, and confidence.",
+      ],
+    },
   ],
 
   getByFilter: (filter) => get().trainers.filter((t) => t.filter === filter),

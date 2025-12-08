@@ -71,24 +71,5 @@ export const usePostStore = create((set) => ({
     }
   },
 
-  getCommentPost: async (postId) => {
-    set({ loading: true, error: null });
-    try {
-      const res = await axios.get(`${API_URL}/posts/comments/${postId}`);
-      set({
-        comment: res.data,
-        loading: false,
-      });
-    } catch (err) {
-      set({
-        error:
-          err.response?.data?.message ||
-          err.message ||
-          "Помилка при завантаженні",
-        loading: false,
-      });
-    }
-  },
-
   clearError: () => set({ error: null }),
 }));

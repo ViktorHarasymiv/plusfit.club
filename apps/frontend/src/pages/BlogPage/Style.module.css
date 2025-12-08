@@ -23,6 +23,33 @@
   background-color: var(--light-color);
 }
 
+/* Search */
+
+.search_form {
+  position: relative;
+}
+
+.search_submit {
+  position: absolute;
+
+  content: "";
+
+  top: 42%;
+  right: 20px;
+
+  width: 18px;
+  height: 18px;
+
+  transform: translateY(-50%);
+}
+
+.search_submit svg {
+  width: 100%;
+  height: 100%;
+
+  color: var(--accent-color);
+}
+
 @media screen and (min-width: 991px) {
   .wrapper {
     flex-direction: row;

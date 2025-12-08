@@ -13,11 +13,17 @@ import { useAuthModalStore } from "../../store/useAuthModalStore";
 import CommentList from "./CommentList";
 import axios from "axios";
 import { API_URL } from "../../config/api";
+import { useCommentStore } from "../../store/commentPostStore";
 
 function SelfPost({ id }) {
+  // STATE
+  const [page, setPage] = useState(1);
+
+  //  STORE
   const { user } = useAuth();
   const { openSignIn } = useAuthModalStore();
-  const { getPostById, selfPost, getCommentPost, comment } = usePostStore();
+  const { getPostById, selfPost } = usePostStore();
+  const { getCommentPost, data, pagination } = useCommentStore();
 
   const [isLike, setIsLike] = useState(false);
   const [commentScroll, setCommentScroll] = useState();
@@ -35,12 +41,12 @@ function SelfPost({ id }) {
 
   useEffect(() => {
     getPostById(id);
-    getCommentPost(id);
+    getCommentPost(id, page);
 
     if (commentListRef.current) {
       setCommentScroll(commentListRef.current);
     }
-  }, [isLike]);
+  }, [page, isLike]);
 
   const handleLike = async (postId, userId) => {
     const { data } = await axios.patch(`${API_URL}/posts/${postId}/like`, {
@@ -97,7 +103,7 @@ function SelfPost({ id }) {
             onClick={() => scrollToComponent(commentScroll)}
           >
             <FaRegMessage />
-            {comment?.length} Comments
+            {pagination.totalItems} Comments
           </div>
           <div className={css.tile}>
             <GrLike onClick={() => handleLike(id, user._id)} />
@@ -157,7 +163,7 @@ function SelfPost({ id }) {
       {/* Comment list  */}
 
       <div ref={commentListRef}>
-        <CommentList data={comment} />
+        <CommentList data={data} pagination={pagination} setPage={setPage} />
       </div>
 
       {/* Comment Form Post  */}

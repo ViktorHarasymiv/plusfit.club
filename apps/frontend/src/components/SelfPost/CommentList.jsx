@@ -9,14 +9,19 @@ import { timeFormatted } from "../../utils/timeFormated";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { FaArrowLeftLong } from "react-icons/fa6";
 
-function CommentList({ data, pagination, setPage }) {
-  console.log(pagination);
-
+function CommentList({
+  data,
+  pagination,
+  setPage,
+  commentScroll,
+  scrollToComments,
+}) {
   const { currentPage, totalPages } = pagination;
 
   const handlePageClick = (event) => {
     const selectedPage = event.selected + 1;
     setPage(selectedPage);
+    scrollToComments(commentScroll);
   };
 
   return (

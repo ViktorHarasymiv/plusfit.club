@@ -10,3 +10,32 @@
 .css-19qnlrw-MuiFormLabel-root-MuiInputLabel-root.Mui-error {
   color: inherit !important;
 }
+
+/* SELECT */
+
+.MuiInputBase-root {
+  border-radius: 3px !important;
+}
+
+.MuiOutlinedInput-root-MuiSelect-root {
+  color: var(--accent-color) !important;
+}
+
+.MuiOutlinedInput-notchedOutline {
+}
+
+/* + Border */
+
+.MuiOutlinedInput-notchedOutline {
+  border-color: #dee2e6 !important;
+}
+
+/* + Label */
+
+.MuiInputLabel-root {
+  color: #6c757d !important;
+}
+
+.MuiInputLabel-root.Mui-focused {
+  color: var(--dark) !important;
+}

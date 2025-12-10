@@ -163,7 +163,13 @@ function SelfPost({ id }) {
       {/* Comment list  */}
 
       <div ref={commentListRef}>
-        <CommentList data={data} pagination={pagination} setPage={setPage} />
+        <CommentList
+          data={data}
+          pagination={pagination}
+          setPage={setPage}
+          commentScroll={commentScroll}
+          scrollToComments={scrollToComponent}
+        />
       </div>
 
       {/* Comment Form Post  */}

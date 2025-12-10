@@ -1,4 +1,5 @@
 .layout_wrapper {
+  margin-bottom: 120px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;

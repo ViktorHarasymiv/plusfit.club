@@ -5,7 +5,7 @@ import { calculatePaginationData } from '../utils/calculatePaginationData.js';
 
 export async function getPostComments(
   postId,
-  { page = 1, perPage = 2, sortOrder = SORT_ORDER.ASC, sortBy = 'createdAt' },
+  { page = 1, perPage = 2, sortOrder = SORT_ORDER.DESC, sortBy = 'createdAt' },
 ) {
   try {
     const limit = perPage;

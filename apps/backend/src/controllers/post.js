@@ -13,7 +13,6 @@ import { parseSortParams } from '../utils/parseSortParams.js';
 
 export const getPostController = async (req, res) => {
   const { page, perPage } = parsePaginationParams(req.query);
-
   const { sortBy, sortOrder } = parseSortParams(req.query);
 
   const posts = await getAllPost({
@@ -27,6 +26,9 @@ export const getPostController = async (req, res) => {
     status: 200,
     message: 'Успішно завантажено пости !',
     data: posts,
+    totalItems: posts.totalItems || 0,
+    totalPages: posts.totalPages || 0,
+    currentPage: posts.currentPage || page || 1,
   });
 };
 

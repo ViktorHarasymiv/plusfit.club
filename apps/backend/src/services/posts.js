@@ -8,19 +8,15 @@ import { calculatePaginationData } from '../utils/calculatePaginationData.js';
 export const getAllPost = async ({
   page = 1,
   perPage = 6,
-  sortOrder = SORT_ORDER.ASC,
+  sortOrder = SORT_ORDER.DESC,
   sortBy = 'createdAt',
 }) => {
   const limit = perPage;
   const skip = (page - 1) * perPage;
 
-  const postQuery = PostCollection.find();
+  const postCount = await PostCollection.countDocuments();
 
-  const postCount = await PostCollection.find()
-    .merge(postQuery)
-    .countDocuments();
-
-  const posts = await postQuery
+  const posts = await PostCollection.find()
     .sort({ [sortBy]: sortOrder })
     .skip(skip)
     .limit(limit)

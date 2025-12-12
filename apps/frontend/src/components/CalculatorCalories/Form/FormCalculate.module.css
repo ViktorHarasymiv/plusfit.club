@@ -18,7 +18,7 @@
 .input {
   width: 100%;
 
-  outline: 1px solid #6c757d;
+  outline: 1px solid var(--border-color);
   font-size: 1em;
   padding: 14px 20px;
   border: none;

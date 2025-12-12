@@ -5,12 +5,18 @@ import Reviews from "../../components/Reviews/Reviews";
 import Trainer from "../../components/Trainers/Trainer";
 import CommentForm from "../../components/CommentForm/CommentForm";
 import EatBrand from "../../components/EatBrand/EatBrand";
+import AboutUsComponent from "../../components/AboutUsComponent/AboutUsComponent";
+import SectionTitle from "../../components/SectionTitle/SectionTitle";
 
 export default function AboutUs() {
   return (
     <main>
       <NavigationContext />
-      <Trainer />
+      <AboutUsComponent />
+      <>
+        <SectionTitle title={"Our Team"} about={"Meet With Expert Trainers"} />
+        <Trainer />
+      </>
       <TotalArea />
       <Reviews />
       <CommentForm />

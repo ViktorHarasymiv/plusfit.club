@@ -38,7 +38,7 @@ function ProfileSetup() {
   const { user, fetchUser, patchUser } = useAuth();
 
   // CONSTANT
-  dayjs.locale("uk");
+  dayjs.locale("eu");
 
   let age = 0;
 
@@ -62,33 +62,33 @@ function ProfileSetup() {
 
   const userPatchSchema = Yup.object({
     name: Yup.string()
-      .min(3, "Ім’я має містити щонайменше 3 символи")
-      .max(30, "Ім’я не може перевищувати 30 символів")
+      .min(3, "Name must be at least 3 characters long")
+      .max(30, "Name cannot exceed 30 characters")
       .matches(
         /^[А-Яа-яЁёІіЇїЄєҐґA-Za-z]+ [А-Яа-яЁёІіЇїЄєҐґA-Za-z]+$/,
-        "Ім’я має містити прізвище та ім’я через пробіл"
+        "Name must contain both first and last name separated by a space"
       )
-      .optional(), // для PATCH краще optional
+      .optional(), // better optional for PATCH
 
     phone: Yup.string().matches(
       /^\+380\d{9}$/,
-      "Введіть номер у форматі +380XXXXXXXXX"
+      "Enter phone number in format +380XXXXXXXXX"
     ),
 
     sex: Yup.string().oneOf(["Man", "Woman"]).optional(),
 
     birthday: Yup.date()
-      .min(minDate, "Дата народження занадто стара")
-      .max(maxDate, "Вам має бути щонайменше 13 років")
+      .min(minDate, "Date of birth is too old")
+      .max(maxDate, "You must be at least 13 years old")
       .optional(),
 
     goal: Yup.string()
       .oneOf([
-        "Схуднення",
-        "Утримати вагу",
-        "Повільний набір маси",
-        "Активний набір маси",
-        "Набір сухої мязової маси",
+        "Emaciation",
+        "Maintain weight",
+        "Slow weight gain",
+        "Active weight gain",
+        "Gaining lean muscle mass",
       ])
       .optional(),
 
@@ -98,28 +98,28 @@ function ProfileSetup() {
 
     height: Yup.number()
       .nullable()
-      .typeError("Ріст має бути числом")
-      .min(140, "Ріст має бути не менше 140 см")
-      .max(220, "Ріст має бути не більше 220 см")
+      .typeError("Height must be a number")
+      .min(140, "Height must be at least 140 cm")
+      .max(220, "Height must be at most 220 cm")
       .test(
         "is-integer",
-        "Ріст має бути цілим числом",
+        "Height must be an integer",
         (value) => value == null || Number.isInteger(value)
       ),
 
     weight: Yup.number()
       .nullable()
-      .typeError("Вага має бути числом")
-      .min(35, "Вага має бути не менше 35 кг")
-      .max(220, "Вага має бути не більше 220 кг")
+      .typeError("Weight must be a number")
+      .min(35, "Weight must be at least 35 kg")
+      .max(220, "Weight must be at most 220 kg")
       .test(
         "is-integer",
-        "Вага має бути цілим числом",
+        "Weight must be an integer",
         (value) => value == null || Number.isInteger(value)
       ),
 
     activityLevel: Yup.string()
-      .oneOf(["Сидячий", "Слабо", "Середній", "Активний", "Сильна активність"])
+      .oneOf(["Sitting", "Weak", "Average", "Active", "Strong activity"])
       .optional(),
   });
 
@@ -156,7 +156,7 @@ function ProfileSetup() {
               "& .MuiInputLabel-root": {
                 fontSize: "14px",
                 lineHeight: "1",
-                color: "var(--dark)",
+                color: "var(--dark) !important",
               },
 
               "& .MuiPickersOutlinedInput-notchedOutline": {
@@ -525,20 +525,20 @@ function ProfileSetup() {
                         }}
                       >
                         <MenuItem value="" disabled>
-                          <em>Оберіть мету</em>
+                          <em>Choose a goal</em>
                         </MenuItem>
-                        <MenuItem value={"Схуднення"}>Схуднення</MenuItem>
-                        <MenuItem value={"Утримати вагу"}>
-                          Утримати вагу
+                        <MenuItem value={"Emaciation"}>Emaciation</MenuItem>
+                        <MenuItem value={"Maintain weight"}>
+                          Maintain weight
                         </MenuItem>
-                        <MenuItem value={"Повільний набір маси"}>
-                          Повільний набір маси
+                        <MenuItem value={"Slow weight gain"}>
+                          Slow weight gain
                         </MenuItem>
-                        <MenuItem value={"Активний набір маси"}>
-                          Активний набір маси
+                        <MenuItem value={"Active weight gain"}>
+                          Active weight gain
                         </MenuItem>
-                        <MenuItem value={"Набір сухої мязової маси"}>
-                          Набір сухої мязової маси
+                        <MenuItem value={"Gaining lean muscle mass"}>
+                          Gaining lean muscle mass
                         </MenuItem>
                       </Select>
                     </FormControl>
@@ -597,12 +597,12 @@ function ProfileSetup() {
                         <MenuItem value="" disabled>
                           <em>Активність</em>
                         </MenuItem>
-                        <MenuItem value={"Сидячий"}>Сидячий</MenuItem>
-                        <MenuItem value={"Слабо"}>Слабо</MenuItem>
-                        <MenuItem value={"Середній"}>Середній</MenuItem>
-                        <MenuItem value={"Активний"}>Активний</MenuItem>
-                        <MenuItem value={"Сильна активність"}>
-                          Сильна активність
+                        <MenuItem value={"Sitting"}>Sitting</MenuItem>
+                        <MenuItem value={"Weak"}>Weak</MenuItem>
+                        <MenuItem value={"Average"}>Average</MenuItem>
+                        <MenuItem value={"Active"}>Active</MenuItem>
+                        <MenuItem value={"Strong activity"}>
+                          Strong activity
                         </MenuItem>
                       </Select>
                     </FormControl>

@@ -33,13 +33,18 @@ export default function Item({ data, i }) {
       <li className={css.item}>
         <div className={css.title_box}>
           <h1 className={css.about_title}>{name}</h1>
-          <span className={css.title}>{data.title}</span>
+          <p className={css.info}>subscription</p>
           {description?.map(({ time, price }, index) => {
             return (
               <div key={index}>
                 <h2 className={css.price}>
-                  <span className={`active ${i === 2 ? "override-dark" : ""}`}>
-                    {price} $
+                  <span className={`active ${i === 2 ? "white" : ""}`}>
+                    {price} $ /
+                    <span
+                      className={`${css.price_info} ${i === 2 ? "white" : ""}`}
+                    >
+                      Monthly
+                    </span>
                   </span>
                 </h2>
                 <h3>{time}</h3>
@@ -51,39 +56,43 @@ export default function Item({ data, i }) {
           <ul className={css.offers_box}>
             <li>
               {features.gym ? (
-                <MdDone
-                  className={`active ${i === 2 ? "override-dark" : ""}`}
-                />
+                <MdDone className={`active ${i === 2 ? "white" : ""}`} />
               ) : (
-                <IoMdClose
-                  className={`active ${i === 2 ? "override-dark" : ""}`}
-                />
+                <IoMdClose className={`active ${i === 2 ? "white" : ""}`} />
               )}
               <span>Gym / Fitness</span>
             </li>
             <li>
-              {features.isActive ? (
-                <MdDone
-                  className={`active ${i === 2 ? "override-dark" : ""}`}
-                />
+              {features.bonxingTraining ? (
+                <MdDone className={`active ${i === 2 ? "white" : ""}`} />
               ) : (
-                <IoMdClose
-                  className={`active ${i === 2 ? "override-dark" : ""}`}
-                />
+                <IoMdClose className={`active ${i === 2 ? "white" : ""}`} />
               )}
-              <span>Racetrack</span>
+              <span>Bonxing Training</span>
             </li>
             <li>
-              {features.consultation ? (
-                <MdDone
-                  className={`active ${i === 2 ? "override-dark" : ""}`}
-                />
+              {features.yoga ? (
+                <MdDone className={`active ${i === 2 ? "white" : ""}`} />
               ) : (
-                <IoMdClose
-                  className={`active ${i === 2 ? "override-dark" : ""}`}
-                />
+                <IoMdClose className={`active ${i === 2 ? "white" : ""}`} />
               )}
-              <span>Advice</span>
+              <span>Classic Yoga Working</span>
+            </li>
+            <li>
+              {features.fitness ? (
+                <MdDone className={`active ${i === 2 ? "white" : ""}`} />
+              ) : (
+                <IoMdClose className={`active ${i === 2 ? "white" : ""}`} />
+              )}
+              <span>Fashion Yoga & GYM</span>
+            </li>
+            <li>
+              {features.dummbelling ? (
+                <MdDone className={`active ${i === 2 ? "white" : ""}`} />
+              ) : (
+                <IoMdClose className={`active ${i === 2 ? "white" : ""}`} />
+              )}
+              <span>Dummbelling</span>
             </li>
           </ul>
         )}

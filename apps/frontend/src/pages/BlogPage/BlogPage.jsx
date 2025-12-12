@@ -1,14 +1,13 @@
-import React, { useEffect } from "react";
-import NavigationContext from "../../components/NavigationContext/NavigationContext";
+import { useEffect, useState } from "react";
 import { usePostStore } from "../../store/postStore";
 
+import NavigationContext from "../../components/NavigationContext/NavigationContext";
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 
 import css from "./Style.module.css";
 
 import BlogList from "../../components/Blog/BlogList";
 import Button from "../../components/ui/Button/Button";
-import { useState } from "react";
 import BlogFilterNavigation from "./BlogFilterNavigation";
 
 function BlogPage() {

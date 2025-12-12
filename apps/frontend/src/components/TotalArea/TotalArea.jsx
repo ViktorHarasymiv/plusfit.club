@@ -33,7 +33,7 @@ function TotalArea() {
     },
   ];
   return (
-    <section className={css.total_area_section}>
+    <div className={css.total_area_section}>
       <div className="container">
         <ul className={css.list}>
           {data.map(({ count, title, icon }, index) => {
@@ -53,7 +53,7 @@ function TotalArea() {
           })}
         </ul>
       </div>
-    </section>
+    </div>
   );
 }
 

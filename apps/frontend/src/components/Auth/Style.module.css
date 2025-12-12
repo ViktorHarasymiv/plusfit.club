@@ -6,3 +6,55 @@
 
   margin-bottom: 90px;
 }
+
+/* Verify */
+
+.verify_wrapper {
+  margin: 50px auto 100px;
+
+  max-width: 375px;
+
+  padding: 20px;
+
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.form_wrapper {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  gap: 45px;
+}
+
+.input_wrapper {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+}
+
+.verify_wrapper span {
+  margin-bottom: 15px;
+
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--dark);
+
+  text-align: center;
+}
+
+.verify_wrapper input {
+  max-width: 80%;
+
+  color: var(--dark);
+
+  border-color: var(--border-color);
+}
+
+.verify_wrapper input::placeholder {
+  color: var(--dark);
+}

@@ -2,6 +2,20 @@
   position: relative;
 }
 
+.about_title,
+.info {
+  font-family: var(--font-family-accent);
+}
+
+.about_title {
+  line-height: 1.2;
+  font-size: 34px;
+}
+
+.info {
+  font-size: 18px;
+}
+
 .list {
   display: grid;
   gap: 24px;
@@ -88,8 +102,12 @@
 }
 
 .motion li h2 span {
-  font-size: 50px;
+  font-size: 28px;
   color: var(--accent-color);
+}
+
+.price_info {
+  font-size: 18px !important;
 }
 
 .offers_box {

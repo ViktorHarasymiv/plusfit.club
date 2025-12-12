@@ -22,8 +22,8 @@
   width: 100%;
 }
 
-.override-dark {
-  color: var(--dark) !important;
+.white {
+  color: white !important;
 }
 
 .non_full_width {

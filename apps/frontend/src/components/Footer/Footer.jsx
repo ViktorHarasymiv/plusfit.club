@@ -21,10 +21,13 @@ const styleObj = {
   justifyContent: "center",
 };
 
-export default function Footer() {
+export default function Footer({ location }) {
   const width = useWindowWidth();
   return (
-    <footer className={style.footer}>
+    <footer
+      className={style.footer}
+      // style={{ marginTop: location.pathname === "/" && "140px" }}
+    >
       <div className={style.footer_content_wrapper}>
         <div className="container">
           <div className={style.footer_navbar_wrapper}>

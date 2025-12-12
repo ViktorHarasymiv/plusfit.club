@@ -44,37 +44,37 @@ export default function FormCalculate({ setCalories }) {
 
   const validationSchema = Yup.object({
     height: Yup.number()
-      .typeError("Ріст має бути числом")
-      .required("Ріст обов'язковий")
-      .min(140, "Ріст має бути не менше 140 см")
-      .max(220, "Ріст має бути не більше 220 см")
-      .test("is-integer", "Ріст має бути цілим числом", (value) =>
+      .typeError("Height must be a number")
+      .required("Height is required")
+      .min(140, "Height must be at least 140 cm")
+      .max(220, "Height must be at most 220 cm")
+      .test("is-integer", "Height must be an integer", (value) =>
         Number.isInteger(value)
       ),
 
     weight: Yup.number()
-      .typeError("Вага має бути числом")
-      .required("Вага обов’язкова")
-      .min(35, "Вага має бути не менше 35 кг")
-      .max(220, "Вага має бути не більше 220 кг")
-      .test("is-integer", "Вага має бути цілим числом", (value) =>
+      .typeError("Weight must be a number")
+      .required("Weight is required")
+      .min(35, "Weight must be at least 35 kg")
+      .max(220, "Weight must be at most 220 kg")
+      .test("is-integer", "Weight must be an integer", (value) =>
         Number.isInteger(value)
       ),
 
-    birthday: Yup.date().required("Вік обов’язковий"),
+    birthday: Yup.date().required("Birthday is required"),
 
-    sex: Yup.string().required("Стать обов’язкова"),
+    sex: Yup.string().required("Sex is required"),
 
     // BMI: Yup.number(),
     // BMR: Yup.number(),
-    activityLevel: Yup.string().required("Активність обов'язкова"),
+    activityLevel: Yup.string().required("Activity level is required"),
   });
 
   // CONSTANT
 
   let age = 0;
 
-  dayjs.locale("uk");
+  dayjs.locale("eu");
 
   const formattedBirthday = dayjs(initialValues.birthday).format("D MMMM YYYY");
 
@@ -112,14 +112,12 @@ export default function FormCalculate({ setCalories }) {
               width: "100%",
               borderColor: "transparent",
               "& .MuiInputLabel-root": {
-                textAlign: "center",
-                alignItems: "center",
-
                 fontSize: "14px",
-                lineHeight: "1",
-                color: "var(--dark)",
+                color: "var(--body-text-color)  ! important",
+                lineHeight: "1.7",
               },
               "& .MuiPickersSectionList-root": {
+                alignItems: "center",
                 height: "56px",
               },
 
@@ -128,7 +126,7 @@ export default function FormCalculate({ setCalories }) {
               },
 
               "& .MuiPickersOutlinedInput-notchedOutline": {
-                borderColor: "rgba(0,0,0, 0.6)",
+                borderColor: "var(--border-color)",
               },
               "&.Mui-focused .MuiPickersOutlinedInput-notchedOutline": {
                 borderWidth: "1px",
@@ -246,7 +244,7 @@ export default function FormCalculate({ setCalories }) {
                 }}
               >
                 <MenuItem value="">
-                  <em>Стать</em>
+                  <em>Sex</em>
                 </MenuItem>
                 <MenuItem value={"Man"}>Man</MenuItem>
                 <MenuItem value={"Woman"}>Woman</MenuItem>
@@ -291,15 +289,13 @@ export default function FormCalculate({ setCalories }) {
                 }}
               >
                 <MenuItem value="">
-                  <em>Активність</em>
+                  <em>Activity</em>
                 </MenuItem>
-                <MenuItem value={"Сидячий"}>Сидячий</MenuItem>
-                <MenuItem value={"Слабо"}>Слабо</MenuItem>
-                <MenuItem value={"Середній"}>Середній</MenuItem>
-                <MenuItem value={"Активний"}>Активний</MenuItem>
-                <MenuItem value={"Сильна активність"}>
-                  Сильна активність
-                </MenuItem>
+                <MenuItem value={"Sitting"}>Sitting</MenuItem>
+                <MenuItem value={"Weak"}>Weak</MenuItem>
+                <MenuItem value={"Average"}>Average</MenuItem>
+                <MenuItem value={"Active"}>Active</MenuItem>
+                <MenuItem value={"Strong activity"}>Strong activity</MenuItem>
               </Select>
             </FormControl>
             <ErrorMessage
@@ -311,7 +307,7 @@ export default function FormCalculate({ setCalories }) {
 
           {/* submit */}
           <Button type={"submit"} styles={{ maxWidth: "160px" }}>
-            {"Розрахувати"}
+            {"Calculate"}
           </Button>
         </Form>
       )}

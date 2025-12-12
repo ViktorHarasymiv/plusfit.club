@@ -10,11 +10,11 @@ export function calculateCalories(sex, weight, height, age, activityLevel) {
   }
 
   const activityMultipliers = {
-    Сидячий: 1.2,
-    Слабо: 1.375,
-    Середній: 1.55,
-    Активний: 1.725,
-    "Сильна активність": 1.9,
+    Sitting: 1.2,
+    Weak: 1.375,
+    Average: 1.55,
+    Active: 1.725,
+    "Strong activity": 1.9,
   };
 
   const multiplier = activityMultipliers[activityLevel];

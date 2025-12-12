@@ -65,7 +65,7 @@ function App() {
 
       <Header />
       <Router />
-      <Footer />
+      <Footer location={location} />
     </>
   );
 }

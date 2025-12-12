@@ -16,7 +16,7 @@ export default function SectionTitle({ title, about, styles }) {
         transition={{ duration: 0.7, delay: 0.3, ease: "easeOut" }}
       >
         <div className={css.title_text_wrapper}>
-          <CgGym></CgGym>
+          <CgGym />
           <h1 className={css.title_text}>{title}</h1>
         </div>
       </motion.div>

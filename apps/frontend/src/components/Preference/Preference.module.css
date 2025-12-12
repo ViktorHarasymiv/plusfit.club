@@ -1,6 +1,6 @@
 .preferens_wrapper {
   display: grid;
-  grid-template-columns: repeat(2, fit-content(100%));
+  grid-template-columns: repeat(1, fit-content(100%));
   justify-content: center;
   gap: 25px;
 }
@@ -12,6 +12,7 @@
   position: relative;
 
   min-width: 260px;
+  min-height: 320px;
 
   box-shadow: var(--box-shadow);
 }
@@ -99,6 +100,12 @@
   }
   to {
     transform: rotateY(360deg) scale(1);
+  }
+}
+
+@media screen and (min-width: 578px) {
+  .preferens_wrapper {
+    grid-template-columns: repeat(2, fit-content(100%));
   }
 }
 

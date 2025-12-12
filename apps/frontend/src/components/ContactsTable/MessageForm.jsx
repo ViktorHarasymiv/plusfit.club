@@ -66,7 +66,6 @@ function MessageForm() {
       resetForm();
       alert("Відгук успішно додано");
     } catch (error) {
-      setLoader(false);
       if (error?.response?.status === 403) {
         alert("Відгук дозволено лише для абонентів.");
       } else {

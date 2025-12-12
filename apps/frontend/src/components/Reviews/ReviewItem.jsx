@@ -10,8 +10,8 @@ function ReviewItem({ content: { name, section, message, rating } }) {
       <h3 className={css.name}>{name}</h3>
       <p className={css.section}>{section}</p>
       <p className={css.message}>{message}</p>
-      <div aria-label="Рейтинг">
-        <div aria-label="Рейтинг" role="radiogroup">
+      <div aria-label="Rating">
+        <div aria-label="Rating" role="radiogroup">
           {[...Array(5)].map((_, index) => (
             <span key={index}>
               {index < rating ? (

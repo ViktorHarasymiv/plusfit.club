@@ -11,13 +11,19 @@ function TrainerContent() {
   const params = useParams();
   const dataTreiners = useTrainerStore((s) => s.trainers);
 
-  const filteredData = dataTreiners.filter(
-    (trainer) => trainer.link === params.id
-  );
+  const filteredData = Array.isArray(dataTreiners)
+    ? dataTreiners.filter(
+        (trainer) => trainer.link?.toString() === params.id?.toString()
+      )
+    : [];
 
-  const uniqueCategories = [...new Set(filteredData.map((t) => t.section))];
-
-  console.log(uniqueCategories);
+  const uniqueCategories = [
+    ...new Set(
+      filteredData.flatMap((t) =>
+        Array.isArray(t.section) ? t.section : [t.section]
+      )
+    ),
+  ];
 
   return (
     <>
@@ -48,7 +54,7 @@ function TrainerContent() {
                             color: "var(--accent-color)",
                           }}
                         >
-                          Ціни:
+                          Price list
                         </h5>
                         {pricePath?.map(({ label, path }, index) => {
                           return (
@@ -101,8 +107,8 @@ function TrainerContent() {
                 return (
                   <article key={index} className={css.education_article}>
                     {education?.length > 0 && (
-                      <div aria-label={`Освіта ${name}`}>
-                        <h3 className={css.article_title}>Освіта</h3>
+                      <div aria-label={`Education ${name}`}>
+                        <h3 className={css.article_title}>Education</h3>
                         <ul className={css.list}>
                           {education.map((item, i) => (
                             <li key={i} className={css.item}>
@@ -113,8 +119,8 @@ function TrainerContent() {
                       </div>
                     )}
                     {experience?.length > 0 && (
-                      <div aria-label={`Досвід ${name}`}>
-                        <h3 className={css.article_title}>Досвід</h3>
+                      <div aria-label={`Experience ${name}`}>
+                        <h3 className={css.article_title}>Experience</h3>
                         <ul className={css.list}>
                           {experience.map((item, i) => (
                             <li key={i} className={css.item}>

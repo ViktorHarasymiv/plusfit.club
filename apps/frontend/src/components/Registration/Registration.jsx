@@ -20,7 +20,7 @@ import { handleGoogleLogin } from "../../services/auth";
 
 function Registration() {
   const navigate = useNavigate();
-  const { fetchUser } = useAuth();
+
   const { closeSignUp } = useAuthModalStore();
 
   const initialValues = {
@@ -60,8 +60,8 @@ function Registration() {
     try {
       await register(payload); // твій API-запит
       resetForm(); // очищення форми після успіху
+      closeSignUp();
       navigate("/verify", { state: { email: payload.email } });
-      console.log("Після редіректу");
 
       // closeSignUp();
     } catch (error) {
@@ -71,12 +71,6 @@ function Registration() {
       setSubmitting(false); // знімає блокування кнопки
     }
   };
-
-  // const closeAllModal = () => {
-  //   setSuccess(false);
-  //   closeSignUp();
-  //   fetchUser();
-  // };
 
   return (
     <>

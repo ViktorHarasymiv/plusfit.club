@@ -128,12 +128,13 @@
 .price {
   font-size: 28px;
   font-weight: 700;
-  color: var(--accent-color);
+  color: var(--white);
   line-height: 1;
 }
 
 .price span {
-  font-size: 18px;
+  margin-right: 10px;
+  font-size: 16px;
 }
 
 @media screen and (min-width: 767.98px) {

@@ -1,9 +1,11 @@
-import React, { useState } from "react";
-import axios from "axios";
+import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import NavigationContext from "../NavigationContext/NavigationContext";
 import { verifyEmailCode } from "../../services/auth";
+
+import NavigationContext from "../NavigationContext/NavigationContext";
 import Button from "../ui/Button/Button";
+
+import css from "./Style.module.css";
 
 export default function VerifyForm() {
   const [code, setCode] = useState("");
@@ -27,19 +29,16 @@ export default function VerifyForm() {
       <NavigationContext />
       <section>
         <div className="container">
-          <div
-            style={{
-              background: "rgba(0, 0, 0, .3)",
-              paddingBlock: "20px",
-              borderRadius: "12px",
-            }}
-          >
-            <form onSubmit={handleSubmit} className="form_wrapper">
-              <div className="input_wrapper">
-                <p>Enter the code sent to {email}</p>
+          <div className={css.verify_wrapper}>
+            <form onSubmit={handleSubmit} className={css.form_wrapper}>
+              <div className={css.input_wrapper}>
+                <span>
+                  Enter the code sent to:{" "}
+                  <a href={`mailto:${email}`}>{email}</a>
+                </span>
                 <input
                   name="code"
-                  placeholder="Verification code"
+                  placeholder="Enter code"
                   value={code}
                   onChange={(e) => setCode(e.target.value)}
                   className="input"

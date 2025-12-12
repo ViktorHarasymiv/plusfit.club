@@ -58,7 +58,7 @@ function OrderForm({ payload, close }) {
 
     return (
       <DesktopDatePicker
-        label="Початкова дата занять"
+        label="Start date of classes"
         minDate={maxDateStart}
         maxDate={minDateEnd}
         onChange={(newValue) =>
@@ -140,7 +140,7 @@ function OrderForm({ payload, close }) {
     startDate: "",
     endDate: "",
     price: payload.description[0].price || "",
-    status: "Очікує оплати",
+    status: "Wait for paid",
     method: "",
   };
 
@@ -177,11 +177,13 @@ function OrderForm({ payload, close }) {
 
   const subscriptionDurationMonths = (type) => {
     switch (type) {
-      case "Basic plan":
+      case "Basic":
         return 1;
-      case "Standart plan":
+      case "Standart":
+        return 3;
+      case "Premium":
         return 6;
-      case "Year plan":
+      case "Vip":
         return 12;
       default:
         return 1;
@@ -232,12 +234,12 @@ function OrderForm({ payload, close }) {
         <Form className={css.form_block}>
           <div className={css.input_wrapper}>
             {/* Дані клієнта */}
-            <h2 className={css.section_title}>Дані клієнта</h2>
+            <h2 className={css.section_title}>Your information</h2>
             <div className={css.content_wrapper}>
               <div className="input_wrapper">
                 <Field
                   name="name"
-                  placeholder="Прізвище Ім'я"
+                  placeholder="Enter Full name"
                   className="input"
                   disabled
                 />
@@ -246,27 +248,31 @@ function OrderForm({ payload, close }) {
               <div className="input_wrapper">
                 <Field
                   name="email"
-                  placeholder="Email"
+                  placeholder="Enter Email"
                   className="input"
                   disabled
                 />
                 <ErrorMessage name="email" component="div" className="error" />
               </div>
               <div className="input_wrapper">
-                <Field name="phone" placeholder="Телефон" className="input" />
+                <Field
+                  name="phone"
+                  placeholder="Enter your phone"
+                  className="input"
+                />
                 <ErrorMessage name="phone" component="div" className="error" />
               </div>
             </div>
 
             {/* Тип підписки */}
-            <h2 className={css.section_title}>Тип абонементу</h2>
+            <h2 className={css.section_title}>Subscription type</h2>
 
             <div className="input_wrapper">
               {/* Айді */}
               <div className={css.id_wrapper}>
                 <Field
                   name="clientId"
-                  placeholder="ID клієнта"
+                  placeholder="ID"
                   className="input"
                   disabled
                 />
@@ -344,85 +350,83 @@ function OrderForm({ payload, close }) {
                     <MenuItem value="">
                       <em>Type</em>
                     </MenuItem>
-                    <MenuItem value={"Basic plan"}>Basic plan</MenuItem>
-                    <MenuItem value={"Standart plan"}>Standart plan</MenuItem>
-                    <MenuItem value={"Year plan"}>Year plan</MenuItem>
+                    <MenuItem value={"Basic"}>Basic</MenuItem>
+                    <MenuItem value={"Standart"}>Standart</MenuItem>
+                    <MenuItem value={"Premium"}>Premium</MenuItem>
+                    <MenuItem value={"Vip"}>Vip</MenuItem>
                   </Select>
                 </FormControl>
                 <ErrorMessage name="type" component="div" className="error" />
               </div>
-              {payload.description.length > 1 && (
-                <div className="input_wrapper">
-                  <FormControl sx={{ m: 1, margin: "0px" }}>
-                    <Select
-                      name="timeBorder"
-                      value={values.timeBorder}
-                      onChange={(e) => {
-                        const selected = e.target.value;
-                        handleChange(e); // оновлює timeBorder у Formik
+              <div className="input_wrapper">
+                <FormControl sx={{ m: 1, margin: "0px" }}>
+                  <Select
+                    name="timeBorder"
+                    value={values.timeBorder}
+                    onChange={(e) => {
+                      const selected = e.target.value;
+                      handleChange(e); // оновлює timeBorder у Formik
 
-                        // оновлюємо price залежно від вибору
-                        const newPrice =
-                          selected === 0
-                            ? payload.description[0]?.price
-                            : payload.description[1]?.price;
+                      // оновлюємо price залежно від вибору
+                      const newPrice =
+                        selected === 0
+                          ? payload.description[0]?.price
+                          : payload.description[1]?.price;
 
-                        if (newPrice !== undefined) {
-                          setFieldValue("price", newPrice);
-                        }
-                      }}
-                      displayEmpty
-                      inputProps={{ "aria-label": "Without label" }}
-                      MenuProps={{
-                        disableScrollLock: true,
-                      }}
-                      sx={{
-                        color: "rgba(255, 255, 255, 0.8)",
+                      if (newPrice !== undefined) {
+                        setFieldValue("price", newPrice);
+                      }
+                    }}
+                    displayEmpty
+                    inputProps={{ "aria-label": "Without label" }}
+                    MenuProps={{
+                      disableScrollLock: true,
+                    }}
+                    sx={{
+                      color: "rgba(255, 255, 255, 0.8)",
 
-                        padding: "12px 0",
-                        height: "44px",
+                      padding: "12px 0",
+                      height: "44px",
 
-                        fontSize: "14px",
+                      fontSize: "14px",
 
-                        borderRadius: "0",
-                        "& .MuiSelect-icon": {
-                          color: " rgba(255, 255, 255, 0.8)",
-                        },
-                        "&.Mui-focused .MuiSelect-icon": {
-                          color: " rgba(255, 255, 255, 0.8)",
-                        },
+                      borderRadius: "0",
+                      "& .MuiSelect-icon": {
+                        color: " rgba(255, 255, 255, 0.8)",
+                      },
+                      "&.Mui-focused .MuiSelect-icon": {
+                        color: " rgba(255, 255, 255, 0.8)",
+                      },
 
-                        "&:hover .MuiOutlinedInput-notchedOutline": {
-                          borderColor: "rgba(255, 255, 255, 1)", // яскравіше при ховері
-                        },
-                        ".MuiOutlinedInput-notchedOutline": {
-                          borderRadius: "6px",
-                          borderColor: " rgba(255, 255, 255, 0.8)",
-                        },
-                        "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                          borderWidth: "1px",
-                          borderColor: "rgba(255, 255, 255, 0.8);",
-                        },
-                      }}
-                    >
-                      <MenuItem value="" disabled>
-                        <em>Часові рамки</em>
-                      </MenuItem>
-                      <MenuItem value={0}>9:00-13:00</MenuItem>
-                      <MenuItem value={1}>9:00-21:00</MenuItem>
-                    </Select>
-                  </FormControl>
-                  <ErrorMessage
-                    name="method"
-                    component="div"
-                    className="error"
-                  />
-                </div>
-              )}
+                      "&:hover .MuiOutlinedInput-notchedOutline": {
+                        borderColor: "rgba(255, 255, 255, 1)", // яскравіше при ховері
+                      },
+                      ".MuiOutlinedInput-notchedOutline": {
+                        borderRadius: "6px",
+                        borderColor: " rgba(255, 255, 255, 0.8)",
+                      },
+                      "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                        borderWidth: "1px",
+                        borderColor: "rgba(255, 255, 255, 0.8);",
+                      },
+                    }}
+                  >
+                    <MenuItem value="" disabled>
+                      <em>Time border:</em>
+                    </MenuItem>
+                    <MenuItem value={0}>9:00 - 21:00</MenuItem>
+                    {payload.description.length > 1 && (
+                      <MenuItem value={1}>9:00 - 00:00</MenuItem>
+                    )}
+                  </Select>
+                </FormControl>
+                <ErrorMessage name="method" component="div" className="error" />
+              </div>
             </div>
 
             {/* Початкова дата */}
-            <h2 className={css.section_title}>Тривалість</h2>
+
+            <h2 className={css.section_title}>Date</h2>
 
             <div className="date_wrapper">
               <div className="input_wrapper">
@@ -436,26 +440,9 @@ function OrderForm({ payload, close }) {
                   className="error"
                 />
               </div>
-
-              {/* Кінцева дата */}
-              {/* <div className="input_wrapper" style={{ marginTop: "10px" }}>
-                <h3>
-                  Термін дії :{" "}
-                  {values.startDate ? (
-                    <span>
-                      {calculateEndDate(
-                        values.startDate,
-                        subscriptionDurationMonths(payload.name)
-                      ).format("DD.MM.YYYY")}
-                    </span>
-                  ) : (
-                    "-"
-                  )}
-                </h3>
-              </div> */}
             </div>
 
-            <h2 className={css.section_title}>Оплата</h2>
+            <h2 className={css.section_title}>Payment</h2>
 
             {/* Метод оплати */}
 
@@ -500,13 +487,11 @@ function OrderForm({ payload, close }) {
                   }}
                 >
                   <MenuItem value="" disabled>
-                    <em>Метод оплати</em>
+                    <em>Method</em>
                   </MenuItem>
-                  <MenuItem value={"Готівка"}>
-                    Готівка при першому вході
-                  </MenuItem>
-                  <MenuItem value={"Карта"}>Картка при першому вході</MenuItem>
-                  <MenuItem value={"Рахунок"}>Переказ на рахунок</MenuItem>
+                  <MenuItem value={"Cash"}>Cash</MenuItem>
+                  <MenuItem value={"Card"}>Card</MenuItem>
+                  <MenuItem value={"Transfer"}>Transfer</MenuItem>
                 </Select>
               </FormControl>
               <ErrorMessage name="method" component="div" className="error" />
@@ -517,17 +502,18 @@ function OrderForm({ payload, close }) {
 
           <div className={css.total_wrapper}>
             <div className={css.price}>
+              <span>To pay: </span>
               {values.timeBorder === 0
                 ? payload.description[0].price
                 : payload.description[1].price}{" "}
-              ГРН
+              $
             </div>
             <Button
               type="submit"
               className="button"
               styles={{ fontSize: "12px" }}
             >
-              Надіслати
+              SEND ORDER
             </Button>
           </div>
         </Form>

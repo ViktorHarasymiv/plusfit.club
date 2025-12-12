@@ -39,3 +39,9 @@
 .MuiInputLabel-root.Mui-focused {
   color: var(--dark) !important;
 }
+
+/* DATE */
+
+.MuiPickersTextField-root .MuiInputLabel-root {
+  color: var(--white) !important;
+}

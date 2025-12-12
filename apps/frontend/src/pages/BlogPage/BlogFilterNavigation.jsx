@@ -18,6 +18,7 @@ function BlogFilterNavigation() {
   const handleChangeTag = (event) => {
     setTag(event.target.value);
   };
+
   const handleChangePerPage = (event) => {
     setPerPage(event.target.value);
   };

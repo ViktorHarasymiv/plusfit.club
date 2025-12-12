@@ -12,13 +12,15 @@ import Reviews from "../../components/Reviews/Reviews";
 import EatBrand from "../../components/EatBrand/EatBrand";
 import TotalArea from "../../components/TotalArea/TotalArea";
 import Blog from "../../components/Blog/Blog";
+import AboutUsComponent from "../../components/AboutUsComponent/AboutUsComponent";
 export default function Home() {
-  const width = useWindowWidth();
+  // const width = useWindowWidth();
   document.title = "Iron Mass - Sport complex";
   return (
     <main>
       <Hero />
-      {width > 991.98 && <Preference />}
+      <Preference />
+      <AboutUsComponent />
       <Trainers />
       <Pricing />
       <CalculatorCalories />

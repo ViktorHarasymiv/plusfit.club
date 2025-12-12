@@ -166,7 +166,7 @@ export default function MobileMenu({ isScroll }) {
                   {isdropMenuPrice && (
                     <ul className={style.dropmenu}>
                       <li className={style.dropdown_item}>
-                        <NavLink to="price/gym">Gym & Fitness</NavLink>
+                        <NavLink to="price/Gym&Fitness">Gym & Fitness</NavLink>
                       </li>
                       <li className={style.dropdown_item}>
                         <NavLink to="price/massage">Massage</NavLink>

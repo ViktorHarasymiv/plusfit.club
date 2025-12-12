@@ -19,11 +19,11 @@ export const updateUserSchema = Joi.object({
 
   goal: Joi.string()
     .valid(
-      'Схуднення',
-      'Утримати вагу',
-      'Повільний набір маси',
-      'Активний набір маси',
-      'Набір сухої мязової маси',
+      'Emaciation',
+      'Maintain weight',
+      'Slow weight gain',
+      'Active weight gain',
+      'Gaining lean muscle mass',
     )
     .optional(),
   section: Joi.string()
@@ -32,7 +32,7 @@ export const updateUserSchema = Joi.object({
   height: Joi.number().min(130).max(220).optional(),
   weight: Joi.number().min(35).max(220).optional(),
   activityLevel: Joi.string()
-    .valid('Сидячий', 'Слабо', 'Середній', 'Активний', 'Сильна активність')
+    .valid('Sitting', 'Weak', 'Average', 'Active', 'Strong activity')
     .optional(),
   BMR: Joi.number().optional(),
   BMI: Joi.number().optional(),

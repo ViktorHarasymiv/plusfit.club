@@ -35,11 +35,11 @@ const usersSchema = new Schema(
     goal: {
       type: String,
       enum: [
-        'Схуднення',
-        'Утримати вагу',
-        'Повільний набір маси',
-        'Активний набір маси',
-        'Набір сухої мязової маси',
+        'Emaciation',
+        'Maintain weight',
+        'Slow weight gain',
+        'Active weight gain',
+        'Gaining lean muscle mass',
       ],
       default: null,
     },
@@ -52,7 +52,7 @@ const usersSchema = new Schema(
     weight: { type: Number },
     activityLevel: {
       type: String,
-      enum: ['Сидячий', 'Слабо', 'Середній', 'Активний', 'Сильна активність'],
+      enum: ['Sitting', 'Weak', 'Average', 'Active', 'Strong activity'],
       default: null,
     },
     BMR: {

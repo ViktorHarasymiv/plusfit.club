@@ -6,6 +6,7 @@ import TrainerSwiper from "../TeamSwiper/TeamSwiper";
 import { BsTelephoneForward } from "react-icons/bs";
 import { FaInstagram } from "react-icons/fa";
 import Reviews from "../../../components/Reviews/Reviews";
+import EatBrand from "../../../components/EatBrand/EatBrand";
 
 function TrainerContent() {
   const params = useParams();
@@ -172,6 +173,7 @@ function TrainerContent() {
         </div>
       </div>
       <Reviews filterType={uniqueCategories} />
+      <EatBrand />
     </>
   );
 }

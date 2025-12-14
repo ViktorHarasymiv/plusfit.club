@@ -1,4 +1,6 @@
 .overflow {
+  overflow: hidden;
+
   z-index: 99998;
 
   position: fixed;

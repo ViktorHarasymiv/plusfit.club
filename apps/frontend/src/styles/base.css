@@ -59,12 +59,16 @@ img {
   padding-top: 0px;
 } */
 
+section:first-child {
+  margin-bottom: 50px;
+}
+
 /* section:last-child {
   margin-bottom: 0px;
 } */
 
 section {
-  margin-bottom: 80px;
+  margin-bottom: 120px;
 
   scroll-margin-top: 100px;
 }
@@ -99,7 +103,7 @@ section {
 
 @media screen and (min-width: 1200px) {
   section {
-    margin-bottom: 170px;
+    margin-bottom: 200px;
   }
 
   main {

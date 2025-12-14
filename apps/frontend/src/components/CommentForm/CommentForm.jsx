@@ -1,4 +1,3 @@
-import React from "react";
 import FormReview from "./FormReview";
 
 import css from "./CommentForm.module.css";

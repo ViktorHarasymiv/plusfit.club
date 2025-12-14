@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import css from "../Massage/Style.module.css";
 
@@ -16,6 +17,8 @@ import Button from "../ui/Button/Button";
 function GymPriceList({ data }) {
   const { authorized } = useAuth();
   const { openOrderModal } = useOrderModalStore();
+
+  const navigate = useNavigate();
 
   const payloadDataModal = (item) => {
     if (authorized) {

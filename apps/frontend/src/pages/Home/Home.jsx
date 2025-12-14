@@ -1,9 +1,7 @@
-import React from "react";
-
 import Hero from "../../components/Hero/Hero";
 import Preference from "../../components/Preference/Preference";
 
-import { useWindowWidth } from "../../hooks/useWindowWidth";
+// import { useWindowWidth } from "../../hooks/useWindowWidth";
 import CalculatorCalories from "../../components/CalculatorCalories/CalculatorCalories";
 import Trainers from "../../components/Trainers/Trainers";
 import Pricing from "../../components/Pricing/Pricing";
@@ -13,6 +11,7 @@ import EatBrand from "../../components/EatBrand/EatBrand";
 import TotalArea from "../../components/TotalArea/TotalArea";
 import Blog from "../../components/Blog/Blog";
 import AboutUsComponent from "../../components/AboutUsComponent/AboutUsComponent";
+import WhyChooseUs from "../../components/WhyChooseUs/WhyChooseUs";
 export default function Home() {
   // const width = useWindowWidth();
   document.title = "Iron Mass - Sport complex";
@@ -23,6 +22,7 @@ export default function Home() {
       <AboutUsComponent />
       <Trainers />
       <Pricing />
+      <WhyChooseUs />
       <CalculatorCalories />
       <TotalArea />
       <Blog />

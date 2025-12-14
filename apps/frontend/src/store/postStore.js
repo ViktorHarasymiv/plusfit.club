@@ -20,7 +20,7 @@ export const usePostStore = create((set) => ({
 
     const {
       page = 1,
-      perPage = 6,
+      perPage = 3,
       sortBy = "createdAt",
       sortOrder = "desc",
       tags,

@@ -18,6 +18,10 @@
       "destination": "https://plusfit-club-backend.onrender.com/:path*"
     },
     {
+      "source": "/team/api/:path*",
+      "destination": "https://plusfit-club-backend.onrender.com/:path*"
+    },
+    {
       "source": "/auth/api/:path*",
       "destination": "https://plusfit-club-backend.onrender.com/:path*"
     },

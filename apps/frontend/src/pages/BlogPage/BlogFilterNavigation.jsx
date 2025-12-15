@@ -6,37 +6,30 @@ import Select from "@mui/material/Select";
 
 import css from "./Style.module.css";
 
-function BlogFilterNavigation() {
-  const [sortBy, setSortBy] = useState("");
-  const [tag, setTag] = useState("");
-  const [perPage, setPerPage] = useState(6);
-
-  const handleChangeSortBy = (event) => {
-    setSortBy(event.target.value);
+function BlogFilterNavigation({ filters, setFilters }) {
+  // універсальний хендлер
+  const handleChange = (field) => (event) => {
+    setFilters((prev) => ({
+      ...prev,
+      [field]: event.target.value,
+    }));
   };
 
-  const handleChangeTag = (event) => {
-    setTag(event.target.value);
-  };
-
-  const handleChangePerPage = (event) => {
-    setPerPage(event.target.value);
-  };
   return (
     <div className={css.filter_wrapper}>
       <div>
         <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-          <InputLabel id="demo-select-small-label">Sort by</InputLabel>
+          <InputLabel id="demo-select-small-label">Filter By</InputLabel>
           <Select
             labelId="demo-select-small-label"
             id="demo-select-small"
-            value={sortBy}
-            label="Sort by"
-            onChange={handleChangeSortBy}
+            value={filters.filterBy}
+            label="FilterBy"
+            onChange={handleChange("filterBy")}
           >
-            <MenuItem value={10}>All</MenuItem>
-            <MenuItem value={10}>Classes</MenuItem>
-            <MenuItem value={20}>News</MenuItem>
+            <MenuItem value={""}>All</MenuItem>
+            <MenuItem value={"Classes"}>Classes</MenuItem>
+            <MenuItem value={"News"}>News</MenuItem>
           </Select>
         </FormControl>
         <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
@@ -44,9 +37,9 @@ function BlogFilterNavigation() {
           <Select
             labelId="demo-select-small-label"
             id="demo-select-small"
-            value={tag}
-            label="Tags"
-            onChange={handleChangeTag}
+            value={filters.tags}
+            label="tags"
+            onChange={handleChange("tags")}
           >
             <MenuItem value={10}>All</MenuItem>
             <MenuItem value={"Gym&Fitness"}>Gym&Fitnees</MenuItem>
@@ -63,9 +56,9 @@ function BlogFilterNavigation() {
           <Select
             labelId="demo-select-small-label"
             id="demo-select-small"
-            value={perPage}
+            value={filters.perPage}
             label="Per page"
-            onChange={handleChangePerPage}
+            onChange={handleChange("perPage")}
           >
             <MenuItem value={3}>3</MenuItem>
             <MenuItem value={6}>6</MenuItem>

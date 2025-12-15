@@ -59,6 +59,7 @@ export default function MobileMenu({ isScroll }) {
   const [isModalOpen, setModalOpen] = useState(false);
   const [isdropMenu, setDropMenu] = useState(false);
   const [isdropMenuPrice, setDropMenuPrice] = useState(false);
+  const [isdropMenuActions, setDropMenuActions] = useState(false);
   const [isWorkTimeOpen, setWorkTimeOpen] = useState(false);
 
   useEffect(() => {
@@ -80,6 +81,11 @@ export default function MobileMenu({ isScroll }) {
 
   const controllDropMenuPrice = () => {
     setDropMenuPrice((prev) => !prev);
+    setDropMenu(false);
+  };
+
+  const controllDropMenuActions = () => {
+    setDropMenuActions((prev) => !prev);
     setDropMenu(false);
   };
 
@@ -182,18 +188,28 @@ export default function MobileMenu({ isScroll }) {
                     </ul>
                   )}
                 </li>
-                <li className={style.navbar_item}>
-                  <NavLink to="/gallery">
-                    <GrGallery />
-                    <span>Gallery</span>
-                  </NavLink>
+                <li
+                  onClick={controllDropMenuActions}
+                  className={style.navbar_item}
+                >
+                  <MdLocalOffer />
+                  <span>Actions</span>
+                  <MdKeyboardArrowDown />
+                  {isdropMenuActions && (
+                    <ul className={style.dropmenu}>
+                      <li className={style.dropdown_item}>
+                        <NavLink to="/blog">Blog</NavLink>
+                      </li>
+                      <li className={style.dropdown_item}>
+                        <NavLink to="/gallery">Gallery</NavLink>
+                      </li>
+                      <li className={style.dropdown_item}>
+                        <NavLink to="/about">About Us</NavLink>
+                      </li>
+                    </ul>
+                  )}
                 </li>
-                <li className={style.navbar_item}>
-                  <NavLink to="/about">
-                    <IoDocumentText />
-                    <span>About Us</span>
-                  </NavLink>
-                </li>
+
                 <li className={style.navbar_item}>
                   <NavLink to="/contacts">
                     <IoMdContacts />

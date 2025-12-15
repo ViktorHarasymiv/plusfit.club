@@ -63,9 +63,9 @@ section:first-child {
   margin-bottom: 50px;
 }
 
-/* section:last-child {
-  margin-bottom: 0px;
-} */
+section:last-child {
+  margin-bottom: 80px;
+}
 
 section {
   margin-bottom: 120px;

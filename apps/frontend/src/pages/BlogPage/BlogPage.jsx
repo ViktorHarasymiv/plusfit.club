@@ -15,17 +15,24 @@ function BlogPage() {
 
   const { page, totalPages } = pagination;
 
-  const [perPage, setPerPage] = useState(6);
+  const [filters, setFilters] = useState({
+    perPage: 6,
+    tags: "",
+    filterBy: "",
+  });
 
   useEffect(() => {
     const fetch_post_data = async () => {
-      await get_post({ perPage });
+      await get_post({ ...filters });
     };
     fetch_post_data();
-  }, [perPage]);
+  }, [filters]);
 
   const fetchNewPosts = () => {
-    setPerPage((prev) => prev + 3);
+    setFilters((prev) => ({
+      ...prev,
+      perPage: prev.perPage + 3,
+    }));
   };
 
   return (
@@ -37,7 +44,7 @@ function BlogPage() {
             title={"Our Blog"}
             about={"Let's Check Latest News & Blog"}
           />
-          <BlogFilterNavigation />
+          <BlogFilterNavigation filters={filters} setFilters={setFilters} />
           <BlogList data={content} />
           {page !== totalPages && (
             <Button action={fetchNewPosts}>FETCH MORE</Button>

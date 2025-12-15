@@ -93,8 +93,9 @@ export default function General({ resizeWidth }) {
                     </ul>
                   </li>
                   <li className={style.navbar_item}>
-                    <NavLink to={"/price"} style={{ pointerEvents: "none" }}>
-                      Price <MdKeyboardArrowDown />
+                    <NavLink to={"/price"}>
+                      Price
+                      <MdKeyboardArrowDown />
                     </NavLink>
                     <ul className={style.dropmenu}>
                       <li>
@@ -131,16 +132,30 @@ export default function General({ resizeWidth }) {
                       </li>
                     </ul>
                   </li>
+                  {/* DROP */}
                   <li className={style.navbar_item}>
-                    <NavLink to="/gallery">
-                      <span>Gallery</span>
+                    <NavLink to={"/price"} style={{ pointerEvents: "none" }}>
+                      Actions <MdKeyboardArrowDown />
                     </NavLink>
+                    <ul className={style.dropmenu}>
+                      <li>
+                        <NavLink to="/blog" className={style.dropdown_item}>
+                          <span>Blog</span>
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/gallery" className={style.dropdown_item}>
+                          <span>Gallery</span>
+                        </NavLink>
+                      </li>
+                      <li>
+                        <NavLink to="/about" className={style.dropdown_item}>
+                          <span>About Us</span>
+                        </NavLink>
+                      </li>
+                    </ul>
                   </li>
-                  <li className={style.navbar_item}>
-                    <NavLink to="/about">
-                      <span>About Us</span>
-                    </NavLink>
-                  </li>
+
                   <li className={style.navbar_item}>
                     <NavLink to="/contacts">
                       <span>Contacts</span>

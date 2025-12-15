@@ -23,7 +23,7 @@ const messageSchema = new Schema(
     section: {
       type: String,
       required: true,
-      enum: ['Other', 'Gym', 'Fitnees', 'Yoga', 'Massage'],
+      enum: ['Other', 'Gym', 'Fitness', 'Yoga', 'Massage'],
     },
 
     message: {

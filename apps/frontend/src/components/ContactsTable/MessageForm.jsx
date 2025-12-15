@@ -15,7 +15,7 @@ import style from "../CalculatorCalories/Form/FormCalculate.module.css";
 import css from "./Style.module.css";
 import TextField from "@mui/material/TextField";
 
-import background from "/img/image-1.jpg";
+import background from "/img/04.jpg";
 import { useWindowWidth } from "../../hooks/useWindowWidth";
 import { CREATE_MESSAGE } from "../../services/message";
 

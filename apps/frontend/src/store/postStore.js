@@ -21,33 +21,42 @@ export const usePostStore = create((set) => ({
     const {
       page = 1,
       perPage = 3,
-      sortBy = "createdAt",
       sortOrder = "desc",
-      tags,
+      sortBy = "createdAt",
+      tags = "",
+      filterBy = "",
     } = params;
+
+    // якщо tags масив → перетворюємо у рядок через кому
+    const tagsParam = Array.isArray(tags) ? tags.join(",") : tags;
 
     const query = new URLSearchParams({
       page,
       perPage,
-      sortBy,
       sortOrder,
-      ...(tags ? { tags: tags.join(",") } : {}),
+      sortBy,
+      ...(tagsParam ? { tags: tagsParam } : {}),
+      ...(filterBy ? { filterBy } : {}),
     });
 
     try {
       const res = await axios.get(`${API_URL}/posts?${query.toString()}`);
+
       set({
-        content: res.data.data.data,
+        content: res.data.posts,
         pagination: {
           page,
           perPage,
           totalPages: res.data.totalPages || 1,
-          totalItems: res.data.totalItems || res.data.data.length,
+          totalItems: res.data.totalItems || res.data.posts.length,
         },
         loading: false,
       });
     } catch (err) {
-      set({ error: err.message || "Помилка при завантаженні", loading: false });
+      set({
+        error: err.message || "Помилка при завантаженні",
+        loading: false,
+      });
     }
   },
 

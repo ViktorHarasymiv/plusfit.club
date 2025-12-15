@@ -4,6 +4,8 @@ import crossfit from "/img/trainer/team-1.png";
 import weightlifting from "/img/trainer/team-2.png";
 import yoga from "/img/trainer/team-3.png";
 import weightlifting2 from "/img/trainer/team-4.png";
+import t5 from "/img/trainer/team-5.png";
+import t6 from "/img/trainer/team-6.png";
 
 export const useTrainerStore = create((set, get) => ({
   trainers: [
@@ -64,7 +66,7 @@ export const useTrainerStore = create((set, get) => ({
       ],
       category: "Fitness",
       section: ["Fitness"],
-      photo: crossfit,
+      photo: t5,
       education: [
         "Certified CrossFit Level 2 Trainer",
         "Bachelor's Degree in Kinesiology — University of British Columbia",
@@ -173,7 +175,7 @@ export const useTrainerStore = create((set, get) => ({
       ],
       category: "Rehabilitation",
       section: ["Rehabilitation"],
-      photo: yoga,
+      photo: t6,
       education: [
         "RYT-500 Certified Yoga Instructor — Yoga Alliance",
         "Mindfulness & Meditation Teacher Training — Warsaw Wellness Institute",
@@ -210,7 +212,7 @@ export const useTrainerStore = create((set, get) => ({
       ],
       category: "Massage",
       section: ["Massage"],
-      photo: yoga,
+      photo: crossfit,
       education: [
         "RYT-500 Certified Yoga Instructor — Yoga Alliance",
         "Mindfulness & Meditation Teacher Training — Warsaw Wellness Institute",

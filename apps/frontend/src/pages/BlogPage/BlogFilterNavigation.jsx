@@ -41,7 +41,7 @@ function BlogFilterNavigation({ filters, setFilters }) {
             label="tags"
             onChange={handleChange("tags")}
           >
-            <MenuItem value={10}>All</MenuItem>
+            <MenuItem value={""}>All</MenuItem>
             <MenuItem value={"Gym&Fitness"}>Gym&Fitnees</MenuItem>
             <MenuItem value={"Body"}>Body</MenuItem>
             <MenuItem value={"Food"}>Food</MenuItem>

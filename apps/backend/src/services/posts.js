@@ -9,14 +9,28 @@ export const getAllPost = async ({
   page = 1,
   perPage = 6,
   sortOrder = SORT_ORDER.DESC,
-  sortBy = 'createdAt',
+  sortBy,
+  tags,
+  filterBy,
 }) => {
   const limit = perPage;
   const skip = (page - 1) * perPage;
 
-  const postCount = await PostCollection.countDocuments();
+  let query = {};
 
-  const posts = await PostCollection.find()
+  if (tags && typeof tags === 'string' && tags.trim() !== '') {
+    const tagArray = tags.split(',').map((t) => t.trim());
+    query = { tags: { $in: tagArray } };
+  }
+
+  // Фільтрація по filterBy (наприклад: "Classes", "News")
+  if (filterBy && filterBy !== '') {
+    query.filterBy = filterBy;
+  }
+
+  const postCount = await PostCollection.countDocuments(query);
+
+  const posts = await PostCollection.find(query)
     .sort({ [sortBy]: sortOrder })
     .skip(skip)
     .limit(limit)

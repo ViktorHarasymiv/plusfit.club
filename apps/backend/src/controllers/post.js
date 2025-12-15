@@ -12,24 +12,43 @@ import { parseSortParams } from '../utils/parseSortParams.js';
 // FETCH ALL POST
 
 export const getPostController = async (req, res) => {
-  const { page, perPage } = parsePaginationParams(req.query);
-  const { sortBy, sortOrder } = parseSortParams(req.query);
+  try {
+    const { page, perPage } = parsePaginationParams(req.query);
+    const { sortBy, sortOrder } = parseSortParams(req.query);
 
-  const posts = await getAllPost({
-    page,
-    perPage,
-    sortBy,
-    sortOrder,
-  });
+    const { tags, filterBy } = req.query;
 
-  res.json({
-    status: 200,
-    message: 'Успішно завантажено пости !',
-    data: posts,
-    totalItems: posts.totalItems || 0,
-    totalPages: posts.totalPages || 0,
-    currentPage: posts.currentPage || page || 1,
-  });
+    console.log('tags:', filterBy);
+
+    const {
+      data: posts,
+      totalItems,
+      totalPages,
+      currentPage,
+    } = await getAllPost({
+      page,
+      perPage,
+      sortBy,
+      sortOrder,
+      tags,
+      filterBy,
+    });
+
+    res.json({
+      status: 200,
+      message: 'Posts successfully loaded!',
+      posts,
+      totalItems,
+      totalPages,
+      currentPage,
+    });
+  } catch (error) {
+    res.status(500).json({
+      status: 500,
+      message: 'Error loading posts',
+      error: error.message,
+    });
+  }
 };
 
 // FETCH POST BY ID

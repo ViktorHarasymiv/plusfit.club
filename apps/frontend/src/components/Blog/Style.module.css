@@ -2,12 +2,14 @@
   display: flex;
   flex-direction: column;
 
-  gap: 120px;
+  gap: 60px;
 
   align-items: center;
 }
 
 .wrapper {
+  margin-bottom: 50px;
+
   display: flex;
   flex-direction: column;
 

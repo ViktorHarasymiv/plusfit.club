@@ -15,13 +15,16 @@ import RegistrationModal from "./pages/Auth/RegistrationModal";
 import Toast from "./components/ui/Toast/Toast";
 
 import OrderModal from "./components/OrderModal/OrderModal";
-import { usePostStore } from "./store/postStore";
 import { useAuthModalStore } from "./store/useAuthModalStore";
+import { useMainConfigStore } from "./store/mainStore";
+import Loader from "./components/ui/Loader/Loader";
 
 function App() {
   const { closeAll } = useAuthModalStore();
 
   const { isOpen } = useFullscreenStore();
+
+  const { getMainConfig, loading } = useMainConfigStore();
 
   useEffect(() => {
     const body = document.body;
@@ -48,6 +51,14 @@ function App() {
       closeAll();
     }
   }, [location]);
+
+  useEffect(() => {
+    const fetchConfig = async () => {
+      await getMainConfig();
+    };
+
+    fetchConfig();
+  }, []);
 
   return (
     <>

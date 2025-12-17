@@ -6,8 +6,16 @@ import { BsTelephoneForward } from "react-icons/bs";
 
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
+import { useMainConfigStore } from "../../store/mainStore";
+import Loader from "../ui/Loader/Loader";
 
 function Top() {
+  const { config } = useMainConfigStore();
+
+  if (!config) return <Loader />;
+
+  const { address, email, phone, media } = config.data;
+
   return (
     <div className={style.header_top_wrapper}>
       <div className="container">
@@ -16,19 +24,17 @@ function Top() {
             <ul className={style.contact_bar_list}>
               <li className={style.bar_list_item}>
                 <SlLocationPin />
-                <a href="#" target="_blank">
-                  Ventura Boulevard, CA 91604
+                <a href={`${address.url}`} target="_blank">
+                  {address.street}
                 </a>
               </li>
               <li className={style.bar_list_item}>
                 <TiMessages />
-                <a href="mailto:info.ironman@gmail.com">
-                  info.ironman@gmail.com
-                </a>
+                <a href={`mailto:${email}`}>{email}</a>
               </li>
               <li className={style.bar_list_item}>
                 <BsTelephoneForward />
-                <a href="tel:+4878998758">+48 789 987 58</a>
+                <a href={`tel:${phone}`}>{phone}</a>
               </li>
             </ul>
           </div>
@@ -36,12 +42,12 @@ function Top() {
             <h5 className="h5">Follow Us:</h5>
             <ul className={style.social_bar}>
               <li>
-                <a href="#" target="_blank">
+                <a href={media.facebook} target="_blank">
                   <FaFacebook />
                 </a>
               </li>
               <li>
-                <a href="#" target="_blank">
+                <a href={media.instagram} target="_blank">
                   <FaInstagram />
                 </a>
               </li>

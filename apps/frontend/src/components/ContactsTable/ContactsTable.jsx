@@ -4,24 +4,26 @@ import css from "./Style.module.css";
 import Icon from "../ui/Icon/Icon";
 import MessageForm from "./MessageForm";
 
-function ContactsTable() {
+function ContactsTable({ data }) {
+  const { address, email, phone, media } = data;
+
   const contactsList = [
     {
       id: 0,
       title: "Address",
-      content: "Ventura Boulevard, CA 91604",
+      content: address.street,
       icon: "icon-map",
     },
     {
       id: 1,
       title: "Phone",
-      content: "+48 789 987 58",
+      content: phone,
       icon: "icon-phone-call",
     },
     {
       id: 2,
       title: "Message",
-      content: "info.ironman@gmail.com",
+      content: email,
       icon: "icon-message",
     },
     {

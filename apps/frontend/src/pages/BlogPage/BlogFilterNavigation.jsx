@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
@@ -7,12 +8,15 @@ import Select from "@mui/material/Select";
 import css from "./Style.module.css";
 
 function BlogFilterNavigation({ filters, setFilters }) {
+  const navigate = useNavigate();
   // універсальний хендлер
+
   const handleChange = (field) => (event) => {
     setFilters((prev) => ({
       ...prev,
       [field]: event.target.value,
     }));
+    navigate("/blog");
   };
 
   return (
@@ -42,7 +46,8 @@ function BlogFilterNavigation({ filters, setFilters }) {
             onChange={handleChange("tags")}
           >
             <MenuItem value={""}>All</MenuItem>
-            <MenuItem value={"Gym&Fitness"}>Gym&Fitnees</MenuItem>
+            <MenuItem value={"Gym"}>Gym</MenuItem>
+            <MenuItem value={"Fitness"}>Fitness</MenuItem>
             <MenuItem value={"Body"}>Body</MenuItem>
             <MenuItem value={"Food"}>Food</MenuItem>
             <MenuItem value={"Diet"}>Diet</MenuItem>

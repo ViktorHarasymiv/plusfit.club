@@ -1,4 +1,6 @@
 .wrapper_page {
+  margin-bottom: 70px;
+
   display: flex;
   flex-direction: column;
 

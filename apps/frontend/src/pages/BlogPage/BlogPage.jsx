@@ -9,16 +9,23 @@ import css from "./Style.module.css";
 import BlogList from "../../components/Blog/BlogList";
 import Button from "../../components/ui/Button/Button";
 import BlogFilterNavigation from "./BlogFilterNavigation";
+import { useParams } from "react-router-dom";
 
 function BlogPage() {
+  const { filter } = useParams();
   const { get_post, content, pagination } = usePostStore();
 
   const { page, totalPages } = pagination;
 
+  const optimizationFilter =
+    filter !== undefined
+      ? filter.charAt(0).toUpperCase() + filter.slice(1)
+      : "";
+
   const [filters, setFilters] = useState({
     perPage: 6,
     tags: "",
-    filterBy: "",
+    filterBy: optimizationFilter,
   });
 
   useEffect(() => {
@@ -35,6 +42,8 @@ function BlogPage() {
     }));
   };
 
+  console.log(filter);
+
   return (
     <main>
       <NavigationContext />
@@ -46,6 +55,9 @@ function BlogPage() {
           />
           <BlogFilterNavigation filters={filters} setFilters={setFilters} />
           <BlogList data={content} />
+          {content?.length > 5 ? (
+            <BlogFilterNavigation filters={filters} setFilters={setFilters} />
+          ) : null}
           {page !== totalPages && (
             <Button action={fetchNewPosts}>FETCH MORE</Button>
           )}

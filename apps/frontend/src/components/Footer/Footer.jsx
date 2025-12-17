@@ -15,19 +15,25 @@ import TitleDecor from "../ui/TitleDecor/TitleDecor";
 
 import { useWindowWidth } from "../../hooks/useWindowWidth";
 import Logo from "../Logo/Logo";
+import { useMainConfigStore } from "../../store/mainStore";
+import Loader from "../ui/Loader/Loader";
 
 const styleObj = {
   width: "100%",
   justifyContent: "center",
 };
 
-export default function Footer({ location }) {
+export default function Footer() {
   const width = useWindowWidth();
+
+  const { config } = useMainConfigStore();
+
+  if (!config) return <Loader />;
+
+  const { address, email, phone, media } = config.data;
+
   return (
-    <footer
-      className={style.footer}
-      // style={{ marginTop: location.pathname === "/" && "140px" }}
-    >
+    <footer className={style.footer}>
       <div className={style.footer_content_wrapper}>
         <div className="container">
           <div className={style.footer_navbar_wrapper}>
@@ -48,21 +54,21 @@ export default function Footer({ location }) {
                       <div className={style.icon_box}>
                         <SlLocationPin />
                       </div>
-                      <a href="#" target="_blank">
-                        Ventura Boulevard, CA 91604
+                      <a href={`${address.url}`} target="_blank">
+                        {address.street}
                       </a>
                     </li>
                     <li className={style.bar_list_item}>
                       <div className={style.icon_box}>
                         <TiMessages />
                       </div>
-                      <a href="#">info.ironman@gmail.com</a>
+                      <a href={`mailto:${email}`}>{email}</a>
                     </li>
                     <li className={style.bar_list_item}>
                       <div className={style.icon_box}>
                         <BsTelephoneForward />
                       </div>
-                      <a href="tel:+4878998758">+48 789 987 58</a>
+                      <a href={`tel:${phone}`}>{phone}</a>
                     </li>
                   </ul>
                 </div>
@@ -144,9 +150,11 @@ export default function Footer({ location }) {
                     Stay tuned: we have something special for those who are not
                     afraid to set big goals.
                   </p>
-                  <Button type={"button"} styles={styleObj}>
-                    {"Go to news"}
-                  </Button>
+                  <Link to={`/blog/news`}>
+                    <Button type={"button"} styles={styleObj}>
+                      {"Go to news"}
+                    </Button>
+                  </Link>
                 </nav>
               </li>
             </ul>
@@ -169,7 +177,7 @@ export default function Footer({ location }) {
                 <li>
                   <a
                     className="icon_block"
-                    href="#"
+                    href={media.facebook}
                     title="Facebook"
                     target="_blank"
                   >
@@ -179,7 +187,7 @@ export default function Footer({ location }) {
                 <li>
                   <a
                     className="icon_block"
-                    href="#"
+                    href={media.instagram}
                     target="_blank"
                     title="Instagram"
                   >

@@ -132,8 +132,6 @@ export const updateSubscriber = async (contactId, payload, options = {}) => {
     },
   );
 
-  console.log(payload);
-
   if (!rawResult || !rawResult.value) return null;
 
   const updatedContact = rawResult.value;

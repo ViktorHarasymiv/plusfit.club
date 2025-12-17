@@ -10,8 +10,8 @@ import massageRouter from './massage.js';
 import rehabilitationRouter from './rehabilitation.js';
 import gymRouter from './gym.js';
 import portfolioRouter from './portfolio.js';
-
 import postRouter from './posts.js';
+import mainRouter from './main-config.js';
 
 const router = Router();
 
@@ -28,5 +28,6 @@ router.use('/rehabilitation', rehabilitationRouter);
 router.use('/gym', gymRouter);
 router.use('/portfolio', portfolioRouter);
 router.use('/posts', postRouter);
+router.use('/main-config', mainRouter);
 
 export default router;

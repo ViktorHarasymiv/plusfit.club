@@ -18,8 +18,6 @@ export const getPostController = async (req, res) => {
 
     const { tags, filterBy } = req.query;
 
-    console.log('tags:', filterBy);
-
     const {
       data: posts,
       totalItems,

@@ -420,7 +420,11 @@ function OrderForm({ payload, close }) {
                     )}
                   </Select>
                 </FormControl>
-                <ErrorMessage name="method" component="div" className="error" />
+                <ErrorMessage
+                  name="timeBorder"
+                  component="div"
+                  className="error"
+                />
               </div>
             </div>
 

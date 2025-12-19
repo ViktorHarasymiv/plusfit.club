@@ -1,10 +1,15 @@
-export const timeFormatted = (time) => {
+export const timeFormatted = (time, variable) => {
   const date = new Date(time);
-  return date.toLocaleString("uk-UA", {
+
+  const formatted = date.toLocaleString("eu", {
     day: "2-digit",
-    month: "2-digit",
+    month: "long",
     year: "numeric",
-    hour: "2-digit",
-    minute: "2-digit",
+    ...(variable && {
+      hour: "2-digit",
+      minute: "2-digit",
+    }),
   });
+
+  return formatted;
 };

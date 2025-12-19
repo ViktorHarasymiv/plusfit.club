@@ -150,7 +150,7 @@ export default function Footer() {
                     Stay tuned: we have something special for those who are not
                     afraid to set big goals.
                   </p>
-                  <Link to={`/blog/news`}>
+                  <Link to={`/blog/filter/news`}>
                     <Button type={"button"} styles={styleObj}>
                       {"Go to news"}
                     </Button>

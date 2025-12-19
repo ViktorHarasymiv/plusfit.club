@@ -21,8 +21,8 @@ export default function Contacts() {
           <ContactsTable data={config.data} />
         </div>
       </section>
-      <MapFrame url={address.url} />
       <EatBrand />
+      <MapFrame url={address.maps} />
     </main>
   );
 }

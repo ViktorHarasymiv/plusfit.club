@@ -134,7 +134,7 @@ export default function General({ resizeWidth }) {
                   </li>
                   {/* DROP */}
                   <li className={style.navbar_item}>
-                    <NavLink to={"/price"} style={{ pointerEvents: "none" }}>
+                    <NavLink to={"/actions"} style={{ pointerEvents: "none" }}>
                       Actions <MdKeyboardArrowDown />
                     </NavLink>
                     <ul className={style.dropmenu}>

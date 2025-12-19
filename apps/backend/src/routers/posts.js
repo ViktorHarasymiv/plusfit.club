@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import {
+  createPostController,
   getPostByIdController,
   getPostController,
   likePostController,
@@ -15,6 +16,8 @@ const router = Router();
 router.get('/', getPostController);
 router.get('/search', searchPostsController);
 router.get('/:id', getPostByIdController);
+
+router.post('/', createPostController);
 
 router.post('/comments', createPostCommentController);
 router.get('/comments/:postId', getPostCommentController);

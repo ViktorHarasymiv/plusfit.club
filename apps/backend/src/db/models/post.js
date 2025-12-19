@@ -1,7 +1,6 @@
 import { model, Schema } from 'mongoose';
 
 const PostSchema = new Schema({
-  userId: { type: Schema.Types.ObjectId, ref: 'users', required: true },
   title: { type: String, required: true },
   content: { type: [String], required: true },
   quote: {
@@ -14,7 +13,7 @@ const PostSchema = new Schema({
   views: { type: Number, default: 0 },
   likedBy: { type: [String], default: [] }, // масив userId
   likes: { type: Number, default: 0 },
-  commentsCount: { type: Number, default: 0 },
+  filterBy: { type: String, default: 'News' },
   isNews: { type: Boolean, default: true },
   isPrivate: { type: Boolean, default: false },
   createdAt: { type: Date, default: Date.now },

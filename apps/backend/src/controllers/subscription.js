@@ -115,6 +115,8 @@ export const deleteSubscriberController = async (req, res, next) => {
   res.status(204).send();
 };
 
+// CREATE
+
 export const createSubscriberController = async (req, res) => {
   const contactData = {
     ...req.body,
@@ -127,6 +129,8 @@ export const createSubscriberController = async (req, res) => {
     data: contact,
   });
 };
+
+// PUT
 
 export const upsertContactController = async (req, res, next) => {
   const { contactId } = req.params;
@@ -152,6 +156,8 @@ export const upsertContactController = async (req, res, next) => {
     data: contact,
   });
 };
+
+// GET BY EMAIL
 
 export const getSubscriptionsByEmailController = async (req, res, next) => {
   const { email } = req.query;

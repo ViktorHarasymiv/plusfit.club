@@ -105,3 +105,11 @@ export async function searchPostsByTitle(query) {
     throw new Error('Помилка при пошуку постів: ' + error.message);
   }
 }
+
+// CREATE
+
+export const createPost = async (payload) => {
+  const newPost = await PostCollection.create(payload);
+
+  return newPost;
+};

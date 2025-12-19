@@ -1,5 +1,6 @@
 import createHttpError from 'http-errors';
 import {
+  createPost,
   getAllPost,
   getPostById,
   searchPostsByTitle,
@@ -109,3 +110,18 @@ export async function searchPostsController(req, res) {
     res.status(500).json({ error: error.message });
   }
 }
+
+// CREATE
+
+export const createPostController = async (req, res) => {
+  const payload = {
+    ...req.body,
+  };
+  const newPost = await createPost(payload);
+
+  res.status(201).json({
+    status: 201,
+    message: 'Пост успішно створений!',
+    data: newPost,
+  });
+};

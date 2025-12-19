@@ -89,8 +89,6 @@ export const createSubscriber = async (payload) => {
     pdfPath,
   );
 
-  console.log('Email send result:', info);
-
   // лист адміну
 
   const successfullyCreateSubscriptionPathAdmin = path.join(
@@ -106,17 +104,15 @@ export const createSubscriber = async (payload) => {
 
   const htmlAdmin = templateAdmin({
     name: payload.name,
-    name: payload.name,
     email: payload.email,
     phone: payload.phone,
   });
 
-  const infoAdmin = await sendMail(
+  await sendMail(
     getEnvVar(SMTP.SMTP_ADMIN), // у .env збережи ADMIN_EMAIL
     'New subscription request',
     htmlAdmin,
   );
-  console.log('Email send result (admin):', infoAdmin);
 
   return subscriber;
 };

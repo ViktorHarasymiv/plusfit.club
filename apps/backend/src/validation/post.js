@@ -1,8 +1,6 @@
 import Joi from 'joi';
 
 export const postValidationSchema = Joi.object({
-  userId: Joi.string().required(),
-
   title: Joi.string().trim().min(3).max(200).required(),
 
   content: Joi.array().items(Joi.string().trim().min(1)).min(1).required(),
@@ -21,11 +19,12 @@ export const postValidationSchema = Joi.object({
   tags: Joi.array().items(Joi.string().trim().min(1)).default([]),
 
   views: Joi.number().integer().min(0).default(0),
+
   likedBy: Joi.array(),
   likes: Joi.number().integer().min(0).default(0),
-  commentsCount: Joi.number().integer().min(0).default(0),
 
   isNews: Joi.boolean().default(true),
   isPrivate: Joi.boolean().default(false),
+
   createdAt: Joi.date().default(() => new Date(), 'current date'),
 });

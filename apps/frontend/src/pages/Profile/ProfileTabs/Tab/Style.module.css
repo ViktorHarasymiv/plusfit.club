@@ -1,0 +1,82 @@
+.list_wrapper {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.item_wrapper {
+  height: auto;
+  overflow: hidden;
+
+  display: inherit;
+  flex-wrap: wrap;
+
+  color: var(--dark);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+  transition: var(--transition2);
+
+  border-radius: 6px;
+}
+
+.image {
+  min-width: 100%;
+  height: 200px;
+
+  object-position: center top;
+}
+
+.content_wrapper {
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.description {
+  overflow: auto;
+
+  font-size: 12px;
+
+  -webkit-line-clamp: 2; /* кількість рядків */
+  -webkit-box-orient: vertical;
+}
+
+.tags_list {
+  display: flex;
+  flex-direction: row;
+
+  flex-wrap: nowrap;
+}
+
+.tag_item {
+  padding: 4px;
+
+  font-size: 10px;
+
+  background-color: var(--light-color);
+}
+
+/* HOVER */
+
+.item_wrapper:hover {
+  transform: scale(1.01);
+}
+
+/* Media */
+
+@media screen and (min-width: 767px) {
+  .item_wrapper {
+    height: 200px;
+
+    flex-wrap: nowrap;
+  }
+
+  .image {
+    min-width: 250px;
+    height: 100%;
+  }
+}

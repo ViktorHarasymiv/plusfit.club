@@ -32,6 +32,7 @@ import ProfileUser from "../../pages/Profile/ProfileUser";
 import YogaPrice from "../Yoga/YogaPrice";
 import Post from "../../pages/BlogPage/Post";
 import VerifyForm from "../Auth/VerifyForm";
+import ProfileMyTrening from "../../pages/Profile/MyWorkout/ProfileMyWorkout";
 
 function Router() {
   return (
@@ -71,6 +72,14 @@ function Router() {
             element={
               <AuthGuard>
                 <ProfileUser />
+              </AuthGuard>
+            }
+          />
+          <Route
+            path="workout"
+            element={
+              <AuthGuard>
+                <ProfileMyTrening />
               </AuthGuard>
             }
           />

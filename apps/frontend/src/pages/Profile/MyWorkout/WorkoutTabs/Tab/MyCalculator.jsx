@@ -1,5 +1,5 @@
 import React from "react";
-import CalculatorCalories from "../../../../components/CalculatorCalories/CalculatorCalories";
+import CalculatorCalories from "../../../../../components/CalculatorCalories/CalculatorCalories";
 
 function MyCalculator() {
   return (

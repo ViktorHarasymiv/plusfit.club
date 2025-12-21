@@ -1,0 +1,144 @@
+.workout_wrapper {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 32px;
+}
+
+.title_wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-family: var(--font-family-accent);
+  font-size: clamp(1.5rem, 1.0599rem + 1.8779vw, 2.75rem);
+  color: var(--accent-color);
+
+  text-decoration: underline;
+}
+
+.plan_wrapper {
+  display: flex;
+  flex-direction: column;
+
+  gap: 40px;
+}
+
+.col1 {
+  padding: 15px;
+  border-radius: 6px;
+  background-color: var(--light-color);
+
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.col1_title {
+  font-family: var(--font-family-accent);
+
+  font-weight: 700;
+  font-size: clamp(1rem, 0.7799rem + 0.939vw, 1.625rem) !important;
+  line-height: 1;
+  color: var(--accent-color);
+}
+
+.plan_item {
+  position: relative;
+
+  padding: 10px;
+  margin-left: 22px;
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  gap: 20px;
+}
+
+.plan_item:not(:last-child) {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.plan_item::before {
+  position: absolute;
+  top: 50%;
+  left: -10px;
+
+  transform: translateY(-50%);
+
+  content: "";
+
+  width: 4px;
+  height: 4px;
+
+  background-color: var(--accent-color);
+}
+
+.trening_input {
+  min-width: 85%;
+
+  font-size: clamp(0.75rem, 0.662rem + 0.3756vw, 1rem);
+}
+
+.editable {
+  background-color: var(--white);
+}
+
+.trening_input,
+.trening_input:focus {
+  border: none;
+  outline: none;
+}
+
+.change_svg {
+  cursor: pointer;
+
+  width: 18px;
+  height: 18px;
+  color: var(--accent-color);
+}
+
+.hidden_col {
+  max-height: 50px;
+  overflow: hidden;
+}
+
+.action_wrapper {
+  display: flex;
+  gap: 10px;
+}
+
+.add_new_day {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  font-weight: 700;
+  color: var(--accent-color);
+
+  border: 1px solid var(--accent-color);
+
+  padding: 10px;
+
+  border-radius: 6px;
+  background-color: var(--light-color);
+
+  transition: var(--transition);
+}
+
+.add_new_day:hover {
+  transform: scale(1.05);
+}
+
+.add_new_day svg {
+  width: 22px;
+  height: 22px;
+}
+
+@media screen and (min-width: 991px) {
+  .hidden_col {
+    max-height: 65px;
+  }
+}

@@ -1,27 +1,33 @@
 import React, { useState } from "react";
 
 import css from "./Style.module.css";
-import News from "./Tab/News";
-import Recomendation from "./Tab/Recomendation";
 import clsx from "clsx";
-import MyReviews from "./Tab/MyReviews";
-import MyCalculator from "../MyWorkout/WorkoutTabs/Tab/MyCalculator";
 
-function ProfileTabs() {
-  const [currentTab, setCurrentTab] = useState("News");
+import Workout from "./Tab/Workout";
+import Notes from "./Tab/Notes";
+import Exercises from "./Tab/Exercises";
+import MyCalculator from "./Tab/MyCalculator";
+
+function WorkoutTabs() {
+  const [currentTab, setCurrentTab] = useState("Workout");
 
   const consoleTabs = [
     {
       id: 0,
-      label: "News",
+      label: "Workout",
     },
     {
       id: 1,
-      label: "Recommendations",
+      label: "Notes",
     },
+
     {
       id: 2,
-      label: "My review",
+      label: "Exercises",
+    },
+    {
+      id: 3,
+      label: "Calorie calculator",
     },
   ];
 
@@ -39,16 +45,18 @@ function ProfileTabs() {
         ))}
       </ul>
       <section className={css.tab_section}>
-        {currentTab == "News" ? (
-          <News />
-        ) : currentTab == "Recommendations" ? (
-          <Recomendation />
-        ) : currentTab == "My review" ? (
-          <MyReviews />
+        {currentTab == "Workout" ? (
+          <Workout />
+        ) : currentTab == "Notes" ? (
+          <Notes />
+        ) : currentTab == "Exercises" ? (
+          <Exercises />
+        ) : currentTab == "Calorie calculator" ? (
+          <MyCalculator />
         ) : null}
       </section>
     </div>
   );
 }
 
-export default ProfileTabs;
+export default WorkoutTabs;

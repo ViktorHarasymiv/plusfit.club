@@ -21,6 +21,16 @@ function ProfileSideBar() {
         </li>
         <li>
           <NavLink
+            to={"/profile/workout"}
+            className={({ isActive }) =>
+              clsx(css.nav_link, isActive && css.active)
+            }
+          >
+            <MdDoubleArrow /> My workout
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
             to={"/profile/history"}
             className={({ isActive }) =>
               clsx(css.nav_link, isActive && css.active)

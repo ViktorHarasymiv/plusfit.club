@@ -12,9 +12,9 @@ import gymRouter from './gym.js';
 import portfolioRouter from './portfolio.js';
 import postRouter from './posts.js';
 import mainRouter from './main-config.js';
+import treningPrograms from './programs.js';
 
 const router = Router();
-
 router.use('/auth', authRouter);
 router.use('/users', usersRouter);
 
@@ -29,5 +29,6 @@ router.use('/gym', gymRouter);
 router.use('/portfolio', portfolioRouter);
 router.use('/posts', postRouter);
 router.use('/main-config', mainRouter);
+router.use('/programs', treningPrograms);
 
 export default router;

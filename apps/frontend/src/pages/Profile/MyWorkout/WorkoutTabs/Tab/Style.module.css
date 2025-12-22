@@ -110,7 +110,8 @@
   gap: 10px;
 }
 
-.add_new_day {
+.add_new_day,
+.add_button {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -135,6 +136,28 @@
 .add_new_day svg {
   width: 22px;
   height: 22px;
+}
+
+.add_button {
+  text-transform: uppercase;
+  font-size: 12px;
+
+  padding: 5px;
+
+  gap: 5px;
+}
+
+.add_button:hover {
+  background-color: var(--accent-color);
+
+  color: var(--white);
+
+  transform: scale(1.05);
+  transition: var(--transition2);
+}
+
+.change_plase {
+  margin-left: auto;
 }
 
 @media screen and (min-width: 991px) {

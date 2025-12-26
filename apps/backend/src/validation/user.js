@@ -36,6 +36,7 @@ export const updateUserSchema = Joi.object({
     .optional(),
   BMR: Joi.number().optional(),
   BMI: Joi.number().optional(),
+  activeProgram: Joi.string().optional(),
   isVerified: Joi.boolean().optional(),
   verifyCode: Joi.string().length(6).optional(), // наприклад, 6-значний код
   verifyExpires: Joi.date().optional(),

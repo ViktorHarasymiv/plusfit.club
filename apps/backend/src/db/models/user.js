@@ -61,6 +61,7 @@ const usersSchema = new Schema(
     BMI: {
       type: Number,
     },
+    activeProgram: { type: String, trim: true },
     password: { type: String, trim: true, required: true },
     acceptedTerms: { type: Boolean, trim: true, required: true },
     isVerified: { type: Boolean, default: false }, // чи підтверджений акаунт

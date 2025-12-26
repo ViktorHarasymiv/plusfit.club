@@ -18,7 +18,7 @@ import { useAuth } from "../../../../../context/AuthContext";
 import Loader from "../../../../../components/ui/Loader/Loader";
 
 function Workout() {
-  const { user } = useAuth();
+  const { user, patchUser } = useAuth();
   const {
     fetchPrograms,
     fetchProgramOptions,
@@ -33,9 +33,12 @@ function Workout() {
     fetchPrograms(user._id);
   }, []);
 
-  if (!programOptions && !activeProgram) return <Loader />;
+  useEffect(() => {
+    if (!user?.activeProgram) return;
+    fetchProgramById(user.activeProgram);
+  }, [user._id]);
 
-  console.log(activeProgram);
+  if (!programOptions && !activeProgram) return <Loader />;
 
   return (
     <div className={css.workout_wrapper}>
@@ -48,75 +51,56 @@ function Workout() {
           </button>
 
           {/* Section */}
-          <Formik>
-            <Form className={css.form_wrapper}>
-              <FormControl
-                sx={{ m: 1, maxWidth: 304, width: "100%", margin: "0px" }}
-              >
-                <Select
-                  name="programs"
-                  value=""
-                  onChange={(e) => {
-                    const id = e.target.value;
-                    fetchProgramById(id); // завантажуємо повну програму
-                  }}
-                  displayEmpty
-                  inputProps={{ "aria-label": "Without label" }}
-                  MenuProps={{
-                    disableScrollLock: true,
-                  }}
-                  sx={{
-                    backgroundColor: "var(--light-color)",
-                    color: "var(--accent-color)",
-                    fontWeight: "700",
+          <FormControl sx={{ maxWidth: "166px", margin: "0px" }}>
+            <Select
+              name="programs"
+              value=""
+              onChange={(e) => {
+                const id = e.target.value;
+                fetchProgramById(id); // завантажуємо повну програму
+                patchUser({ activeProgram: id });
+              }}
+              displayEmpty
+              inputProps={{ "aria-label": "Without label" }}
+              MenuProps={{
+                disableScrollLock: true,
+              }}
+              sx={{
+                backgroundColor: "var(--light-color)",
+                color: "var(--accent-color)",
+                fontWeight: "700",
+                "& .MuiSelect-icon": {
+                  color: "var(--accent-color) !important",
+                },
+                "&.Mui-focused .MuiSelect-icon": {
+                  color: "var(--accent-color)",
+                },
 
-                    borderRadius: "6px",
-                    "& .MuiSelect-icon": {
-                      color: "var(--accent-color) !important",
-                    },
-                    "&.Mui-focused .MuiSelect-icon": {
-                      color: "var(--accent-color)",
-                    },
-
-                    ".MuiOutlinedInput-notchedOutline": {
-                      borderColor: "var(--accent-color) !important",
-                    },
-                    "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                      borderWidth: "1px",
-                      borderColor: "var(--accent-color)",
-                    },
-                  }}
-                >
-                  <MenuItem value="" disabled>
-                    <em>Training program</em>
+                ".MuiOutlinedInput-notchedOutline": {
+                  borderColor: "var(--accent-color) !important",
+                },
+                "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                  borderWidth: "1px",
+                  borderColor: "var(--accent-color)",
+                },
+              }}
+            >
+              <MenuItem value="" disabled>
+                <em>Training program</em>
+              </MenuItem>
+              {programOptions.map(({ _id, name }) => {
+                return (
+                  <MenuItem key={_id} value={_id}>
+                    {name}
                   </MenuItem>
-                  {programOptions.map(({ _id, name }) => {
-                    return (
-                      <MenuItem key={_id} value={_id}>
-                        {name}
-                      </MenuItem>
-                    );
-                  })}
-                </Select>
-              </FormControl>
-            </Form>
-          </Formik>
+                );
+              })}
+            </Select>
+          </FormControl>
         </div>
       </div>
       <div className={css.plan_wrapper}>
         <WorkoutDay program={activeProgram} dayData={activeProgram.days} />
-        {!activeProgram.isPublic && (
-          <div className={css.action_wrapper}>
-            <button type="button" className={css.add_new_day}>
-              <FaPlus />
-              Push day
-            </button>
-            <button type="button" className={css.add_new_day}>
-              <FaMinus />
-              Delete day
-            </button>
-          </div>
-        )}
       </div>
     </div>
   );

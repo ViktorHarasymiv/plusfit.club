@@ -277,6 +277,12 @@ input[type="number"] {
   -moz-appearance: textfield;
 }
 
+input[disabled] {
+  opacity: 1 !important;
+}
+
+/* SCROLLBAR */
+
 /* Для всього документа */
 ::-webkit-scrollbar {
   width: 8px; /* Ширина вертикального скролла */

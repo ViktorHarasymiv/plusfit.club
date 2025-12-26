@@ -85,99 +85,34 @@ export const useProgramsStore = create((set, get) => ({
   },
 
   // -----------------------------
-  // ADD NEW DAY TO PROGRAM
+  // PATCH PROGRAM
   // -----------------------------
-  addDay: async (programId, title) => {
+
+  updateProgram: async (programId, updatedData) => {
+    set({ loading: true, error: null });
+
     try {
-      const { data: updatedProgram } = await axios.post(
-        `/api/programs/${programId}/days`,
-        { title }
+      const { data } = await axios.patch(
+        `${API_URL}/programs/${programId}`,
+        updatedData
       );
 
-      // Оновлюємо список програм
-      set((state) => ({
-        programs: state.programs.map((p) =>
-          p._id === programId ? updatedProgram : p
+      // Оновлюємо activeProgram
+      set({ activeProgram: data.program });
+
+      // Оновлюємо programs у списку (якщо він завантажений)
+      set({
+        programs: get().programs.map((p) =>
+          p._id === programId ? data.program : p
         ),
-        activeProgram:
-          state.activeProgram?._id === programId
-            ? updatedProgram
-            : state.activeProgram,
-      }));
+      });
+
+      return data.program;
     } catch (err) {
-      console.error("Error adding day:", err);
-    }
-  },
-
-  // -----------------------------
-  // ADD EXERCISE TO DAY
-  // -----------------------------
-  addExercise: async (programId, dayId, exerciseName) => {
-    try {
-      const { data: updatedProgram } = await axios.post(
-        `/api/programs/${programId}/days/${dayId}/exercises`,
-        { name: exerciseName }
-      );
-
-      set((state) => ({
-        programs: state.programs.map((p) =>
-          p._id === programId ? updatedProgram : p
-        ),
-        activeProgram:
-          state.activeProgram?._id === programId
-            ? updatedProgram
-            : state.activeProgram,
-      }));
-    } catch (err) {
-      console.error("Error adding exercise:", err);
-    }
-  },
-
-  // -----------------------------
-  // UPDATE DAY TITLE / HIDDEN / EDITABLE
-  // -----------------------------
-  updateDay: async (programId, dayId, updates) => {
-    try {
-      const { data: updatedProgram } = await axios.put(
-        `/api/programs/${programId}/days/${dayId}`,
-        updates
-      );
-
-      set((state) => ({
-        programs: state.programs.map((p) =>
-          p._id === programId ? updatedProgram : p
-        ),
-        activeProgram:
-          state.activeProgram?._id === programId
-            ? updatedProgram
-            : state.activeProgram,
-      }));
-    } catch (err) {
-      console.error("Error updating day:", err);
-    }
-  },
-
-  // -----------------------------
-  // UPDATE EXERCISE
-  // -----------------------------
-  updateExercise: async (programId, dayId, exerciseId, updates) => {
-    try {
-      const { data: updatedProgram } = await axios.put(
-        `/api/programs/${programId}/days/${dayId}/exercises/${exerciseId}`,
-        updates
-      );
-
-      set((state) => ({
-        programs: state.programs.map((p) =>
-          p._id === programId ? updatedProgram : p
-        ),
-        activeProgram:
-          state.activeProgram?._id === programId
-            ? updatedProgram
-            : state.activeProgram,
-      }));
-    } catch (err) {
-      console.error("Error updating exercise:", err);
+      set({ error: err.message });
+      return null;
+    } finally {
+      set({ loading: false });
     }
   },
 }));

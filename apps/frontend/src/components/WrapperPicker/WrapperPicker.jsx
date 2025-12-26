@@ -64,7 +64,7 @@ function WrapperPicker({ name }) {
         src={
           wrapper ||
           previewUrl ||
-          "https://res.cloudinary.com/dcmbg0k5a/image/upload/v1760370985/zrgc6rjo13swdddjsivi.jpg"
+          "https://res.cloudinary.com/dcmbg0k5a/image/upload/v1764269800/siem0lgx53zilf51kggs.png"
         }
         alt=""
         className={css.background}

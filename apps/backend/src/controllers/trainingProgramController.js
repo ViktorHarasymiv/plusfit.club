@@ -2,6 +2,7 @@ import {
   getAllProgramsService,
   getListProgramsService,
   getProgramByIdService,
+  updateProgramService,
 } from '../services/trainingProgramServices.js';
 
 // ALL
@@ -60,5 +61,23 @@ export const getProgramById = async (req, res) => {
   } catch (error) {
     console.error('Error fetching program:', error);
     res.status(500).json({ message: 'Server error' });
+  }
+};
+
+// PATH
+
+export const updateProgramController = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const updated = await updateProgramService(id, req.body);
+
+    res.json({
+      message: 'Program updated successfully',
+      program: updated,
+    });
+  } catch (error) {
+    console.error('updateProgramController error:', error);
+    res.status(500).json({ message: error.message || 'Server error' });
   }
 };

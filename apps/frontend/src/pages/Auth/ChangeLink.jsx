@@ -7,7 +7,9 @@ function ChangeLink({ name }) {
   const { changeSign } = useAuthModalStore();
 
   const variable =
-    name === "Зареєструватись" ? "Немає акаунту?" : "Акаунт створений?";
+    name === "Sign Up"
+      ? "You don`t have an account?"
+      : "Already have an account?";
   return (
     <div>
       <h5 className={css.change_link}>

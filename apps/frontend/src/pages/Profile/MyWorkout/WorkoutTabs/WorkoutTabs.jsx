@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import css from "./Style.module.css";
 import clsx from "clsx";
 
-import Workout from "./Tab/Workout";
+import Workout from "./Tab/Workout/Workout";
 import Notes from "./Tab/Notes";
-import Exercises from "./Tab/Exercises";
+import Exercises from "./Tab/Exercises/Exercises";
 import MyCalculator from "./Tab/MyCalculator";
 
 function WorkoutTabs() {

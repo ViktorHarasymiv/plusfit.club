@@ -1,5 +1,8 @@
 import { useAuthModalStore } from "../../store/useAuthModalStore";
 
+import Login from "../../components/Login/Login";
+import ChangeLink from "./ChangeLink";
+
 import Modal from "../../components/ui/Modal/Modal";
 
 const styleObj = {
@@ -11,16 +14,13 @@ const styleObj = {
   backgroundColor: "rgba(0, 0, 0, 0.3)",
 };
 
-import Login from "../../components/Login/Login";
-import ChangeLink from "./ChangeLink";
-
 function LoginModal() {
-  const { isSignInOpen, closeSignIn, changeSign } = useAuthModalStore();
+  const { isSignInOpen, closeSignIn } = useAuthModalStore();
 
   return (
     <Modal isOpen={isSignInOpen} onClose={closeSignIn} styles={styleObj}>
       <Login />
-      <ChangeLink name={"Зареєструватись"} />
+      <ChangeLink name={"Sign Up"} />
     </Modal>
   );
 }

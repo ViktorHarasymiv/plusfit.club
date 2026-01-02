@@ -1,7 +1,5 @@
 import Modal from "../ui/Modal/Modal";
 
-import css from "./Style.module.css";
-
 function ConfirmModal({ children, isOpen, onClose }) {
   const styleOverlayObj = {
     zIndex: "999992",

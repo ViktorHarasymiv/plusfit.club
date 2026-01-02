@@ -45,7 +45,7 @@ function Login() {
       await getLogin(payload);
       await fetchUser();
       closeSignIn();
-      navigate("/profile");
+      navigate("/profile/user");
 
       // Можна додати логіку після успішного логіну
     } catch (error) {

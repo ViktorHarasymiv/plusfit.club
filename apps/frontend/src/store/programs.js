@@ -10,9 +10,8 @@ export const useProgramsStore = create((set, get) => ({
   loading: false,
   error: null,
 
-  // -----------------------------
   // LOAD ALL (public + user)
-  // -----------------------------
+
   fetchPrograms: async (userId) => {
     set({ loading: true, error: null });
 
@@ -33,9 +32,7 @@ export const useProgramsStore = create((set, get) => ({
     }
   },
 
-  // -----------------------------
   // LOAD LIST (public + user)
-  // -----------------------------
 
   fetchProgramOptions: async (userId) => {
     set({ loading: true, error: null });
@@ -57,9 +54,7 @@ export const useProgramsStore = create((set, get) => ({
     }
   },
 
-  // -----------------------------
   // LOAD BY ID (public + user)
-  // -----------------------------
 
   fetchProgramById: async (id) => {
     set({ loading: true, error: null });
@@ -76,17 +71,14 @@ export const useProgramsStore = create((set, get) => ({
     }
   },
 
-  // -----------------------------
   // SET ACTIVE
-  // -----------------------------
+
   setActiveProgram: (programId) => {
     const program = get().programs.find((p) => p._id === programId);
     if (program) set({ activeProgram: program });
   },
 
-  // -----------------------------
   // PATCH PROGRAM
-  // -----------------------------
 
   updateProgram: async (programId, updatedData) => {
     set({ loading: true, error: null });

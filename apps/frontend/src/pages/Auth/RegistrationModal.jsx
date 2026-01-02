@@ -19,7 +19,7 @@ function RegistrationModal() {
   return (
     <Modal isOpen={isSignUpOpen} onClose={closeSignUp} styles={styleObj}>
       <Registration />
-      <ChangeLink name={"Вхід"} />
+      <ChangeLink name={"Log In"} />
     </Modal>
   );
 }

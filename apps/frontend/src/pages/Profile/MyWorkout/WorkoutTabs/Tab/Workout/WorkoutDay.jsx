@@ -1,37 +1,41 @@
+import { useEffect, useState } from "react";
+import { Formik, Form, FieldArray } from "formik";
+import Switch from "@mui/material/Switch";
+
 import css from "./Style.module.css";
 
-import { Formik, Form, FieldArray, Field } from "formik";
-
-import { HiMiniPencilSquare } from "react-icons/hi2";
 import { IoMdArrowDropdown } from "react-icons/io";
-
 import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa6";
-import { useEffect, useState } from "react";
-import Button from "../../../../../components/ui/Button/ReverseBtn";
-import { useProgramsStore } from "../../../../../store/programs";
 
-export default function WorkoutDay({ program, dayData }) {
+import Button from "../../../../../../components/ui/Button/ReverseBtn";
+
+import { useProgramsStore } from "../../../../../../store/programs";
+import { useToastStore } from "../../../../../../store/toastStore";
+
+export default function WorkoutDay({
+  program,
+  dayData,
+  toggleEdit,
+  setEdit,
+  edit,
+}) {
   if (!program || !dayData) return null;
 
-  const { updateProgram } = useProgramsStore();
-
   const [hidden, setHidden] = useState([]);
-  const [edit, setEdit] = useState(false);
 
-  const toggleEdit = () => {
-    setEdit((prev) => !prev);
-  };
-
-  const toggleHidden = (index) => {
-    setHidden((prev) => prev.map((v, i) => (i === index ? !v : v)));
-  };
+  const { showToast } = useToastStore();
+  const { updateProgram } = useProgramsStore();
 
   useEffect(() => {
     if (dayData?.length) {
       setHidden(dayData.map(() => false));
     }
   }, [dayData]);
+
+  const toggleHidden = (index) => {
+    setHidden((prev) => prev.map((v, i) => (i === index ? !v : v)));
+  };
 
   const initialValues = {
     name: program.name,
@@ -43,6 +47,7 @@ export default function WorkoutDay({ program, dayData }) {
     })),
   };
 
+  const label = { inputProps: { "aria-label": "Edit mode switch" } };
   return (
     <>
       <Formik
@@ -50,6 +55,12 @@ export default function WorkoutDay({ program, dayData }) {
         initialValues={initialValues}
         onSubmit={(values) => {
           updateProgram(program._id, values);
+          setEdit(false);
+          showToast(
+            <span style={{ display: "flex", alignItems: "center" }}>
+              Training successfully changed
+            </span>
+          );
         }}
       >
         {({ values, handleChange }) => (
@@ -65,9 +76,11 @@ export default function WorkoutDay({ program, dayData }) {
               />
 
               {!program.isPublic && (
-                <HiMiniPencilSquare
-                  className={css.change_svg}
+                <Switch
                   onClick={toggleEdit}
+                  {...label}
+                  checked={edit}
+                  color="warning"
                 />
               )}
             </div>

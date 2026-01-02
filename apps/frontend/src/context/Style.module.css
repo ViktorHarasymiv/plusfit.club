@@ -1,0 +1,13 @@
+.title {
+  font-family: var(--font-family-accent);
+
+  font-size: 28px;
+}
+
+.action_wrapper {
+  margin-top: 20px;
+
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+}

@@ -80,7 +80,7 @@
 .plan_item::before {
   position: absolute;
   top: 50%;
-  left: -10px;
+  left: -5px;
 
   transform: translateY(-50%);
 
@@ -89,21 +89,28 @@
   width: 4px;
   height: 4px;
 
+  border-radius: 6px;
+
   background-color: var(--accent-color);
 }
 
-.trening_input {
-  min-width: 85%;
-
+.trening_input:not(:disabled) {
   font-size: clamp(0.75rem, 0.662rem + 0.3756vw, 1rem);
+
+  border: 1px solid var(--accent-color);
+
+  border-radius: 6px;
 }
 
 .editable {
   background-color: var(--white);
 }
 
-.trening_input,
-.trening_input:focus {
+.trening_input {
+  min-width: 85%;
+
+  padding-inline: 15px;
+
   border: none;
   outline: none;
 }
@@ -122,6 +129,8 @@
 }
 
 .action_wrapper {
+  margin-top: 10px;
+
   display: flex;
   flex-wrap: wrap;
   gap: 10px;

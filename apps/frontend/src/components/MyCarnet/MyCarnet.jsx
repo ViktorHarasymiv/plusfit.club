@@ -9,10 +9,10 @@ function MyCarnet({ info }) {
   const { clientId, type, status, startDate, endDate, isVerify } = info;
 
   const statusColors = {
-    "Очікує оплати": "#fffeca",
-    Заморожений: "#4d4dff",
-    Використаний: "red",
-    Активний: "#54b2a9",
+    "Wait for paid": "#fffeca",
+    Frozen: "#4d4dff",
+    Used: "red",
+    Active: "#54b2a9",
   };
 
   const verifyColors = {
@@ -39,7 +39,7 @@ function MyCarnet({ info }) {
             <div className={css.carnet_status}>
               <div>
                 <span>
-                  {isVerify == true ? "Підтвердженно" : "Очікує підтвердження"}
+                  {isVerify == true ? "Confirmed" : "Awaiting confirmation"}
                 </span>
                 <span
                   className={css.carnet_detektor}

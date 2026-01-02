@@ -17,14 +17,14 @@ import Toast from "./components/ui/Toast/Toast";
 import OrderModal from "./components/OrderModal/OrderModal";
 import { useAuthModalStore } from "./store/useAuthModalStore";
 import { useMainConfigStore } from "./store/mainStore";
-import Loader from "./components/ui/Loader/Loader";
+import { useExercisesStore } from "./store/exercises.store";
 
 function App() {
   const { closeAll } = useAuthModalStore();
 
   const { isOpen } = useFullscreenStore();
 
-  const { getMainConfig, loading } = useMainConfigStore();
+  const { getMainConfig } = useMainConfigStore();
 
   useEffect(() => {
     const body = document.body;
@@ -63,6 +63,7 @@ function App() {
   return (
     <>
       <Toast />
+
       {/* Auth  */}
 
       <LoginModal />

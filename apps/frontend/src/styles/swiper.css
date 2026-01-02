@@ -1,4 +1,5 @@
 .hero_slide {
+  margin-inline: -1px;
   z-index: 1;
   position: relative;
 

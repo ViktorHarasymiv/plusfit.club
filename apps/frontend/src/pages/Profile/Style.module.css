@@ -155,7 +155,7 @@
 /* Setup */
 
 .setup_wrapper {
-  padding: 24px;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
 
@@ -221,10 +221,6 @@
 
   .active {
     transform: translate(10px, 0px);
-  }
-
-  .carnet_list {
-    grid-template-columns: repeat(auto-fit, minmax(220px, 320px));
   }
 }
 

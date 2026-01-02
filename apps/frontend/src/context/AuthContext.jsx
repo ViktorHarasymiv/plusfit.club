@@ -10,11 +10,15 @@ import {
   refreshSession,
 } from "../services/auth";
 
-import { login } from "../services/auth.js";
-
-import Loader from "../components/ui/Loader/Loader.jsx";
 import { useNavigate } from "react-router-dom";
 import { API_URL } from "../config/api.js";
+import { login } from "../services/auth.js";
+
+import css from "./Style.module.css";
+import Loader from "../components/ui/Loader/Loader.jsx";
+import ConfirmModal from "../components/ConfirmModal/ConfirmModal.jsx";
+import Button from "../components/ui/Button/Button.jsx";
+import ReverseBtn from "../components/ui/Button/ReverseBtn.jsx";
 
 const AuthContext = createContext();
 
@@ -25,6 +29,8 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [authorized, setAuthorized] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  const [isModalOpen, setModalOpen] = useState(false);
 
   const getLogin = async (data) => {
     const res = await login(data);
@@ -46,10 +52,19 @@ export const AuthProvider = ({ children }) => {
     return await editProfile(data);
   };
 
-  const getLogout = async () => {
+  const handleConfirm = async () => {
+    setModalOpen(false);
     await logout();
     navigate("/");
     setUser(null);
+  };
+
+  const handleCancel = () => {
+    setModalOpen(false);
+  };
+
+  const getLogout = () => {
+    setModalOpen(true);
   };
 
   const getRefreshSession = async () => {
@@ -133,6 +148,20 @@ export const AuthProvider = ({ children }) => {
   return (
     <AuthContext.Provider value={authValue}>
       {loading ? <Loader /> : children}
+
+      <ConfirmModal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
+        <>
+          <h3 className={css.title}>Log out of account?</h3>
+          <div className={css.action_wrapper}>
+            <Button action={handleConfirm} styles={{ maxHeight: "34px" }}>
+              Yes
+            </Button>
+            <ReverseBtn action={handleCancel} styles={{ maxHeight: "34px" }}>
+              No
+            </ReverseBtn>
+          </div>
+        </>
+      </ConfirmModal>
     </AuthContext.Provider>
   );
 };

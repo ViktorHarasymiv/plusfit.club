@@ -1,5 +1,5 @@
+import { useAuth } from "../../../../../../context/AuthContext";
 import { useEffect, useState } from "react";
-import { Formik, Form } from "formik";
 
 /* MUI SELECT */
 
@@ -11,13 +11,13 @@ import css from "./Style.module.css";
 import WorkoutDay from "./WorkoutDay";
 
 import { FaPlus } from "react-icons/fa";
-import { FaMinus } from "react-icons/fa6";
-import { useProgramsStore } from "../../../../../store/programs";
+import { useProgramsStore } from "../../../../../../store/programs";
 
-import { useAuth } from "../../../../../context/AuthContext";
-import Loader from "../../../../../components/ui/Loader/Loader";
+import Loader from "../../../../../../components/ui/Loader/Loader";
 
 function Workout() {
+  const [edit, setEdit] = useState(false);
+
   const { user, patchUser } = useAuth();
   const {
     fetchPrograms,
@@ -37,6 +37,10 @@ function Workout() {
     if (!user?.activeProgram) return;
     fetchProgramById(user.activeProgram);
   }, [user._id]);
+
+  const toggleEdit = () => {
+    setEdit((prev) => !prev);
+  };
 
   if (!programOptions && !activeProgram) return <Loader />;
 
@@ -59,6 +63,7 @@ function Workout() {
                 const id = e.target.value;
                 fetchProgramById(id); // завантажуємо повну програму
                 patchUser({ activeProgram: id });
+                setEdit(false);
               }}
               displayEmpty
               inputProps={{ "aria-label": "Without label" }}
@@ -100,7 +105,13 @@ function Workout() {
         </div>
       </div>
       <div className={css.plan_wrapper}>
-        <WorkoutDay program={activeProgram} dayData={activeProgram.days} />
+        <WorkoutDay
+          program={activeProgram}
+          dayData={activeProgram.days}
+          toggleEdit={toggleEdit}
+          setEdit={setEdit}
+          edit={edit}
+        />
       </div>
     </div>
   );

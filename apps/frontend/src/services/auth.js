@@ -109,6 +109,22 @@ export const logout = async () => {
   await axios.post(`${API_URL}/auth/logout`, {}, { withCredentials: true });
 };
 
+// DELETE
+
+export const deleteAccount = async () => {
+  try {
+    const res = await axios.delete(`${API_URL}/users/delete`, {
+      withCredentials: true,
+    });
+
+    if (res?.status === 200 || res?.status === 204) {
+      logout();
+    }
+  } catch (err) {
+    console.error("Delete account error:", err);
+  }
+};
+
 // GOOGLE
 
 export const handleGoogleLogin = async () => {
@@ -116,6 +132,7 @@ export const handleGoogleLogin = async () => {
     const res = await axios.get(`${API_URL}/auth/get-oauth-url`);
 
     const url = res.data.data.url;
+
     window.location.href = url;
   } catch (err) {
     console.error("Failed to get Google OAuth URL", err);

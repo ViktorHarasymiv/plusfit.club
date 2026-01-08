@@ -1,34 +1,12 @@
 {
   "rewrites": [
     {
-      "source": "/profile/api/:path*",
-      "destination": "https://plusfit-club-backend.onrender.com/:path*"
-    },
-
-    {
-      "source": "/blog/api/:path*",
-      "destination": "https://plusfit-club-backend.onrender.com/:path*"
-    },
-    {
-      "source": "/price/api/:path*",
-      "destination": "https://plusfit-club-backend.onrender.com/:path*"
-    },
-    {
-      "source": "/offer/api/:path*",
-      "destination": "https://plusfit-club-backend.onrender.com/:path*"
-    },
-    {
-      "source": "/team/api/:path*",
-      "destination": "https://plusfit-club-backend.onrender.com/:path*"
-    },
-    {
-      "source": "/auth/api/:path*",
-      "destination": "https://plusfit-club-backend.onrender.com/:path*"
-    },
-    {
       "source": "/api/:path*",
       "destination": "https://plusfit-club-backend.onrender.com/:path*"
     },
-    { "source": "/(.*)", "destination": "/" }
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
   ]
 }

@@ -8,6 +8,7 @@ import {
   getMe,
   logout,
   refreshSession,
+  deleteAccount,
 } from "../services/auth";
 
 import { useNavigate } from "react-router-dom";

@@ -4,7 +4,7 @@ import css from "./Style.module.css";
 import clsx from "clsx";
 
 import Workout from "./Tab/Workout/Workout";
-import Notes from "./Tab/Notes";
+import Notes from "./Tab/Notes/Notes";
 import Exercises from "./Tab/Exercises/Exercises";
 import MyCalculator from "./Tab/MyCalculator";
 

@@ -1,0 +1,115 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  gap: 40px;
+}
+
+.list_wrapper {
+  flex: 1 1 45%;
+}
+
+.note_wrapper {
+  flex: 1 1 53%;
+}
+
+.list_wrapper,
+.note_wrapper {
+  padding: 1rem;
+
+  background-color: var(--light-color);
+
+  border-radius: 6px;
+
+  box-shadow: var(--box-shadow);
+
+  color: var(--dark);
+}
+
+.list_note_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list_note_wrapper h2 {
+  font-family: inherit;
+  font-size: 22px;
+
+  font-weight: 400 !important;
+}
+
+.list_action_wrapper {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+}
+
+.list_action_wrapper svg {
+  width: 22px;
+  height: 22px;
+
+  stroke-width: 1px;
+  color: var(--accent-color);
+}
+
+/* MODAL */
+
+.form_title {
+  color: var(--white);
+
+  margin-bottom: 24px;
+}
+
+.diaryList_form {
+  max-width: 600px;
+
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+
+  overflow-y: auto;
+
+  text-align: start;
+}
+
+.diaryList_fieldWrap {
+  position: relative;
+
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+
+  margin-bottom: 28px;
+}
+
+.diaryList_fieldLabel {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.textarea {
+  height: 150px;
+  resize: none;
+}
+
+.diaryList_fieldInput.error::placeholder {
+  color: var(--color-red) !important;
+}
+
+.diaryList_fieldError {
+  position: absolute;
+
+  left: 10px;
+  bottom: -20px;
+
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1.6;
+  color: var(--pastel-red);
+}

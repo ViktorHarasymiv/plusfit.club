@@ -39,10 +39,11 @@ function BlogPage() {
     setFilters((prev) => ({
       ...prev,
       perPage: prev.perPage + 3,
+      page: 1,
     }));
   };
 
-  console.log(filter);
+  console.log(content);
 
   return (
     <main>
@@ -55,12 +56,12 @@ function BlogPage() {
           />
           <BlogFilterNavigation filters={filters} setFilters={setFilters} />
           <BlogList data={content} />
-          {content?.length > 5 ? (
-            <BlogFilterNavigation filters={filters} setFilters={setFilters} />
-          ) : null}
           {page !== totalPages && (
             <Button action={fetchNewPosts}>FETCH MORE</Button>
           )}
+          {content?.length > 5 ? (
+            <BlogFilterNavigation filters={filters} setFilters={setFilters} />
+          ) : null}
         </div>
       </div>
     </main>

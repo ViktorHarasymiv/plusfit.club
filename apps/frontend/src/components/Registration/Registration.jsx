@@ -14,7 +14,6 @@ import { GrSecure } from "react-icons/gr";
 
 import { IoCheckmark } from "react-icons/io5";
 import { register } from "../../services/auth";
-import { useAuth } from "../../context/AuthContext";
 
 import { handleGoogleLogin } from "../../services/auth";
 

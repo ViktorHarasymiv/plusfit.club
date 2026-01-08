@@ -37,8 +37,6 @@
 }
 
 .description {
-  overflow: auto;
-
   font-size: 12px;
 
   -webkit-line-clamp: 2; /* кількість рядків */

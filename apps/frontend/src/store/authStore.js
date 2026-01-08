@@ -7,6 +7,7 @@ import {
   logout,
   refreshSession,
   editProfile,
+  deleteAccount,
 } from "../services/auth";
 import axios from "axios";
 import { API_URL } from "../config/api";
@@ -55,6 +56,8 @@ export const useAuthStore = create((set, get) => ({
 
   loginWithGoogleCode: async (code) => {
     try {
+      console.log(code);
+
       const res = await axios.post(
         `${API_URL}/auth/confirm-oauth`,
         { code },
@@ -102,6 +105,16 @@ export const useAuthStore = create((set, get) => ({
       console.error("❌ Session check error:", err);
     } finally {
       setLoading(false);
+    }
+  },
+
+  deleteAccountFunc: async () => {
+    try {
+      await deleteAccount();
+
+      console.log("++");
+    } catch (err) {
+      console.error(err);
     }
   },
 }));

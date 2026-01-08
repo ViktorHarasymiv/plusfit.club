@@ -10,9 +10,10 @@ import Button from "../ui/Button/Button";
 
 function Item({ data }) {
   return data.map(
-    ({ _id, images, author, title, description, createdAt }, i) => (
+    ({ _id, images, author, title, description, createdAt, filterBy }, i) => (
       <aside key={i} className={css.item}>
         <div className={css.thumb_tile}>
+          {filterBy === "News" && <div className={css.news_band}>New</div>}
           <img src={images[0]} alt="Thumb" className={css.thumb_img} />
         </div>
         <div className={css.content_block}>
@@ -30,7 +31,7 @@ function Item({ data }) {
             <h3 className={css.title}>{title}</h3>
             <p className={css.about}>{description}</p>
           </div>
-          <Link to={`/blog/${_id}`}>
+          <Link to={`/blog/${_id}`} className={css.link}>
             <Button>Read More</Button>
           </Link>
         </div>

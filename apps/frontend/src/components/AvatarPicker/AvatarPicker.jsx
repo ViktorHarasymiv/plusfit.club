@@ -93,7 +93,7 @@ export const AvatarPicker = ({ name, styles, buttonStyles }) => {
           }}
           action={handleClick}
         >
-          Оберіть фото
+          Choose photo
         </Button>
       </div>
       <input

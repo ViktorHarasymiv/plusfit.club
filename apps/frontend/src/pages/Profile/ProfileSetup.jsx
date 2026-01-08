@@ -32,9 +32,11 @@ import { useLoaderStore } from "../../store/loadingStore";
 import { calculateAge } from "../../utils/calculateAge.js";
 
 import Loader from "../../components/ui/Loader/Loader";
+import { useAuthStore } from "../../store/authStore.js";
 
 function ProfileSetup() {
   const { isLoading } = useLoaderStore();
+  const { deleteAccountFunc } = useAuthStore();
   const { user, fetchUser, patchUser } = useAuth();
 
   // CONSTANT
@@ -622,19 +624,24 @@ function ProfileSetup() {
               </div>
             </div>
             <div className="action_wrapper">
-              <Button
-                type="submit"
-                styles={{ maxWidth: "226px", marginTop: "auto" }}
-              >
-                Зберегти
+              <div style={{ display: "flex", gap: "20px" }}>
+                <Button
+                  type="submit"
+                  styles={{ maxWidth: "226px", marginTop: "auto" }}
+                >
+                  Save
+                </Button>
+                <ReverseBtn
+                  type="button"
+                  styles={{ maxWidth: "226px", marginTop: "auto" }}
+                  action={resetForm}
+                >
+                  Clear
+                </ReverseBtn>
+              </div>
+              <Button type={"button"} action={deleteAccountFunc}>
+                Delete account
               </Button>
-              <ReverseBtn
-                type="button"
-                styles={{ maxWidth: "226px", marginTop: "auto" }}
-                action={resetForm}
-              >
-                Очистити
-              </ReverseBtn>
             </div>
           </Form>
         )}

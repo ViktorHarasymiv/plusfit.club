@@ -123,3 +123,33 @@ export const patchUserController = async (req, res, next) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 };
+
+// DELETE
+
+export const deleteMeController = async (req, res) => {
+  try {
+    const userId = req.user?.id || req.session?.userId;
+
+    if (!userId) {
+      return res.status(401).json({ error: 'Unauthorized' });
+    }
+
+    const user = await UsersCollection.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    await UsersCollection.findByIdAndDelete(userId);
+
+    // Якщо ти використовуєш сесії — очищаємо
+    if (req.session) {
+      req.session.destroy(() => {});
+    }
+
+    res.json({ message: 'Account successfully deleted' });
+  } catch (error) {
+    console.error('deleteMe error:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};

@@ -14,7 +14,6 @@ const PostSchema = new Schema({
   likedBy: { type: [String], default: [] }, // масив userId
   likes: { type: Number, default: 0 },
   filterBy: { type: String, default: 'News' },
-  isNews: { type: Boolean, default: true },
   isPrivate: { type: Boolean, default: false },
   createdAt: { type: Date, default: Date.now },
 });

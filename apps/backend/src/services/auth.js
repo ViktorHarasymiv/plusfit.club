@@ -13,7 +13,6 @@ import {
   getFullNameFromGoogleTokenPayload,
   validateCode,
 } from '../utils/googleOAuth2.js';
-import { SubscriptionsCollection } from '../db/models/subscriptions.js';
 import { sendMail } from './mailer.js';
 
 export const registerUser = async (payload) => {
@@ -98,39 +97,8 @@ export const loginOrSignupWithGoogle = async (code) => {
       email: payload.email,
       name: getFullNameFromGoogleTokenPayload(payload),
       password,
+      acceptedTerms: true,
     });
-
-    // 🔍 Знайти абонемент по email
-    const subscriptions = await SubscriptionsCollection.find({
-      email: user.email.toLowerCase(),
-    });
-
-    if (subscriptions.length > 0) {
-      for (const sub of subscriptions) {
-        const alreadyLinked = user.history?.some(
-          (entry) => entry.subscriptionId?.toString() === sub._id.toString(),
-        );
-
-        if (!alreadyLinked) {
-          user.history.push({
-            subscriptionId: sub._id,
-            clientId: sub.clientId,
-            type: sub.type,
-            startDate: sub.startDate,
-            endDate: sub.endDate,
-            price: sub.price,
-            method: sub.method,
-            status: sub.status,
-          });
-
-          // ❗️Опціонально: позначити як використаний
-          // sub.status = 'claimed';
-          // await sub.save();
-        }
-      }
-
-      await user.save();
-    }
   }
 
   const newSession = createSession();

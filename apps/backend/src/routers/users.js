@@ -3,6 +3,7 @@ import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 import { validateBody } from '../middlewares/validateBody.js';
 
 import {
+  deleteMeController,
   getMeAdminController,
   getMeController,
   patchUserController,
@@ -30,5 +31,7 @@ router.patch(
   validateBody(updateUserSchema),
   ctrlWrapper(patchUserController),
 );
+
+router.delete('/delete', verifySession, ctrlWrapper(deleteMeController));
 
 export default router;

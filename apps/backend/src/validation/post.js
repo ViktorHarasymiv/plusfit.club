@@ -23,7 +23,6 @@ export const postValidationSchema = Joi.object({
   likedBy: Joi.array(),
   likes: Joi.number().integer().min(0).default(0),
 
-  isNews: Joi.boolean().default(true),
   isPrivate: Joi.boolean().default(false),
 
   createdAt: Joi.date().default(() => new Date(), 'current date'),

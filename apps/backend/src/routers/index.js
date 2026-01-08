@@ -13,6 +13,8 @@ import portfolioRouter from './portfolio.js';
 import postRouter from './posts.js';
 import mainRouter from './main-config.js';
 import treningPrograms from './programs.js';
+import diaryRouter from './diary.js';
+import emotionRouter from './emotions.js';
 
 const router = Router();
 router.use('/auth', authRouter);
@@ -30,5 +32,7 @@ router.use('/portfolio', portfolioRouter);
 router.use('/posts', postRouter);
 router.use('/main-config', mainRouter);
 router.use('/programs', treningPrograms);
+router.use('/diaries', diaryRouter);
+router.use('/emotions', emotionRouter);
 
 export default router;

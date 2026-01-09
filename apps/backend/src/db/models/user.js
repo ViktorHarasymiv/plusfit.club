@@ -62,6 +62,7 @@ const usersSchema = new Schema(
       type: Number,
     },
     activeProgram: { type: String, trim: true },
+    activeNote: { type: String, trim: true },
     password: { type: String, trim: true, required: true },
     acceptedTerms: { type: Boolean, trim: true, required: true },
     isVerified: { type: Boolean, default: false }, // чи підтверджений акаунт

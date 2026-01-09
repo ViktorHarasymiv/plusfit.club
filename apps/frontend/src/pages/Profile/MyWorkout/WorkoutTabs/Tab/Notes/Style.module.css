@@ -1,16 +1,31 @@
 .wrapper {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 
   gap: 40px;
 }
 
-.list_wrapper {
-  flex: 1 1 45%;
+.list_wrapper,
+.note_wrapper {
+  overflow: hidden;
+
+  max-width: 100%;
+  width: 100%;
 }
 
-.note_wrapper {
-  flex: 1 1 53%;
+@media screen and (min-width: 991px) {
+  .wrapper {
+    flex-wrap: nowrap;
+  }
+
+  .list_wrapper,
+  .note_wrapper {
+    overflow: hidden;
+
+    max-width: 50%;
+    width: 100%;
+  }
 }
 
 .list_wrapper,
@@ -52,6 +67,78 @@
 
   stroke-width: 1px;
   color: var(--accent-color);
+}
+
+.list_wrapp {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 20px;
+}
+
+.diarie_item {
+  cursor: pointer;
+
+  width: 100%;
+  padding: 1rem 1.2rem;
+
+  border-radius: 6px;
+  background-color: rgb(250, 235, 215);
+}
+
+.diarie_item:hover {
+  transform: scale(1.03);
+}
+
+.diarie_title {
+  padding-block: 5px;
+  font-size: 22px;
+}
+
+.tags_list {
+  max-width: 400px;
+
+  overflow-x: auto;
+  display: flex;
+
+  gap: 15px;
+}
+
+.tags_list::-webkit-scrollbar {
+  display: none;
+}
+
+.tag_item {
+  padding: 2px 15px;
+
+  background-color: var(--accent-color);
+  border-radius: 6px;
+
+  color: var(--white);
+  font-size: 12px;
+
+  text-wrap: nowrap;
+}
+
+/* NOTE TILE */
+
+.note_wrapper {
+  padding: 1rem;
+}
+
+.note_actions {
+  display: flex;
+
+  justify-content: space-between;
+}
+
+.note_tile {
+  padding: 1rem;
+
+  width: 100%;
+
+  border-radius: 6px;
+  background-color: rgb(250, 235, 215);
 }
 
 /* MODAL */

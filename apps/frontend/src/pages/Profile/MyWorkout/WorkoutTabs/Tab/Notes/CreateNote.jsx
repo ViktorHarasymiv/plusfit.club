@@ -1,7 +1,10 @@
-import React, { forwardRef, useEffect } from "react";
+import { forwardRef, useEffect } from "react";
+import * as Yup from "yup";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 
-import * as Yup from "yup";
+import { useEmotionsStore } from "../../../../../../store/emotionStore";
+import { useDiariesStore } from "../../../../../../store/useDiariesStore";
 
 import dayjs from "dayjs";
 
@@ -9,15 +12,14 @@ import { Autocomplete, TextField, Checkbox } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 import css from "./Style.module.css";
 import Button from "../../../../../../components/ui/Button/Button";
-import { useEmotionsStore } from "../../../../../../store/emotionStore";
 import Loader from "../../../../../../components/ui/Loader/Loader";
-import axios from "axios";
-import { API_URL } from "../../../../../../config/api";
 
-function CreateNote() {
-  const curDate = dayjs().format("YYYY-MM-DD");
-
+function CreateNote({ closeModal }) {
+  const queryClient = useQueryClient();
+  const { createDiary } = useDiariesStore();
   const { fetchEmotions, emotions } = useEmotionsStore();
+
+  const curDate = dayjs().format("YYYY-MM-DD");
 
   const initialValues = {
     title: "",
@@ -72,6 +74,13 @@ function CreateNote() {
     emotions();
   }, []);
 
+  const mutation = useMutation({
+    mutationFn: createDiary,
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["diaries"] });
+    },
+  });
+
   if (!emotions) return <Loader />;
 
   return (
@@ -81,11 +90,13 @@ function CreateNote() {
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={(values, { resetForm }) => {
-          const res = axios.post(`${API_URL}/diaries`, values);
-
-          resetForm();
-
-          return res;
+          mutation.mutate(values, {
+            onSuccess: () => {
+              queryClient.invalidateQueries({ queryKey: ["diaries"] });
+              resetForm();
+              closeModal();
+            },
+          });
         }}
       >
         {({ values, setFieldValue }) => (
@@ -128,15 +139,15 @@ function CreateNote() {
                 options={emotions}
                 getOptionLabel={(option) => option.title}
                 isOptionEqualToValue={(option, value) =>
-                  option._id === value._id
+                  option.title === value.title
                 }
                 value={emotions.filter(
-                  (e) => e._id && (values?.emotions).includes(e._id)
+                  (e) => e._id && (values?.emotions).includes(e.title)
                 )}
                 onChange={(_, newValue) =>
                   setFieldValue(
                     "emotions",
-                    newValue?.map((e) => e._id)
+                    newValue?.map((e) => e.title)
                   )
                 }
                 PaperComponent={CustomPaper}

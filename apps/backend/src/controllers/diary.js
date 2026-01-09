@@ -4,15 +4,18 @@ import {
   createDiaryService,
   updateDiaryService,
   deleteDiaryService,
+  getDiaryByIdService,
 } from '../services/diary.js';
+
+import { SessionsCollection } from '../db/models/session.js';
 
 export const getUserDiaryController = async (req, res) => {
   try {
     const sessionId = req.cookies?.sessionId;
 
-    console.log('Session ID from cookies:', sessionId);
+    const session = await SessionsCollection.findById(sessionId);
 
-    const tasks = await getUserDiaries({ userId: sessionId });
+    const tasks = await getUserDiaries({ userId: session.userId });
 
     res.status(200).json({
       status: 200,
@@ -32,6 +35,25 @@ export const getUserDiaryController = async (req, res) => {
   }
 };
 
+// BY ID
+
+export const getDiaryById = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const diary = await getDiaryByIdService(id);
+
+    if (!diary) {
+      return res.status(404).json({ message: 'Program not found' });
+    }
+
+    res.json(diary);
+  } catch (error) {
+    console.error('Error fetching program:', error);
+    res.status(500).json({ message: 'Server error' });
+  }
+};
+
 export const createDiaryController = async (req, res, next) => {
   try {
     const sessionId = req.cookies?.sessionId;
@@ -42,8 +64,14 @@ export const createDiaryController = async (req, res, next) => {
         .json({ message: 'Session ID not found in cookies' });
     }
 
+    const session = await SessionsCollection.findById(sessionId);
+
+    if (!session) {
+      return res.status(401).json({ message: 'Invalid session' });
+    }
+
     const diaryData = {
-      userId: sessionId,
+      userId: session.userId,
       ...req.body,
     };
 
@@ -93,7 +121,19 @@ export const deleteDiaryController = async (req, res, next) => {
     const { id } = req.params;
     const sessionId = req.cookies?.sessionId;
 
-    const deletedDiary = await deleteDiaryService(id, sessionId);
+    const session = await SessionsCollection.findById(sessionId);
+
+    if (!session) {
+      return res.status(401).json({
+        status: 401,
+        message: 'Unauthorized',
+        data: null,
+      });
+    }
+
+    const userId = session.userId;
+
+    const deletedDiary = await deleteDiaryService(id, userId);
 
     if (!deletedDiary) {
       return res.status(404).json({

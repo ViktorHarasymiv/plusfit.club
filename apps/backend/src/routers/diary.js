@@ -5,6 +5,7 @@ import {
   createDiaryController,
   updateDiaryController,
   deleteDiaryController,
+  getDiaryById,
 } from '../controllers/diary.js';
 import { createDiarySchema, updateDiarySchema } from '../validation/diary.js';
 import { validateBody } from '../middlewares/validateBody.js';
@@ -12,6 +13,8 @@ import { validateBody } from '../middlewares/validateBody.js';
 const router = Router();
 
 router.get('/', ctrlWrapper(getUserDiaryController));
+
+router.get('/:id', getDiaryById);
 
 router.post(
   '/',

@@ -3,8 +3,8 @@ import { SORT_ORDER } from '../constants/index.js';
 
 export const getUserDiaries = async ({
   userId,
-  sortOrder = SORT_ORDER.ASC,
-  sortBy = '_id',
+  sortOrder = SORT_ORDER.DESC,
+  sortBy = 'createdAt',
 }) => {
   const queryConditions = { userId };
 
@@ -21,6 +21,18 @@ export const getUserDiaries = async ({
     data: tasks,
     total: totalCount,
   };
+};
+
+// BY ID
+
+export const getDiaryByIdService = async (id) => {
+  const diary = await DiaryCollection.findById(id);
+
+  if (!diary) {
+    return null; // контролер сам вирішить, що робити
+  }
+
+  return diary;
 };
 
 export const createDiaryService = async (payload) => {

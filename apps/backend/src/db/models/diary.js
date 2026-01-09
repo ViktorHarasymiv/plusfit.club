@@ -1,38 +1,42 @@
 import { model, Schema, Types } from 'mongoose';
 
-const diarySchema = new Schema ({
+const diarySchema = new Schema(
+  {
     title: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
 
     description: {
-        type: String,
-        required: true,
+      type: String,
+      required: true,
     },
 
     date: {
-        type: String,
-        match: /^\d{4}-\d{2}-\d{2}$/,
-        default: () => new Date().toISOString().split("T")[0],
+      type: String,
+      match: /^\d{4}-\d{2}-\d{2}$/,
+      default: () => new Date().toISOString().split('T')[0],
     },
 
-    emotions: [{
-        type: Schema.Types.ObjectId,
+    emotions: [
+      {
+        type: String,
         ref: 'Emotions',
-        required: true
-    }],
+        required: true,
+      },
+    ],
 
     userId: {
-        type: Types.ObjectId,
-        ref: 'users',
-        required: true,
+      type: Types.ObjectId,
+      ref: 'users',
+      required: true,
     },
-},
+  },
 
-{
+  {
     timestamps: true,
-    versionKey: false
-});
+    versionKey: false,
+  },
+);
 
 export const DiaryCollection = model('diary', diarySchema);

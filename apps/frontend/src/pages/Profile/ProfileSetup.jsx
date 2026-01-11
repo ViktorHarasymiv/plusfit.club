@@ -1,12 +1,15 @@
-import { useMemo } from "react";
+import { forwardRef, useEffect, useMemo } from "react";
 
 import { useAuth } from "../../context/AuthContext";
 import { AvatarPicker } from "../../components/AvatarPicker/AvatarPicker";
 
 import { Field, Formik, Form, useFormikContext, ErrorMessage } from "formik";
+import { Autocomplete, TextField, Checkbox } from "@mui/material";
 import * as Yup from "yup";
 
 import css from "./Style.module.css";
+
+import CheckIcon from "@mui/icons-material/Check";
 
 /* MUI SELECT */
 
@@ -33,11 +36,13 @@ import { calculateAge } from "../../utils/calculateAge.js";
 
 import Loader from "../../components/ui/Loader/Loader";
 import { useAuthStore } from "../../store/authStore.js";
+import { useEmotionsStore } from "../../store/emotionStore.js";
 
 function ProfileSetup() {
   const { isLoading } = useLoaderStore();
   const { deleteAccountFunc } = useAuthStore();
   const { user, fetchUser, patchUser } = useAuth();
+  const { fetchInterests, interests } = useEmotionsStore();
 
   // CONSTANT
   dayjs.locale("eu");
@@ -54,12 +59,13 @@ function ProfileSetup() {
     name: user.name || "",
     phone: user.phone || "",
     sex: user.sex || "",
-    birthday: user.birthday || "",
+    birthday: user.birthday || null,
     goal: user.goal || "",
     section: user.section || "",
     activityLevel: user.activityLevel || "",
     height: user.height || "",
     weight: user.weight || "",
+    interests: user.interests || [],
   };
 
   const userPatchSchema = Yup.object({
@@ -123,11 +129,19 @@ function ProfileSetup() {
     activityLevel: Yup.string()
       .oneOf(["Sitting", "Weak", "Average", "Active", "Strong activity"])
       .optional(),
+
+    interests: Yup.array()
+      .of(Yup.string())
+      .min(1, "At least one emotion must be selected")
+      .max(3, "You cannot select more than 3 interests")
+      .optional("Interests are required"),
   });
 
   // DATA UTILS
 
-  const formattedBirthday = dayjs(initialValues.birthday).format("D MMMM YYYY");
+  const formattedBirthday = dayjs(initialValues.birthday).isValid()
+    ? dayjs(initialValues.birthday).format("D MMMM YYYY")
+    : "Choose date";
 
   const FormikDatePickerBirthday = () => {
     const { values, setFieldValue } = useFormikContext();
@@ -143,6 +157,8 @@ function ProfileSetup() {
         setFieldValue("birthday", iso);
       }
     };
+
+    console.log(formattedBirthday);
 
     return (
       <DesktopDatePicker
@@ -162,7 +178,7 @@ function ProfileSetup() {
               },
 
               "& .MuiPickersOutlinedInput-notchedOutline": {
-                borderColor: "var(--dark)",
+                borderColor: "var(--border-color)",
               },
               "&.Mui-focused .MuiPickersOutlinedInput-notchedOutline": {
                 borderWidth: "1px",
@@ -185,13 +201,38 @@ function ProfileSetup() {
     );
   };
 
+  const CustomPaper = forwardRef(function CustomPaper(props, ref) {
+    return (
+      <div
+        ref={ref}
+        {...props}
+        style={{
+          borderRadius: 6,
+
+          backgroundColor: "rgba(255,255,255, 0.9)",
+          boxShadow: "0 4px 10px rgba(0,0,0,0.15)",
+
+          color: "var(--dark)",
+        }}
+      >
+        {props.children}
+      </div>
+    );
+  });
+
   const handlerSubmit = async (values) => {
     try {
       const formData = new FormData();
 
       for (const [key, value] of Object.entries(values)) {
         if (value !== undefined && value !== null && value !== "") {
-          formData.append(key, value);
+          if (Array.isArray(value)) {
+            value.forEach((item) => {
+              formData.append(key, item);
+            });
+          } else {
+            formData.append(key, value);
+          }
         }
       }
 
@@ -211,7 +252,15 @@ function ProfileSetup() {
     }
   };
 
-  if (isLoading) {
+  useEffect(() => {
+    const interests = () => {
+      fetchInterests();
+    };
+
+    interests();
+  }, []);
+
+  if (isLoading || !interests) {
     return <Loader />;
   }
 
@@ -222,7 +271,14 @@ function ProfileSetup() {
         validationSchema={userPatchSchema}
         onSubmit={handlerSubmit}
       >
-        {({ values, handleChange, errors, touched, resetForm }) => (
+        {({
+          values,
+          handleChange,
+          setFieldValue,
+          errors,
+          touched,
+          resetForm,
+        }) => (
           <Form className={css.form_wrapper}>
             <div className={css.coll_1}>
               <div className={css.user_info_input}>
@@ -245,7 +301,7 @@ function ProfileSetup() {
                         borderColor:
                           errors.name && touched.name
                             ? "var(--pastel-red)"
-                            : "var(--dark)",
+                            : "var(--border-color)",
                       }}
                     />
                   </label>
@@ -307,7 +363,6 @@ function ProfileSetup() {
 
                           ".MuiOutlinedInput-notchedOutline": {
                             borderRadius: "6px",
-                            borderColor: "var(--dark)",
                           },
                           "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
                             borderWidth: "1px",
@@ -345,7 +400,7 @@ function ProfileSetup() {
                         borderColor:
                           errors.phone && touched.phone
                             ? "var(--pastel-red)"
-                            : "var(--dark)",
+                            : "var(--border-color)",
                       }}
                     />
                   </label>
@@ -437,11 +492,11 @@ function ProfileSetup() {
                         color:
                           errors.height && touched.height
                             ? "var(--pastel-red)"
-                            : "var(--dark)",
+                            : "inherit",
                         borderColor:
                           errors.height && touched.height
                             ? "var(--pastel-red)"
-                            : "var(--dark)",
+                            : "var(--border-color)",
                       }}
                     />
                   </label>
@@ -471,7 +526,7 @@ function ProfileSetup() {
                         borderColor:
                           errors.weight && touched.weight
                             ? "var(--pastel-red)"
-                            : "var(--dark)",
+                            : "var(--border-color)",
                       }}
                     />
                   </label>
@@ -611,6 +666,119 @@ function ProfileSetup() {
                   </label>
                   <ErrorMessage
                     name="activityLevel"
+                    component="div"
+                    className="error"
+                  />
+                </div>
+
+                {/* Interests */}
+
+                <div className="input_wrapper">
+                  <label htmlFor="interests" className={css.setup_label}>
+                    Choose your interests
+                    <Autocomplete
+                      multiple
+                      disablePortal
+                      disableCloseOnSelect
+                      options={interests}
+                      getOptionLabel={(option) => option.tag}
+                      isOptionEqualToValue={(option, value) => option === value}
+                      value={interests.filter(
+                        (e) =>
+                          e._id && (values?.interests ?? []).includes(e.tag)
+                      )}
+                      onChange={(_, newValue) => {
+                        if (newValue.length > 3) return;
+                        setFieldValue(
+                          "interests",
+                          newValue?.map((e) => e.tag)
+                        );
+                      }}
+                      PaperComponent={CustomPaper}
+                      renderOption={(props, option, { selected }) => {
+                        const { key, ...rest } = props;
+                        return (
+                          <li key={key} {...rest}>
+                            <Checkbox
+                              checked={selected}
+                              sx={{
+                                padding: 0,
+                                marginRight: 1,
+                              }}
+                              icon={
+                                <div
+                                  style={{
+                                    width: 20,
+                                    height: 20,
+                                    border: "1px solid var(--accent-color)",
+                                  }}
+                                />
+                              }
+                              checkedIcon={
+                                <div
+                                  style={{
+                                    width: 20,
+                                    height: 20,
+                                    border: "1px solid var(--accent-color)",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    justifyContent: "center",
+                                  }}
+                                >
+                                  <CheckIcon
+                                    style={{
+                                      color: "var(--accent-color)",
+                                      fontSize: 12,
+                                    }}
+                                  />
+                                </div>
+                              }
+                            />
+                            {option.tag}
+                          </li>
+                        );
+                      }}
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          placeholder="Choose emotion"
+                          variant="outlined"
+                          fullWidth
+                          className="input"
+                          sx={{
+                            "& .MuiOutlinedInput-root": {
+                              color: "var(--white)",
+                              paddingRight: "10px !important",
+                              opacity: 1,
+                            },
+                            "& .MuiInputBase-input::placeholder": {
+                              fontSize: "12px",
+                              opacity: 0.8, // важливо, бо MUI ставить 0.5
+                            },
+                            "& .MuiChip-root": {
+                              backgroundColor: "var(--accent-color)",
+                              fontSize: "12px",
+                              color: "var(--white)",
+                            },
+
+                            "& .MuiSvgIcon-root": {
+                              color: "var(--dark)",
+                            },
+
+                            "& .MuiChip-deleteIcon": {
+                              color: "var(--white) !important",
+                            },
+
+                            "& .MuiAutocomplete-clearIndicator": {
+                              color: "white !important",
+                            },
+                          }}
+                        />
+                      )}
+                    />
+                  </label>
+                  <ErrorMessage
+                    name="interests"
                     component="div"
                     className="error"
                   />

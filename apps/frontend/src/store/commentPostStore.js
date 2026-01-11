@@ -4,6 +4,7 @@ import { API_URL } from "../config/api";
 
 export const useCommentStore = create((set) => ({
   data: null,
+  userComment: null,
   loading: false,
   error: null,
   pagination: {
@@ -12,6 +13,10 @@ export const useCommentStore = create((set) => ({
     totalPages: 0,
     totalItems: 0,
   },
+
+  // ============================
+  // GET all comments
+  // ============================
 
   getCommentPost: async (
     postId,
@@ -23,7 +28,7 @@ export const useCommentStore = create((set) => ({
     set({ loading: true, error: null });
     try {
       const res = await axios.get(
-        `${API_URL}/posts/comments/${postId}?page=${page}&perPage=${perPage}&sortBy=${sortBy}&sortOrder=${sortOrder}`
+        `${API_URL}/posts/comments/post/${postId}?page=${page}&perPage=${perPage}&sortBy=${sortBy}&sortOrder=${sortOrder}`
       );
 
       set({
@@ -42,6 +47,56 @@ export const useCommentStore = create((set) => ({
           err.response?.data?.message ||
           err.message ||
           "Помилка при завантаженні",
+        loading: false,
+      });
+    }
+  },
+
+  // ============================
+  // GET comments by USER ID
+  // ============================
+
+  getCommentsByUser: async (userId) => {
+    set({ loading: true, error: null });
+
+    try {
+      const res = await axios.get(`${API_URL}/posts/comments/user/${userId}`);
+
+      set({
+        userComment: res.data.data || [],
+        loading: false,
+      });
+    } catch (err) {
+      set({
+        error:
+          err.response?.data?.message ||
+          err.message ||
+          "Не вдалося завантажити коментарі користувача",
+        loading: false,
+      });
+    }
+  },
+
+  // ============================
+  // DELETE comment by ID
+  // ============================
+
+  deleteComment: async (commentId) => {
+    set({ loading: true, error: null });
+
+    try {
+      await axios.delete(`${API_URL}/posts/comments/${commentId}`);
+
+      set({
+        data: (get().data || []).filter((c) => c._id !== commentId),
+        loading: false,
+      });
+    } catch (err) {
+      set({
+        error:
+          err.response?.data?.message ||
+          err.message ||
+          "Не вдалося видалити коментар",
         loading: false,
       });
     }

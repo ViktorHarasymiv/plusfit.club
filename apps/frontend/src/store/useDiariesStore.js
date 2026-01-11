@@ -89,20 +89,20 @@ export const useDiariesStore = create((set, get) => ({
   // -----------------------------
   // UPDATE DIARY
   // -----------------------------
-  updateDiary: async (id, values) => {
+  updateDiary: async ({ id, values }) => {
     try {
       set({ loading: true, error: null });
 
-      const res = await axios.patch(`${API_URL}/diaries/${id}`, values, {
+      const response = await axios.patch(`${API_URL}/diaries/${id}`, values, {
         withCredentials: true,
       });
 
       set({
-        diaries: get().diaries.map((d) => (d._id === id ? res.data.data : d)),
+        currentNote: response.data.data.diary,
         loading: false,
       });
 
-      return res.data.data;
+      return response.data.data;
     } catch (err) {
       set({
         error: err.response?.data?.message || "Failed to update diary",

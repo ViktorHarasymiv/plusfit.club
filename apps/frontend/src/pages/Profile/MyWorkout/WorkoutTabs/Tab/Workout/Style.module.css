@@ -16,6 +16,8 @@
 }
 
 .program_title {
+  width: 100%;
+
   font-family: var(--font-family-accent);
   font-weight: 700;
   text-decoration: underline;

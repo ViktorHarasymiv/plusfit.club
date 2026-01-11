@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import Button from "../../../../components/ui/Button/Button";
 
 function News() {
-  const { get_post, content, pagination } = usePostStore();
+  const { get_post, content } = usePostStore();
 
   const perPage = 6;
   const filterBy = "News";
@@ -17,8 +17,6 @@ function News() {
     };
     fetch_post_data({ perPage, filterBy });
   }, []);
-
-  console.log(content, pagination);
 
   return (
     <div>
@@ -45,7 +43,7 @@ function News() {
                     );
                   })}
                 </ul>
-                <Link to={`/blog/${item._id}`}>
+                <Link to={`/blog/${item._id}`} className={css.link}>
                   <Button styles={{ maxHeight: "22px", fontSize: "12px" }}>
                     Get by post
                   </Button>

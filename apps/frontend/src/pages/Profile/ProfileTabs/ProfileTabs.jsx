@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import css from "./Style.module.css";
 import News from "./Tab/News";
 import Recomendation from "./Tab/Recomendation";
 import clsx from "clsx";
-import MyReviews from "./Tab/MyReviews";
-import MyCalculator from "../MyWorkout/WorkoutTabs/Tab/MyCalculator";
+import MyReviews from "./Tab/MyReviews/MyReviews";
 
 function ProfileTabs() {
   const [currentTab, setCurrentTab] = useState("News");

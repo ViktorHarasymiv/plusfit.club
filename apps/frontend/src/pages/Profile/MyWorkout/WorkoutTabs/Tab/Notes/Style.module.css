@@ -3,7 +3,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
 
-  gap: 40px;
+  gap: 20px;
 }
 
 .list_wrapper,
@@ -14,22 +14,10 @@
   width: 100%;
 }
 
-@media screen and (min-width: 991px) {
-  .wrapper {
-    flex-wrap: nowrap;
-  }
-
-  .list_wrapper,
-  .note_wrapper {
-    overflow: hidden;
-
-    max-width: 50%;
-    width: 100%;
-  }
-}
-
 .list_wrapper,
 .note_wrapper {
+  max-height: 800px;
+
   padding: 1rem;
 
   background-color: var(--light-color);
@@ -47,11 +35,15 @@
   justify-content: space-between;
 }
 
-.list_note_wrapper h2 {
+.note_actions h2 {
   font-family: inherit;
   font-size: 22px;
 
   font-weight: 400 !important;
+}
+
+.date {
+  font-size: 12px;
 }
 
 .list_action_wrapper {
@@ -70,16 +62,29 @@
 }
 
 .list_wrapp {
+  padding: 10px 20px;
+  max-height: 700px;
+
+  overflow: hidden;
+  overflow-y: auto;
+
   display: flex;
   flex-wrap: wrap;
 
   gap: 20px;
 }
 
+.list_wrapp::-webkit-scrollbar-thumb {
+  background: rgb(250, 235, 215);
+  border-radius: 4px;
+}
+
 .diarie_item {
   cursor: pointer;
 
   width: 100%;
+  height: fit-content;
+
   padding: 1rem 1.2rem;
 
   border-radius: 6px;
@@ -127,9 +132,21 @@
 }
 
 .note_actions {
+  margin-bottom: 15px;
   display: flex;
+  align-items: center;
 
   justify-content: space-between;
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
+  color: var(--accent-color);
+}
+
+.icon:hover > svg {
+  transform: scale(1.1);
 }
 
 .note_tile {
@@ -199,4 +216,18 @@
   font-size: 10px;
   line-height: 1.6;
   color: var(--pastel-red);
+}
+
+@media screen and (min-width: 991px) {
+  .wrapper {
+    flex-wrap: nowrap;
+  }
+
+  .list_wrapper,
+  .note_wrapper {
+    overflow: hidden;
+
+    max-width: 50%;
+    width: 100%;
+  }
 }

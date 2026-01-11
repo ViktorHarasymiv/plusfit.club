@@ -55,6 +55,7 @@ const usersSchema = new Schema(
       enum: ['Sitting', 'Weak', 'Average', 'Active', 'Strong activity'],
       default: null,
     },
+    interests: [String],
     BMR: {
       type: Number,
     },

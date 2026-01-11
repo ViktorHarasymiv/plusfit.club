@@ -60,3 +60,49 @@ export const getPostCommentController = async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 };
+
+// GET BY USER ID
+
+export const getPostCommentsByUserIdController = async (req, res) => {
+  try {
+    const { userId } = req.params;
+
+    const comments = await postCommentCollection
+      .find({ userId })
+      .sort({ createdAt: -1 });
+
+    return res.status(200).json({
+      status: 200,
+      message: 'Successfully found user comments!',
+      data: comments,
+      totalItems: comments.length,
+    });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+// DELETE BY USER ID
+
+export const deletePostCommentByIdController = async (req, res) => {
+  try {
+    const { commentId } = req.params;
+
+    const deleted = await postCommentCollection.findByIdAndDelete(commentId);
+
+    if (!deleted) {
+      return res.status(404).json({
+        status: 404,
+        message: 'Comment not found',
+      });
+    }
+
+    return res.status(200).json({
+      status: 200,
+      message: 'Comment successfully deleted!',
+      data: deleted,
+    });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};

@@ -43,8 +43,6 @@ function BlogPage() {
     }));
   };
 
-  console.log(content);
-
   return (
     <main>
       <NavigationContext />

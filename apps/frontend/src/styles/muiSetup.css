@@ -13,21 +13,14 @@
 
 /* SELECT */
 
-.MuiInputBase-root {
-  border-radius: 6px !important;
-}
-
 .MuiOutlinedInput-root-MuiSelect-root {
   color: var(--accent-color) !important;
-}
-
-.MuiOutlinedInput-notchedOutline {
 }
 
 /* + Border */
 
 .MuiOutlinedInput-notchedOutline {
-  border-color: #dee2e6 !important;
+  border-color: var(--border-color) !important;
 }
 
 /* + Label */

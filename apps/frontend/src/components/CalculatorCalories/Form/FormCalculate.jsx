@@ -76,7 +76,9 @@ export default function FormCalculate({ setCalories }) {
 
   dayjs.locale("eu");
 
-  const formattedBirthday = dayjs(initialValues.birthday).format("D.MM.YYYY");
+  const formattedBirthday = dayjs(initialValues.birthday).isValid()
+    ? dayjs(initialValues.birthday).format("D MMMM YYYY")
+    : "Choose date";
 
   const today = dayjs();
 

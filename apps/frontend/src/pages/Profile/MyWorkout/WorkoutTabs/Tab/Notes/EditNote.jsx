@@ -1,28 +1,28 @@
 import { forwardRef, useEffect } from "react";
+import * as Yup from "yup";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
-
-import { Autocomplete, TextField, Checkbox } from "@mui/material";
 
 import { useEmotionsStore } from "../../../../../../store/emotionStore";
 import { useDiariesStore } from "../../../../../../store/useDiariesStore";
 
+import { Autocomplete, TextField, Checkbox } from "@mui/material";
+import CheckIcon from "@mui/icons-material/Check";
 import css from "./Style.module.css";
-
 import Button from "../../../../../../components/ui/Button/Button";
 import Loader from "../../../../../../components/ui/Loader/Loader";
-import CheckIcon from "@mui/icons-material/Check";
 
-function CreateNote({ closeModal }) {
+function EditNote({ closeModal }) {
   const queryClient = useQueryClient();
-  const { createDiary } = useDiariesStore();
+
+  const { fetchDiaries, currentNote, updateDiary } = useDiariesStore();
+
   const { fetchEmotions, emotions } = useEmotionsStore();
 
   const initialValues = {
-    title: "",
-    description: "",
-    emotions: [],
+    title: currentNote.title,
+    description: currentNote.description,
+    emotions: currentNote.emotions,
   };
 
   const validationSchema = Yup.object().shape({
@@ -61,15 +61,15 @@ function CreateNote({ closeModal }) {
   });
 
   useEffect(() => {
-    const emotions = () => {
+    const loadEmotions = () => {
       fetchEmotions();
     };
 
-    emotions();
+    loadEmotions();
   }, []);
 
   const mutation = useMutation({
-    mutationFn: createDiary,
+    mutationFn: updateDiary,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["diaries"] });
     },
@@ -79,18 +79,24 @@ function CreateNote({ closeModal }) {
 
   return (
     <div>
-      <h2 className={css.form_title}>Create new record</h2>
+      <h2 className={css.form_title}>Edit your record</h2>
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
+        enableReinitialize
         onSubmit={(values, { resetForm }) => {
-          mutation.mutate(values, {
-            onSuccess: () => {
-              queryClient.invalidateQueries({ queryKey: ["diaries"] });
-              resetForm();
-              closeModal();
-            },
-          });
+          console.log(values);
+
+          mutation.mutate(
+            { id: currentNote._id, values },
+            {
+              onSuccess: () => {
+                fetchDiaries();
+                resetForm();
+                closeModal();
+              },
+            }
+          );
         }}
       >
         {({ values, setFieldValue }) => (
@@ -141,7 +147,7 @@ function CreateNote({ closeModal }) {
                 onChange={(_, newValue) =>
                   setFieldValue(
                     "emotions",
-                    newValue?.map((e) => e.title)
+                    newValue.map((e) => e.title)
                   )
                 }
                 PaperComponent={CustomPaper}
@@ -276,4 +282,4 @@ function CreateNote({ closeModal }) {
   );
 }
 
-export default CreateNote;
+export default EditNote;

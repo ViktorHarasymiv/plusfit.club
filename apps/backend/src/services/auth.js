@@ -96,6 +96,7 @@ export const loginOrSignupWithGoogle = async (code) => {
     user = await UsersCollection.create({
       email: payload.email,
       name: getFullNameFromGoogleTokenPayload(payload),
+      avatar: payload.picture,
       password,
       acceptedTerms: true,
     });

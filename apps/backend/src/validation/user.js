@@ -34,6 +34,7 @@ export const updateUserSchema = Joi.object({
   activityLevel: Joi.string()
     .valid('Sitting', 'Weak', 'Average', 'Active', 'Strong activity')
     .optional(),
+  interests: Joi.array().items(Joi.string()).min(1).max(3).optional(),
   BMR: Joi.number().optional(),
   BMI: Joi.number().optional(),
   activeProgram: Joi.string().optional(),

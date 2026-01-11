@@ -44,9 +44,11 @@ export const createDiaryService = async (payload) => {
   }
 };
 
-export const updateDiaryService = async (diaryId, sessionId, payload) => {
+export const updateDiaryService = async (diaryId, userId, payload) => {
+  console.log(userId);
+
   const updatedDiary = await DiaryCollection.findOneAndUpdate(
-    { _id: diaryId, sessionId },
+    { _id: diaryId, userId: userId },
     { $set: payload },
     { new: true },
   );

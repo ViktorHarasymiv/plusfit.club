@@ -109,6 +109,8 @@ export const patchUserController = async (req, res, next) => {
 
     const updatedUser = await updateUser(userId, updateData);
 
+    console.log(updatedUser);
+
     if (!updatedUser) {
       return next(createHttpError(404, 'User not found'));
     }

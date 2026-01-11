@@ -8,20 +8,34 @@ import {
 } from '../controllers/post.js';
 import {
   createPostCommentController,
+  deletePostCommentByIdController,
   getPostCommentController,
+  getPostCommentsByUserIdController,
 } from '../controllers/postComment.js';
 
 const router = Router();
 
+// POSTS
 router.get('/', getPostController);
-router.get('/search', searchPostsController);
-router.get('/:id', getPostByIdController);
-
 router.post('/', createPostController);
+router.get('/search', searchPostsController);
 
+// COMMENTS
 router.post('/comments', createPostCommentController);
-router.get('/comments/:postId', getPostCommentController);
 
+// get comments for a post
+router.get('/comments/post/:postId', getPostCommentController);
+
+// get comments by user
+router.get('/comments/user/:userId', getPostCommentsByUserIdController);
+
+// like post
 router.patch('/:postId/like', likePostController);
+
+// delete comment by id
+
+router.delete('/comments/:commentId', deletePostCommentByIdController);
+
+router.get('/:id', getPostByIdController);
 
 export default router;

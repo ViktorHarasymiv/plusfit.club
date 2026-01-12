@@ -28,6 +28,7 @@
 }
 
 .content_wrapper {
+  overflow: hidden;
   padding: 20px;
 
   display: flex;
@@ -79,7 +80,7 @@
 
 @media screen and (min-width: 767px) {
   .item_wrapper {
-    height: 250px;
+    height: 230px;
 
     flex-wrap: nowrap;
   }

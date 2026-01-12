@@ -13,13 +13,13 @@ function News() {
 
   useEffect(() => {
     const fetch_post_data = async () => {
-      await get_post();
+      await get_post({ perPage, filterBy });
     };
-    fetch_post_data({ perPage, filterBy });
+    fetch_post_data();
   }, []);
 
   return (
-    <div>
+    <>
       <ul className={css.list_wrapper}>
         {content?.map((item, i) => {
           return (
@@ -53,7 +53,7 @@ function News() {
           );
         })}
       </ul>
-    </div>
+    </>
   );
 }
 

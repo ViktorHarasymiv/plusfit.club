@@ -6,7 +6,9 @@
 
 .flex_comment {
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
+
   padding: 1.5rem;
 
   border-radius: 6px;
@@ -36,7 +38,6 @@
 
 .comment_list {
   display: flex;
-
   flex-direction: column;
 
   gap: 20px;

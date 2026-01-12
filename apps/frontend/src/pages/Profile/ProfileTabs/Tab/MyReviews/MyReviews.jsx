@@ -42,7 +42,7 @@ function MyReviews() {
     <>
       {userComment.length < 1 ? (
         <div>
-          <h2>You have not any comments</h2>
+          <h2>You don’t have any comments.</h2>
         </div>
       ) : (
         <ul className={css.comment_list}>

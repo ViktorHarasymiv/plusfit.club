@@ -9,8 +9,6 @@
 }
 
 .outlet_wrapper {
-  width: 100%;
-
   display: flex;
   gap: 32px;
   flex-direction: column;
@@ -25,6 +23,8 @@
 
   display: flex;
   align-self: flex-start;
+
+  flex: 1;
 
   flex-wrap: nowrap;
   text-wrap: nowrap;
@@ -71,17 +71,6 @@
   background-color: rgba(253, 95, 38, 0.8);
 }
 
-@media screen and (min-width: 991.98px) {
-  .side_bar {
-    width: 25%;
-
-    position: sticky;
-    top: 120px;
-
-    overflow-x: visible;
-  }
-}
-
 /* Carnet */
 
 .carnet_list {
@@ -102,7 +91,6 @@
 
 .user_wrapper {
   height: 320px;
-
   overflow: hidden;
 
   border-top-left-radius: 10px;
@@ -116,16 +104,17 @@
   z-index: 1;
 
   padding: 14px;
-  transform: translateY(-50px);
+  transform: translateY(-90px);
 
   display: flex;
-  gap: 32px;
-  align-items: end;
+  flex-wrap: wrap;
+
+  gap: 22px;
 }
 
 .avatar {
-  width: 120px;
-  height: 120px;
+  width: 160px;
+  height: 160px;
 
   border-radius: 50%;
 
@@ -135,7 +124,14 @@
 }
 
 .info_panel_wrapper {
-  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+
+  gap: 30px;
+
+  color: var(--dark);
+  font-weight: 500;
 }
 
 .user_name {
@@ -192,7 +188,45 @@
   color: var(--dark);
 }
 
+.action_wrapper {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 30px;
+}
+
+@media screen and (min-width: 767.98px) {
+  .form_wrapper {
+    align-items: stretch;
+  }
+  .coll_1 {
+    flex-direction: row;
+  }
+
+  .carnet_list {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  .avatar {
+    width: 120px;
+    height: 120px;
+  }
+
+  .user_info_wrapper {
+    transform: translateY(-60px);
+  }
+}
+
 @media screen and (min-width: 991.98px) {
+  .side_bar {
+    width: 25%;
+
+    position: sticky;
+    top: 120px;
+
+    overflow-x: visible;
+  }
   .layout_wrapper {
     padding-bottom: 120px;
 
@@ -208,12 +242,6 @@
     flex-direction: column;
   }
 
-  .user_info_wrapper {
-    padding: 24px;
-
-    transform: translateY(-90px);
-  }
-
   .avatar {
     width: 160px;
     height: 160px;
@@ -222,17 +250,12 @@
   .active {
     transform: translate(10px, 0px);
   }
-}
-
-@media screen and (min-width: 767.98px) {
-  .form_wrapper {
-    align-items: stretch;
-  }
-  .coll_1 {
-    flex-direction: row;
-  }
 
   .carnet_list {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 300px));
+  }
+
+  .user_info_wrapper {
+    transform: translateY(-90px);
   }
 }

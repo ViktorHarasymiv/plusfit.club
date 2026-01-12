@@ -34,8 +34,10 @@ function ProfileDashboard() {
             className={css.avatar}
           />
           <div className={css.info_panel_wrapper}>
-            <h4 className={css.user_name}>{name}</h4>
-            <h5 className={css.user_email}>{email}</h5>
+            <div>
+              <p className={css.user_name}>{name}</p>
+              <p className={css.user_email}>{email}</p>
+            </div>
             <UserInfoBar />
           </div>
         </div>

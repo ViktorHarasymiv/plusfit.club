@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useMemo } from "react";
+import { forwardRef, useEffect, useMemo, useState } from "react";
 
 import { useAuth } from "../../context/AuthContext";
 import { AvatarPicker } from "../../components/AvatarPicker/AvatarPicker";
@@ -37,12 +37,17 @@ import { calculateAge } from "../../utils/calculateAge.js";
 import Loader from "../../components/ui/Loader/Loader";
 import { useAuthStore } from "../../store/authStore.js";
 import { useEmotionsStore } from "../../store/emotionStore.js";
+import ConfirmModal from "../../components/ConfirmModal/ConfirmModal.jsx";
 
 function ProfileSetup() {
   const { isLoading } = useLoaderStore();
   const { deleteAccountFunc } = useAuthStore();
   const { user, fetchUser, patchUser } = useAuth();
   const { fetchInterests, interests } = useEmotionsStore();
+
+  // STATE
+
+  const [isModalOpen, setModalOpen] = useState(false);
 
   // CONSTANT
   dayjs.locale("eu");
@@ -250,6 +255,21 @@ function ProfileSetup() {
       useToastStore.getState().showToast(error.message);
       console.log("error", error.messages);
     }
+  };
+
+  const getDelete = () => {
+    setModalOpen((prev) => !prev);
+  };
+
+  const handleConfirm = async () => {
+    setModalOpen(false);
+    await deleteAccountFunc();
+    navigate("/");
+    setUser(null);
+  };
+
+  const handleCancel = () => {
+    setModalOpen(false);
   };
 
   useEffect(() => {
@@ -791,7 +811,7 @@ function ProfileSetup() {
                 <AvatarPicker name={"avatar"} />
               </div>
             </div>
-            <div className="action_wrapper">
+            <div className={css.action_wrapper}>
               <div style={{ display: "flex", gap: "20px" }}>
                 <Button
                   type="submit"
@@ -807,13 +827,29 @@ function ProfileSetup() {
                   Clear
                 </ReverseBtn>
               </div>
-              <Button type={"button"} action={deleteAccountFunc}>
+              <Button type={"button"} action={getDelete}>
                 Delete account
               </Button>
             </div>
           </Form>
         )}
       </Formik>
+      {/* DELETE MODAL */}
+      <ConfirmModal isOpen={isModalOpen} onClose={() => setModalOpen(false)}>
+        <>
+          <h3 className={css.title}>
+            Are you sure want to delete your account?
+          </h3>
+          <div className={css.action_wrapper}>
+            <Button action={handleConfirm} styles={{ maxHeight: "34px" }}>
+              Yes
+            </Button>
+            <ReverseBtn action={handleCancel} styles={{ maxHeight: "34px" }}>
+              No
+            </ReverseBtn>
+          </div>
+        </>
+      </ConfirmModal>
     </div>
   );
 }

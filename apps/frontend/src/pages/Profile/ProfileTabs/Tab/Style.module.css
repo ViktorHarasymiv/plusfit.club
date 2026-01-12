@@ -39,12 +39,15 @@
 }
 
 .content_wrapper h3 {
+  max-width: 340px;
+
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .description {
+  max-width: 300px;
   font-size: 12px;
 }
 

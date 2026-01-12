@@ -10,6 +10,7 @@
 
 .outlet_wrapper {
   display: flex;
+  flex: 1 1 100%;
   gap: 32px;
   flex-direction: column;
 }
@@ -90,7 +91,7 @@
 }
 
 .user_wrapper {
-  height: 320px;
+  max-height: 480px;
   overflow: hidden;
 
   border-top-left-radius: 10px;

@@ -28,7 +28,7 @@ function News() {
                 className={css.image}
                 src={item.images[0]}
                 alt={`Image ${i}`}
-                width={120}
+                width={250}
                 height={80}
               />
               <div className={css.content_wrapper}>

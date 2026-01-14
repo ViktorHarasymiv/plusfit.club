@@ -1,4 +1,6 @@
 .workout_wrapper {
+  width: 100%;
+
   display: flex;
 
   flex-direction: column;
@@ -187,6 +189,36 @@
 
   transform: scale(1.05);
   transition: var(--transition2);
+}
+
+/* Create modal */
+
+.form_title {
+  font-size: 28px;
+  color: var(--white);
+}
+
+.input_wrapper {
+  width: 100%;
+
+  text-align: left;
+}
+
+.transparent {
+  background-color: transparent;
+
+  font-weight: 400;
+  color: var(--white);
+
+  border-color: var(--white);
+}
+
+.transparent:hover {
+  border-color: var(--accent-color);
+}
+
+.wrapp_to_end {
+  align-self: flex-end;
 }
 
 @media screen and (min-width: 991px) {

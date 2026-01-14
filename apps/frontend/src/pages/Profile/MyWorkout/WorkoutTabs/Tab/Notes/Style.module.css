@@ -161,9 +161,8 @@
 /* MODAL */
 
 .form_title {
+  font-size: 28px;
   color: var(--white);
-
-  margin-bottom: 24px;
 }
 
 .diaryList_form {

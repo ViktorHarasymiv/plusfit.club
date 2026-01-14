@@ -14,9 +14,13 @@ import { FaPlus } from "react-icons/fa";
 import { useProgramsStore } from "../../../../../../store/programs";
 
 import Loader from "../../../../../../components/ui/Loader/Loader";
+import CreateProgram from "./CreateProgram";
 
 function Workout() {
   const [edit, setEdit] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+
+  console.log(openModal);
 
   const { user, patchUser } = useAuth();
   const {
@@ -42,6 +46,8 @@ function Workout() {
     setEdit((prev) => !prev);
   };
 
+  // Create modal
+
   if (!programOptions && !activeProgram) return <Loader />;
 
   return (
@@ -49,11 +55,18 @@ function Workout() {
       <div className={css.title_wrapper}>
         <h1 className={css.title}>My training plan</h1>
         <div className={css.action_wrapper}>
-          <button type="button" className={css.add_new_day}>
+          <button
+            type="button"
+            className={css.add_new_day}
+            onClick={() => setOpenModal((prev) => !prev)}
+          >
             <FaPlus />
             New program
           </button>
-
+          {/* Create modal */}
+          {openModal && (
+            <CreateProgram openModal={openModal} setOpenModal={setOpenModal} />
+          )}
           {/* Section */}
           <FormControl sx={{ maxWidth: "166px", margin: "0px" }}>
             <Select

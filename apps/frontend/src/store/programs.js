@@ -78,6 +78,24 @@ export const useProgramsStore = create((set, get) => ({
     if (program) set({ activeProgram: program });
   },
 
+  // CREATE
+
+  createProgram: async (data) => {
+    try {
+      const res = await axios.post(`${API_URL}/programs`, data);
+
+      // додаємо нову програму в локальний store
+      set((state) => ({
+        programs: [...state.programs, res.data],
+      }));
+
+      return res.data;
+    } catch (err) {
+      console.error("Error creating program:", err);
+      throw err;
+    }
+  },
+
   // PATCH PROGRAM
 
   updateProgram: async (programId, updatedData) => {

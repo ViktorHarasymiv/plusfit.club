@@ -1,4 +1,5 @@
 import {
+  createProgramService,
   getAllProgramsService,
   getListProgramsService,
   getProgramByIdService,
@@ -62,6 +63,21 @@ export const getProgramById = async (req, res) => {
     console.error('Error fetching program:', error);
     res.status(500).json({ message: 'Server error' });
   }
+};
+
+// CREATE
+
+export const createProgramController = async (req, res) => {
+  const payload = {
+    ...req.body,
+  };
+  const program = await createProgramService(payload);
+
+  res.status(201).json({
+    status: 201,
+    message: 'Програма успішно створена!',
+    data: program,
+  });
 };
 
 // PATH

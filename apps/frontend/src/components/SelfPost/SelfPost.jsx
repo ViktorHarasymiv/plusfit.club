@@ -46,7 +46,7 @@ function SelfPost({ id }) {
     if (commentListRef.current) {
       setCommentScroll(commentListRef.current);
     }
-  }, [page, isLike]);
+  }, [id, page, isLike]);
 
   const handleLike = async (postId, userId) => {
     const { data } = await axios.patch(`${API_URL}/posts/${postId}/like`, {

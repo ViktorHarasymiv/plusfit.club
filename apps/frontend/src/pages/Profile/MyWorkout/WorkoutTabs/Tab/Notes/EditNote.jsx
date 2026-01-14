@@ -85,8 +85,6 @@ function EditNote({ closeModal }) {
         validationSchema={validationSchema}
         enableReinitialize
         onSubmit={(values, { resetForm }) => {
-          console.log(values);
-
           mutation.mutate(
             { id: currentNote._id, values },
             {

@@ -6,6 +6,8 @@
   height: 100%;
 
   padding-top: 180px;
+
+  padding-left: 0px;
   padding-bottom: 150px;
 
   background-position: 70% !important;
@@ -110,5 +112,14 @@
 @media screen and (min-width: 767.98px) {
   .hero_slide {
     background-position: center !important;
+
+    padding-left: 120px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1366px) and (max-height: 900px) and (orientation: landscape) {
+  .hero_slide {
+    padding-top: 120px;
+    padding-left: 120px;
   }
 }

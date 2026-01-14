@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 import { usePostStore } from "../../store/postStore";
 
 import NavigationContext from "../../components/NavigationContext/NavigationContext";
@@ -7,15 +8,23 @@ import SectionTitle from "../../components/SectionTitle/SectionTitle";
 import css from "./Style.module.css";
 
 import BlogList from "../../components/Blog/BlogList";
-import Button from "../../components/ui/Button/Button";
 import BlogFilterNavigation from "./BlogFilterNavigation";
-import { useParams } from "react-router-dom";
+import ReactPaginate from "react-paginate";
 
 function BlogPage() {
   const { filter } = useParams();
   const { get_post, content, pagination } = usePostStore();
 
-  const { page, totalPages } = pagination;
+  const { page, perPage, totalPages, totalItems } = pagination;
+
+  const handlePageClick = (event) => {
+    const selectedPage = event.selected + 1;
+
+    setFilters((prev) => ({
+      ...prev,
+      page: selectedPage,
+    }));
+  };
 
   const optimizationFilter =
     filter !== undefined
@@ -35,14 +44,6 @@ function BlogPage() {
     fetch_post_data();
   }, [filters]);
 
-  const fetchNewPosts = () => {
-    setFilters((prev) => ({
-      ...prev,
-      perPage: prev.perPage + 3,
-      page: 1,
-    }));
-  };
-
   return (
     <main>
       <NavigationContext />
@@ -54,10 +55,22 @@ function BlogPage() {
           />
           <BlogFilterNavigation filters={filters} setFilters={setFilters} />
           <BlogList data={content} />
-          {page !== totalPages && (
-            <Button action={fetchNewPosts}>FETCH MORE</Button>
+          {totalItems > perPage && (
+            <ReactPaginate
+              className={css.pagination}
+              breakLabel="..."
+              activeClassName={css.active_pagination}
+              nextLabel={null}
+              onPageChange={handlePageClick}
+              pageRangeDisplayed={5}
+              pageCount={totalPages}
+              forcePage={page - 1}
+              previousLabel={null}
+              renderOnZeroPageCount={null}
+            />
           )}
-          {content?.length > 5 ? (
+
+          {totalItems > perPage ? (
             <BlogFilterNavigation filters={filters} setFilters={setFilters} />
           ) : null}
         </div>

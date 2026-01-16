@@ -1,7 +1,7 @@
 import { ReviewsCollection } from '../db/models/review.js';
 import { calculatePaginationData } from '../utils/calculatePaginationData.js';
 
-export const allReviews = async ({ page = 1, perPage = 6 }) => {
+export const allReviews = async ({ page = 1, perPage = 34 }) => {
   try {
     const limit = perPage;
     const skip = (page - 1) * perPage;

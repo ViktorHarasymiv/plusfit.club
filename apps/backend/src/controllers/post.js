@@ -1,8 +1,10 @@
 import createHttpError from 'http-errors';
 import {
+  categoryCountService,
   createPost,
   getAllPost,
   getPostById,
+  getRecentByLikesService,
   searchPostsByTitle,
   toggleLike,
 } from '../services/posts.js';
@@ -17,7 +19,7 @@ export const getPostController = async (req, res) => {
     const { page, perPage } = parsePaginationParams(req.query);
     const { sortBy, sortOrder } = parseSortParams(req.query);
 
-    const { tags, filterBy } = req.query;
+    const { tags, filterBy, category } = req.query;
 
     const {
       data: posts,
@@ -31,6 +33,7 @@ export const getPostController = async (req, res) => {
       sortOrder,
       tags,
       filterBy,
+      category,
     });
 
     res.json({
@@ -77,6 +80,30 @@ export const getPostByIdController = async (req, res, next) => {
         error.message || 'Помилка при пошуку поста',
       ),
     );
+  }
+};
+
+// GET POST BY CATEGORY COUNT
+
+export const getCategoryCounts = async (req, res) => {
+  try {
+    const result = await categoryCountService();
+    res.json(result);
+  } catch (err) {
+    res.status(500).json({ message: 'Помилка при підрахунку категорій' });
+  }
+};
+
+// GET RECENT POSTS
+
+export const getRecentByLikesController = async (req, res) => {
+  try {
+    const posts = await getRecentByLikesService();
+    res.json(posts);
+  } catch (err) {
+    res.status(500).json({
+      message: 'Помилка при отриманні популярних постів',
+    });
   }
 };
 

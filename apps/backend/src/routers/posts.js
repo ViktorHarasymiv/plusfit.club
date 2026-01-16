@@ -1,8 +1,10 @@
 import { Router } from 'express';
 import {
   createPostController,
+  getCategoryCounts,
   getPostByIdController,
   getPostController,
+  getRecentByLikesController,
   likePostController,
   searchPostsController,
 } from '../controllers/post.js';
@@ -19,6 +21,9 @@ const router = Router();
 router.get('/', getPostController);
 router.post('/', createPostController);
 router.get('/search', searchPostsController);
+
+router.get('/category-counts', getCategoryCounts);
+router.get('/recent-by-likes', getRecentByLikesController);
 
 // COMMENTS
 router.post('/comments', createPostCommentController);

@@ -37,6 +37,14 @@ export const getProgramByIdService = async (id) => {
   return program;
 };
 
+// CREATE
+
+export const createProgramService = async (payload) => {
+  const program = await TrainingProgram.create(payload);
+
+  return program;
+};
+
 // PATH
 
 export const updateProgramService = async (programId, payload) => {

@@ -12,20 +12,28 @@ export const getAllPost = async ({
   sortBy,
   tags,
   filterBy,
+  category,
 }) => {
   const limit = perPage;
   const skip = (page - 1) * perPage;
 
   let query = {};
 
+  // tags
   if (tags && typeof tags === 'string' && tags.trim() !== '') {
     const tagArray = tags.split(',').map((t) => t.trim());
-    query = { tags: { $in: tagArray } };
+    query.tags = { $in: tagArray };
   }
 
-  // Фільтрація по filterBy (наприклад: "Classes", "News")
+  // filterBy
   if (filterBy && filterBy !== '') {
     query.filterBy = filterBy;
+  }
+
+  // category
+  if (category && typeof category === 'string' && category.trim() !== '') {
+    const categoryArray = category.split(',').map((t) => t.trim());
+    query.category = { $in: categoryArray };
   }
 
   const postCount = await PostCollection.countDocuments(query);
@@ -59,6 +67,28 @@ export const getPostById = async (id) => {
     console.error('Error fetching post by id:', error);
     throw error;
   }
+};
+
+// GET POST BY CATEGORY COUNT
+
+export const categoryCountService = async () => {
+  const result = await PostCollection.aggregate([
+    {
+      $group: {
+        _id: '$category',
+        count: { $sum: 1 },
+      },
+    },
+    { $sort: { count: -1 } },
+  ]);
+
+  return result;
+};
+
+// RECENT POST
+
+export const getRecentByLikesService = async () => {
+  return await PostCollection.find({}).sort({ likes: -1 }).limit(3).lean();
 };
 
 // PATCH LIKE

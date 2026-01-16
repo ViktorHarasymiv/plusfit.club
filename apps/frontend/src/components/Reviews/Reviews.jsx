@@ -31,6 +31,8 @@ function Reviews({ filterType }) {
       : true
   );
 
+  console.log(reviews);
+
   return (
     <section className={css.wrapper}>
       <SectionTitle title={"Our reviews"} about={"Reviews"} />

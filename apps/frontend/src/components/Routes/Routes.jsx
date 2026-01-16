@@ -142,6 +142,7 @@ function Router() {
         <Route path="/blog" element={<Blog />} />
         <Route path="/blog/:id" element={<Post />} />
         <Route path="/blog/filter/:filter?" element={<Blog />} />
+        <Route path="/blog/category/:category?" element={<Blog />} />
 
         {/* Contacts */}
 

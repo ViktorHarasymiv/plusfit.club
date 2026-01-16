@@ -5,7 +5,8 @@ import { usePostStore } from "../../store/postStore";
 
 import { FaRegUser } from "react-icons/fa";
 import { FaRegMessage } from "react-icons/fa6";
-import { GrLike } from "react-icons/gr";
+import { FaHeart } from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa";
 import { BsShare } from "react-icons/bs";
 import CommentFormPost from "./CommentFormPost";
 import { useAuth } from "../../context/AuthContext";
@@ -14,8 +15,9 @@ import CommentList from "./CommentList";
 import axios from "axios";
 import { API_URL } from "../../config/api";
 import { useCommentStore } from "../../store/commentPostStore";
+import Loader from "../ui/Loader/Loader";
 
-function SelfPost({ id }) {
+function SelfPost({ id, setQuery }) {
   // STATE
   const [page, setPage] = useState(1);
 
@@ -42,6 +44,8 @@ function SelfPost({ id }) {
   useEffect(() => {
     getPostById(id);
     getCommentPost(id, page);
+
+    setQuery("");
 
     if (commentListRef.current) {
       setCommentScroll(commentListRef.current);
@@ -85,9 +89,12 @@ function SelfPost({ id }) {
     );
   }
 
-  if (!selfPost) return null;
+  if (!selfPost) return <Loader />;
 
-  const { author, likes, title, images, content, quote, tags } = selfPost;
+  const { author, likes, likedBy, title, images, content, quote, tags } =
+    selfPost;
+
+  const checkIdforLike = likedBy.includes(user?._id);
 
   return (
     <div className={css.wrapper}>
@@ -105,8 +112,8 @@ function SelfPost({ id }) {
             <FaRegMessage />
             {pagination.totalItems} Comments
           </div>
-          <div className={css.tile}>
-            <GrLike onClick={() => handleLike(id, user._id)} />
+          <div className={css.tile} onClick={() => handleLike(id, user._id)}>
+            {checkIdforLike ? <FaHeart /> : <FaRegHeart />}
             {likes} Like
           </div>
         </div>

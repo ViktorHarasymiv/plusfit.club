@@ -1,17 +1,44 @@
-import React, { useEffect, useState } from "react";
 import axios from "axios";
-
-import css from "./Style.module.css";
-import TileTitle from "./Components/TileTitle";
-
-import { IoSearchOutline } from "react-icons/io5";
-
-import { API_URL } from "../../config/api";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
-function PostSearch() {
-  const [query, setQuery] = useState("");
+import { API_URL } from "../../config/api";
+
+import css from "./Style.module.css";
+import { IoSearchOutline } from "react-icons/io5";
+
+import TileTitle from "./Components/TileTitle";
+
+function PostSearch({ query, setQuery }) {
   const [result, setResults] = useState([]);
+
+  const escapeRegex = (str) => str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const safeQuery = escapeRegex(query);
+
+  const highlight = (text, query) => {
+    if (!query) return text;
+
+    const regex = new RegExp(`(${safeQuery})`, "gi");
+    const parts = text.split(regex);
+
+    return parts.map((part, i) =>
+      regex.test(part) ? (
+        <span
+          key={i}
+          style={{
+            height: "fit-content",
+            display: "inline",
+            backgroundColor: "var(--green)",
+            fontWeight: 600,
+          }}
+        >
+          {part}
+        </span>
+      ) : (
+        part
+      )
+    );
+  };
 
   const handleSearch = async (e) => {
     setQuery(e.target.value);
@@ -48,7 +75,7 @@ function PostSearch() {
           <IoSearchOutline />
         </button>
       </form>
-      {query.length > 0 && result.length > 0 && (
+      {query && result.length > 0 && (
         <div className={css.result_tile}>
           {result.map(({ title, images, _id }) => (
             <div className={css.result_tile_wrapper}>
@@ -61,7 +88,7 @@ function PostSearch() {
               />
               <div>
                 <Link to={`/blog/${_id}`} className={css.title_link}>
-                  {title}
+                  {highlight(title, query)}
                 </Link>
               </div>
             </div>

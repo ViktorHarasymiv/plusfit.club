@@ -34,49 +34,47 @@ function MyReviews() {
 
   const variable = true;
 
-  if (!userComment) return <Loader />;
-
-  console.log(userComment);
-
   return (
     <>
-      {userComment.length < 1 ? (
+      {userComment?.length < 1 ? (
         <div>
           <h2>You don’t have any comments.</h2>
         </div>
       ) : (
         <ul className={css.comment_list}>
-          {userComment.map(({ _id, postId, userSnapshot, createdAt, text }) => (
-            <li key={_id} className={css.flex_comment}>
-              <div className={css.flex_user_tile}>
-                <div>
-                  <img
-                    src={userSnapshot.avatar}
-                    alt={`${userSnapshot.name} avatar`}
-                    className={css.comment_avatar}
-                  />
+          {userComment?.map(
+            ({ _id, postId, userSnapshot, createdAt, text }) => (
+              <li key={_id} className={css.flex_comment}>
+                <div className={css.flex_user_tile}>
                   <div>
-                    <h3 className={css.user_name}>{userSnapshot.name}</h3>
-                    <p className={css.time}>
-                      <FaRegClock />
-                      {timeFormatted(createdAt, variable)}
-                    </p>
+                    <img
+                      src={userSnapshot.avatar}
+                      alt={`${userSnapshot.name} avatar`}
+                      className={css.comment_avatar}
+                    />
+                    <div>
+                      <h3 className={css.user_name}>{userSnapshot.name}</h3>
+                      <p className={css.time}>
+                        <FaRegClock />
+                        {timeFormatted(createdAt, variable)}
+                      </p>
+                    </div>
+                  </div>
+                  <div className={css.text_wrapper}>
+                    <p>{text}</p>
                   </div>
                 </div>
-                <div className={css.text_wrapper}>
-                  <p>{text}</p>
+                <div className={css.action_wrapper}>
+                  <Button>
+                    <Link to={`/blog/${postId}`}>Show post</Link>
+                  </Button>
+                  <ReverseBtn action={() => deleteUserComment(_id)}>
+                    Delete
+                  </ReverseBtn>
                 </div>
-              </div>
-              <div className={css.action_wrapper}>
-                <Button>
-                  <Link to={`/blog/${postId}`}>Show post</Link>
-                </Button>
-                <ReverseBtn action={() => deleteUserComment(_id)}>
-                  Delete
-                </ReverseBtn>
-              </div>
-            </li>
-          ))}
+              </li>
+            )
+          )}
         </ul>
       )}
     </>

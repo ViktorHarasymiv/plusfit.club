@@ -16,6 +16,7 @@ import treningPrograms from './programs.js';
 import diaryRouter from './diary.js';
 import emotionRouter from './emotions.js';
 import interestRouter from './interestTags.js';
+import categoryRouter from './categories.js';
 
 const router = Router();
 router.use('/auth', authRouter);
@@ -36,5 +37,6 @@ router.use('/programs', treningPrograms);
 router.use('/diaries', diaryRouter);
 router.use('/emotions', emotionRouter);
 router.use('/interests', interestRouter);
+router.use('/categories', categoryRouter);
 
 export default router;

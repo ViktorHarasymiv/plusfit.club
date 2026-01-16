@@ -13,6 +13,8 @@ import ReactPaginate from "react-paginate";
 
 function BlogPage() {
   const { filter } = useParams();
+  const { category } = useParams();
+
   const { get_post, content, pagination } = usePostStore();
 
   const { page, perPage, totalPages, totalItems } = pagination;
@@ -31,10 +33,16 @@ function BlogPage() {
       ? filter.charAt(0).toUpperCase() + filter.slice(1)
       : "";
 
+  const optimizationCategory =
+    category !== undefined
+      ? category.charAt(0).toUpperCase() + category.slice(1)
+      : "";
+
   const [filters, setFilters] = useState({
     perPage: 6,
     tags: "",
     filterBy: optimizationFilter,
+    category: optimizationCategory,
   });
 
   useEffect(() => {

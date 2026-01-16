@@ -4,16 +4,16 @@ import css from "./Style.module.css";
 
 import PostSearch from "./PostSearch";
 import PostCategory from "./PostCategory";
+import RecentPost from "./RecentPost";
 
-function PostNavigation() {
+function PostNavigation({ query, setQuery }) {
   return (
     <div className={css.wrapper_navigation}>
-      <PostSearch />
+      <PostSearch query={query} setQuery={setQuery} />
       <PostCategory />
-      {/* <div className={css.tile_wrapper}>
-        <TileTitle title={"Recent Post"} />
-        123
-      </div>
+
+      <RecentPost />
+      {/*
       <div className={css.tile_wrapper}>
         <TileTitle title={"Follow Us"} />
         123

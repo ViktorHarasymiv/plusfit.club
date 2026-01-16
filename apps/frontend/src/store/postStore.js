@@ -5,6 +5,8 @@ import { API_URL } from "../config/api";
 export const usePostStore = create((set) => ({
   content: null,
   selfPost: null,
+  categoryCount: null,
+  recentPost: null,
   comment: null,
   loading: false,
   error: null,
@@ -25,10 +27,15 @@ export const usePostStore = create((set) => ({
       sortBy = "createdAt",
       tags = "",
       filterBy = "",
+      category = "",
     } = params;
 
     // якщо tags масив → перетворюємо у рядок через кому
     const tagsParam = Array.isArray(tags) ? tags.join(",") : tags;
+
+    const categoryParam = Array.isArray(category)
+      ? category.join(",")
+      : category;
 
     const query = new URLSearchParams({
       page,
@@ -37,6 +44,7 @@ export const usePostStore = create((set) => ({
       sortBy,
       ...(tagsParam ? { tags: tagsParam } : {}),
       ...(filterBy ? { filterBy } : {}),
+      ...(categoryParam ? { category: categoryParam } : {}),
     });
 
     try {
@@ -78,6 +86,18 @@ export const usePostStore = create((set) => ({
         loading: false,
       });
     }
+  },
+
+  getCategoryCount: async () => {
+    const res = await axios.get(`${API_URL}/posts/category-counts`);
+    set({
+      categoryCount: res.data,
+    });
+  },
+
+  getRecentByLikes: async () => {
+    const res = await axios.get(`${API_URL}/posts/recent-by-likes`);
+    set({ recentPost: res.data, loading: false });
   },
 
   clearError: () => set({ error: null }),

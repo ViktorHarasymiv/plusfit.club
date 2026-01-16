@@ -17,7 +17,7 @@ import Toast from "./components/ui/Toast/Toast";
 import OrderModal from "./components/OrderModal/OrderModal";
 import { useAuthModalStore } from "./store/useAuthModalStore";
 import { useMainConfigStore } from "./store/mainStore";
-import { useExercisesStore } from "./store/exercises.store";
+import { useEmotionsStore } from "./store/emotionStore";
 
 function App() {
   const { closeAll } = useAuthModalStore();
@@ -25,6 +25,7 @@ function App() {
   const { isOpen } = useFullscreenStore();
 
   const { getMainConfig } = useMainConfigStore();
+  const { fetchInterests, fetchCategory } = useEmotionsStore();
 
   useEffect(() => {
     const body = document.body;
@@ -53,8 +54,10 @@ function App() {
   }, [location]);
 
   useEffect(() => {
-    const fetchConfig = async () => {
-      await getMainConfig();
+    const fetchConfig = () => {
+      getMainConfig();
+      fetchInterests();
+      fetchCategory();
     };
 
     fetchConfig();

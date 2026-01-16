@@ -18,7 +18,7 @@ export const usePostStore = create((set) => ({
   },
 
   get_post: async (params = {}) => {
-    set({ loading: true, error: null });
+    set({ content: null, pagination: null, loading: true, error: null });
 
     const {
       page = 1,
@@ -69,7 +69,7 @@ export const usePostStore = create((set) => ({
   },
 
   getPostById: async (id) => {
-    set({ loading: true, error: null });
+    set({ selfPost: null, loading: true, error: null });
 
     try {
       const res = await axios.get(`${API_URL}/posts/${id}`);

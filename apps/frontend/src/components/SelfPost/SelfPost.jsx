@@ -36,21 +36,10 @@ function SelfPost({ id, setQuery }) {
     if (toWhat) {
       const rect = toWhat.getBoundingClientRect();
 
-      const offset = window.pageYOffset + rect.top - 80;
+      const offset = window.pageYOffset + rect.top - 120;
       window.scrollTo({ top: offset, behavior: "smooth" });
     }
   };
-
-  useEffect(() => {
-    getPostById(id);
-    getCommentPost(id, page);
-
-    setQuery("");
-
-    if (commentListRef.current) {
-      setCommentScroll(commentListRef.current);
-    }
-  }, [id, page, isLike]);
 
   const handleLike = async (postId, userId) => {
     const { data } = await axios.patch(`${API_URL}/posts/${postId}/like`, {
@@ -89,21 +78,34 @@ function SelfPost({ id, setQuery }) {
     );
   }
 
+  useEffect(() => {
+    getPostById(id);
+    getCommentPost(id, page);
+
+    setQuery("");
+  }, [id, page, isLike]);
+
+  useEffect(() => {
+    if (commentListRef.current) {
+      setCommentScroll(commentListRef.current);
+    }
+  }, [data]);
+
   if (!selfPost) return <Loader />;
 
-  const { author, likes, likedBy, title, images, content, quote, tags } =
-    selfPost;
+  const { likes, likedBy, title, images, content, quote, tags } = selfPost;
 
   const checkIdforLike = likedBy.includes(user?._id);
+  console.log(selfPost);
 
   return (
     <div className={css.wrapper}>
-      {images?.length > 0 && <img src={images[1]} alt="Фото поста" />}
+      {images?.length > 0 && <img src={images[0]} alt="Фото поста" />}
       <div className={css.navigation_wrapper}>
         <div className={css.first_tile}>
           <div className={css.tile}>
             <FaRegUser />
-            {author}
+            {quote.author}
           </div>
           <div
             className={css.tile}
@@ -142,8 +144,24 @@ function SelfPost({ id, setQuery }) {
       </div>
       {/* Thumb images */}
       <div className={css.thumb_tile}>
-        {images?.length > 1 && <img src={images[0]} alt="Фото поста" />}
-        {images?.length > 1 && <img src={images[0]} alt="Фото поста" />}
+        {images?.length > 0 && (
+          <img
+            src={images[1]}
+            className={css.image_thumb}
+            alt="Фото поста"
+            width={425}
+            height={250}
+          />
+        )}
+        {images?.length > 1 ? (
+          <img
+            src={images[1]}
+            className={css.image_thumb}
+            alt="Фото поста"
+            width={425}
+            height={250}
+          />
+        ) : null}
       </div>
       {/* Paragraph  4 */}
       <div>

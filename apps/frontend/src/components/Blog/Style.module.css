@@ -127,6 +127,20 @@
   color: var(--dark);
 
   font-size: clamp(1rem, 0.912rem + 0.3756vw, 1.25rem);
+
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* кількість рядків */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.about {
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* кількість рядків */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 @media screen and (min-width: 767px) {

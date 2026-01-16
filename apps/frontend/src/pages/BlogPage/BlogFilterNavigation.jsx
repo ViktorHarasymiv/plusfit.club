@@ -1,3 +1,4 @@
+import { use, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import InputLabel from "@mui/material/InputLabel";
@@ -7,9 +8,17 @@ import Select from "@mui/material/Select";
 
 import css from "./Style.module.css";
 
+import { CiFilter } from "react-icons/ci";
+import { useWindowWidth } from "../../hooks/useWindowWidth";
+import { useEmotionsStore } from "../../store/emotionStore";
+
 function BlogFilterNavigation({ filters, setFilters }) {
   const navigate = useNavigate();
-  // універсальний хендлер
+  const width = useWindowWidth();
+
+  const { interests, categories } = useEmotionsStore();
+
+  const [showFilters, setShowFilters] = useState(false);
 
   const handleChange = (field) => (event) => {
     setFilters((prev) => ({
@@ -20,60 +29,75 @@ function BlogFilterNavigation({ filters, setFilters }) {
     navigate("/blog");
   };
 
+  useEffect(() => {
+    if (width > 767) {
+      setShowFilters(true);
+    } else {
+      setShowFilters(false);
+    }
+  }, [width]);
+
   return (
     <div className={css.filter_wrapper}>
-      <div>
-        <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-          <InputLabel id="demo-select-small-label">Filter By</InputLabel>
-          <Select
-            labelId="demo-select-small-label"
-            id="demo-select-small"
-            value={filters.filterBy}
-            label="FilterBy"
-            onChange={handleChange("filterBy")}
-          >
-            <MenuItem value={""}>All</MenuItem>
-            <MenuItem value={"Classes"}>Classes</MenuItem>
-            <MenuItem value={"News"}>News</MenuItem>
-          </Select>
-        </FormControl>
-        <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-          <InputLabel id="demo-select-small-label">Tags</InputLabel>
-          <Select
-            labelId="demo-select-small-label"
-            id="demo-select-small"
-            value={filters.tags}
-            label="tags"
-            onChange={handleChange("tags")}
-          >
-            <MenuItem value={""}>All</MenuItem>
-            <MenuItem value={"Gym"}>Gym</MenuItem>
-            <MenuItem value={"Fitness"}>Fitness</MenuItem>
-            <MenuItem value={"Body"}>Body</MenuItem>
-            <MenuItem value={"Food"}>Food</MenuItem>
-            <MenuItem value={"Diet"}>Diet</MenuItem>
-            <MenuItem value={"Health"}>Health</MenuItem>
-          </Select>
-        </FormControl>
-        <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
-          <InputLabel id="demo-select-small-label">Category</InputLabel>
-          <Select
-            labelId="demo-select-small-label"
-            id="demo-select-small"
-            value={filters.category}
-            label="category"
-            onChange={handleChange("category")}
-          >
-            <MenuItem value={""}>All</MenuItem>
-            <MenuItem value={"Body Building"}>Body Building</MenuItem>
-            <MenuItem value={"GYM & Fitness"}>GYM & Fitness</MenuItem>
-            <MenuItem value={"Food & Medicine"}>Food & Medicine</MenuItem>
-            <MenuItem value={"Cardio"}>Cardio</MenuItem>
-            <MenuItem value={"Massage"}>Massage</MenuItem>
-            <MenuItem value={"Yoga"}>Yoga</MenuItem>
-          </Select>
-        </FormControl>
-      </div>
+      <button
+        type="button"
+        className={css.show_button}
+        onClick={() => setShowFilters((prev) => !prev)}
+      >
+        <CiFilter /> Show filters
+      </button>
+      {showFilters && (
+        <div className={css.filter_tile}>
+          <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+            <InputLabel id="demo-select-small-label">Filter By</InputLabel>
+            <Select
+              labelId="demo-select-small-label"
+              id="demo-select-small"
+              value={filters.filterBy}
+              label="FilterBy"
+              onChange={handleChange("filterBy")}
+            >
+              <MenuItem value={""}>All</MenuItem>
+              <MenuItem value={"Classes"}>Classes</MenuItem>
+              <MenuItem value={"news"}>News</MenuItem>
+            </Select>
+          </FormControl>
+          <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+            <InputLabel id="demo-select-small-label">Tags</InputLabel>
+            <Select
+              labelId="demo-select-small-label"
+              id="demo-select-small"
+              value={filters.tags}
+              label="tags"
+              onChange={handleChange("tags")}
+            >
+              <MenuItem value={""}>All</MenuItem>
+              {interests.map((item, index) => (
+                <MenuItem key={index} value={item.tag}>
+                  {item.tag}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+          <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+            <InputLabel id="demo-select-small-label">Category</InputLabel>
+            <Select
+              labelId="demo-select-small-label"
+              id="demo-select-small"
+              value={filters.category}
+              label="category"
+              onChange={handleChange("category")}
+            >
+              <MenuItem value={""}>All</MenuItem>
+              {categories.map(({ _id, title }) => (
+                <MenuItem key={_id} value={title}>
+                  {title}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </div>
+      )}
       <div>
         <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
           <InputLabel id="demo-select-small-label">Per page</InputLabel>

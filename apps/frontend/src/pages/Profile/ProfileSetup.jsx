@@ -43,7 +43,7 @@ function ProfileSetup() {
   const { isLoading } = useLoaderStore();
   const { deleteAccountFunc } = useAuthStore();
   const { user, fetchUser, patchUser } = useAuth();
-  const { fetchInterests, interests } = useEmotionsStore();
+  const { interests } = useEmotionsStore();
 
   // STATE
 
@@ -271,14 +271,6 @@ function ProfileSetup() {
   const handleCancel = () => {
     setModalOpen(false);
   };
-
-  useEffect(() => {
-    const interests = () => {
-      fetchInterests();
-    };
-
-    interests();
-  }, []);
 
   if (isLoading || !interests) {
     return <Loader />;

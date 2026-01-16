@@ -10,14 +10,13 @@ import css from "./Style.module.css";
 import BlogList from "../../components/Blog/BlogList";
 import BlogFilterNavigation from "./BlogFilterNavigation";
 import ReactPaginate from "react-paginate";
+import Loader from "../../components/ui/Loader/Loader";
 
 function BlogPage() {
   const { filter } = useParams();
   const { category } = useParams();
 
   const { get_post, content, pagination } = usePostStore();
-
-  const { page, perPage, totalPages, totalItems } = pagination;
 
   const handlePageClick = (event) => {
     const selectedPage = event.selected + 1;
@@ -51,6 +50,10 @@ function BlogPage() {
     };
     fetch_post_data();
   }, [filters]);
+
+  if (!pagination && !content) return <Loader />;
+
+  const { page, perPage, totalPages, totalItems } = pagination;
 
   return (
     <main>

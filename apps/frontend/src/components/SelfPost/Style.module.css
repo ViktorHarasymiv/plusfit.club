@@ -2,7 +2,7 @@
   flex: 0 0 68%;
 }
 
-.wrapper img {
+.wrapper > img {
   height: 500px;
 }
 
@@ -15,6 +15,13 @@
 
 .paragraph {
   margin-bottom: 20px;
+}
+
+.image_thumb {
+  max-width: 425px;
+  max-height: 250px;
+
+  object-position: center !important;
 }
 
 /* Navigation */

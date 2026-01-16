@@ -7,22 +7,15 @@ import TileTitle from "./Components/TileTitle";
 import { usePostStore } from "../../store/postStore";
 
 import { FaArrowRightLong } from "react-icons/fa6";
+import { useEmotionsStore } from "../../store/emotionStore";
 
 function PostCategory() {
   const { categoryCount, getCategoryCount } = usePostStore();
+  const { categories } = useEmotionsStore();
 
   useEffect(() => {
     getCategoryCount();
   }, []);
-
-  const categories = [
-    "Body Building",
-    "GYM & Fitness",
-    "Food & Medicine",
-    "Cardio",
-    "Massage",
-    "Yoga",
-  ];
 
   const checkCategory = (category) => {
     const found = categoryCount?.find((c) => c._id === category);
@@ -33,13 +26,13 @@ function PostCategory() {
     <div className={css.tile_wrapper}>
       <TileTitle title={"Category"} />
       <ul className={css.category_list}>
-        {categories.map((item, i) => (
-          <li key={i}>
-            <Link to={`/blog/category/${item}`}>
+        {categories.map(({ _id, title }) => (
+          <li key={_id}>
+            <Link to={`/blog/category/${title}`}>
               <span>
-                <FaArrowRightLong /> {item}
+                <FaArrowRightLong /> {title}
               </span>
-              <span>({checkCategory(item)})</span>
+              <span>({checkCategory(title)})</span>
             </Link>
           </li>
         ))}

@@ -49,7 +49,7 @@ export default function FormCalculate({ setCalories }) {
       .min(140, "Height must be at least 140 cm")
       .max(220, "Height must be at most 220 cm")
       .test("is-integer", "Height must be an integer", (value) =>
-        Number.isInteger(value)
+        Number.isInteger(value),
       ),
 
     weight: Yup.number()
@@ -58,7 +58,7 @@ export default function FormCalculate({ setCalories }) {
       .min(35, "Weight must be at least 35 kg")
       .max(220, "Weight must be at most 220 kg")
       .test("is-integer", "Weight must be an integer", (value) =>
-        Number.isInteger(value)
+        Number.isInteger(value),
       ),
 
     birthday: Yup.date().required("Birthday is required"),
@@ -77,7 +77,7 @@ export default function FormCalculate({ setCalories }) {
   dayjs.locale("eu");
 
   const formattedBirthday = dayjs(initialValues.birthday).isValid()
-    ? dayjs(initialValues.birthday).format("D MMMM YYYY")
+    ? dayjs(initialValues.birthday).format("D.MM.YYYY")
     : "Choose date";
 
   const today = dayjs();
@@ -152,8 +152,6 @@ export default function FormCalculate({ setCalories }) {
 
     values.BMI = result?.BMI || 0;
     values.BMR = result?.BMR || 0;
-
-    console.log(values);
 
     await patchUser(values);
 

@@ -8,7 +8,9 @@ import { IoMdArrowDropdown } from "react-icons/io";
 import { FaPlus } from "react-icons/fa";
 import { FaMinus } from "react-icons/fa6";
 
-import Button from "../../../../../../components/ui/Button/ReverseBtn";
+import Button from "../../../../../../components/ui/Button/Button";
+
+import ReverseBtn from "../../../../../../components/ui/Button/ReverseBtn";
 
 import { useProgramsStore } from "../../../../../../store/programs";
 import { useToastStore } from "../../../../../../store/toastStore";
@@ -59,29 +61,47 @@ export default function WorkoutDay({
           showToast(
             <span style={{ display: "flex", alignItems: "center" }}>
               Training successfully changed
-            </span>
+            </span>,
           );
         }}
       >
         {({ values, handleChange }) => (
           <Form className={css.workout_wrapper}>
             {/* Заголовок програми */}
-            <div className={css.title_wrapper}>
-              <input
-                name="name"
-                value={values.name}
-                onChange={handleChange}
-                disabled={!edit}
-                className={`${css.program_title} ${edit && css.editable}`}
-              />
+
+            <div className={css.title_tile}>
+              <div className={css.title_text_tile}>
+                <div className={css.title_wrapper}>
+                  <input
+                    name="name"
+                    value={values.name}
+                    onChange={handleChange}
+                    disabled={!edit}
+                    className={`${css.program_title} ${edit && css.editable}`}
+                  />
+                </div>
+
+                <div className={css.title_wrapper}>
+                  <input
+                    name="description"
+                    value={values.description}
+                    onChange={handleChange}
+                    disabled={!edit}
+                    className={`${css.program_description}  ${edit && css.editable}`}
+                  />
+                </div>
+              </div>
 
               {!program.isPublic && (
-                <Switch
-                  onClick={toggleEdit}
-                  {...label}
-                  checked={edit}
-                  color="warning"
-                />
+                <div className={css.edit_mode}>
+                  Edit mode
+                  <Switch
+                    onClick={toggleEdit}
+                    {...label}
+                    checked={edit}
+                    color="warning"
+                  />
+                </div>
               )}
             </div>
 
@@ -168,33 +188,35 @@ export default function WorkoutDay({
                     </div>
                   ))}
 
-                  {/* Додати день */}
                   {!program.isPublic && edit && (
-                    <button
-                      type="button"
-                      onClick={() =>
-                        push({
-                          title: `Day`,
-                          exercises: [""],
-                        })
-                      }
-                      className={css.add_new_day}
-                    >
-                      <FaPlus /> Add day
-                    </button>
+                    <div className={css.action_wrapper}>
+                      {/* Додати день */}
+                      {!program.isPublic && edit && (
+                        <ReverseBtn
+                          type="button"
+                          action={() =>
+                            push({
+                              title: `Day`,
+                              exercises: [""],
+                            })
+                          }
+                          className={css.add_new_day}
+                        >
+                          Add a new day
+                        </ReverseBtn>
+                      )}
+                      <Button
+                        type="submit"
+                        className={css.save_button}
+                        styles={{ maxWidth: "167px" }}
+                      >
+                        Save program
+                      </Button>
+                    </div>
                   )}
                 </>
               )}
             </FieldArray>
-            {!program.isPublic && edit && (
-              <Button
-                type="submit"
-                className={css.save_button}
-                styles={{ maxWidth: "167px" }}
-              >
-                Save program
-              </Button>
-            )}
           </Form>
         )}
       </Formik>

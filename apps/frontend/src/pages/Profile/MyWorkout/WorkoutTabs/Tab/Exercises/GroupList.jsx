@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useExercisesStore } from "../../../../../../store/exercises.store";
 
 import css from "./Style.module.css";
+import Loader from "../../../../../../components/ui/Loader/Loader";
 
-function GroupList({ current }) {
+function GroupList({ current, scrollY }) {
   const { filters, getFilters, getExercises } = useExercisesStore();
 
   const [page, setPage] = useState(1);
@@ -18,7 +19,11 @@ function GroupList({ current }) {
 
   const getExercisesFilter = (path, name) => {
     getExercises({ [path.toLowerCase()]: name });
+
+    window.scrollTo({ top: scrollY, behavior: "smooth" });
   };
+
+  if (!filters) return <Loader />;
 
   return (
     <ul className={css.list_wrapper}>

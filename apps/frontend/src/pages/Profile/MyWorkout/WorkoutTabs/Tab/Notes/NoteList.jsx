@@ -32,17 +32,14 @@ function NoteList({ setCurrentNote }) {
           onClick={() => setCreateModalOpen(true)}
           className={css.icon}
         >
+          Create new record
           <FaRegSquarePlus />
         </button>
         <Modal
           isOpen={isCreateModalOpen}
-          onClose={() => setCreateModalOpen(false)}
+          onClose={() => setCreateModalOpen((prev) => !prev)}
         >
-          <CreateNote
-            closeModal={() => {
-              setCreateModalOpen(false);
-            }}
-          />
+          <CreateNote />
         </Modal>
       </div>
       <ul className={css.list_wrapp}>

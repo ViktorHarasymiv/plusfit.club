@@ -49,7 +49,7 @@ export const useExercisesStore = create((set, get) => ({
   // GET EXERCISE BY ID
   // -----------------------------
   getExerciseById: async (id) => {
-    set({ loading: true, error: null });
+    set({ exercise: null, loading: true, error: null });
 
     try {
       const { data } = await axios.get(`${API_URL}/exercises/${id}`);

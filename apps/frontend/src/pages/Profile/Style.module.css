@@ -253,7 +253,7 @@
   }
 
   .carnet_list {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 300px));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   }
 
   .user_info_wrapper {

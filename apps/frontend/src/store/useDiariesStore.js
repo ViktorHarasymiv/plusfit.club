@@ -117,7 +117,7 @@ export const useDiariesStore = create((set, get) => ({
   // -----------------------------
   deleteDiary: async (id) => {
     try {
-      set({ loading: true, error: null });
+      set({ loading: true, error: null, currentNote: null });
 
       await axios.delete(`${API_URL}/diaries/${id}`, {
         withCredentials: true,

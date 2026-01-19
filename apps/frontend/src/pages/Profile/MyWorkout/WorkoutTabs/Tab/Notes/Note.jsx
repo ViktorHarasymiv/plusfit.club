@@ -26,7 +26,8 @@ function Note() {
     deleteDiary(id);
   };
 
-  if (!currentNote) return <h4>Please choose a note!</h4>;
+  if (!currentNote)
+    return <h4 className={css.fish_text}>Please choose a record !</h4>;
 
   return (
     <div className={css.note_wrapper}>
@@ -37,6 +38,7 @@ function Note() {
           onClick={() => setEditModalOpen(true)}
         >
           <RiFileEditLine />
+          Edit your record
         </button>
         <button
           type="button"
@@ -44,8 +46,12 @@ function Note() {
           className={css.icon}
         >
           <MdDeleteOutline />
+          Delete
         </button>
-        <Modal isOpen={isEditModalOpen} onClose={() => setEditModalOpen(false)}>
+        <Modal
+          isOpen={isEditModalOpen}
+          onClose={() => setEditModalOpen((prev) => !prev)}
+        >
           <EditNote
             closeModal={() => {
               setEditModalOpen(false);

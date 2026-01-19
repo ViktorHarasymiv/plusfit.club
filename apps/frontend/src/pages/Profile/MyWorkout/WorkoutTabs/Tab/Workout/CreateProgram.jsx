@@ -32,7 +32,7 @@ function CreateProgram({ openModal, setOpenModal }) {
   };
 
   const style = {
-    maxHeight: "70vh",
+    maxHeight: "85vh",
     minWidth: "35vw",
     minHeight: 0,
   };
@@ -51,7 +51,7 @@ function CreateProgram({ openModal, setOpenModal }) {
           showToast(
             <span style={{ display: "flex", alignItems: "center" }}>
               Training successfully changed
-            </span>
+            </span>,
           );
         }}
       >
@@ -132,7 +132,7 @@ function CreateProgram({ openModal, setOpenModal }) {
                                       <FaMinus />
                                     </button>
                                   </li>
-                                )
+                                ),
                               )}
                             </ul>
 

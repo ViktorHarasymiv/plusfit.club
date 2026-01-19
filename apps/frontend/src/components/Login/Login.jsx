@@ -28,15 +28,13 @@ function Login() {
   };
 
   const registerUserSchema = Yup.object({
-    email: Yup.string()
-      .email("Некоректний email")
-      .required("Email обов’язковий"),
+    email: Yup.string().email("Invalid email").required("Email is required"),
 
-    password: Yup.string().required("Пароль обов’язковий"),
+    password: Yup.string().required("Password is required"),
 
     acceptedTerms: Yup.boolean()
-      .oneOf([true], "Потрібно погодитися з умовами")
-      .required("Потрібно погодитися з умовами"),
+      .oneOf([true], "You must accept the terms")
+      .required("You must accept the terms"),
   });
 
   const handlerSubmit = async (values) => {

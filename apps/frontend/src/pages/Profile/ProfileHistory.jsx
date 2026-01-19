@@ -24,8 +24,6 @@ function ProfileHistory() {
     subsc();
   }, []);
 
-  console.log(subscription);
-
   return (
     <div className={css.setup_wrapper}>
       {subscription?.length > 0 ? (

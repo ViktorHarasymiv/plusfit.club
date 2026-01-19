@@ -53,8 +53,6 @@ function SelfPost({ id, setQuery }) {
     const handleShare = async () => {
       if (navigator.share) {
         try {
-          console.log(post);
-
           await navigator.share({
             title: post.title,
             text: post.text,
@@ -96,28 +94,25 @@ function SelfPost({ id, setQuery }) {
   const { likes, likedBy, title, images, content, quote, tags } = selfPost;
 
   const checkIdforLike = likedBy.includes(user?._id);
-  console.log(selfPost);
 
   return (
     <div className={css.wrapper}>
       {images?.length > 0 && <img src={images[0]} alt="Фото поста" />}
       <div className={css.navigation_wrapper}>
-        <div className={css.first_tile}>
-          <div className={css.tile}>
-            <FaRegUser />
-            {quote.author}
-          </div>
-          <div
-            className={css.tile}
-            onClick={() => scrollToComponent(commentScroll)}
-          >
-            <FaRegMessage />
-            {pagination.totalItems} Comments
-          </div>
-          <div className={css.tile} onClick={() => handleLike(id, user._id)}>
-            {checkIdforLike ? <FaHeart /> : <FaRegHeart />}
-            {likes} Like
-          </div>
+        <div className={css.tile}>
+          <FaRegUser />
+          {quote.author}
+        </div>
+        <div
+          className={css.tile}
+          onClick={() => scrollToComponent(commentScroll)}
+        >
+          <FaRegMessage />
+          {pagination.totalItems} Comments
+        </div>
+        <div className={css.tile} onClick={() => handleLike(id, user._id)}>
+          {checkIdforLike ? <FaHeart /> : <FaRegHeart />}
+          {likes} Like
         </div>
         <div className={css.tile}>
           <ShareButton post={selfPost} />

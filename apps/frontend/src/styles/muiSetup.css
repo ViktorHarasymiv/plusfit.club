@@ -38,3 +38,31 @@
 .MuiPickersTextField-root .MuiInputLabel-root {
   color: var(--white) !important;
 }
+
+/* CHECKBOX */
+
+.MuiAutocomplete-input {
+  color: var(--white) !important;
+}
+
+.MuiInputBase-input::placeholder {
+  font-family: var(--font-family-base) !important;
+  font-size: 14px !important;
+  opacity: 0.8 !important;
+}
+
+.MuiChip-root {
+  color: white !important;
+}
+
+.MuiAutocomplete-root .MuiSvgIcon-root {
+  color: white;
+}
+
+.MuiAutocomplete-tag .MuiChip-deleteIcon {
+  color: white !important;
+}
+
+.MuiAutocomplete-clearIndicator {
+  color: white !important;
+}

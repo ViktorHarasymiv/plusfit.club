@@ -20,6 +20,19 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H ${{ secrets.HOST }} >> ~/.ssh/known_hosts
 
+      - name: Debug SSH
+        run: |
+          ssh -i ~/.ssh/id_ed25519 ${{ secrets.USERNAME }}@${{ secrets.HOST }} << 'EOF'
+            echo "Node version:"
+            node -v
+            echo "NPM version:"
+            npm -v
+            echo "PM2 version:"
+            pm2 -v
+            echo "Git version:"
+            git --version
+          EOF
+
       - name: Deploy via SSH
         run: |
           ssh -i ~/.ssh/id_ed25519 ${{ secrets.USERNAME }}@${{ secrets.HOST }} << 'EOF'

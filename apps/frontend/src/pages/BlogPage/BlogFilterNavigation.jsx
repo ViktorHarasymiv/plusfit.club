@@ -59,7 +59,7 @@ function BlogFilterNavigation({ filters, setFilters }) {
             >
               <MenuItem value={""}>All</MenuItem>
               <MenuItem value={"Classes"}>Classes</MenuItem>
-              <MenuItem value={"news"}>News</MenuItem>
+              <MenuItem value={"News"}>News</MenuItem>
             </Select>
           </FormControl>
           <FormControl sx={{ m: 1, minWidth: 120 }} size="small">

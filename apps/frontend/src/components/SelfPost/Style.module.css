@@ -27,10 +27,11 @@
 /* Navigation */
 
 .navigation_wrapper {
+  margin-block: 5px 15px;
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
+
   justify-content: space-between;
 }
 
@@ -38,20 +39,30 @@
   margin-block: 10px;
   display: inherit;
 
-  gap: 40px;
+  gap: 20px;
 }
 
 .tile {
-  display: inherit;
+  display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 
   gap: 5px;
 
-  text-align: end;
+  text-align: center;
 
   font-size: 14px;
+}
+
+.secound_tile {
+  margin-left: auto;
+
+  display: flex;
+  align-items: center;
+
+  gap: 5px;
 }
 
 .tile:hover {
@@ -325,5 +336,9 @@
 @media screen and (min-width: 768px) {
   .thumb_tile {
     flex-wrap: nowrap;
+  }
+
+  .first_tile {
+    gap: 40px;
   }
 }

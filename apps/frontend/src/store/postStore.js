@@ -69,12 +69,12 @@ export const usePostStore = create((set) => ({
   },
 
   getPostById: async (id) => {
-    set({ selfPost: null, loading: true, error: null });
+    set((state) => ({ selfPost: state.selfPost, loading: true, error: null }));
 
     try {
       const res = await axios.get(`${API_URL}/posts/${id}`);
       set({
-        selfPost: res.data.data, // якщо бекенд повертає { data: {...} }
+        selfPost: res.data.data,
         loading: false,
       });
     } catch (err) {

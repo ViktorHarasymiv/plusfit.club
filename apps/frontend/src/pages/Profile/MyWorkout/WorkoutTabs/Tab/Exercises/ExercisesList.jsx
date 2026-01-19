@@ -16,8 +16,6 @@ function ExercisesExercises({ exercises }) {
     setIsOpen((prev) => !prev);
   };
 
-  console.log(exercises);
-
   return (
     <>
       <ul className={css.exercises_list}>
@@ -60,10 +58,15 @@ function ExercisesExercises({ exercises }) {
                 </div>
               </aside>
             </li>
-          )
+          ),
         )}
       </ul>
-      <ExercisesModal id={id} isOpen={isOpen} onClose={setIsOpen} />
+      <ExercisesModal
+        id={id}
+        isOpen={isOpen}
+        onClose={setIsOpen}
+        style={{ maxHeight: "85vh" }}
+      />
     </>
   );
 }

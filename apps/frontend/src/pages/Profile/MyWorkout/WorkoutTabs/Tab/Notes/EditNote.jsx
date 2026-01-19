@@ -75,8 +75,6 @@ function EditNote({ closeModal }) {
     },
   });
 
-  if (!emotions) return <Loader />;
-
   return (
     <div>
       <h2 className={css.form_title}>Edit your record</h2>
@@ -93,7 +91,7 @@ function EditNote({ closeModal }) {
                 resetForm();
                 closeModal();
               },
-            }
+            },
           );
         }}
       >
@@ -140,12 +138,12 @@ function EditNote({ closeModal }) {
                   option.title === value.title
                 }
                 value={emotions.filter(
-                  (e) => e._id && (values?.emotions).includes(e.title)
+                  (e) => e._id && (values?.emotions).includes(e.title),
                 )}
                 onChange={(_, newValue) =>
                   setFieldValue(
                     "emotions",
-                    newValue.map((e) => e.title)
+                    newValue.map((e) => e.title),
                   )
                 }
                 PaperComponent={CustomPaper}
@@ -157,6 +155,7 @@ function EditNote({ closeModal }) {
                       {...rest}
                       style={{
                         cursor: "pointer",
+
                         padding: "11px 12px",
                         margin: 0,
                         borderRadius: 6,
@@ -206,34 +205,7 @@ function EditNote({ closeModal }) {
                     variant="outlined"
                     fullWidth
                     className="input"
-                    sx={{
-                      "& .MuiOutlinedInput-root": {
-                        width: "450px",
-                        borderRadius: "6px",
-                        color: "var(--white)",
-                        opacity: 1,
-                      },
-                      "& .MuiInputBase-input::placeholder": {
-                        fontFamily: "var(--font-family-base) !important",
-                        fontSize: "14px",
-                        opacity: 0.8, // важливо, бо MUI ставить 0.5
-                      },
-                      "& .MuiChip-root": {
-                        color: "white",
-                      },
-
-                      "& .MuiSvgIcon-root": {
-                        color: "white",
-                      },
-
-                      "& .MuiChip-deleteIcon": {
-                        color: "white",
-                      },
-
-                      "& .MuiAutocomplete-clearIndicator": {
-                        color: "white !important",
-                      },
-                    }}
+                    style={{ height: "auto" }}
                   />
                 )}
               />

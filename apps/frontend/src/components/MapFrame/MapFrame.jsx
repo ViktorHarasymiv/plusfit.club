@@ -1,8 +1,6 @@
 import React from "react";
 
 function MapFrame({ url }) {
-  console.log(url);
-
   return (
     <>
       <iframe

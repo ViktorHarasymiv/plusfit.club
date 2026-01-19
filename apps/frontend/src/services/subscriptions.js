@@ -19,7 +19,6 @@ export const my_subscription = async (email) => {
       params: { email },
     });
 
-    console.log("Абонементи:", response.data.data);
     return response.data.data;
   } catch (error) {
     console.error("Помилка при отриманні абонементів:", error);

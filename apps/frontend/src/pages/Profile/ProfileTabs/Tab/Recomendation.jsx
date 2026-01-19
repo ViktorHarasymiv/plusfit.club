@@ -10,8 +10,6 @@ function Recomendation() {
   const { user } = useAuth();
   const { get_post, content } = usePostStore();
 
-  console.log(user.interests);
-
   const perPage = 6;
   const tags = user.interests;
 
@@ -21,8 +19,6 @@ function Recomendation() {
     };
     fetch_post_data();
   }, []);
-
-  console.log(content);
 
   return (
     <>

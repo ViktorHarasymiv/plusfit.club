@@ -21,7 +21,27 @@
 .flex_user_tile {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+
+  gap: 40px;
+}
+
+.user_wrapper {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.user_info {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user_info h3 {
+  margin-left: 10px;
+
+  line-height: 1;
 }
 
 .comment_item {
@@ -61,8 +81,6 @@
   color: var(--dark);
 
   font-size: 20px;
-
-  text-wrap: nowrap;
 }
 
 .time {
@@ -70,11 +88,12 @@
 
   display: flex;
   align-items: center;
-
-  gap: 5px;
+  gap: 10px;
   font-size: 13px;
 
   color: var(--accent-color);
+
+  text-wrap: nowrap;
 }
 
 .comment_avatar {

@@ -15,6 +15,7 @@ function PriceList({ data }) {
     <div className={css.price_wrapper}>
       {data.map((categoryBlock, index) => (
         <motion.div
+          key={index}
           initial={{
             opacity: 0,
             x: index === 0 || index === 2 ? -50 : 50,
@@ -27,7 +28,7 @@ function PriceList({ data }) {
             ease: "easeOut",
           }}
         >
-          <div key={categoryBlock._id} style={{ marginBottom: "2rem" }}>
+          <div style={{ marginBottom: "2rem" }}>
             <Accordion defaultExpanded={index === 0}>
               <AccordionSummary
                 expandIcon={
@@ -52,7 +53,6 @@ function PriceList({ data }) {
                       <strong className={css.type_name}>{service.name}</strong>
                       {service.description && (
                         <>
-                          {" "}
                           — <em>{service.description}</em>
                         </>
                       )}

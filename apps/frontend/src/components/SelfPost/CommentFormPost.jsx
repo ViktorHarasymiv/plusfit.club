@@ -5,9 +5,6 @@ import * as Yup from "yup";
 
 /* MUI SELECT */
 
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
 import Button from "../ui/Button/Button";
 
 import style from "../CalculatorCalories/Form/FormCalculate.module.css";
@@ -15,9 +12,14 @@ import css from "./Style.module.css";
 import TextField from "@mui/material/TextField";
 import axios from "axios";
 import { API_URL } from "../../config/api";
+import { useToastStore } from "../../store/toastStore";
+
+import { BsSendCheckFill } from "react-icons/bs";
+import { BsSendSlashFill } from "react-icons/bs";
 
 export default function CommentFormPost({ postId, fetchNewComment }) {
   const { user } = useAuth();
+  const { showToast } = useToastStore();
 
   const userId = user._id;
 
@@ -55,18 +57,49 @@ export default function CommentFormPost({ postId, fetchNewComment }) {
         userId,
       };
 
-      const { data } = await axios.post(`${API_URL}/posts/comments`, request);
-
-      console.log("Comment created:", data);
+      await axios.post(`${API_URL}/posts/comments`, request);
 
       fetchNewComment(postId);
-      alert("Відгук успішно додано");
+      showToast(
+        <span style={{ display: "flex", alignItems: "center" }}>
+          <BsSendCheckFill
+            style={{
+              color: "var(--white)",
+              marginRight: "6px",
+            }}
+          />
+          Your feedback has been sent.
+        </span>,
+      );
       resetForm();
     } catch (error) {
       if (error?.response?.status === 403) {
-        alert("Відгук дозволено лише для абонентів.");
+        showToast(
+          <span style={{ display: "flex", alignItems: "center" }}>
+            <BsSendSlashFill
+              style={{
+                color: "var(--white)",
+                marginRight: "6px",
+              }}
+            />
+            Feedback is only allowed for users.
+          </span>,
+        );
       } else {
-        alert(error?.message || "Помилка відправки");
+        alert(
+          error?.message ||
+            showToast(
+              <span style={{ display: "flex", alignItems: "center" }}>
+                <MdAddCard
+                  style={{
+                    color: "var(--white)",
+                    marginRight: "6px",
+                  }}
+                />
+                Error sending feedback.
+              </span>,
+            ),
+        );
       }
       return;
     }

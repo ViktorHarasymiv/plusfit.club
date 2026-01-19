@@ -16,8 +16,6 @@ function RehabilitationPrice() {
     fetchRehabilitationPriceList();
   }, []);
 
-  console.log(data);
-
   if (loading) return <Loader />;
   if (error) return <p>{error}</p>;
   return (

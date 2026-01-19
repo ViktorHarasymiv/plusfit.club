@@ -7,22 +7,22 @@ import { IoMdClose } from "react-icons/io";
 import { FaStar } from "react-icons/fa6";
 import { FaRegStar } from "react-icons/fa6";
 
-function ExercisesModal({ id, isOpen, onClose }) {
+function ExercisesModal({ id, isOpen, onClose, style }) {
   const { getExerciseById, exercise } = useExercisesStore();
 
   useEffect(() => {
     const fetchByid = async () => {
       await getExerciseById(id);
     };
-    fetchByid();
+    if (id !== null) {
+      fetchByid();
+    } else return;
   }, [id]);
-
-  console.log(exercise);
 
   if (!exercise) return null;
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} styles={{}}>
+    <Modal isOpen={isOpen} onClose={onClose} styles={style}>
       <div className={css.modal_wrapper}>
         <IoMdClose onClick={() => onClose()} className={css.close_button} />
         <img

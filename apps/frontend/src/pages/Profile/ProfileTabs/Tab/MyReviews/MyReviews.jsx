@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 import { useCommentStore } from "../../../../../store/commentPostStore";
 import { useAuth } from "../../../../../context/AuthContext";
-import Loader from "../../../../../components/ui/Loader/Loader";
 
 import Button from "../../../../../components/ui/Button/Button";
 import ReverseBtn from "../../../../../components/ui/Button/ReverseBtn";
@@ -46,18 +45,18 @@ function MyReviews() {
             ({ _id, postId, userSnapshot, createdAt, text }) => (
               <li key={_id} className={css.flex_comment}>
                 <div className={css.flex_user_tile}>
-                  <div>
-                    <img
-                      src={userSnapshot.avatar}
-                      alt={`${userSnapshot.name} avatar`}
-                      className={css.comment_avatar}
-                    />
-                    <div>
+                  <div className={css.user_wrapper}>
+                    <div className={css.user_info}>
+                      <img
+                        src={userSnapshot.avatar}
+                        alt={`${userSnapshot.name} avatar`}
+                        className={css.comment_avatar}
+                      />
                       <h3 className={css.user_name}>{userSnapshot.name}</h3>
-                      <p className={css.time}>
-                        <FaRegClock />
-                        {timeFormatted(createdAt, variable)}
-                      </p>
+                    </div>
+                    <div className={css.time}>
+                      <FaRegClock />
+                      {timeFormatted(createdAt, variable)}
                     </div>
                   </div>
                   <div className={css.text_wrapper}>
@@ -73,7 +72,7 @@ function MyReviews() {
                   </ReverseBtn>
                 </div>
               </li>
-            )
+            ),
           )}
         </ul>
       )}

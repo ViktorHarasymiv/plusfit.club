@@ -8,6 +8,7 @@ import * as Yup from "yup";
 import Logo from "../../components/Logo/Logo";
 import Button from "../../components/ui/Button/Button";
 
+import { MdEmail } from "react-icons/md";
 import { MdOutlineMail } from "react-icons/md";
 import { HiOutlineUser } from "react-icons/hi2";
 import { GrSecure } from "react-icons/gr";
@@ -16,9 +17,12 @@ import { IoCheckmark } from "react-icons/io5";
 import { register } from "../../services/auth";
 
 import { handleGoogleLogin } from "../../services/auth";
+import { useToastStore } from "../../store/toastStore";
 
 function Registration() {
   const navigate = useNavigate();
+
+  const { showToast } = useToastStore();
 
   const { closeSignUp } = useAuthModalStore();
 
@@ -36,7 +40,7 @@ function Registration() {
       .max(30, "Name cannot exceed 30 characters")
       .matches(
         /^[А-Яа-яЁёІіЇїЄєҐґA-Za-z]+ [А-Яа-яЁёІіЇїЄєҐґA-Za-z]+$/,
-        "Name must contain first name and last name separated by a space"
+        "Name must contain first name and last name separated by a space",
       )
       .required("Name is required"),
 
@@ -61,13 +65,20 @@ function Registration() {
       resetForm(); // очищення форми після успіху
       closeSignUp();
       navigate("/verify", { state: { email: payload.email } });
-
-      // closeSignUp();
     } catch (error) {
-      console.error("Помилка реєстрації:", error);
-      // можеш показати повідомлення про помилку
+      showToast(
+        <span style={{ display: "flex", alignItems: "center" }}>
+          <MdEmail
+            style={{
+              color: "var(--white)",
+              marginRight: "6px",
+            }}
+          />
+          {error.response.data.data.message}
+        </span>,
+      );
     } finally {
-      setSubmitting(false); // знімає блокування кнопки
+      setSubmitting(false);
     }
   };
 

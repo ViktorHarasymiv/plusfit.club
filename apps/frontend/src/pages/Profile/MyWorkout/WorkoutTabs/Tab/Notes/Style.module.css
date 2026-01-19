@@ -1,7 +1,7 @@
 .wrapper {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-between;
+  flex-wrap: wrap;
 
   gap: 20px;
 }
@@ -10,8 +10,7 @@
 .note_wrapper {
   overflow: hidden;
 
-  max-width: 100%;
-  width: 100%;
+  flex: 1 1 100%;
 }
 
 .list_wrapper,
@@ -62,7 +61,6 @@
 }
 
 .list_wrapp {
-  padding: 10px 20px;
   max-height: 700px;
 
   overflow: hidden;
@@ -80,6 +78,7 @@
 }
 
 .diarie_item {
+  overflow: hidden;
   cursor: pointer;
 
   width: 100%;
@@ -92,7 +91,7 @@
 }
 
 .diarie_item:hover {
-  transform: scale(1.03);
+  background-color: rgb(255, 230, 198);
 }
 
 .diarie_title {
@@ -127,16 +126,34 @@
 
 /* NOTE TILE */
 
+.fish_text {
+  font-size: 32px;
+  flex: 1;
+
+  align-self: center;
+  text-align: center;
+}
+
 .note_wrapper {
   padding: 1rem;
 }
 
 .note_actions {
+  height: 39px;
+
   margin-bottom: 15px;
+
   display: flex;
   align-items: center;
 
   justify-content: space-between;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
 }
 
 .icon svg {
@@ -161,12 +178,14 @@
 /* MODAL */
 
 .form_title {
-  font-size: 28px;
+  margin-bottom: 20px;
+
+  font-size: 32px;
   color: var(--white);
 }
 
 .diaryList_form {
-  max-width: 600px;
+  width: 340px;
 
   display: flex;
 
@@ -218,15 +237,16 @@
 }
 
 @media screen and (min-width: 991px) {
-  .wrapper {
-    flex-wrap: nowrap;
-  }
-
   .list_wrapper,
   .note_wrapper {
     overflow: hidden;
 
-    max-width: 50%;
-    width: 100%;
+    flex: 1 1 50%;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .wrapper {
+    flex-wrap: nowrap;
   }
 }

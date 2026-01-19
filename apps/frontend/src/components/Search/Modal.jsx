@@ -48,8 +48,6 @@ export default function Modal({ close }) {
     setInputId(e.target?.value.trim());
   };
 
-  console.log(subscription);
-
   return (
     <div className={css.modal_wrapper}>
       <form action={handleChange} className={css.form}>

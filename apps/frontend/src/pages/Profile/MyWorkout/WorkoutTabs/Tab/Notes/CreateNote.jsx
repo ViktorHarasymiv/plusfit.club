@@ -4,6 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
 import { Autocomplete, TextField, Checkbox } from "@mui/material";
+import CheckIcon from "@mui/icons-material/Check";
 
 import { useEmotionsStore } from "../../../../../../store/emotionStore";
 import { useDiariesStore } from "../../../../../../store/useDiariesStore";
@@ -12,7 +13,6 @@ import css from "./Style.module.css";
 
 import Button from "../../../../../../components/ui/Button/Button";
 import Loader from "../../../../../../components/ui/Loader/Loader";
-import CheckIcon from "@mui/icons-material/Check";
 
 function CreateNote({ closeModal }) {
   const queryClient = useQueryClient();
@@ -41,18 +41,19 @@ function CreateNote({ closeModal }) {
       .required("Emotions are required"),
   });
 
+  // Emotions list
+
   const CustomPaper = forwardRef(function CustomPaper(props, ref) {
     return (
       <div
         ref={ref}
         {...props}
         style={{
-          height: 200,
+          maxHeight: 230,
           backgroundColor: "rgba(0,0,0, 0.9)",
           borderRadius: 6,
           boxShadow: "0 4px 10px rgba(0,0,0,0.15)",
           padding: "5px",
-          overflow: "hidden",
         }}
       >
         {props.children}
@@ -136,12 +137,12 @@ function CreateNote({ closeModal }) {
                   option.title === value.title
                 }
                 value={emotions.filter(
-                  (e) => e._id && (values?.emotions).includes(e.title)
+                  (e) => e._id && (values?.emotions).includes(e.title),
                 )}
                 onChange={(_, newValue) =>
                   setFieldValue(
                     "emotions",
-                    newValue?.map((e) => e.title)
+                    newValue?.map((e) => e.title),
                   )
                 }
                 PaperComponent={CustomPaper}
@@ -202,34 +203,7 @@ function CreateNote({ closeModal }) {
                     variant="outlined"
                     fullWidth
                     className="input"
-                    sx={{
-                      "& .MuiOutlinedInput-root": {
-                        width: "450px",
-                        borderRadius: "6px",
-                        color: "var(--white)",
-                        opacity: 1,
-                      },
-                      "& .MuiInputBase-input::placeholder": {
-                        fontFamily: "var(--font-family-base) !important",
-                        fontSize: "14px",
-                        opacity: 0.8, // важливо, бо MUI ставить 0.5
-                      },
-                      "& .MuiChip-root": {
-                        color: "white",
-                      },
-
-                      "& .MuiSvgIcon-root": {
-                        color: "white",
-                      },
-
-                      "& .MuiChip-deleteIcon": {
-                        color: "white",
-                      },
-
-                      "& .MuiAutocomplete-clearIndicator": {
-                        color: "white !important",
-                      },
-                    }}
+                    style={{ height: "auto" }}
                   />
                 )}
               />

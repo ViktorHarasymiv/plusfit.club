@@ -79,13 +79,13 @@ function ProfileSetup() {
       .max(30, "Name cannot exceed 30 characters")
       .matches(
         /^[А-Яа-яЁёІіЇїЄєҐґA-Za-z]+ [А-Яа-яЁёІіЇїЄєҐґA-Za-z]+$/,
-        "Name must contain both first and last name separated by a space"
+        "Name must contain both first and last name separated by a space",
       )
       .optional(), // better optional for PATCH
 
     phone: Yup.string().matches(
       /^\+380\d{9}$/,
-      "Enter phone number in format +380XXXXXXXXX"
+      "Enter phone number in format +380XXXXXXXXX",
     ),
 
     sex: Yup.string().oneOf(["Man", "Woman"]).optional(),
@@ -117,7 +117,7 @@ function ProfileSetup() {
       .test(
         "is-integer",
         "Height must be an integer",
-        (value) => value == null || Number.isInteger(value)
+        (value) => value == null || Number.isInteger(value),
       ),
 
     weight: Yup.number()
@@ -128,7 +128,7 @@ function ProfileSetup() {
       .test(
         "is-integer",
         "Weight must be an integer",
-        (value) => value == null || Number.isInteger(value)
+        (value) => value == null || Number.isInteger(value),
       ),
 
     activityLevel: Yup.string()
@@ -162,8 +162,6 @@ function ProfileSetup() {
         setFieldValue("birthday", iso);
       }
     };
-
-    console.log(formattedBirthday);
 
     return (
       <DesktopDatePicker
@@ -697,13 +695,13 @@ function ProfileSetup() {
                       isOptionEqualToValue={(option, value) => option === value}
                       value={interests.filter(
                         (e) =>
-                          e._id && (values?.interests ?? []).includes(e.tag)
+                          e._id && (values?.interests ?? []).includes(e.tag),
                       )}
                       onChange={(_, newValue) => {
                         if (newValue.length > 3) return;
                         setFieldValue(
                           "interests",
-                          newValue?.map((e) => e.tag)
+                          newValue?.map((e) => e.tag),
                         );
                       }}
                       PaperComponent={CustomPaper}
@@ -757,6 +755,7 @@ function ProfileSetup() {
                           variant="outlined"
                           fullWidth
                           className="input"
+                          style={{ height: "auto" }}
                           sx={{
                             "& .MuiOutlinedInput-root": {
                               color: "var(--white)",

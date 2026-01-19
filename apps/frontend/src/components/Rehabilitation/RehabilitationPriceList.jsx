@@ -15,7 +15,7 @@ function RehabilitationPriceList({ data }) {
   return (
     <div className={css.price_wrapper}>
       {data.map((categoryBlock, index) => (
-        <div key={categoryBlock.id} style={{ marginBottom: "2rem" }}>
+        <div key={index} style={{ marginBottom: "2rem" }}>
           <Accordion defaultExpanded={index === 0}>
             <AccordionSummary
               expandIcon={
@@ -36,39 +36,37 @@ function RehabilitationPriceList({ data }) {
               </Typography>
             </AccordionSummary>
             <AccordionDetails>
-              <Typography>
-                <li key={index} className={css.item}>
-                  <ul className={css.description_list}>
-                    {categoryBlock.description.map((item, index) => (
-                      <li key={index} className={css.type_name}>
-                        {item}
+              <li key={index} className={css.item}>
+                <ul className={css.description_list}>
+                  {categoryBlock.description.map((item, index) => (
+                    <li key={index} className={css.type_name}>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <ul>
+                  {Array.isArray(categoryBlock.price) ? (
+                    categoryBlock.price.map((price, index) => (
+                      <li key={index}>
+                        <p key={index}>
+                          <IoPricetagOutline className={css.icon} />
+                          {price}
+                        </p>
                       </li>
-                    ))}
-                  </ul>
-                  <ul>
-                    {Array.isArray(categoryBlock.price) ? (
-                      categoryBlock.price.map((price, index) => (
-                        <li>
-                          <p key={index}>
-                            <IoPricetagOutline className={css.icon} />
-                            {price}
-                          </p>
-                        </li>
-                      ))
-                    ) : (
-                      <li>
-                        <IoPricetagOutline className={css.icon} />
-                        {categoryBlock.price}
-                      </li>
-                    )}
-                  </ul>
+                    ))
+                  ) : (
+                    <li>
+                      <IoPricetagOutline className={css.icon} />
+                      {categoryBlock.price}
+                    </li>
+                  )}
+                </ul>
 
-                  <p>
-                    <MdAccessTime className={css.icon} />
-                    {categoryBlock.duration_min} min
-                  </p>
-                </li>
-              </Typography>
+                <p>
+                  <MdAccessTime className={css.icon} />
+                  {categoryBlock.duration_min} min
+                </p>
+              </li>
             </AccordionDetails>
           </Accordion>
         </div>

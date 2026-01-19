@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import ReactDOM from "react-dom";
 
 import style from "./Modal.module.css";
@@ -16,7 +16,6 @@ export default function Modal({
         onClose();
       }
     };
-
     window.addEventListener("keydown", handleEsc);
 
     return () => {
@@ -36,7 +35,7 @@ export default function Modal({
 
   return ReactDOM.createPortal(
     <div
-      onClick={onClose}
+      onClick={() => onClose()}
       className={style.modal_overlay}
       style={{ ...overlayStyle }}
     >
@@ -48,6 +47,6 @@ export default function Modal({
         {children}
       </div>
     </div>,
-    document.getElementById("modal-root")
+    document.getElementById("modal-root"),
   );
 }

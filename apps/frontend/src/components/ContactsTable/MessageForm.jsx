@@ -2,6 +2,8 @@ import { useAuth } from "../../context/AuthContext";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 
+import { useToastStore } from "../../store/toastStore";
+
 import SectionTitle from "../SectionTitle/SectionTitle";
 
 /* MUI SELECT */
@@ -19,9 +21,15 @@ import background from "/img/04.jpg";
 import { useWindowWidth } from "../../hooks/useWindowWidth";
 import { CREATE_MESSAGE } from "../../services/message";
 
+import { BsSendCheckFill } from "react-icons/bs";
+import { BsSendSlashFill } from "react-icons/bs";
+import { BsSendXFill } from "react-icons/bs";
+
 function MessageForm() {
   const { user } = useAuth();
   const width = useWindowWidth();
+
+  const { showToast } = useToastStore();
 
   const initialValues = {
     name: user?.name || "",
@@ -54,7 +62,7 @@ function MessageForm() {
       .required("Phone number is required")
       .matches(
         /^(\+380|0)\d{9}$/,
-        "Invalid phone number format. Example: +380XXXXXXXXX or 0XXXXXXXXX"
+        "Invalid phone number format. Example: +380XXXXXXXXX or 0XXXXXXXXX",
       ),
   });
 
@@ -63,20 +71,47 @@ function MessageForm() {
   const handleSubmit = async (values, { resetForm }) => {
     try {
       await CREATE_MESSAGE(values);
+      showToast(
+        <span style={{ display: "flex", alignItems: "center" }}>
+          <BsSendCheckFill
+            style={{
+              color: "var(--white)",
+              marginRight: "6px",
+            }}
+          />
+          Your feedback has been sent.
+        </span>,
+      );
       resetForm();
-      alert("Відгук успішно додано");
     } catch (error) {
       if (error?.response?.status === 403) {
-        alert("Відгук дозволено лише для абонентів.");
+        showToast(
+          <span style={{ display: "flex", alignItems: "center" }}>
+            <BsSendSlashFill
+              style={{
+                color: "var(--white)",
+                marginRight: "6px",
+              }}
+            />
+            Feedback is only allowed for users.
+          </span>,
+        );
       } else {
         const message = error?.message;
-        alert(message);
+        showToast(
+          <span style={{ display: "flex", alignItems: "center" }}>
+            <BsSendXFill
+              style={{
+                color: "var(--white)",
+                marginRight: "6px",
+              }}
+            />
+            {message}
+          </span>,
+        );
       }
-
       return;
     }
-
-    resetForm();
   };
 
   return (

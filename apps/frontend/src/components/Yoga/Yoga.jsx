@@ -1,7 +1,7 @@
 import Content from "../../pages/Offer/Content/Content";
 
 export default function Yoga() {
-  document.title = "Iron Mass - Yoga";
+  document.title = "Iron Mass | Yoga";
 
   const content = {
     frontImage:

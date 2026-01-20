@@ -11,6 +11,8 @@ import PriceList from "./PriceList";
 import SectionTitle from "../SectionTitle/SectionTitle";
 
 function MassagePrice() {
+  document.title = "Iron Mass | Massage";
+
   const { data, loading, fetchMassagePriceList } = massagePriceList();
   const { setLoading } = useLoaderStore();
 

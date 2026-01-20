@@ -26,8 +26,13 @@
   opacity: 0.3;
 }
 
-.comment_background {
+.image_wrapper {
   display: none;
+}
+
+.comment_background {
+  width: 100%;
+  height: 100%;
 }
 
 .form_block {
@@ -40,15 +45,16 @@
 }
 
 @media screen and (min-width: 767.98px) {
-  .comment_background {
+  .image_wrapper {
     display: block;
 
     z-index: -1;
     position: absolute;
 
-    width: 100%;
-    object-fit: cover;
+    height: 100%;
+  }
 
+  .comment_background {
     object-fit: cover;
     object-position: bottom;
   }
@@ -60,11 +66,19 @@
 }
 
 @media screen and (min-width: 1191.98px) {
-  .comment_background {
+  .image_wrapper {
+    flex: 1;
+  }
+
+  .image_wrapper {
     position: static;
 
-    width: 550px;
+    width: 100%;
     height: 635px;
+  }
+
+  .comment_wrapper {
+    justify-content: space-between;
   }
 
   .comment_wrapper::after {

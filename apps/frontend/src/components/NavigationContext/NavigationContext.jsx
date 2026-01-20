@@ -1,4 +1,3 @@
-import React from "react";
 import { useLocation, Link } from "react-router-dom";
 
 import css from "./NavigationContext.module.css";
@@ -11,7 +10,10 @@ export default function NavigationContext() {
   const pathnames = location.pathname.split("/").filter((x) => x);
 
   return (
-    <nav className={css.wrapper} style={{ background: "url(/img/event.jpg)" }}>
+    <nav
+      className={css.wrapper}
+      style={{ background: "url(/img/navigationbackground.jpg)" }}
+    >
       <div className="container">
         <div className={css.content_wrapper}>
           {pathnames.map((name, index) => {

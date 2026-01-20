@@ -151,6 +151,8 @@ function Content() {
 
   return (
     <div className="container">
+      <h2>This web project is not commercial.</h2>
+      <hr />
       {privacyPolicyTemplate.map((section) => (
         <div className={css.block} key={section.id} id={section.id}>
           <h3 className={css.title}>{section.title}</h3>

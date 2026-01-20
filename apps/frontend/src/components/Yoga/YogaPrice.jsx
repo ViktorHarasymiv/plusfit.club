@@ -9,6 +9,7 @@ import Loader from "../ui/Loader/Loader";
 import RehabilitationPriceList from "../Rehabilitation/RehabilitationPriceList";
 
 function YogaPrice() {
+  document.title = "Iron Mass | Yoga";
   const { data, loading, error, fetchRehabilitationPriceList } =
     rehabilitationPriceList();
 

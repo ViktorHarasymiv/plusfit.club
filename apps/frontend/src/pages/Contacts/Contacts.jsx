@@ -1,4 +1,3 @@
-import React from "react";
 import NavigationContext from "../../components/NavigationContext/NavigationContext";
 import ContactsTable from "../../components/ContactsTable/ContactsTable";
 import EatBrand from "../../components/EatBrand/EatBrand";
@@ -7,11 +6,12 @@ import Loader from "../../components/ui/Loader/Loader";
 import { useMainConfigStore } from "../../store/mainStore";
 
 export default function Contacts() {
+  document.title = "Iron Mass | Contacts";
   const { config } = useMainConfigStore();
 
   if (!config) return <Loader />;
 
-  const { address, email, phone, media } = config.data;
+  const { address } = config.data;
 
   return (
     <main>

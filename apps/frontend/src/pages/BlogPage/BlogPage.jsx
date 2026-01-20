@@ -13,6 +13,8 @@ import ReactPaginate from "react-paginate";
 import Loader from "../../components/ui/Loader/Loader";
 
 function BlogPage() {
+  document.title = "Iron Mass | Blog";
+
   const { filter } = useParams();
   const { category } = useParams();
 

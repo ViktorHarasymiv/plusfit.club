@@ -12,6 +12,7 @@ import ProfileDashboard from "./ProfileDashboard";
 import EatBrand from "../../components/EatBrand/EatBrand";
 
 function ProfileLayout() {
+  document.title = "Iron Mass | Profile";
   const { user } = useAuth();
 
   return (

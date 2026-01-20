@@ -9,6 +9,7 @@ import AboutUsComponent from "../../components/AboutUsComponent/AboutUsComponent
 import SectionTitle from "../../components/SectionTitle/SectionTitle";
 
 export default function AboutUs() {
+  document.title = "Iron Mass | About Us";
   return (
     <main>
       <NavigationContext />

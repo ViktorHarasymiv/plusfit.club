@@ -20,25 +20,12 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H ${{ secrets.HOST }} >> ~/.ssh/known_hosts
 
-      - name: Debug SSH
-        run: |
-          ssh -i ~/.ssh/id_ed25519 ${{ secrets.USERNAME }}@${{ secrets.HOST }} << 'EOF'
-            echo "Node version:"
-            node -v
-            echo "NPM version:"
-            npm -v
-            echo "PM2 version:"
-            pm2 -v
-            echo "Git version:"
-            git --version
-          EOF
-
-      - name: Deploy via SSH
+      - name: Deploy via SSH (Docker)
         run: |
           ssh -i ~/.ssh/id_ed25519 ${{ secrets.USERNAME }}@${{ secrets.HOST }} << 'EOF'
             cd ${{ secrets.TARGET_DIR }}
             git pull origin main
-            npm install
-            npm run build
-            pm2 restart all
+            docker compose down
+            docker compose build --no-cache
+            docker compose up -d
           EOF

@@ -8,6 +8,7 @@ const preferenceArray = [
     id: 0,
     icon: "icon-gym",
     title: "Equipment",
+    hash: "whyChooseUs",
     about:
       "Our gym has 38 modern exercise machines that allow people with different levels of training to train comfortably and effectively, from beginners to professionals.",
   },
@@ -15,7 +16,7 @@ const preferenceArray = [
     id: 1,
     icon: "icon-muscle",
     title: "Trainers",
-    ref: "trainer",
+    hash: "trainer",
     about:
       "The heart of any gym is not only the equipment, but also the people who help achieve results. Our team includes two professional trainers.",
   },
@@ -23,7 +24,7 @@ const preferenceArray = [
     id: 2,
     icon: "icon-dumbbell",
     title: "Best practices",
-
+    hash: "whyChooseUs",
     about:
       "We have created a space where everyone can choose their own path – whether it's classic strength training, body and soul practice, or a child's first steps in sports.",
   },
@@ -31,7 +32,7 @@ const preferenceArray = [
     id: 3,
     icon: "icon-moneyBag",
     title: "Affordable price",
-    ref: "tarife",
+    hash: "tarife",
     about:
       "We believe that sports should be accessible to everyone. That is why our gym has a transparent and flexible payment system so that you can choose the option that best suits your goals, capabilities, and lifestyle.",
   },

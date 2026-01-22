@@ -11,19 +11,19 @@ import Button from "../ui/Button/Button";
 function Item({ data }) {
   return data.map(
     (
-      { _id, images, title, quote, description, content, createdAt, filterBy },
-      i
+      { _id, images, title, author, description, content, createdAt, filterBy },
+      i,
     ) => (
       <aside key={i} className={css.item}>
         <div className={css.thumb_tile}>
-          {filterBy === "news" && <div className={css.news_band}>New</div>}
+          {filterBy === "News" && <div className={css.news_band}>New</div>}
           <img src={images[0]} alt="Thumb" className={css.thumb_img} />
         </div>
         <div className={css.content_block}>
           <div className={css.info_tile}>
             <p>
               <FaRegUserCircle />
-              <em>By {quote.author}</em>
+              <em>By {author}</em>
             </p>
             <p>
               <LuCalendar1 />
@@ -41,7 +41,7 @@ function Item({ data }) {
           </Link>
         </div>
       </aside>
-    )
+    ),
   );
 }
 

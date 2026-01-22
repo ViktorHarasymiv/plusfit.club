@@ -21,7 +21,7 @@ export default function PreferenceItem({ data, index }) {
         <div className={style.content_wrapper}>
           <Icon name={data.icon} size={28} className="icon" />
           <h4>
-            <a href={`#${data.ref}`}>{data.title}</a>
+            <a href={`#${data.hash}`}>{data.title}</a>
           </h4>
           <span
             className={`${style.content_box} ${expanded ? style.expanded : ""}`}

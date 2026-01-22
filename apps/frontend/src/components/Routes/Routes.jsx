@@ -135,7 +135,7 @@ function Router() {
 
         {/* Gallery */}
 
-        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/Portfolio" element={<Gallery />} />
 
         {/* Blog */}
 

@@ -43,9 +43,13 @@ function App() {
 
   const location = useLocation();
 
+  console.log(location.hash.length);
+
   // EFFECTS
 
   useEffect(() => {
+    if (location.hash.length > 0) return;
+
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
 
     if (location.pathname == "/private-policy") {

@@ -7,7 +7,7 @@ import col1Img from "/img/03.jpg";
 
 function WhyChooseUs() {
   return (
-    <section>
+    <section id="whyChooseUs">
       <div className="container">
         <div className={css.wrapper}>
           <div className={css.col2}>

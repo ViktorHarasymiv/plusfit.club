@@ -11,6 +11,7 @@ export const useEmotionsStore = create((set) => ({
     const res = await axios.get(`${API_URL}/emotions`);
     set({ emotions: res.data.data });
   },
+
   createRecord: async () => {
     const res = await axios.get(`${API_URL}/emotions`);
     return res;

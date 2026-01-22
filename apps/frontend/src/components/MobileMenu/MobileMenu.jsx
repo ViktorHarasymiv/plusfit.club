@@ -49,8 +49,11 @@ const mobilePanelStyle = {
   width: "80vw",
   maxHeight: "100%",
   height: "100%",
-  borderRadius: "0",
+  borderRadius: "0px",
+  borderTopLeftRadius: "12px",
+  borderBottomLeftRadius: "12px",
   background: "rgba(0,0,0, 0.6)",
+  animation: "slideInX 0.3s ease-out forwards",
 };
 
 export default function MobileMenu({ isScroll }) {
@@ -141,12 +144,12 @@ export default function MobileMenu({ isScroll }) {
                   className={style.navbar_item}
                 >
                   <MdOutlineWidgets />
-                  <span>Offer</span>
+                  <span>Our offers</span>
                   <MdKeyboardArrowDown />
                   {isdropMenu && (
                     <ul className={style.dropmenu}>
                       <li className={style.dropdown_item}>
-                        <NavLink to="/offer/gym">Gym & Fitness</NavLink>
+                        <NavLink to="/offer/gym">Gym / Fitness</NavLink>
                       </li>
                       <li className={style.dropdown_item}>
                         <NavLink to="/offer/massage">Massage</NavLink>
@@ -167,7 +170,7 @@ export default function MobileMenu({ isScroll }) {
                   className={style.navbar_item}
                 >
                   <MdLocalOffer />
-                  <span>Price</span>
+                  <span>Subscriptions</span>
                   <MdKeyboardArrowDown />
                   {isdropMenuPrice && (
                     <ul className={style.dropmenu}>
@@ -193,15 +196,15 @@ export default function MobileMenu({ isScroll }) {
                   className={style.navbar_item}
                 >
                   <MdLocalOffer />
-                  <span>Actions</span>
+                  <span>Others</span>
                   <MdKeyboardArrowDown />
                   {isdropMenuActions && (
                     <ul className={style.dropmenu}>
                       <li className={style.dropdown_item}>
-                        <NavLink to="/blog">Blog</NavLink>
+                        <NavLink to="/Portfolio">Portfolio</NavLink>
                       </li>
                       <li className={style.dropdown_item}>
-                        <NavLink to="/gallery">Gallery</NavLink>
+                        <NavLink to="/blog">Blog</NavLink>
                       </li>
                       <li className={style.dropdown_item}>
                         <NavLink to="/about">About Us</NavLink>

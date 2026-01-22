@@ -85,22 +85,25 @@ export default function Footer() {
                         <span>Home</span>
                       </NavLink>
                     </li>
+
                     <li className={style.navbar_item}>
-                      <a href="#tarife">
+                      <NavLink to="/Portfolio">
                         <TiArrowSortedDown className={style.icon_route} />
-                        <span>Subscription</span>
-                      </a>
+                        <span>Portfolio</span>
+                      </NavLink>
                     </li>
+
+                    <li className={style.navbar_item}>
+                      <NavLink to="/blog">
+                        <TiArrowSortedDown className={style.icon_route} />
+                        <span>Blog</span>
+                      </NavLink>
+                    </li>
+
                     <li className={style.navbar_item}>
                       <NavLink to="/about">
                         <TiArrowSortedDown className={style.icon_route} />
                         <span>About Us</span>
-                      </NavLink>
-                    </li>
-                    <li className={style.navbar_item}>
-                      <NavLink to="/gallery">
-                        <TiArrowSortedDown className={style.icon_route} />
-                        <span>Gallery</span>
                       </NavLink>
                     </li>
                     <li className={style.navbar_item}>
@@ -113,9 +116,16 @@ export default function Footer() {
                 </nav>
                 <nav>
                   <h4 className={style.navigation_title}>
-                    Offers <TitleDecor />
+                    Our offers <TitleDecor />
                   </h4>
                   <ul className={style.navbar_list}>
+                    <li className={style.navbar_item}>
+                      <NavLink to="/price">
+                        <TiArrowSortedDown className={style.icon_route} />
+                        <span>Subscription</span>
+                      </NavLink>
+                    </li>
+
                     <li className={style.navbar_item}>
                       <NavLink to="offer/gym">
                         <TiArrowSortedDown className={style.icon_route} />

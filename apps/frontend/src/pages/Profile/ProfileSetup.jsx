@@ -1,4 +1,4 @@
-import { forwardRef, useEffect, useMemo, useState } from "react";
+import { forwardRef, useMemo, useState } from "react";
 
 import { useAuth } from "../../context/AuthContext";
 import { AvatarPicker } from "../../components/AvatarPicker/AvatarPicker";

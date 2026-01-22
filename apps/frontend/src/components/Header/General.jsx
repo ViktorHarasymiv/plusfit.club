@@ -57,12 +57,12 @@ export default function General({ resizeWidth }) {
                   </li>
                   <li className={style.navbar_item}>
                     <NavLink to={"/offer"} style={{ pointerEvents: "none" }}>
-                      Offer <MdKeyboardArrowDown />
+                      Our offers <MdKeyboardArrowDown />
                     </NavLink>
                     <ul className={style.dropmenu}>
                       <li>
                         <NavLink to="offer/gym" className={style.dropdown_item}>
-                          Gym
+                          Gym / Fitness
                         </NavLink>
                       </li>
 
@@ -94,7 +94,7 @@ export default function General({ resizeWidth }) {
                   </li>
                   <li className={style.navbar_item}>
                     <NavLink to={"/price"}>
-                      Price
+                      Subscriptions
                       <MdKeyboardArrowDown />
                     </NavLink>
                     <ul className={style.dropmenu}>
@@ -103,7 +103,7 @@ export default function General({ resizeWidth }) {
                           to="price/Gym&Fitness"
                           className={style.dropdown_item}
                         >
-                          Gym
+                          Gym / Fitness
                         </NavLink>
                       </li>
                       <li>
@@ -134,18 +134,21 @@ export default function General({ resizeWidth }) {
                   </li>
                   {/* DROP */}
                   <li className={style.navbar_item}>
-                    <NavLink to={"/actions"} style={{ pointerEvents: "none" }}>
-                      Actions <MdKeyboardArrowDown />
-                    </NavLink>
+                    <span>
+                      Others <MdKeyboardArrowDown />
+                    </span>
                     <ul className={style.dropmenu}>
                       <li>
-                        <NavLink to="/blog" className={style.dropdown_item}>
-                          <span>Blog</span>
+                        <NavLink
+                          to="/portfolio"
+                          className={style.dropdown_item}
+                        >
+                          <span>Portfolio</span>
                         </NavLink>
                       </li>
                       <li>
-                        <NavLink to="/gallery" className={style.dropdown_item}>
-                          <span>Gallery</span>
+                        <NavLink to="/blog" className={style.dropdown_item}>
+                          <span>Blog</span>
                         </NavLink>
                       </li>
                       <li>

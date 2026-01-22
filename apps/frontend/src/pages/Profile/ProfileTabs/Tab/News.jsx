@@ -9,7 +9,7 @@ function News() {
   const { get_post, content } = usePostStore();
 
   const perPage = 6;
-  const filterBy = "news";
+  const filterBy = "News";
 
   useEffect(() => {
     const fetch_post_data = async () => {

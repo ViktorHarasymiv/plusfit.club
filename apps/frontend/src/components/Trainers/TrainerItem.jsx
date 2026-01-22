@@ -7,7 +7,7 @@ function TrainerItem({ name, category, photo, link }) {
   return (
     <div className={css.trainer_block}>
       <Link to={`/team/${link}`}>
-        <div className={css.detail_link}>Дізнатись більше</div>
+        <div className={css.detail_link}>More information</div>
       </Link>
       <div className={css.image_wrapper}>
         <img className={css.image} src={photo} alt="Fitness trainer" />

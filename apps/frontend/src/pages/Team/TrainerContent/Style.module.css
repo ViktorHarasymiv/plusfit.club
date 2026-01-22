@@ -28,8 +28,6 @@
 .item {
   padding-left: 20px;
   position: relative;
-
-  font-size: clamp(0.625rem, 0.5643rem + 0.2589vw, 0.875rem);
 }
 
 .item::after {
@@ -62,7 +60,7 @@
 
   color: var(--dark);
 
-  font-size: clamp(0.875rem, 0.8143rem + 0.2589vw, 1.125rem);
+  font-size: clamp(0.875rem, 0.8143rem + 1.5vw, 1.2rem);
 }
 
 .category {
@@ -75,10 +73,12 @@
 
   font-family: var(--font-family-accent);
 
+  font-size: 1.2em;
   font-style: italic;
 }
 
 .about {
+  margin-bottom: 40px;
   flex: 1;
 }
 

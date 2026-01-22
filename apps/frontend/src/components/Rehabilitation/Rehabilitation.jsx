@@ -37,7 +37,7 @@ export default function Rehabilitation() {
 
   return (
     <div>
-      <Content content={content} selectetCategory={"Rehabilitation"} />
+      <Content content={content} selectetCategory={["Rehabilitation"]} />
     </div>
   );
 }

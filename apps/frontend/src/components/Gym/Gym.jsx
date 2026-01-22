@@ -34,7 +34,7 @@ function Gym() {
     },
   };
 
-  return <Content content={content} selectetCategory={"Gym"} />;
+  return <Content content={content} selectetCategory={["Gym", "Fitness"]} />;
 }
 
 export default Gym;

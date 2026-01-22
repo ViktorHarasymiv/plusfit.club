@@ -4,8 +4,6 @@
   display: flex;
   flex-wrap: wrap-reverse;
   justify-content: center;
-
-  gap: 100px;
 }
 
 .price_wrapper {
@@ -77,6 +75,9 @@
 
 @media screen and (min-width: 991.98px) {
   .content_wrapper {
+    justify-content: space-between;
     flex-wrap: nowrap;
+
+    gap: 40px;
   }
 }

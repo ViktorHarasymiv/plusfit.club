@@ -33,7 +33,9 @@
   justify-content: center;
   align-items: center;
 
-  font-size: 10px;
+  font-size: 11px;
+
+  letter-spacing: 0.1em;
 
   border: 1px solid rgba(255, 255, 255, 0.3);
 
@@ -135,7 +137,7 @@
   justify-content: center;
 
   flex-wrap: wrap;
-  gap: 80px;
+  gap: 120px;
 }
 
 @media screen and (min-width: 768px) {
@@ -150,6 +152,6 @@
   }
 
   .staticList {
-    justify-content: start;
+    justify-content: center;
   }
 }

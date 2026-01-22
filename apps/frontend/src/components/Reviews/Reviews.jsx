@@ -23,12 +23,10 @@ function Reviews({ filterType }) {
   }, []);
 
   const selectedGroup =
-    Array.isArray(filterType) && filterType.length > 0 ? filterType : null;
+    Array.isArray(filterType) && filterType.length > 0 ? filterType : [];
 
   const filtered = reviews.filter(({ section }) =>
-    selectedGroup
-      ? selectedGroup.some((group) => section.includes(group))
-      : true
+    filterType ? selectedGroup.some((group) => section.includes(group)) : true,
   );
 
   return (

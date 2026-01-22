@@ -34,5 +34,5 @@ export default function Yoga() {
     },
   };
 
-  return <Content content={content} selectetCategory={"Yoga"} />;
+  return <Content content={content} selectetCategory={["Yoga"]} />;
 }

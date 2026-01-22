@@ -1,5 +1,3 @@
-import { motion } from "framer-motion";
-
 import css from "./Trainers.module.css";
 import { useTrainerStore } from "../../store/trainerStore";
 import TrainerItem from "./TrainerItem";
@@ -23,10 +21,12 @@ export default function Trainer({ selectedCategory }) {
 
   const dataTreiners = useTrainerStore((s) => s.trainers);
 
-  const selectedGroup = selectedCategory || null;
+  const selectedGroup = Array.isArray(selectedCategory) ? selectedCategory : [];
 
   const filtered = dataTreiners.filter(({ section }) =>
-    selectedGroup ? section.includes(selectedGroup) : true
+    selectedGroup.length > 0
+      ? selectedGroup.some((value) => section.includes(value))
+      : true,
   );
 
   return (

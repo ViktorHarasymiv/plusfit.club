@@ -25,9 +25,9 @@ function GymPrice() {
   return (
     <>
       <div className="container">
-        <SectionTitle title={"Services"} about={"Gym & Fitness"} />
+        <SectionTitle title={"Services"} about={"Gym / Fitness"} />
         <div className={style.content_wrapper}>
-          <Trainer selectedCategory={"Gym"} />
+          <Trainer selectedCategory={["Gym", "Fitness"]} />
           <GymPriceList data={data} />
         </div>
       </div>

@@ -44,7 +44,7 @@ export default function TrainerSwiper() {
         }
       }}
     >
-      {dataTreiners.map(({ name, photo, category, link }, index) => (
+      {dataTreiners.map(({ photo, link }, index) => (
         <SwiperSlide key={index}>
           <div className={css.slide}>
             <img src={photo} alt={link} />

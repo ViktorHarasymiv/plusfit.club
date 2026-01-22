@@ -1,9 +1,5 @@
-import React from "react";
-
 import Icon from "../ui/Icon/Icon";
 import css from "./Style.module.css";
-
-import col1Img from "/img/03.jpg";
 
 function WhyChooseUs() {
   return (
@@ -52,7 +48,10 @@ function WhyChooseUs() {
             </div>
           </div>
           <div className={css.col1}>
-            <img src={col1Img} alt="Context image" />
+            <img
+              src="https://res.cloudinary.com/dcmbg0k5a/image/upload/v1769028911/ppxhjy8bssaoxbu2yrvn.jpg"
+              alt="Context image"
+            />
           </div>
         </div>
       </div>

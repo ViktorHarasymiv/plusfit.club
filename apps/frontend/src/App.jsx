@@ -43,8 +43,6 @@ function App() {
 
   const location = useLocation();
 
-  console.log(location.hash.length);
-
   // EFFECTS
 
   useEffect(() => {

@@ -26,7 +26,7 @@ function MassagePrice() {
       <div className="container">
         <SectionTitle title={"Services"} about={"Massage"} />
         <div className={css.content_wrapper}>
-          <Trainer selectedCategory={"Massage"} />
+          <Trainer selectedCategory={["Massage"]} />
           <PriceList data={data} />
         </div>
       </div>

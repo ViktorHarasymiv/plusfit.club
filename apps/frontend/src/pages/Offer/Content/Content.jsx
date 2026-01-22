@@ -1,5 +1,3 @@
-import React from "react";
-
 import css from "./Content.module.css";
 
 import { MdDone } from "react-icons/md";

@@ -9,8 +9,7 @@ import { MdKeyboardArrowDown } from "react-icons/md";
 import { GoHomeFill } from "react-icons/go";
 import { MdOutlineWidgets } from "react-icons/md";
 import { MdLocalOffer } from "react-icons/md";
-import { IoDocumentText } from "react-icons/io5";
-import { GrGallery } from "react-icons/gr";
+import { RiGalleryView2 } from "react-icons/ri";
 import { IoMdContacts } from "react-icons/io";
 
 import { FaPhoneAlt } from "react-icons/fa";
@@ -195,7 +194,7 @@ export default function MobileMenu({ isScroll }) {
                   onClick={controllDropMenuActions}
                   className={style.navbar_item}
                 >
-                  <MdLocalOffer />
+                  <RiGalleryView2 />
                   <span>Others</span>
                   <MdKeyboardArrowDown />
                   {isdropMenuActions && (

@@ -150,7 +150,7 @@ function SelfPost({ id, setQuery }) {
         )}
         {images?.length > 1 ? (
           <img
-            src={images[1]}
+            src={images[2]}
             className={css.image_thumb}
             alt="Фото поста"
             width={425}

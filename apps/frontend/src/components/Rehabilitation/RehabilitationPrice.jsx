@@ -25,7 +25,7 @@ function RehabilitationPrice() {
       <div className="container">
         <SectionTitle title={"Services"} about={"Rehabilitation"} />
         <div className={style.content_wrapper}>
-          <Trainer selectedCategory={"Rehabilitation"} />
+          <Trainer selectedCategory={["Rehabilitation"]} />
           <RehabilitationPriceList data={data} />
         </div>
       </div>

@@ -7,9 +7,10 @@
 }
 
 .slide {
+  cursor: pointer;
   overflow: hidden;
   width: 100%;
-  height: 418px;
+  height: 300px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
 

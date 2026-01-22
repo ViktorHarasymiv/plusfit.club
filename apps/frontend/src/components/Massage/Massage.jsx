@@ -38,7 +38,7 @@ export default function Massage() {
 
   return (
     <>
-      <Content content={content} selectetCategory={"Massage"} />
+      <Content content={content} selectetCategory={["Massage"]} />
     </>
   );
 }
